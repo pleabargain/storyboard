@@ -11,6 +11,7 @@ from PySimpleGUI.PySimpleGUI import button_color_to_tuple
 
 image_list = []
 
+#list of tenses
 # past_simple
 # past_continuous
 # past_perfect_continuous
@@ -27,7 +28,7 @@ image_list = []
 
 def reset_tenses():
     """
-    clear the background color
+    clear the background color of the text objects
     """
     window["past_simple"].update(background_color = "lightblue")
     window["past_continuous"].update(background_color = "lightblue")
@@ -68,12 +69,13 @@ for root, dirs, files in os.walk("/home/dgd/Desktop/python.storyboard.flashcards
 #       print(os.path.join(root, name))
 
 
+# set the theme color
 sg.ChangeLookAndFeel('GreenTan')
 
 # ------ Menu Definition ------ #
 menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
-            ['&Help', '&Open_docs'], ]
+            ['&Help', 'help','&Open_docs'], ]
 
 # ------ Column Definition ------ #
 # column1 = [[sg.Text('Column 1', background_color='lightblue', justification='center', size=(10, 1))],
@@ -82,8 +84,8 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 #            [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 3')]]
 
 # the vocab will go here
-vocabulary_column = [sg.Multiline(default_text='This is the default Text should you decide not to type anything', size=(35, 3)),
-     sg.Multiline(default_text='A second multi-line', size=(35, 3))]
+# vocabulary_column = [sg.Multiline(default_text='This is the default Text should you decide not to type anything', size=(35, 3)),
+#      sg.Multiline(default_text='A second multi-line', size=(35, 3))]
 #header Vocabulary
 
 # column_vocab = sg.Column([
@@ -94,11 +96,12 @@ column_left = sg.Column([
                             #header
                             [sg.Text("past simple",
                             key="past_simple",
+                            
                             tooltip='Past Simple - I built a new garage last month.')],
 
                             [sg.Text("past continuous",
                             key="past_continuous", 
-                            tooltip='Past Continuous - "I was building a wall yesterday."')],
+                            tooltip='Past Continuous - I was building a wall yesterday.')],
                             
                             [sg.Text("past perfect",
                             key="past_perfect",
@@ -109,21 +112,20 @@ column_left = sg.Column([
                             tooltip= 'Past Perfect Continuous - We had been building the new\n shopping center for 2 months when we heard about the bankruptcy.'
                             )],
 
-                            [sg.Multiline('\u0394 one!', 
+                            [sg.Multiline('text', 
                             key= "text1a",
-                            size=(15,1), 
-                            justification='center', 
-                            font=("Helvetica", 15)) 
+                            size=(17,1), 
+                            font=("Helvetica", 12)) 
                             ],
 
                             [sg.Image(filename="",
                             key='canvas1a')
                             ],
-                            
-                            [sg.Multiline('\u0394 one!', 
-                            key= "text1b",size=(15,1), 
-                            justification='center', 
-                            font=("Helvetica", 15)), 
+#####################                            
+                            [sg.Multiline('text', 
+                            key= "text1b",
+                            size=(17,1), 
+                            font=("Helvetica", 12)), 
                             ],
 
                         
@@ -156,21 +158,19 @@ column_center = sg.Column([
                             tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
                             )],
 
-                            [sg.Multiline('\u0394 one!', 
+                            [sg.Multiline('\u0394', 
                             key= "text2a",
-                            size=(15,1), 
-                            justification='center', 
-                            font=("Helvetica", 15)) 
+                            size=(17,1), 
+                            font=("Helvetica", 12)) 
                             ],
 
                             [sg.Image(filename="",
                             key='canvas2a')
                             ],
                             
-                            [sg.Multiline('\u0394 one!', 
-                            key= "text2b",size=(15,1), 
-                            justification='center', 
-                            font=("Helvetica", 15)), 
+                            [sg.Multiline('\u0394', 
+                            key= "text2b",size=(17,1), 
+                            font=("Helvetica", 12)), 
                             ],
 
                         
@@ -191,22 +191,20 @@ column_right = sg.Column([ #header
                             [sg.Text("future perfect continuous",key="future_perfect_continuous",
                             tooltip="""Future Perfect Continuous - This time next week I will have\n been building this shopping center for two months.""")],
 
-                            [sg.Multiline('\u0394 one!', 
+                            [sg.Multiline('\u0394', 
                             key= "text3a",
-                            size=(15,1), 
-                            justification='center', 
-                            font=("Helvetica", 15)) 
+                            size=(17,1), 
+                            font=("Helvetica", 12)) 
                             ],
 
                             [sg.Image(filename="",
                             key='canvas3a')
                             ],
                             
-                            [sg.Multiline('\u0394 one!', 
+                            [sg.Multiline('\u0394', 
                             key= "text3b",
-                            size=(15,1), 
-                            justification='center', 
-                            font=("Helvetica", 15)), 
+                            size=(17,1), 
+                            font=("Helvetica", 12)), 
                             ],
 
                         
@@ -243,7 +241,7 @@ window = sg.Window('Learn English with Dennis',
                     
                     layout, 
                     background_color="lightblue",
-                    size = (800,720),
+                    size = (900,720),
                     location=(2100, 1900),
                     default_element_size=(40, 1), 
                     grab_anywhere=True)
@@ -275,30 +273,32 @@ while True:
         
     if event == 'easy':
         reset_tenses()
-        window[random.choice(["past_simple","past_continuous"])].update(background_color = 'red')
-        window[random.choice(["present_simple","present_continuous"])].update(background_color = 'red')
-        window[random.choice(["future_simple","future_continuous"])].update(background_color = 'red')
+        window[random.choice(["past_simple","past_continuous"])].update(background_color = 'white')
+        window[random.choice(["present_simple","present_continuous"])].update(background_color = 'white')
+        window[random.choice(["future_simple","future_continuous"])].update(background_color = 'white')
 
 
 
     if event == 'medium':
         reset_tenses()
-        window[random.choice(["past_simple","past_continuous",])].update(background_color = 'red')
-        window[random.choice(["present_simple","present_perfect","present_continuous",])].update(background_color = 'red')
-        window[random.choice(["future_simple","future_continuous",])].update(background_color = 'red')
+        window[random.choice(["past_simple","past_continuous",])].update(background_color = 'white')
+        window[random.choice(["present_simple","present_perfect","present_continuous",])].update(background_color = 'white')
+        window[random.choice(["future_simple","future_continuous",])].update(background_color = 'white')
         
     if event == 'hard':
         reset_tenses()
-        window[random.choice(["past_simple",   "past_continuous",  "past_perfect","past_perfect_continuous",]) ].update(background_color = 'red')
-        window[random.choice(["present_simple",   "present_continuous", "present_perfect_continuous",  "present_perfect",]) ].update(background_color = 'red')
-        window[random.choice(["future_simple",   "future_continuous",  "future_perfect",]) ].update(background_color = 'red')
+        window[random.choice(["past_simple",   "past_continuous",  "past_perfect","past_perfect_continuous",]) ].update(background_color = 'white')
+        window[random.choice(["present_simple",   "present_continuous",   "present_perfect",]) ].update(background_color = 'white')
+        window[random.choice(["future_simple",   "future_continuous",  "future_perfect",]) ].update(background_color = 'white')
     
     if event == 'elite':
         reset_tenses()
-        window[random.choice(["past_simple",   "past_continuous",  "past_perfect", "past_perfect_continuous"])].update(background_color = 'red')
-        window[random.choice(["present_simple",   "present_continuous",  "present_perfect",]) ].update(background_color = 'red')
-        window[random.choice(["future_simple",   "future_continuous",  "future_perfect","future_perfect_continuous"]) ].update(background_color = 'red')
+        window[random.choice(["past_simple",   "past_continuous",  "past_perfect", "past_perfect_continuous"])].update(background_color = 'white')
+        window[random.choice(["present_simple",   "present_continuous","present_perfect_continuous",  "present_perfect",]) ].update(background_color = 'white')
+        window[random.choice(["future_simple",   "future_continuous",  "future_perfect","future_perfect_continuous"]) ].update(background_color = 'white')
     
+    # if event == 'help':
+    #     sg.popup_notify("Some text",location = (900,900))
 
         
 
