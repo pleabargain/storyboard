@@ -86,12 +86,29 @@ vocabulary_column = [sg.Multiline(default_text='This is the default Text should 
      sg.Multiline(default_text='A second multi-line', size=(35, 3))]
 #header Vocabulary
 
+# column_vocab = sg.Column([
+#                         sg.Multiline(default_text='A second multi-line', size=(5, 5))
+#                           ])
+
 column_left = sg.Column([
                             #header
-                            [sg.Text("past simple",key="past_simple")],
-                            [sg.Text("past continuous",key="past_continuous")],
-                            [sg.Text("past perfect",key="past_perfect")],
-                            [sg.Text("past perfect continuous",key="past_perfect_continuous")],
+                            [sg.Text("past simple",
+                            key="past_simple",
+                            tooltip='Past Simple - I built a new garage last month.')],
+
+                            [sg.Text("past continuous",
+                            key="past_continuous", 
+                            tooltip='Past Continuous - "I was building a wall yesterday."')],
+                            
+                            [sg.Text("past perfect",
+                            key="past_perfect",
+                            tooltip='Past Perfect - By the time my last company went bust we had already built the new shopping center.')],
+
+                            [sg.Text("past perfect continuous",
+                            key="past_perfect_continuous",
+                            tooltip= 'Past Perfect Continuous - We had been building the new\n shopping center for 2 months when we heard about the bankruptcy.'
+                            )],
+
                             [sg.Multiline('\u0394 one!', 
                             key= "text1a",
                             size=(15,1), 
@@ -116,10 +133,28 @@ column_left = sg.Column([
 
 column_center = sg.Column([
                             #header
-                            [sg.Text("present simple",key="present_simple")],
-                            [sg.Text("present continuous",key="present_continuous")],
-                            [sg.Text("present perfect",key="present_perfect")],
-                            [sg.Text("present perfect continuous",key="present_perfect_continuous")],
+                            [sg.Text("present simple",
+                            key="present_simple",
+                            tooltip='Present Simple - I usually build commercial buildings.',
+                            )],
+
+
+                            [sg.Text("present continuous",
+                            key="present_continuous",
+                            tooltip='Present Continuous - It is Monday morning and I am building a wall.',
+                            )],
+
+
+                            [sg.Text("present perfect",
+                            key="present_perfect",
+                            tooltip='Present Perfect Simple - I have already built two shopping centers this year.',                            
+                            )],
+
+
+                            [sg.Text("present perfect continuous",
+                            key="present_perfect_continuous",
+                            tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
+                            )],
 
                             [sg.Multiline('\u0394 one!', 
                             key= "text2a",
@@ -145,10 +180,17 @@ column_center = sg.Column([
                             ])
 
 column_right = sg.Column([ #header
-                            [sg.Text("future simple",key="future_simple")],
-                            [sg.Text("future continuous",key="future_continuous")],
-                            [sg.Text("future perfect",key="future_perfect")],
-                            [sg.Text("future perfect continuous",key="future_perfect_continuous")],
+                            [sg.Text("future simple",key="future_simple",
+                            tooltip="""Future Simple - I think I'll build my own\n house when I can afford to.""",)],
+                            [sg.Text("future continuous",key="future_continuous",
+                            tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
+                            
+                            [sg.Text("future perfect",key="future_perfect",
+                            tooltip="""Future Perfect Simple - I hope I will have already built my \nown house by the time I am 40.""")],
+                            
+                            [sg.Text("future perfect continuous",key="future_perfect_continuous",
+                            tooltip="""Future Perfect Continuous - This time next week I will have\n been building this shopping center for two months.""")],
+
                             [sg.Multiline('\u0394 one!', 
                             key= "text3a",
                             size=(15,1), 
@@ -197,7 +239,7 @@ layout = [
     
 
 
-window = sg.Window('Everything is awesome', 
+window = sg.Window('Learn English with Dennis', 
                     
                     layout, 
                     background_color="lightblue",
@@ -233,29 +275,29 @@ while True:
         
     if event == 'easy':
         reset_tenses()
-        window["past_simple"].update(background_color = 'red')
-        window["present_simple"].update(background_color = 'red')
-        window["future_simple"].update(background_color = 'red')
+        window[random.choice(["past_simple","past_continuous"])].update(background_color = 'red')
+        window[random.choice(["present_simple","present_continuous"])].update(background_color = 'red')
+        window[random.choice(["future_simple","future_continuous"])].update(background_color = 'red')
 
 
 
     if event == 'medium':
         reset_tenses()
-        window[random.choice(["past_simple","past_continuous"])].update(background_color = 'red')
-        window[random.choice(["present_simple","present_continuous"])].update(background_color = 'red')
-        window[random.choice(["future_simple","future_continuous"])].update(background_color = 'red')
+        window[random.choice(["past_simple","past_continuous",])].update(background_color = 'red')
+        window[random.choice(["present_simple","present_perfect","present_continuous",])].update(background_color = 'red')
+        window[random.choice(["future_simple","future_continuous",])].update(background_color = 'red')
         
     if event == 'hard':
         reset_tenses()
-        window[random.choice(["past_simple","past_continuous", "past_perfect"])].update(background_color = 'red')
+        window[random.choice(["past_simple",   "past_continuous",  "past_perfect","past_perfect_continuous",]) ].update(background_color = 'red')
+        window[random.choice(["present_simple",   "present_continuous", "present_perfect_continuous",  "present_perfect",]) ].update(background_color = 'red')
+        window[random.choice(["future_simple",   "future_continuous",  "future_perfect",]) ].update(background_color = 'red')
     
     if event == 'elite':
         reset_tenses()
-        window[random.choice(["past_simple",
-                            "past_continuous", 
-                            "past_perfect", 
-                            "past_perfect_continuous"])
-                            ].update(background_color = 'red')
+        window[random.choice(["past_simple",   "past_continuous",  "past_perfect", "past_perfect_continuous"])].update(background_color = 'red')
+        window[random.choice(["present_simple",   "present_continuous",  "present_perfect",]) ].update(background_color = 'red')
+        window[random.choice(["future_simple",   "future_continuous",  "future_perfect","future_perfect_continuous"]) ].update(background_color = 'red')
     
 
         
