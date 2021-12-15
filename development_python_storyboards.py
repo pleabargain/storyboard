@@ -9,6 +9,10 @@ import os.path
 
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
+#TODO add vocabulary column
+#TODO set text file to open code and local file
+#done set default image size to 150x150
+#done load only images with thumbnail in the name
 image_list = []
 
 #list of tenses
@@ -24,6 +28,8 @@ image_list = []
 # future_continuous
 # future_perfect_continuous
 # future_perfect
+
+
 
 
 def reset_tenses():
@@ -46,28 +52,42 @@ def reset_tenses():
 
 
 def split_filename(original_filename):
-
+#TODO finish stripping prefixes
     """
     This will split a file name by _ so that a space will appear
     returns a string minus the file extension
     display only the text after the last slash
 
     """
+    #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
+    list_of_unwanted_words = ["noun_animal_",
+                                "noun_food_",
+                                "noun_",
+                                "verb_"]
+
     #strip the last four chars from the text
     text = os.path.split(original_filename)[1]
-    text = text[:-4]
+    text = text[:-14]
+    for unwanted in list_of_unwanted_words:
+        if text.startswith(unwanted):
+            text=text[len(unwanted):]
+            break
+    # if text.endswith("_thumbnail")
+
     return text.replace("_", " ")
 
 
 # TODO 
 # try except to make sure the folder exists
 # load the files from the target directory
+#TODO load only images with thumbnail in the name
+#TODO load only images that are 150x150
 for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
    for name in files:
-      print(os.path.join(root, name))
-      image_list.append(os.path.join(root, name))
-#    for name in dirs:
-#       print(os.path.join(root, name))
+       if name.endswith("_thumbnail.png"):
+           print(os.path.join(root, name))
+           image_list.append(os.path.join(root, name))
+
 
 
 # set the theme color
@@ -169,11 +189,17 @@ column_center = sg.Column([
                             tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
                             )],
 
-                            [sg.Multiline('\u0394', 
+                            [sg.Multiline('\U0001F934', 
                             key= "text2a",
                             size=(17,1), 
                             font=("Helvetica", 12)) 
                             ],
+
+                            # [sg.Text('\U0001F934', 
+                            # key= "text2a",
+                            # size=(17,1), 
+                            # font=("Helvetica", 12)) 
+                            # ],
 
                             [sg.Image(filename="",
                             key='canvas2a')
@@ -260,7 +286,7 @@ layout = [
     
 
 
-window = sg.Window('Learn English with Dennis', 
+window = sg.Window('Development! Learn English with Dennis', 
                     
                     layout, 
                     background_color="lightblue",
@@ -378,12 +404,12 @@ while True:
 
 
 
-    if event == WIN_CLOSED or event == 'Exit':
-        window.close()
-
-
-    if event == "Exit" or event == "Cancel":
+    if event == sg.WIN_CLOSED or event == "Cancel" or event == 'Exit' :
         break
+
+
+    # if event == "Exit" or event == "Cancel":
+    #     break
     
 
 
