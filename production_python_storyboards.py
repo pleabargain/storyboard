@@ -61,6 +61,8 @@ def split_filename(original_filename):
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
     list_of_unwanted_words = ["noun_animal_",
                                 "noun_food_",
+                                "noun_clothing_",
+                                "noun_insect_",
                                 "noun_",
                                 "verb_"]
 
