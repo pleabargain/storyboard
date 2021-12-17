@@ -30,6 +30,10 @@ image_list = []
 # future_perfect
 
 
+verbs_list = []
+nouns_list = []
+adjectives_list =[]
+
 
 
 def reset_tenses():
@@ -76,6 +80,22 @@ def split_filename(original_filename):
 
     return text.replace("_", " ")
 
+def read_list_from_file():
+    verbs_list.clear()
+    nouns_list.clear()
+    adjectives_list.clear()
+    with open("verbs.txt") as myfile:
+        for line in myfile.readlines():
+            verbs_list.append(line.strip())
+    with open("nouns.txt") as myfile:
+        for line in myfile.readlines():
+            nouns_list.append(line.strip())
+    with open("adjectives.txt") as myfile:
+        for line in myfile.readlines():
+            adjectives_list.append(line.strip())
+
+
+
 
 # TODO 
 # try except to make sure the folder exists
@@ -88,7 +108,9 @@ for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards
            print(os.path.join(root, name))
            image_list.append(os.path.join(root, name))
 
-
+#call the function
+read_list_from_file()
+# print(verbs_list)
 
 # set the theme color
 sg.ChangeLookAndFeel('GreenTan')
@@ -258,29 +280,66 @@ column_right = sg.Column([ #header
                             key='canvas3b'),]
                         ])
 
+left_tab= sg.Tab ("adj noun reg verb", [
+    [sg.Text("verb",size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
+    [   sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
+        sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
+        sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
+        
+        sg.Button("reload"),sg.Button("randomize"),
+    
+    ],
+    
 
+    ])
 
-layout = [
-    #TODO column with image and text 
-    [sg.Menu(menu_def, tearoff=True)],
-    # [sg.Canvas(size=(500, 200), key='canvas')],
-    #TODO use image resizer on images
-    # three images start here
-
-
-    #create button
+right_tab= sg.Tab ("tenses tab", [
+        #create button
     [sg.Button("shuffle the images",
                 key = "image_shuffle",
                 ),
-     sg.Button("easy"),
-     sg.Button("medium"),
-     sg.Button("hard"),
-     sg.Button("elite"),
+    # sg.Button("easy"),
+    # sg.Button("intermediate"),
+    # sg.Button("hard"),
+    # sg.Button("elite"),
+    sg.Button("comparatives"),
+    sg.Button("idioms"),
+    sg.Button("prepositional phrases"),
+    sg.Button("conditionals")
 
                 ],
 
 
     [column_left, column_center,column_right],
+
+    ])
+
+
+layout = [
+    
+    #TODO column with image and text 
+    [sg.Menu(menu_def, tearoff=True)],
+    # [sg.Canvas(size=(500, 200), key='canvas')],
+    #TODO use image resizer on images
+    
+    [sg.TabGroup([[left_tab,right_tab]],key="tabgroup")],
+    
+    # three images start here
+
+
+    # #create button
+    # [sg.Button("shuffle the images",
+    #             key = "image_shuffle",
+    #             ),
+    #  sg.Button("easy"),
+    #  sg.Button("intermediate"),
+    #  sg.Button("hard"),
+    #  sg.Button("elite"),
+
+    #             ],
+
+
+    # [column_left, column_center,column_right],
     
 ]
     
@@ -290,9 +349,9 @@ window = sg.Window('Development! Learn English with Dennis',
                     
                     layout, 
                     background_color="lightblue",
-                    size = (900,720),
-                    location=(2100, 1900),
-                    default_element_size=(40, 1), 
+                    size = (900,600),
+                    location=(2000, 1700),
+                    default_element_size=(35, 1), 
                     grab_anywhere=True)
 
 while True:
@@ -320,6 +379,23 @@ while True:
         window["text3a"].update(split_filename(image_list[4]))
         window["text3b"].update(split_filename(image_list[5]))
         
+# button in left tab
+    if event == 'reload':
+        read_list_from_file()
+        window["verbs_list_box"].update(values=verbs_list)
+        window["nouns_list_box"].update(values=nouns_list)
+        window["adjectives_list_box"].update(values=adjectives_list)
+
+# button in left tab
+    if event == 'randomize':
+        window["verbs_list_box"].update(set_to_index=random.randint(0,len(verbs_list)-1))
+        window["nouns_list_box"].update(set_to_index=random.randint(0,len(nouns_list)-1))
+        window["adjectives_list_box"].update(set_to_index=random.randint(0,len(adjectives_list)-1))
+        # (set_to_index=random.randint(0,len(verbs_list)-1))
+
+
+
+
     if event == 'easy':
         reset_tenses()
         window[random.choice(["past_simple","past_continuous"])].update(background_color = 'white')
@@ -401,6 +477,20 @@ while True:
         webbrowser.open("https://docs.google.com/spreadsheets/d/1aq_OhW0JRTGNrowS7Q4RCl52cHx7S9Upha7z9VYp-3o/edit?usp=sharing",new=1,autoraise=True )
 
     
+    if event == "comparatives":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/150r972lV3ogmCmlmpjkHNOoX6tIO26Gd4EYzdfCGUW4/edit?usp=sharing",new=1,autoraise=True )
+
+    if event == "idioms":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/15u8oWVJNmjvfkOOvF696E1o-Tz6lBZkr7ctJ6CBLYVk/edit?usp=sharing",new=1,autoraise=True )
+
+
+    if event == "prepositional phrases":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1R3rYYL7H7wC86Z8HeNFy_QzCvqXJSv6w8tKb3wsM30E/edit?usp=sharing",new=1,autoraise=True )
+
+    if event == "conditionals":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1VKcLMETbyEnWpVEeXc5j5NjEa_UF0ydMBInS-ljoWhs/edit?usp=sharing",new=1,autoraise=True )
+
+
 
 
 

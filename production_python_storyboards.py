@@ -14,6 +14,17 @@ from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 #TODO load only images with thumbnail in the name
 image_list = []
 
+
+# irregular_list = []
+# adjectives_describing_things= []
+# adjectives_describing_people= []
+# noun= []
+# linking_words= []
+# modals= []
+
+
+
+
 #list of tenses
 # past_simple
 # past_continuous
@@ -291,8 +302,10 @@ window = sg.Window('Production! Learn English with Dennis',
                     
                     layout, 
                     background_color="lightblue",
-                    size = (900,720),
-                    location=(2100, 1900),
+                    #first number is width
+                    size = (1100,620),
+                    location=(2000, 1700),
+
                     default_element_size=(40, 1), 
                     grab_anywhere=True)
 
