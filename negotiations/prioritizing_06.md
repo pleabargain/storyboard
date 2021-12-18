@@ -1,4 +1,6 @@
+What concerns you most?
 Is X your main consideration? 
+Is X your main concern? 
 What are your main priorities?
 How important is X to you?
 X is our major priority.

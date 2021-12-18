@@ -628,22 +628,7 @@ layout = [
     
     [sg.TabGroup([[tab_one,tab_two,tab_three]],key="tabgroup")],
     
-    # three images start here
 
-
-    # #create button
-    # [sg.Button("shuffle the images",
-    #             key = "image_shuffle",
-    #             ),
-    #  sg.Button("easy"),
-    #  sg.Button("intermediate"),
-    #  sg.Button("hard"),
-    #  sg.Button("elite"),
-
-    #             ],
-
-
-    # [column_left, column_center,column_right],
     
 ]
     
@@ -798,9 +783,13 @@ while True:
 #             window.refresh()
 #             os.system("{} {}".format(EXTERNAL_EDITOR, ENCOURAGEMENT_FILE))
 #             window["status"].update("ready to build")
-    
-    # if event == 'help':
+
+
+#menu items
+    if event == 'help':
     #     sg.popup_notify("Some text",location = (900,900))
+    #if event == "edit making_proposals_02":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
 
     if event == "past_simple":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1NkmOcQcNU8Dirk_rM04yEF5CS9yaSnYGip0Tyq0AkIU/edit?usp=sharing",new=1,autoraise=True )

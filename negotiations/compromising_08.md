@@ -1,4 +1,3 @@
-
 If you were prepared to do X, we might be able to do Y.
 We are ready to accept your offer; however, there would be one condition…
 I’m prepared to compromise, but you should take into consideration one more thing.

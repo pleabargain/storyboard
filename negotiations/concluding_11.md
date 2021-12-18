@@ -1,4 +1,3 @@
-
 Let’s summarize the main points.
 That covers everything, I suppose.
 I think you’ve covered everything.
