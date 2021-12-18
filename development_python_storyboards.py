@@ -305,7 +305,8 @@ right_tab= sg.Tab ("tenses tab", [
     sg.Button("comparatives"),
     sg.Button("idioms"),
     sg.Button("prepositional phrases"),
-    sg.Button("conditionals")
+    sg.Button("conditionals"),
+        sg.Button("modals"),
 
                 ],
 
@@ -489,6 +490,10 @@ while True:
 
     if event == "conditionals":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1VKcLMETbyEnWpVEeXc5j5NjEa_UF0ydMBInS-ljoWhs/edit?usp=sharing",new=1,autoraise=True )
+
+
+    if event == "modals":
+        webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
 
 
 
