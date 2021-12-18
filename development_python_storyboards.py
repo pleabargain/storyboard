@@ -9,6 +9,9 @@ import os.path
 
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
+EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
+
+
 #TODO fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
 #TODO set text file to open code and local file
@@ -480,10 +483,13 @@ tab_two= sg.Tab ("tenses tab", [
 tab_three = sg.Tab("negotiation",
 [
         
-    [
+     
+[
     sg.Text("prepare_0"),
     sg.Listbox(prepare_0_list,key="prepare_0_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle prepare_0'),
+    sg.Button('edit prepare_0'),
+
 ],
 ###
 
@@ -492,6 +498,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("agenda_01"),
     sg.Listbox(agenda_01_list,key="agenda_01_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle agenda_01'),
+    sg.Button('edit agenda_01'),
+
 ],
 ###
 
@@ -500,6 +508,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("making_proposals_02"),
     sg.Listbox(making_proposals_02_list,key="making_proposals_02_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle making_proposals_02'),
+    sg.Button('edit making_proposals_02'),
+
 ],
 ###
 
@@ -508,6 +518,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("suggestions_03"),
     sg.Listbox(suggestions_03_list,key="suggestions_03_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle suggestions_03'),
+    sg.Button('edit suggestions_03'),
+
 ],
 ###
 
@@ -516,6 +528,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("agreeing_04"),
     sg.Listbox(agreeing_04_list,key="agreeing_04_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle agreeing_04'),
+    sg.Button('edit agreeing_04'),
+
 ],
 ###
 
@@ -524,6 +538,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("objecting_05"),
     sg.Listbox(objecting_05_list,key="objecting_05_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle objecting_05'),
+    sg.Button('edit objecting_05'),
+
 ],
 ###
 
@@ -532,6 +548,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("prioritizing_06"),
     sg.Listbox(prioritizing_06_list,key="prioritizing_06_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle prioritizing_06'),
+    sg.Button('edit prioritizing_06'),
+
 ],
 ###
 
@@ -540,6 +558,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("clarification_07"),
     sg.Listbox(clarification_07_list,key="clarification_07_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle clarification_07'),
+    sg.Button('edit clarification_07'),
+
 ],
 ###
 
@@ -548,6 +568,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("compromising_08"),
     sg.Listbox(compromising_08_list,key="compromising_08_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle compromising_08'),
+    sg.Button('edit compromising_08'),
+
 ],
 ###
 
@@ -556,6 +578,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("bargaining_09"),
     sg.Listbox(bargaining_09_list,key="bargaining_09_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle bargaining_09'),
+    sg.Button('edit bargaining_09'),
+
 ],
 ###
 
@@ -564,6 +588,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("postponing_10"),
     sg.Listbox(postponing_10_list,key="postponing_10_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle postponing_10'),
+    sg.Button('edit postponing_10'),
+
 ],
 ###
 
@@ -572,6 +598,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("concluding_11"),
     sg.Listbox(concluding_11_list,key="concluding_11_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle concluding_11'),
+    sg.Button('edit concluding_11'),
+
 ],
 ###
 
@@ -580,6 +608,8 @@ tab_three = sg.Tab("negotiation",
     sg.Text("seal_the_deal_12"),
     sg.Listbox(seal_the_deal_12_list,key="seal_the_deal_12_list_box",enable_events=True,change_submits=True,size=(55,1)),
     sg.Button('shuffle seal_the_deal_12'),
+    sg.Button('edit seal_the_deal_12'),
+
 ],
 ###
     
@@ -836,7 +866,71 @@ while True:
         webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
 
 
+    if event == "edit prepare_0":
+            os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prepare_0.md"))
 
+  
+            
+
+
+    if event == "edit agenda_01":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/agenda_01.md"))
+                
+
+
+    if event == "edit making_proposals_02":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/making_proposals_02.md"))
+                
+
+
+    if event == "edit suggestions_03":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/suggestions_03.md"))
+                
+
+
+    if event == "edit agreeing_04":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/agreeing_04.md"))
+                
+
+
+    if event == "edit objecting_05":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/objecting_05.md"))
+                
+
+
+    if event == "edit prioritizing_06":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prioritizing_06.md"))
+                
+
+
+    if event == "edit clarification_07":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/clarification_07.md"))
+                
+
+
+    if event == "edit compromising_08":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/compromising_08.md"))
+                
+
+
+    if event == "edit bargaining_09":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/bargaining_09.md"))
+                
+
+
+    if event == "edit postponing_10":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/postponing_10.md"))
+                
+
+
+    if event == "edit concluding_11":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/concluding_11.md"))
+                
+
+
+    if event == "edit seal_the_deal_12":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/seal_the_deal_12.md"))
+                
 
 
     if event == sg.WIN_CLOSED or event == "Cancel" or event == 'Exit' :

@@ -1,5 +1,3 @@
-## Remember in negotiating: 
-
 - Do the due diligence required. 
 - Consider many options. 
 - Consider best case and worst case scenarios. 

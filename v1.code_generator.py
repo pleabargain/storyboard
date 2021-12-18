@@ -47,17 +47,24 @@ source_list = [
 #     sg.Text("{i}"),
 #     sg.Listbox({i}_list,key="{i}_list_box",enable_events=True,change_submits=True,size=(55,1)),
 #     sg.Button('shuffle {i}'),
+#     sg.Button('edit {i}'),
+
 # ],
 # ###
 # """) 
 
 
+# for i in source_list:
+#     print(f"""
+
+# if event == 'shuffle {i}':
+#         window["{i}_list_box"].update(set_to_index=random.randint(0,len({i}_list)-1))
+# """)
+
+
 for i in source_list:
     print(f"""
 
-if event == 'shuffle {i}':
-        window["{i}_list_box"].update(set_to_index=random.randint(0,len({i}_list)-1))
-""")
-
-
-
+if event == "edit {i}":
+            os.system("_ _".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/{i}.md"))
+            """)
