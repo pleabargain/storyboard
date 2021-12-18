@@ -1,0 +1,10 @@
+apple
+box
+cat
+table
+fox
+hair
+finger
+mouse
+ball
+pencil

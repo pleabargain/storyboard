@@ -9,8 +9,10 @@ import os.path
 
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
+#TODO fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
 #TODO set text file to open code and local file
+
 #done set default image size to 150x150
 #done load only images with thumbnail in the name
 image_list = []
@@ -33,6 +35,49 @@ image_list = []
 verbs_list = []
 nouns_list = []
 adjectives_list =[]
+
+#negotiations
+prepare_0_list = []
+
+  
+agenda_01_list = []
+
+  
+making_proposals_02_list = []
+
+  
+suggestions_03_list = []
+
+  
+agreeing_04_list = []
+
+  
+objecting_05_list = []
+
+  
+prioritizing_06_list = []
+
+  
+clarification_07_list = []
+
+  
+compromising_08_list = []
+
+  
+bargaining_09_list = []
+
+  
+postponing_10_list = []
+
+  
+concluding_11_list = []
+
+  
+seal_the_deal_12_list = []
+
+
+
+
 
 
 
@@ -64,7 +109,10 @@ def split_filename(original_filename):
 
     """
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
-    list_of_unwanted_words = ["noun_animal_",
+    list_of_unwanted_words = ["idiom_",
+                                "adjective_",
+                                "noun_clothing_",
+                                "noun_animal_",
                                 "noun_food_",
                                 "noun_",
                                 "verb_"]
@@ -81,18 +129,114 @@ def split_filename(original_filename):
     return text.replace("_", " ")
 
 def read_list_from_file():
+    #TODO refactor this mess
     verbs_list.clear()
     nouns_list.clear()
     adjectives_list.clear()
-    with open("verbs.txt") as myfile:
+    prepare_0_list.clear()      
+    
+    agenda_01_list.clear()
+  
+    making_proposals_02_list.clear()
+    
+    suggestions_03_list.clear()
+    
+    agreeing_04_list.clear()
+    
+    objecting_05_list.clear()
+    
+    prioritizing_06_list.clear()
+    
+    clarification_07_list.clear()
+    
+    compromising_08_list.clear()
+    
+    bargaining_09_list.clear()
+    
+    postponing_10_list.clear()
+    
+    concluding_11_list.clear()
+    
+    seal_the_deal_12_list.clear()      
+    
+   
+
+      
+ 
+
+    with open("word_lists/verbs.txt") as myfile:
         for line in myfile.readlines():
             verbs_list.append(line.strip())
-    with open("nouns.txt") as myfile:
+    with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.md") as myfile:
         for line in myfile.readlines():
             nouns_list.append(line.strip())
-    with open("adjectives.txt") as myfile:
+    with open("word_lists/adjectives.txt") as myfile:
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
+ ###start negotiations
+    with open("negotiations/prepare_0.md") as myfile:
+        for line in myfile.readlines():
+            prepare_0_list.append(line.strip())
+
+    
+    with open("negotiations/agenda_01.md") as myfile:
+        for line in myfile.readlines():
+            agenda_01_list.append(line.strip())
+
+    
+    with open("negotiations/making_proposals_02.md") as myfile:
+        for line in myfile.readlines():
+            making_proposals_02_list.append(line.strip())
+
+    
+    with open("negotiations/suggestions_03.md") as myfile:
+        for line in myfile.readlines():
+            suggestions_03_list.append(line.strip())
+
+    
+    with open("negotiations/agreeing_04.md") as myfile:
+        for line in myfile.readlines():
+            agreeing_04_list.append(line.strip())
+
+    
+    with open("negotiations/objecting_05.md") as myfile:
+        for line in myfile.readlines():
+            objecting_05_list.append(line.strip())
+
+    
+    with open("negotiations/prioritizing_06.md") as myfile:
+        for line in myfile.readlines():
+            prioritizing_06_list.append(line.strip())
+
+    
+    with open("negotiations/clarification_07.md") as myfile:
+        for line in myfile.readlines():
+            clarification_07_list.append(line.strip())
+
+    
+    with open("negotiations/compromising_08.md") as myfile:
+        for line in myfile.readlines():
+            compromising_08_list.append(line.strip())
+
+    
+    with open("negotiations/bargaining_09.md") as myfile:
+        for line in myfile.readlines():
+            bargaining_09_list.append(line.strip())
+
+    
+    with open("negotiations/postponing_10.md") as myfile:
+        for line in myfile.readlines():
+            postponing_10_list.append(line.strip())
+
+    
+    with open("negotiations/concluding_11.md") as myfile:
+        for line in myfile.readlines():
+            concluding_11_list.append(line.strip())
+
+    
+    with open("negotiations/seal_the_deal_12.md") as myfile:
+        for line in myfile.readlines():
+            seal_the_deal_12_list.append(line.strip())
 
 
 
@@ -100,8 +244,8 @@ def read_list_from_file():
 # TODO 
 # try except to make sure the folder exists
 # load the files from the target directory
-#TODO load only images with thumbnail in the name
-#TODO load only images that are 150x150
+# load only images with thumbnail in the name
+
 for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
    for name in files:
        if name.endswith("_thumbnail.png"):
@@ -280,7 +424,7 @@ column_right = sg.Column([ #header
                             key='canvas3b'),]
                         ])
 
-left_tab= sg.Tab ("adj noun reg verb", [
+tab_one= sg.Tab ("adj noun reg verb", [
     [sg.Text("verb",size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
     [   sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
         sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
@@ -293,20 +437,17 @@ left_tab= sg.Tab ("adj noun reg verb", [
 
     ])
 
-right_tab= sg.Tab ("tenses tab", [
+tab_two= sg.Tab ("tenses tab", [
         #create button
     [sg.Button("shuffle the images",
                 key = "image_shuffle",
                 ),
-    # sg.Button("easy"),
-    # sg.Button("intermediate"),
-    # sg.Button("hard"),
-    # sg.Button("elite"),
+   
     sg.Button("comparatives"),
     sg.Button("idioms"),
     sg.Button("prepositional phrases"),
     sg.Button("conditionals"),
-        sg.Button("modals"),
+    sg.Button("modals"),
 
                 ],
 
@@ -314,6 +455,119 @@ right_tab= sg.Tab ("tenses tab", [
     [column_left, column_center,column_right],
 
     ])
+
+#negotiation TAB
+#TODO add edit button so I can quickly go in and add entries
+tab_three = sg.Tab("negotiation",
+[
+        
+    [
+    sg.Text("prepare_0"),
+    sg.Listbox(prepare_0_list,key="prepare_0_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle prepare_0'),
+],
+###
+
+  
+[
+    sg.Text("agenda_01"),
+    sg.Listbox(agenda_01_list,key="agenda_01_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle agenda_01'),
+],
+###
+
+  
+[
+    sg.Text("making_proposals_02"),
+    sg.Listbox(making_proposals_02_list,key="making_proposals_02_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle making_proposals_02'),
+],
+###
+
+  
+[
+    sg.Text("suggestions_03"),
+    sg.Listbox(suggestions_03_list,key="suggestions_03_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle suggestions_03'),
+],
+###
+
+  
+[
+    sg.Text("agreeing_04"),
+    sg.Listbox(agreeing_04_list,key="agreeing_04_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle agreeing_04'),
+],
+###
+
+  
+[
+    sg.Text("objecting_05"),
+    sg.Listbox(objecting_05_list,key="objecting_05_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle objecting_05'),
+],
+###
+
+  
+[
+    sg.Text("prioritizing_06"),
+    sg.Listbox(prioritizing_06_list,key="prioritizing_06_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle prioritizing_06'),
+],
+###
+
+  
+[
+    sg.Text("clarification_07"),
+    sg.Listbox(clarification_07_list,key="clarification_07_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle clarification_07'),
+],
+###
+
+  
+[
+    sg.Text("compromising_08"),
+    sg.Listbox(compromising_08_list,key="compromising_08_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle compromising_08'),
+],
+###
+
+  
+[
+    sg.Text("bargaining_09"),
+    sg.Listbox(bargaining_09_list,key="bargaining_09_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle bargaining_09'),
+],
+###
+
+  
+[
+    sg.Text("postponing_10"),
+    sg.Listbox(postponing_10_list,key="postponing_10_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle postponing_10'),
+],
+###
+
+  
+[
+    sg.Text("concluding_11"),
+    sg.Listbox(concluding_11_list,key="concluding_11_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle concluding_11'),
+],
+###
+
+  
+[
+    sg.Text("seal_the_deal_12"),
+    sg.Listbox(seal_the_deal_12_list,key="seal_the_deal_12_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Button('shuffle seal_the_deal_12'),
+],
+###
+    
+]
+
+
+                    )
 
 
 layout = [
@@ -323,7 +577,7 @@ layout = [
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #TODO use image resizer on images
     
-    [sg.TabGroup([[left_tab,right_tab]],key="tabgroup")],
+    [sg.TabGroup([[tab_one,tab_two,tab_three]],key="tabgroup")],
     
     # three images start here
 
@@ -394,7 +648,74 @@ while True:
         window["adjectives_list_box"].update(set_to_index=random.randint(0,len(adjectives_list)-1))
         # (set_to_index=random.randint(0,len(verbs_list)-1))
 
+# negotiation tab buttons
+    if event == 'shuffle prepare_0':
+            window["prepare_0_list_box"].update(set_to_index=random.randint(0,len(prepare_0_list)-1))
 
+
+
+    if event == 'shuffle agenda_01':
+            window["agenda_01_list_box"].update(set_to_index=random.randint(0,len(agenda_01_list)-1))
+
+
+
+    if event == 'shuffle making_proposals_02':
+            window["making_proposals_02_list_box"].update(set_to_index=random.randint(0,len(making_proposals_02_list)-1))
+
+
+
+    if event == 'shuffle suggestions_03':
+            window["suggestions_03_list_box"].update(set_to_index=random.randint(0,len(suggestions_03_list)-1))
+
+
+
+    if event == 'shuffle agreeing_04':
+            window["agreeing_04_list_box"].update(set_to_index=random.randint(0,len(agreeing_04_list)-1))
+
+
+
+    if event == 'shuffle objecting_05':
+            window["objecting_05_list_box"].update(set_to_index=random.randint(0,len(objecting_05_list)-1))
+
+
+
+    if event == 'shuffle prioritizing_06':
+            window["prioritizing_06_list_box"].update(set_to_index=random.randint(0,len(prioritizing_06_list)-1))
+
+
+
+    if event == 'shuffle clarification_07':
+            window["clarification_07_list_box"].update(set_to_index=random.randint(0,len(clarification_07_list)-1))
+
+
+
+    if event == 'shuffle compromising_08':
+            window["compromising_08_list_box"].update(set_to_index=random.randint(0,len(compromising_08_list)-1))
+
+
+
+    if event == 'shuffle bargaining_09':
+            window["bargaining_09_list_box"].update(set_to_index=random.randint(0,len(bargaining_09_list)-1))
+
+
+
+    if event == 'shuffle postponing_10':
+            window["postponing_10_list_box"].update(set_to_index=random.randint(0,len(postponing_10_list)-1))
+
+
+
+    if event == 'shuffle concluding_11':
+            window["concluding_11_list_box"].update(set_to_index=random.randint(0,len(concluding_11_list)-1))
+
+
+
+    if event == 'shuffle seal_the_deal_12':
+            window["seal_the_deal_12_list_box"].update(set_to_index=random.randint(0,len(seal_the_deal_12_list)-1))
+
+
+
+
+#######
 
 
     if event == 'easy':
