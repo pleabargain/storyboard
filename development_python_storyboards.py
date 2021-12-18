@@ -77,6 +77,19 @@ seal_the_deal_12_list = []
 
 
 
+### random function
+
+import random
+def primary():
+    f = open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt")
+    quotes = f.readlines()
+    f.close()
+
+    sampling = random.sample(quotes, 1)
+    for sample in sampling: print(sample)
+primary()
+
+# print(random_adjectives)
 
 
 
@@ -425,14 +438,20 @@ column_right = sg.Column([ #header
                         ])
 
 tab_one= sg.Tab ("adj noun reg verb", [
+    #trying to get random text to display here
+    # It's not working
+    [sg.Text(primary(),size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
+
     [sg.Text("verb",size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
-    [   sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
-        sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
-        sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
+
+        [  # sg.Text(verbs_list,key="verbs_list_box",enable_events=True,size=(15,15)),
+            sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
+            sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
+            sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
+            
+            sg.Button("reload"),sg.Button("randomize"),
         
-        sg.Button("reload"),sg.Button("randomize"),
-    
-    ],
+        ],
     
 
     ])
