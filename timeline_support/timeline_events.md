@@ -9,6 +9,10 @@ go ski
 go to a meeting
 go to a conference
 give a lecture
+take a walk
+go to the dentist
+go to the hospital
+take a course
 write a book
 read a book
 meet spouse

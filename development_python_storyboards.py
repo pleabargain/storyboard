@@ -4,6 +4,10 @@ import PySimpleGUI as sg
 import random
 import webbrowser
 
+import datetime
+
+
+
 import os
 import os.path
 
@@ -297,65 +301,190 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 
 timeline_column_one = sg.Column([
                                 [sg.Text("timeline column one",
-                                key="timeline column one",
+                                key="past1",
+                                size = (20,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 
 ###
-                                [
-                                    sg.Text("place holder"),
-                                    
-                                ]  
-
+                                [sg.Text("past2 column one",
+                                key="past2",
+                                size = (20,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')], 
+###
+                                [sg.Text("past3",
+                                key="past3",
+                                size = (20,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("now column one",
+                                key="now_event",
+                                size = (20,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="future1",
+                                size = (20,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="future2",
+                                size = (20,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="future3",
+                                size = (20,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
 
                                 ])
 
 
 
 timeline_column_two = sg.Column([
-                                [sg.Text("timeline column two",
-                                key="timeline column two",
+                                [sg.Text("timeline column one",
+                                key="event1",
+                                size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column two')],
-###
-                                [
-                                    sg.Button("edit timeline events"),
-                                    
-                                ]    
+                                tooltip='This is a tool tip timeline column one')],
 
+###
+                                [sg.Text("past2 column one",
+                                key="event2",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')], 
+###
+                                [sg.Text("eventpast3",
+                                key="event3",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("now column one",
+                                key="event4",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="event5",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="event6",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="event7",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
 
                                 ])
-
 
 
 timeline_column_three = sg.Column([
-                                [sg.Text("timeline column three",
-                                key="timeline column three",
+                                [sg.Text("timeline column one",
+                                key="adverb1",
+                                size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column three')],
+                                tooltip='This is a tool tip timeline column one')],
+
 ###
-                                [
-                                    sg.Button("edit adverbs of time phrases"),
-                                    
-                                ]    
+                                [sg.Text("past2 column one",
+                                key="adverb2",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')], 
+###
+                                [sg.Text("eventpast3",
+                                key="adverb3",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("now column one",
+                                key="adverb4",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="adverb5",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="adverb6",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+###
+                                [sg.Text("timeline column one",
+                                key="adverb7",
+                                size = (30,2),
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
 
                                 ])
 
 
-
 timeline_column_four = sg.Column([
-                                [sg.Text("timeline column four",
-                                key="timeline column four",
-                                enable_events=True,
-                                tooltip='This is a tool tip timeline column four')],
-
-###
+                                ###
                                 [
-                                    sg.Text("place holder"),
-                                    
-                                ]  
+                                    sg.Button("place holder",
+                                                key = "adverb1change",
+                                                size = (10,2),
 
+                                                ),                            
+                                ],  
+[
+                                    sg.Button("place holder",
+                                                key = "adverb2change",
+                                                size = (10,2),
+                                                ),                            
+                                ],[
+                                    sg.Button("place holder",
+                                                key = "adverb3change",
+                                                size = (10,2),
+                                                ),                            
+                                ],[
+                                    sg.Button("place holder",
+                                                key = "adverb4change",
+                                                size = (10,2),
+                                                ),                            
+                                ],[
+                                    sg.Button("place holder",
+                                                key = "adverb5change",
+                                                size = (10,2),
+                                                ),                            
+                                ],
+                                
+                                [
+                                    sg.Button("place holder",
+                                                key = "adverb6change",
+                                                size = (10,2),
+                                                ),                            
+                                ],
 
+                                [
+                                    sg.Button("place holder 7",
+                                                key = "adverb7change",
+                                                size = (10,2),
+                                                ),                            
+                                ],
 
                                 ])
 
@@ -555,7 +684,8 @@ tab_three = sg.Tab("negotiation",
      
 [
     sg.Text("prepare_0"),
-    sg.Listbox(prepare_0_list,key="prepare_0_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    # sg.Listbox(prepare_0_list,key="prepare_0_list_box",enable_events=True,change_submits=True,size=(55,1)),
+    sg.Text(text= "hello",key="prepare_0_list_box",size=(55,1)),
     sg.Button('shuffle prepare_0'),
     sg.Button('edit prepare_0'),
 
@@ -699,6 +829,7 @@ timeline_tab= sg.Tab ("timeline tenses tab",
     #                             font=fnt, 
     #                             format=('%Y-%m-%d'))]
     [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
+    [sg.Button("change time"), sg.Button("change events"),   ],
     [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
     
 
@@ -778,7 +909,8 @@ while True:
 
 # negotiation tab buttons
     if event == 'shuffle prepare_0':
-            window["prepare_0_list_box"].update(set_to_index=random.randint(0,len(prepare_0_list)-1))
+            # window["prepare_0_list_box"].update(set_to_index=random.randint(0,len(prepare_0_list)-1))
+            window["prepare_0_list_box"].update(random.choice(prepare_0_list))
 
 
 
@@ -951,12 +1083,70 @@ while True:
     if event == "modals":
         webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
 
-### negotiation events
-    if event == "edit prepare_0":
-            os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prepare_0.md"))
 
-  
-            
+### timeline events
+
+
+
+    if event == "edit timeline events":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/timeline_events.md"))
+
+    if event == "edit adverbs of time phrases":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/grammar_adverbs_of_time.md"))
+
+    if event == "adverb1":
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/grammar_adverbs_of_time.md") as myfile:
+            lines = myfile.readlines()
+        window["adverb1"].update(random.choice(lines).strip()  )
+        
+
+
+
+
+
+    if event == "edit prepare_0":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prepare_0.md"))
+
+    if event == "change time":
+        now =datetime.date.today().strftime("%Y %B %d")
+        window["now_event"].update(now)
+        #past
+        delta1= random.randint(1,7)
+        delta2= random.randint(10,30)
+        delta3= random.randint(30,90)
+        past3 = datetime.date.today()-datetime.timedelta(delta1)
+        window["past3"].update(past3.strftime("%Y %B %d"))
+        past2 =  past3 -datetime.timedelta(delta2)
+        window["past2"].update(past2.strftime("%Y %B %d"))
+        past1 =  past2 -datetime.timedelta(delta3)
+        window["past1"].update(past1.strftime("%Y %B %d"))
+        #future
+        delta1= random.randint(1,7)
+        delta2= random.randint(10,30)
+        delta3= random.randint(30,90)
+        future1 =   datetime.date.today()+datetime.timedelta(delta1)
+        window["future1"].update(future1.strftime("%Y %B %d"))
+        future2 =   future1 + datetime.timedelta(delta2)
+        window["future2"].update(future2.strftime("%Y %B %d"))
+        future3 =   future2 + datetime.timedelta(delta3)
+        window["future3"].update(future3.strftime("%Y %B %d"))
+
+    if event == "change events":
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/timeline_events.md") as myfile:
+            lines = myfile.readlines()
+        random.shuffle(lines)
+        print(lines)
+        window["event1"].update(lines[0].strip())
+        window["event2"].update(lines[1].strip())
+        window["event3"].update(lines[2].strip())
+        window["event4"].update(lines[3].strip())
+        window["event5"].update(lines[4].strip())
+        window["event6"].update(lines[5].strip())
+        window["event7"].update(lines[6].strip())
+
+
+
+### negotiation events
 
 
     if event == "edit agenda_01":
@@ -1020,13 +1210,6 @@ while True:
 
 
 
-### timeline events
-
-    if event == "edit timeline events":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/timeline_events.md"))
-
-    if event == "edit adverbs of time phrases":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/grammar_adverbs_of_time.md"))
 
 
 
