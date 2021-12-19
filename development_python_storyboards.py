@@ -295,7 +295,75 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 #                         sg.Multiline(default_text='A second multi-line', size=(5, 5))
 #                           ])
 
-column_left = sg.Column([
+timeline_column_one = sg.Column([
+                                [sg.Text("timeline column one",
+                                key="timeline column one",
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column one')],
+
+###
+                                [
+                                    sg.Text("place holder"),
+                                    
+                                ]  
+
+
+                                ])
+
+
+
+timeline_column_two = sg.Column([
+                                [sg.Text("timeline column two",
+                                key="timeline column two",
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column two')],
+###
+                                [
+                                    sg.Button("edit timeline events"),
+                                    
+                                ]    
+
+
+                                ])
+
+
+
+timeline_column_three = sg.Column([
+                                [sg.Text("timeline column three",
+                                key="timeline column three",
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column three')],
+###
+                                [
+                                    sg.Button("edit adverbs of time phrases"),
+                                    
+                                ]    
+
+                                ])
+
+
+
+timeline_column_four = sg.Column([
+                                [sg.Text("timeline column four",
+                                key="timeline column four",
+                                enable_events=True,
+                                tooltip='This is a tool tip timeline column four')],
+
+###
+                                [
+                                    sg.Text("place holder"),
+                                    
+                                ]  
+
+
+
+                                ])
+
+
+
+
+
+tenses_tab_column_left = sg.Column([
                             #header
                             [sg.Text("past simple",
                             key="past_simple",
@@ -342,7 +410,7 @@ column_left = sg.Column([
                             key='canvas1b'),]
                         ])
 
-column_center = sg.Column([
+tenses_tab_column_center = sg.Column([
                             #header
                             [sg.Text("present simple",
                             key="present_simple",
@@ -398,7 +466,7 @@ column_center = sg.Column([
 
                             ])
 
-column_right = sg.Column([ #header
+tenses_tab_column_right = sg.Column([ #header
                             [sg.Text("future simple",
                             key="future_simple",
                             enable_events=True,
@@ -474,12 +542,13 @@ tab_two= sg.Tab ("tenses tab", [
                 ],
 
 
-    [column_left, column_center,column_right],
+    [tenses_tab_column_left, tenses_tab_column_center,tenses_tab_column_right],
 
     ])
 
 #negotiation TAB
 #TODO add edit button so I can quickly go in and add entries
+
 tab_three = sg.Tab("negotiation",
 [
         
@@ -616,7 +685,32 @@ tab_three = sg.Tab("negotiation",
 ]
 
 
-                    )
+)
+
+####################################3
+timeline_tab= sg.Tab ("timeline tenses tab", 
+        #create button
+    [
+    # [sg.In(key='-INCAL1-', enable_events=True, visible=False),
+    # sg.Col([[sg.CalendarButton('Change date', 
+    #                             target='-INCAL1-', 
+    #                             pad=None, 
+    #                             key='-CAL1-', 
+    #                             font=fnt, 
+    #                             format=('%Y-%m-%d'))]
+    [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
+    [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
+    
+
+    
+
+
+
+    ])
+####################
+
+
+
 
 
 layout = [
@@ -626,7 +720,7 @@ layout = [
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #TODO use image resizer on images
     
-    [sg.TabGroup([[tab_one,tab_two,tab_three]],key="tabgroup")],
+    [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab]],key="tabgroup")],
     
 
     
@@ -791,6 +885,9 @@ while True:
     #if event == "edit making_proposals_02":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
 
+
+###
+
     if event == "past_simple":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1NkmOcQcNU8Dirk_rM04yEF5CS9yaSnYGip0Tyq0AkIU/edit?usp=sharing",new=1,autoraise=True )
 
@@ -854,7 +951,7 @@ while True:
     if event == "modals":
         webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
 
-
+### negotiation events
     if event == "edit prepare_0":
             os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prepare_0.md"))
 
@@ -922,15 +1019,22 @@ while True:
                 
 
 
+
+### timeline events
+
+    if event == "edit timeline events":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/timeline_events.md"))
+
+    if event == "edit adverbs of time phrases":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/grammar_adverbs_of_time.md"))
+
+
+
+
+
+
     if event == sg.WIN_CLOSED or event == "Cancel" or event == 'Exit' :
         break
-
-
-    # if event == "Exit" or event == "Cancel":
-    #     break
-    
-
-
 
 window.close()
 
