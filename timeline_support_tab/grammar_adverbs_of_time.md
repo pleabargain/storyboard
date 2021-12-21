@@ -1,10 +1,10 @@
+all the time
 at the end of the month
 at the end of the day
 suddenly
 back then
 occasionally
 often
-all the time
 rarely
 once in a while
 later
