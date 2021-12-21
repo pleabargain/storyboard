@@ -1,19 +1,37 @@
+Rammstein Concert
+move from my home town
 born
 birth of first child
 birth of second child
 buy an apartment
+Football Champion 
 buy a house
 buy a car
 car accident
 decorate a Christmas tree
 to marry
+to donate blood
+to plant a tree
+to rent a car
+to have surgery
+to get a vaccine
+to slip on ice
+to build an application
 plan for New Years
 graduate from high school
 graduate from university
 live
-go surf
+go surfing
+go sailing
+go kayaking
+go SCUBA diving
+go snorkeling
+go wakeboarding
+go swimming 
+go soak in the jacuzzi
 go to school
-go ski
+go skiing
+go water skiing
 go to a meeting
 go to a conference
 give a lecture
@@ -31,8 +49,6 @@ party with friends
 have a vacation
 get robbed
 go on vacation
-go SCUBA diving
-go snorkeling
 go skiing in the Alps
 go to the mountains
 go to New Years Party
