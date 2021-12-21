@@ -13,6 +13,9 @@ import os.path
 
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
+# font = ("Arial, 11)
+
+
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
 
@@ -194,67 +197,67 @@ def read_list_from_file():
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
  ###start negotiations
-    with open("negotiations/prepare_0.md") as myfile:
+    with open("negotiations_tab/prepare_0.md") as myfile:
         for line in myfile.readlines():
             prepare_0_list.append(line.strip())
 
     
-    with open("negotiations/agenda_01.md") as myfile:
+    with open("negotiations_tab/agenda_01.md") as myfile:
         for line in myfile.readlines():
             agenda_01_list.append(line.strip())
 
     
-    with open("negotiations/making_proposals_02.md") as myfile:
+    with open("negotiations_tab/making_proposals_02.md") as myfile:
         for line in myfile.readlines():
             making_proposals_02_list.append(line.strip())
 
     
-    with open("negotiations/suggestions_03.md") as myfile:
+    with open("negotiations_tab/suggestions_03.md") as myfile:
         for line in myfile.readlines():
             suggestions_03_list.append(line.strip())
 
     
-    with open("negotiations/agreeing_04.md") as myfile:
+    with open("negotiations_tab/agreeing_04.md") as myfile:
         for line in myfile.readlines():
             agreeing_04_list.append(line.strip())
 
     
-    with open("negotiations/objecting_05.md") as myfile:
+    with open("negotiations_tab/objecting_05.md") as myfile:
         for line in myfile.readlines():
             objecting_05_list.append(line.strip())
 
     
-    with open("negotiations/prioritizing_06.md") as myfile:
+    with open("negotiations_tab/prioritizing_06.md") as myfile:
         for line in myfile.readlines():
             prioritizing_06_list.append(line.strip())
 
     
-    with open("negotiations/clarification_07.md") as myfile:
+    with open("negotiations_tab/clarification_07.md") as myfile:
         for line in myfile.readlines():
             clarification_07_list.append(line.strip())
 
     
-    with open("negotiations/compromising_08.md") as myfile:
+    with open("negotiations_tab/compromising_08.md") as myfile:
         for line in myfile.readlines():
             compromising_08_list.append(line.strip())
 
     
-    with open("negotiations/bargaining_09.md") as myfile:
+    with open("negotiations_tab/bargaining_09.md") as myfile:
         for line in myfile.readlines():
             bargaining_09_list.append(line.strip())
 
     
-    with open("negotiations/postponing_10.md") as myfile:
+    with open("negotiations_tab/postponing_10.md") as myfile:
         for line in myfile.readlines():
             postponing_10_list.append(line.strip())
 
     
-    with open("negotiations/concluding_11.md") as myfile:
+    with open("negotiations_tab/concluding_11.md") as myfile:
         for line in myfile.readlines():
             concluding_11_list.append(line.strip())
 
     
-    with open("negotiations/seal_the_deal_12.md") as myfile:
+    with open("negotiations_tab/seal_the_deal_12.md") as myfile:
         for line in myfile.readlines():
             seal_the_deal_12_list.append(line.strip())
 
@@ -304,44 +307,44 @@ timeline_column_one = sg.Column([
                                 key="past1",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='Past events1')],
 
 ###
                                 [sg.Text("past2 column one",
                                 key="past2",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')], 
+                                tooltip='Past events2')], 
 ###
                                 [sg.Text("past3",
                                 key="past3",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='past3 column one')],
 ###
                                 [sg.Text("now column one",
                                 key="now_event",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='now column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future1",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='future1 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future2",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='future2 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future3",
                                 size = (20,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='future3 event')],
 
                                 ])
 
@@ -399,14 +402,14 @@ timeline_column_three = sg.Column([
                                 key="adverb1",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='This is a tool tip for adverb1')],
 
 ###
                                 [sg.Text("past2 column one",
                                 key="adverb2",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')], 
+                                tooltip='This is a tool tip for adverb2')], 
 ###
                                 [sg.Text("eventpast3",
                                 key="adverb3",
@@ -675,138 +678,190 @@ tab_two= sg.Tab ("tenses tab", [
 
     ])
 
-#negotiation TAB
+#### negotiation TAB
 #TODO add edit button so I can quickly go in and add entries
 
 tab_three = sg.Tab("negotiation",
 [
         
-     
 [
     sg.Text("prepare_0"),
-    # sg.Listbox(prepare_0_list,key="prepare_0_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Text(text= "hello",key="prepare_0_list_box",size=(55,1)),
-    sg.Button('shuffle prepare_0'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="prepare_0_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit prepare_0'),
 
 ],
-###
 
-  
 [
     sg.Text("agenda_01"),
-    sg.Listbox(agenda_01_list,key="agenda_01_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle agenda_01'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="agenda_01_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit agenda_01'),
 
 ],
-###
 
-  
 [
     sg.Text("making_proposals_02"),
-    sg.Listbox(making_proposals_02_list,key="making_proposals_02_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle making_proposals_02'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="making_proposals_02_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit making_proposals_02'),
 
 ],
-###
 
-  
 [
     sg.Text("suggestions_03"),
-    sg.Listbox(suggestions_03_list,key="suggestions_03_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle suggestions_03'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="suggestions_03_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit suggestions_03'),
 
 ],
-###
 
-  
 [
     sg.Text("agreeing_04"),
-    sg.Listbox(agreeing_04_list,key="agreeing_04_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle agreeing_04'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="agreeing_04_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit agreeing_04'),
 
 ],
-###
 
-  
 [
     sg.Text("objecting_05"),
-    sg.Listbox(objecting_05_list,key="objecting_05_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle objecting_05'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="objecting_05_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit objecting_05'),
 
 ],
-###
 
-  
 [
     sg.Text("prioritizing_06"),
-    sg.Listbox(prioritizing_06_list,key="prioritizing_06_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle prioritizing_06'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="prioritizing_06_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit prioritizing_06'),
 
 ],
-###
 
-  
 [
     sg.Text("clarification_07"),
-    sg.Listbox(clarification_07_list,key="clarification_07_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle clarification_07'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="clarification_07_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit clarification_07'),
 
 ],
-###
 
-  
 [
     sg.Text("compromising_08"),
-    sg.Listbox(compromising_08_list,key="compromising_08_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle compromising_08'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="compromising_08_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit compromising_08'),
 
 ],
-###
 
-  
 [
     sg.Text("bargaining_09"),
-    sg.Listbox(bargaining_09_list,key="bargaining_09_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle bargaining_09'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="bargaining_09_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit bargaining_09'),
 
 ],
-###
 
-  
 [
     sg.Text("postponing_10"),
-    sg.Listbox(postponing_10_list,key="postponing_10_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle postponing_10'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="postponing_10_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit postponing_10'),
 
 ],
-###
 
-  
 [
     sg.Text("concluding_11"),
-    sg.Listbox(concluding_11_list,key="concluding_11_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle concluding_11'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="concluding_11_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit concluding_11'),
 
 ],
-###
 
-  
 [
     sg.Text("seal_the_deal_12"),
-    sg.Listbox(seal_the_deal_12_list,key="seal_the_deal_12_list_box",enable_events=True,change_submits=True,size=(55,1)),
-    sg.Button('shuffle seal_the_deal_12'),
+    sg.Text(
+            text= "Have your prepared enough?!",
+            key="seal_the_deal_12_list_box",
+            enable_events=True,
+            font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
+            ),
     sg.Button('edit seal_the_deal_12'),
 
 ],
@@ -829,7 +884,7 @@ timeline_tab= sg.Tab ("timeline tenses tab",
     #                             font=fnt, 
     #                             format=('%Y-%m-%d'))]
     [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
-    [sg.Button("change time"), sg.Button("change events"),   ],
+    [sg.Button("change time"), sg.Button("randomize events"),   ],
     [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
     
 
@@ -877,6 +932,7 @@ while True:
     if event == "Open_docs":
         webbrowser.open("https://pysimplegui.readthedocs.io/en/latest/",new=1,autoraise=True )
         # pass
+# shuffle images
 
     if event == "image_shuffle":
         random.shuffle(image_list)
@@ -907,75 +963,9 @@ while True:
         window["adjectives_list_box"].update(set_to_index=random.randint(0,len(adjectives_list)-1))
         # (set_to_index=random.randint(0,len(verbs_list)-1))
 
-# negotiation tab buttons
-    if event == 'shuffle prepare_0':
-            # window["prepare_0_list_box"].update(set_to_index=random.randint(0,len(prepare_0_list)-1))
-            window["prepare_0_list_box"].update(random.choice(prepare_0_list))
 
 
-
-    if event == 'shuffle agenda_01':
-            window["agenda_01_list_box"].update(set_to_index=random.randint(0,len(agenda_01_list)-1))
-
-
-
-    if event == 'shuffle making_proposals_02':
-            window["making_proposals_02_list_box"].update(set_to_index=random.randint(0,len(making_proposals_02_list)-1))
-
-
-
-    if event == 'shuffle suggestions_03':
-            window["suggestions_03_list_box"].update(set_to_index=random.randint(0,len(suggestions_03_list)-1))
-
-
-
-    if event == 'shuffle agreeing_04':
-            window["agreeing_04_list_box"].update(set_to_index=random.randint(0,len(agreeing_04_list)-1))
-
-
-
-    if event == 'shuffle objecting_05':
-            window["objecting_05_list_box"].update(set_to_index=random.randint(0,len(objecting_05_list)-1))
-
-
-
-    if event == 'shuffle prioritizing_06':
-            window["prioritizing_06_list_box"].update(set_to_index=random.randint(0,len(prioritizing_06_list)-1))
-
-
-
-    if event == 'shuffle clarification_07':
-            window["clarification_07_list_box"].update(set_to_index=random.randint(0,len(clarification_07_list)-1))
-
-
-
-    if event == 'shuffle compromising_08':
-            window["compromising_08_list_box"].update(set_to_index=random.randint(0,len(compromising_08_list)-1))
-
-
-
-    if event == 'shuffle bargaining_09':
-            window["bargaining_09_list_box"].update(set_to_index=random.randint(0,len(bargaining_09_list)-1))
-
-
-
-    if event == 'shuffle postponing_10':
-            window["postponing_10_list_box"].update(set_to_index=random.randint(0,len(postponing_10_list)-1))
-
-
-
-    if event == 'shuffle concluding_11':
-            window["concluding_11_list_box"].update(set_to_index=random.randint(0,len(concluding_11_list)-1))
-
-
-
-    if event == 'shuffle seal_the_deal_12':
-            window["seal_the_deal_12_list_box"].update(set_to_index=random.randint(0,len(seal_the_deal_12_list)-1))
-
-
-
-
-#######
+### Horst's random selection
 
 
     if event == 'easy':
@@ -1004,11 +994,6 @@ while True:
         window[random.choice(["present_simple",   "present_continuous","present_perfect_continuous",  "present_perfect",]) ].update(background_color = 'white')
         window[random.choice(["future_simple",   "future_continuous",  "future_perfect","future_perfect_continuous"]) ].update(background_color = 'white')
 
-#   if event == "edit_encouragement_markdown":
-#             window["status"].update("please make edits, save and exit the external editor to continue")
-#             window.refresh()
-#             os.system("{} {}".format(EXTERNAL_EDITOR, ENCOURAGEMENT_FILE))
-#             window["status"].update("ready to build")
 
 
 #menu items
@@ -1018,7 +1003,8 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
 
 
-###
+### past tense events
+
 
     if event == "past_simple":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1NkmOcQcNU8Dirk_rM04yEF5CS9yaSnYGip0Tyq0AkIU/edit?usp=sharing",new=1,autoraise=True )
@@ -1033,7 +1019,7 @@ while True:
     if event == "past_perfect":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1KzJ68cM0VBsthrfsGJRIXCV4MWXcSIcDdDWfH-Gfl3M/edit?usp=sharing",new=1,autoraise=True )
 
-###
+### present events
     
     if event == "present_simple":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1xv0ZFe6_l66spkXWPyWrzu5k1KPNb3OWKL52Xg71DuE/edit?usp=sharing",new=1,autoraise=True )
@@ -1049,7 +1035,7 @@ while True:
         webbrowser.open("https://docs.google.com/spreadsheets/d/1vAlXCM5dD8EVvt9W_YYz7ZNN6UZumT0MClnazfF7oGY/edit?usp=sharing",new=1,autoraise=True )
 
 
-###
+### future tenses
 
 
     if event == "future_simple":
@@ -1089,23 +1075,102 @@ while True:
 
 
     if event == "edit timeline events":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/timeline_events.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md"))
 
     if event == "edit adverbs of time phrases":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/grammar_adverbs_of_time.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md"))
 
     if event == "adverb1":
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/grammar_adverbs_of_time.md") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
             lines = myfile.readlines()
         window["adverb1"].update(random.choice(lines).strip()  )
-        
+
+
+    if event == "adverb2":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+                lines = myfile.readlines()
+            window["adverb2"].update(random.choice(lines).strip()  )
+
+
+    if event == "adverb3":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+                lines = myfile.readlines()
+            window["adverb3"].update(random.choice(lines).strip()  )
+
+
+    if event == "adverb4":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+                lines = myfile.readlines()
+            window["adverb4"].update(random.choice(lines).strip()  )
+
+
+    if event == "adverb5":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+                lines = myfile.readlines()
+            window["adverb5"].update(random.choice(lines).strip()  )
+
+
+    if event == "adverb6":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+                lines = myfile.readlines()
+            window["adverb6"].update(random.choice(lines).strip()  )
+
+
+    if event == "adverb7":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+                lines = myfile.readlines()
+            window["adverb7"].update(random.choice(lines).strip()  )
+
+    if event == "event1":
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+            lines = myfile.readlines()
+        window["event1"].update(random.choice(lines).strip()  )
+
+
+    if event == "event2":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+                lines = myfile.readlines()
+            window["event2"].update(random.choice(lines).strip()  )
+
+
+    if event == "event3":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+                lines = myfile.readlines()
+            window["event3"].update(random.choice(lines).strip()  )
+
+
+    if event == "event4":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+                lines = myfile.readlines()
+            window["event4"].update(random.choice(lines).strip()  )
+
+
+    if event == "event5":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+                lines = myfile.readlines()
+            window["event5"].update(random.choice(lines).strip()  )
+
+
+    if event == "event6":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+                lines = myfile.readlines()
+            window["event6"].update(random.choice(lines).strip()  )
+
+
+    if event == "event7":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
+                lines = myfile.readlines()
+            window["event7"].update(random.choice(lines).strip()  )
+
+
+
 
 
 
 
 
     if event == "edit prepare_0":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prepare_0.md"))
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prepare_0.md"))
 
     if event == "change time":
         now =datetime.date.today().strftime("%Y %B %d")
@@ -1131,11 +1196,11 @@ while True:
         future3 =   future2 + datetime.timedelta(delta3)
         window["future3"].update(future3.strftime("%Y %B %d"))
 
-    if event == "change events":
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support/timeline_events.md") as myfile:
+    if event == "randomize events":
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
             lines = myfile.readlines()
         random.shuffle(lines)
-        print(lines)
+        # print(lines)
         window["event1"].update(lines[0].strip())
         window["event2"].update(lines[1].strip())
         window["event3"].update(lines[2].strip())
@@ -1148,64 +1213,166 @@ while True:
 
 ### negotiation events
 
+###prepare_0
+    if event == "prepare_0_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prepare_0.md") as myfile:
+                lines = myfile.readlines()
+            window["prepare_0_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###agenda_01
+    if event == "agenda_01_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agenda_01.md") as myfile:
+                lines = myfile.readlines()
+            window["agenda_01_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###making_proposals_02
+    if event == "making_proposals_02_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/making_proposals_02.md") as myfile:
+                lines = myfile.readlines()
+            window["making_proposals_02_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###suggestions_03
+    if event == "suggestions_03_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/suggestions_03.md") as myfile:
+                lines = myfile.readlines()
+            window["suggestions_03_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###agreeing_04
+    if event == "agreeing_04_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agreeing_04.md") as myfile:
+                lines = myfile.readlines()
+            window["agreeing_04_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###objecting_05
+    if event == "objecting_05_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/objecting_05.md") as myfile:
+                lines = myfile.readlines()
+            window["objecting_05_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###prioritizing_06
+    if event == "prioritizing_06_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prioritizing_06.md") as myfile:
+                lines = myfile.readlines()
+            window["prioritizing_06_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###clarification_07
+    if event == "clarification_07_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/clarification_07.md") as myfile:
+                lines = myfile.readlines()
+            window["clarification_07_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###compromising_08
+    if event == "compromising_08_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/compromising_08.md") as myfile:
+                lines = myfile.readlines()
+            window["compromising_08_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###bargaining_09
+    if event == "bargaining_09_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/bargaining_09.md") as myfile:
+                lines = myfile.readlines()
+            window["bargaining_09_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+    ###postponing_10
+    if event == "postponing_10_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/postponing_10.md") as myfile:
+                lines = myfile.readlines()
+            window["postponing_10_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+###concluding_11
+    if event == "concluding_11_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/concluding_11.md") as myfile:
+                lines = myfile.readlines()
+            window["concluding_11_list_box"].update(random.choice(lines).strip()  )
+    ###
+
+
+###seal_the_deal_12
+    if event == "seal_the_deal_12_list_box":
+            with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md") as myfile:
+                lines = myfile.readlines()
+            window["seal_the_deal_12_list_box"].update(random.choice(lines).strip()  )
+###
 
     if event == "edit agenda_01":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/agenda_01.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agenda_01.md"))
                 
 
 
     if event == "edit making_proposals_02":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/making_proposals_02.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/making_proposals_02.md"))
                 
 
 
     if event == "edit suggestions_03":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/suggestions_03.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/suggestions_03.md"))
                 
 
 
     if event == "edit agreeing_04":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/agreeing_04.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agreeing_04.md"))
                 
 
 
     if event == "edit objecting_05":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/objecting_05.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/objecting_05.md"))
                 
 
 
     if event == "edit prioritizing_06":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/prioritizing_06.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prioritizing_06.md"))
                 
 
 
     if event == "edit clarification_07":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/clarification_07.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/clarification_07.md"))
                 
 
 
     if event == "edit compromising_08":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/compromising_08.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/compromising_08.md"))
                 
 
 
     if event == "edit bargaining_09":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/bargaining_09.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/bargaining_09.md"))
                 
 
 
     if event == "edit postponing_10":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/postponing_10.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/postponing_10.md"))
                 
 
 
     if event == "edit concluding_11":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/concluding_11.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/concluding_11.md"))
                 
 
 
     if event == "edit seal_the_deal_12":
-                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations/seal_the_deal_12.md"))
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md"))
                 
 
 

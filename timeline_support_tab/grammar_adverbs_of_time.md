@@ -1,18 +1,19 @@
+at the end of the month
+at the end of the day
 suddenly
 back then
 occasionally
 often
 all the time
+rarely
 once in a while
 later
 now
-currently
 hourly
 on the hour
 on the day
 always
 every time
-rarely
 immediately
 previously
 quickly
@@ -45,5 +46,6 @@ sometimes
 hourly
 often
 annually
+firstly
 
 
