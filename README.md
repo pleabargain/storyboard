@@ -16,7 +16,7 @@ pysimplegui
 - add license
 
 # list of tabs
-<img src="/support_images/tab_tenses.png" alt="Getting started" />
+<img src="/support_images/tabs_22dec.png" alt="Getting started" />
 
 # adj noun reg verb tab 
 <img src="/support_images/tab_verbadjnoun.png" alt="Getting started" />
