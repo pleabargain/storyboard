@@ -5,15 +5,16 @@ I built it to support my own services. You may use this code as you see fit but 
 
 # requirements
 
-python3
-pysimplegui
+- python3
+- pysimplegui
 
 
-
+# DONE
+- negotiation tab: randomly chosen text should take focus or find a better way to get text to display
 
 # TODO
-- negotiation tab: randomly chosen text should take focus or find a better way to get text to display
-- add license
+- print full DAY in timeline tab
+- add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 
 

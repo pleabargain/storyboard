@@ -15,7 +15,7 @@ import os.path
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
 
-#TODO fix negotiation text so that it shows only the randomly selected text list_box doesn't work
+#done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
 #TODO set text file to open code and local file
 
@@ -230,9 +230,9 @@ def read_list_from_file():
 
 
 # TODO 
-# try except to make sure the folder exists
-# load the files from the target directory
-# load only images with thumbnail in the name
+# TODO try except to make sure the folder exists
+# TODO load the files from the target directory
+# TODO load only images with thumbnail in the name
 
 for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
    for name in files:
@@ -269,6 +269,8 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 
 timeline_column_one = sg.Column([
                                 [sg.Text("timeline column one",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="past1",
                                 size = (20,2),
                                 enable_events=True,
@@ -276,18 +278,24 @@ timeline_column_one = sg.Column([
 
 ###
                                 [sg.Text("past2 column one",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="past2",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='Past events2')], 
 ###
                                 [sg.Text("past3",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="past3",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='past3 column one')],
 ###
                                 [sg.Text("now column one",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="now_event",
                                 size = (20,2),
                                 enable_events=True,
@@ -295,18 +303,24 @@ timeline_column_one = sg.Column([
 ###
                                 [sg.Text("timeline column one",
                                 key="future1",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='future1 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future2",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='future2 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future3",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='future3 event')],
@@ -318,6 +332,8 @@ timeline_column_one = sg.Column([
 timeline_column_two = sg.Column([
                                 [sg.Text("timeline column one",
                                 key="event1",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
@@ -325,36 +341,48 @@ timeline_column_two = sg.Column([
 ###
                                 [sg.Text("past2 column one",
                                 key="event2",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')], 
 ###
                                 [sg.Text("eventpast3",
                                 key="event3",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("now column one",
                                 key="event4",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="event5",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
-                                [sg.Text("timeline column one",
+                                [sg.Text("event 6 timeline column one",
                                 key="event6",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="event7",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
@@ -460,36 +488,39 @@ timeline_column_four = sg.Column([
 
 
 
-tenses_tab_column_left = sg.Column([
-                            #header
+tenses_tab_column_left = sg.Column(
+                            [
+                                                     
                             [sg.Text("past simple",
                             key="past_simple",
+                            font = ("helvetica",16),
                             enable_events=True,
-                            
                             tooltip='Past Simple - I built a new garage last month.')],
 
                             [sg.Text("past continuous",
+                            font = ("helvetica",16),
                             key="past_continuous", 
                             enable_events=True,
-
                             tooltip='Past Continuous - I was building a wall yesterday.')],
                             
                             [sg.Text("past perfect",
                             key="past_perfect",
+                            font = ("helvetica",16),
                             enable_events=True,
-
                             tooltip='Past Perfect - By the time my last company went bust we had already built the new shopping center.')],
 
                             [sg.Text("past perfect continuous",
                             key="past_perfect_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip= 'Past Perfect Continuous - We had been building the new\n shopping center for 2 months when we heard about the bankruptcy.'
                             )],
 
                             [sg.Multiline('text', 
                             key= "text1a",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)) 
+                            font=("Helvetica", 16)) 
                             ],
 
                             [sg.Image(filename="",
@@ -498,8 +529,10 @@ tenses_tab_column_left = sg.Column([
 #####################                            
                             [sg.Multiline('text', 
                             key= "text1b",
+                            justification = "center",
+
                             size=(17,1), 
-                            font=("Helvetica", 12)), 
+                            font=("Helvetica", 16)), 
                             ],
 
                         
@@ -511,6 +544,8 @@ tenses_tab_column_center = sg.Column([
                             #header
                             [sg.Text("present simple",
                             key="present_simple",
+                            font = ("helvetica",16),
+
                             enable_events=True,
                             tooltip='Present Simple - I usually build commercial buildings.',
                             )],
@@ -518,6 +553,7 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Text("present continuous",
                             key="present_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip='Present Continuous - It is Monday morning and I am building a wall.',
                             )],
@@ -525,6 +561,7 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Text("present perfect",
                             key="present_perfect",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip='Present Perfect Simple - I have already built two shopping centers this year.',                            
                             )],
@@ -532,21 +569,19 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Text("present perfect continuous",
                             key="present_perfect_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
                             )],
 
                             [sg.Multiline('\U0001F934', 
                             key= "text2a",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)) 
+                            font=("Helvetica", 16)) 
                             ],
 
-                            # [sg.Text('\U0001F934', 
-                            # key= "text2a",
-                            # size=(17,1), 
-                            # font=("Helvetica", 12)) 
-                            # ],
+                           
 
                             [sg.Image(filename="",
                             key='canvas2a')
@@ -554,7 +589,8 @@ tenses_tab_column_center = sg.Column([
                             
                             [sg.Multiline('\u0394', 
                             key= "text2b",size=(17,1), 
-                            font=("Helvetica", 12)), 
+                            justification = "center",
+                            font=("Helvetica", 16)), 
                             ],
 
                         
@@ -566,28 +602,33 @@ tenses_tab_column_center = sg.Column([
 tenses_tab_column_right = sg.Column([ #header
                             [sg.Text("future simple",
                             key="future_simple",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip="""Future Simple - I think I'll build my own\n house when I can afford to.""",)],
 
                             [sg.Text("future continuous",
                             enable_events=True,
                             key="future_continuous",
+                            font = ("helvetica",16),
                             tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
                             
                             [sg.Text("future perfect",
                             key="future_perfect",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip="""Future Perfect Simple - I hope I will have already built my \nown house by the time I am 40.""")],
                             
                             [sg.Text("future perfect continuous",
                             key="future_perfect_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip="""Future Perfect Continuous - This time next week I will have\n been building this shopping center for two months.""")],
 
                             [sg.Multiline('\u0394', 
                             key= "text3a",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)) 
+                            font=("Helvetica", 16)) 
                             ],
 
                             [sg.Image(filename="",
@@ -596,8 +637,9 @@ tenses_tab_column_right = sg.Column([ #header
                             
                             [sg.Multiline('\u0394', 
                             key= "text3b",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)), 
+                            font=("Helvetica", 16)), 
                             ],
 
                         
@@ -916,7 +958,7 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
 
 layout = [
     
-    #TODO column with image and text 
+    #done column with image and text 
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
@@ -1214,28 +1256,28 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prepare_0.md"))
 
     if event == "change time":
-        now =datetime.date.today().strftime("%Y %B %d")
+        now =datetime.date.today().strftime("%Y %B %d %A")
         window["now_event"].update(now)
         #past
         delta1= random.randint(1,7)
         delta2= random.randint(10,30)
         delta3= random.randint(30,90)
         past3 = datetime.date.today()-datetime.timedelta(delta1)
-        window["past3"].update(past3.strftime("%Y %B %d"))
+        window["past3"].update(past3.strftime("%Y %B %d %A"))
         past2 =  past3 -datetime.timedelta(delta2)
-        window["past2"].update(past2.strftime("%Y %B %d"))
+        window["past2"].update(past2.strftime("%Y %B %d %A"))
         past1 =  past2 -datetime.timedelta(delta3)
-        window["past1"].update(past1.strftime("%Y %B %d"))
+        window["past1"].update(past1.strftime("%Y %B %d %A"))
         #future
         delta1= random.randint(1,7)
         delta2= random.randint(10,30)
         delta3= random.randint(30,90)
         future1 =   datetime.date.today()+datetime.timedelta(delta1)
-        window["future1"].update(future1.strftime("%Y %B %d"))
+        window["future1"].update(future1.strftime("%Y %B %d %A"))
         future2 =   future1 + datetime.timedelta(delta2)
-        window["future2"].update(future2.strftime("%Y %B %d"))
+        window["future2"].update(future2.strftime("%Y %B %d %A"))
         future3 =   future2 + datetime.timedelta(delta3)
-        window["future3"].update(future3.strftime("%Y %B %d"))
+        window["future3"].update(future3.strftime("%Y %B %d %A"))
 
     if event == "randomize events":
         with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
