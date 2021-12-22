@@ -14,6 +14,8 @@ pysimplegui
 # TODO
 - negotiation tab: randomly chosen text should take focus or find a better way to get text to display
 - add license
+<img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
+
 
 # list of tabs
 <img src="/support_images/tabs_22dec.png" alt="Getting started" />

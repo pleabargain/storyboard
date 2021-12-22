@@ -842,9 +842,10 @@ timeline_tab= sg.Tab ("timeline tenses tab",
         #create button
     [
     
-    [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
+    # [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
     [sg.Button("change time"), sg.Button("randomize events"),   ],
-    [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
+    # [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
+    [timeline_column_one,timeline_column_two],
     
 
 
