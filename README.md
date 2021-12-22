@@ -15,14 +15,19 @@ pysimplegui
 - negotiation tab: randomly chosen text should take focus or find a better way to get text to display
 - add license
 
+# list of tabs
+<img src="/support_images/tab_tenses.png" alt="Getting started" />
 
-# tab adj noun reg verb
+# adj noun reg verb tab 
 <img src="/support_images/tab_verbadjnoun.png" alt="Getting started" />
 
 You can edit the source files and hit the reload button and the application will load the new files.
 
 
-# tab tenses
+# pros and cons tab
+<img src="/support_images/pros_cons_tab.png" alt="Getting started" />
+
+# tenses tab 
 <img src="/support_images/tab_tenses.png" alt="Getting started" />
 1. press the shuffle the images button to get random images
    
