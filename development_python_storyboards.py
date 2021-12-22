@@ -1,19 +1,15 @@
 # !/usr/bin/python3
 
 import PySimpleGUI as sg
+from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
+
 import random
 import webbrowser
-
 import datetime
-
-
-
 import os
 import os.path
 
-from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
-# font = ("Arial, 11)
 
 
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
@@ -78,13 +74,15 @@ bargaining_09_list = []
 
   
 postponing_10_list = []
-
   
 concluding_11_list = []
 
-  
 seal_the_deal_12_list = []
 
+
+### pros and cons
+sum_of_pros= 0
+sum_of_cons= 0
 
 
 ### random function
@@ -876,24 +874,73 @@ tab_three = sg.Tab("negotiation",
 timeline_tab= sg.Tab ("timeline tenses tab", 
         #create button
     [
-    # [sg.In(key='-INCAL1-', enable_events=True, visible=False),
-    # sg.Col([[sg.CalendarButton('Change date', 
-    #                             target='-INCAL1-', 
-    #                             pad=None, 
-    #                             key='-CAL1-', 
-    #                             font=fnt, 
-    #                             format=('%Y-%m-%d'))]
+    
     [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
     [sg.Button("change time"), sg.Button("randomize events"),   ],
     [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
-    
-
     
 
 
 
     ])
 ####################
+### pros_cons_tab
+
+pros_cons_tab= sg.Tab ("pros cons", 
+        #create button
+    [
+
+        [sg.Text("?",size=(40,1),key="pros_cons_issues",enable_events=True,font=("helvetica",20)),sg.Button("edit pros cons issues")],
+
+
+[
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
+        ],
+[
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
+        ],
+[
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
+        ],
+[
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
+        ],
+[
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
+        ],
+[
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
+        ],
+        [
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
+        ],
+
+### summary of slider
+        [sg.Text("",size=(44,1)), sg.Text("Sum of pros",justification="left", size= (10,1)), sg.Text("?",key="sum_of_pros"),
+sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)), sg.Text("?",key="sum_of_cons"),
+        ],
+
+### analysis
+        [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save to CSV")],
+        
+
+
+
+    ])
 
 
 
@@ -904,9 +951,9 @@ layout = [
     #TODO column with image and text 
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
-    #TODO use image resizer on images
+    #done use image resizer on images
     
-    [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab]],key="tabgroup")],
+    [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab, pros_cons_tab]],key="tabgroup")],
     
 
     
@@ -918,7 +965,7 @@ window = sg.Window('Development! Learn English with Dennis',
                     
                     layout, 
                     background_color="lightblue",
-                    size = (900,600),
+                    size = (1100,600),
                     location=(2000, 1700),
                     default_element_size=(35, 1), 
                     grab_anywhere=True)
@@ -932,6 +979,18 @@ while True:
     if event == "Open_docs":
         webbrowser.open("https://pysimplegui.readthedocs.io/en/latest/",new=1,autoraise=True )
         # pass
+
+# pros and cons events
+    # fire on all sliders
+    if "slider" in event:
+        sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
+        sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
+        # sg.PopupOK(sum_of_pros)
+        window["sum_of_pros"].update(sum_of_pros)
+        window["sum_of_cons"].update(sum_of_cons)
+
+
+
 # shuffle images
 
     if event == "image_shuffle":
