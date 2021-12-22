@@ -23,20 +23,6 @@ EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdow
 #done load only images with thumbnail in the name
 image_list = []
 
-#list of tenses
-# past_simple
-# past_continuous
-# past_perfect_continuous
-# past_perfect
-# present_simple
-# present_continuous
-# present_perfect_continuous
-# present_perfect
-# future_simple
-# future_continuous
-# future_perfect_continuous
-# future_perfect
-
 
 verbs_list = []
 nouns_list = []
@@ -44,45 +30,26 @@ adjectives_list =[]
 
 #negotiations
 prepare_0_list = []
-
-  
 agenda_01_list = []
-
-  
 making_proposals_02_list = []
-
-  
 suggestions_03_list = []
-
-  
 agreeing_04_list = []
-
-  
 objecting_05_list = []
-
-  
 prioritizing_06_list = []
-
-  
 clarification_07_list = []
-
-  
 compromising_08_list = []
-
-  
 bargaining_09_list = []
-
-  
 postponing_10_list = []
-  
 concluding_11_list = []
-
 seal_the_deal_12_list = []
 
 
 ### pros and cons
 sum_of_pros= 0
 sum_of_cons= 0
+pros_cons_issues = []
+
+
 
 
 ### random function
@@ -154,16 +121,12 @@ def read_list_from_file():
     verbs_list.clear()
     nouns_list.clear()
     adjectives_list.clear()
+    # negotations
     prepare_0_list.clear()      
-    
     agenda_01_list.clear()
-  
     making_proposals_02_list.clear()
-    
     suggestions_03_list.clear()
-    
     agreeing_04_list.clear()
-    
     objecting_05_list.clear()
     
     prioritizing_06_list.clear()
@@ -178,13 +141,15 @@ def read_list_from_file():
     
     concluding_11_list.clear()
     
-    seal_the_deal_12_list.clear()      
+    seal_the_deal_12_list.clear()
+    # pros and cons
+    pros_cons_issues.clear()
     
    
 
       
  
-
+###tenses
     with open("word_lists/verbs.txt") as myfile:
         for line in myfile.readlines():
             verbs_list.append(line.strip())
@@ -194,7 +159,7 @@ def read_list_from_file():
     with open("word_lists/adjectives.txt") as myfile:
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
- ###start negotiations
+###start negotiations
     with open("negotiations_tab/prepare_0.md") as myfile:
         for line in myfile.readlines():
             prepare_0_list.append(line.strip())
@@ -258,8 +223,10 @@ def read_list_from_file():
     with open("negotiations_tab/seal_the_deal_12.md") as myfile:
         for line in myfile.readlines():
             seal_the_deal_12_list.append(line.strip())
-
-
+### start pros and cons
+    with open("pros_cons_tab/pros_cons_events.md") as myfile:
+        for line in myfile.readlines():
+            seal_the_deal_12_list.append(line.strip())
 
 
 # TODO 
@@ -890,7 +857,7 @@ pros_cons_tab= sg.Tab ("pros cons",
         #create button
     [
 
-        [sg.Text("?",size=(40,1),key="pros_cons_issues",enable_events=True,font=("helvetica",20)),sg.Button("edit pros cons issues")],
+        [sg.Text("pros and cons issues goes here",size=(40,1),key="pros_cons_issues",enable_events=True,font=("helvetica",20)),sg.Button("edit pros cons issues")],
 
 
 [
@@ -981,6 +948,20 @@ while True:
         # pass
 
 # pros and cons events
+    #shuffle events
+    if event == "pros_cons_issues":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md") as myfile:
+            lines = myfile.readlines()
+        window["pros_cons_issues"].update(random.choice(lines).strip()  )
+
+
+    #edit items
+    if event == "edit pros cons issues":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md"))
+
+
+
     # fire on all sliders
     if "slider" in event:
         sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]

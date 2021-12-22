@@ -45,7 +45,7 @@ The idea here is that students will work through a negotiation process using som
 All of the items have buttons that will allow you to edit the files in real time.
 
 # timeline tab
-## descrition
+## description
 This tab generates random dates e.g. SUN December 19th
 
 The dates will be from past to present(now) to future
@@ -54,7 +54,7 @@ Random events will be displayed
 
 The teacher instructs the learner to use the time stamp and tell a story with the event.
 
-## pseudo code
+## pseudo code for timeline tab
 load tab
 
 load timestamp function
@@ -72,23 +72,38 @@ if date_field > NOW
 then 
 populate after_now fields
 
-## TODO
-create list of adverbs past
-see /home/dgd/Desktop/EnglishHelpsYourCareer/grammar_adverbs_of_time.md
+# pros and cons tab
+- randomly display issue
+
+- get student response for pro and con
+
+- estimate cost of pro and con
+
+- perform analysis of pro and con
+
+- save all values to file (csv? yaml? ?)
+
+- if teacher wants to reload file again in future, file format is tab friendly
+- 
+## use case 1 pros and cons tab
+1. display issue 'get ice cream'
+2. student describes pro and con issue of get ice cream
+3. teacher records issues
+4. T prompts S for analysis
+   1. If conditionals
+   2. Modal situations
+5. save content to file
 
 
 
-get random events (not time specific)
 
-e.g.
-born
-marry
-car accident
-travel to Africa
-employ
-dine
-marriage
-bike trip
+
+
+## done
+- create list of adverbs past
+see /grammar_adverbs_of_time.md
+
+
 
 # thanks
 Thanks go to Horst Jens who was instrumental in teaching me how to build this application. 

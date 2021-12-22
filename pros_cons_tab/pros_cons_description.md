@@ -24,4 +24,8 @@ issue at hand, "text"
 analysis, "text"
 date, "text"
 
+save document
+
+reload document into tab UI
+
 
