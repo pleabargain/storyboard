@@ -11,9 +11,9 @@ I built it to support my own services. You may use this code as you see fit but 
 
 # DONE
 - negotiation tab: randomly chosen text should take focus or find a better way to get text to display
+- print full DAY in timeline tab = strftime("%Y %B %d %A")
 
 # TODO
-- print full DAY in timeline tab
 - add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 

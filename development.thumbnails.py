@@ -10,13 +10,17 @@ import glob, os
 
 # for infile in glob.glob("*.jpg"):
 # declare full path to the image directory
+
+#TODO create a function call?
+
 for infile in glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/random_images/*.*"):
     file, ext = os.path.splitext(infile)
     print(file,ext)
     #ignore already processed
     if "_thumbnail" in file:
         continue
-    if ext.lower() in [".jpg",".png",".jpeg"]:
+    if ext.lower() in [".jpg",".png",".jpeg",]:
+        # TODO if .svg call SVG parser to convert to png first
         
         with Image.open(infile) as im:
             #change these values to match your file size image need

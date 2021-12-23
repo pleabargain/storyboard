@@ -69,13 +69,16 @@ first visit to the circus
 first visit to the dentist
 first visit to the barber
 first time shaving
-play poker
-play chess
+play poker with professionals
+play chess with a ranked master
 learn to play the piano
 first time living alone
 party with friends
 have a vacation
 get robbed
+learn to box
+buy a gun
+go parachuting
 go on vacation
 go skiing in the Alps
 go to the mountains
