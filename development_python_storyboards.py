@@ -901,37 +901,37 @@ timeline_tab= sg.Tab ("timeline tenses tab",
 
 pros_cons_tab= sg.Tab ("pros cons", 
         #create button
-    [
+        [
 
         [sg.Text("pros and cons issues goes here",size=(40,1),key="pros_cons_issues",enable_events=True,font=("helvetica",20)),sg.Button("edit pros cons issues")],
 
 
-[
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
-        
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
         ],
-[
+    
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
-        
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
         ],
-[
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
         
+        [
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
         ],
-[
+
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
-        
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
         ],
-[
+
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
         
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
         ],
-[
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
         
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
@@ -949,13 +949,9 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
 
 ### analysis
         [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save to CSV")],
-        
-
-
+   
 
     ])
-
-
 
 
 
@@ -967,9 +963,7 @@ layout = [
     #done use image resizer on images
     
     [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab, pros_cons_tab]],key="tabgroup")],
-    
-
-    
+   
 ]
     
 
@@ -1424,43 +1418,31 @@ while True:
 
     if event == "edit agreeing_04":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agreeing_04.md"))
-                
-
 
     if event == "edit objecting_05":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/objecting_05.md"))
-                
-
 
     if event == "edit prioritizing_06":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prioritizing_06.md"))
-                
-
 
     if event == "edit clarification_07":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/clarification_07.md"))
-                
-
 
     if event == "edit compromising_08":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/compromising_08.md"))
-                
-
+           
 
     if event == "edit bargaining_09":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/bargaining_09.md"))
                 
 
-
     if event == "edit postponing_10":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/postponing_10.md"))
                 
 
-
     if event == "edit concluding_11":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/concluding_11.md"))
                 
-
 
     if event == "edit seal_the_deal_12":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md"))
