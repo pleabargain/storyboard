@@ -675,8 +675,6 @@ tab_two= sg.Tab ("tenses tab", [
         sg.Button("idioms"),
         sg.Button("prepositional phrases"),
         sg.Button("phrasal verbs"),
-        
-    
         ],
     
         [
