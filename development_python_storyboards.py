@@ -1018,7 +1018,12 @@ while True:
 
 
 
-# shuffle images
+# tenses tab
+
+    if event == "phrasal verbs":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=1,autoraise=True )
+        
+
 
     if event == "image_shuffle":
         random.shuffle(image_list)
