@@ -3,6 +3,10 @@ This application will help teachers of English deliver dynamic lessons to their 
 
 I built it to support my own services. You may use this code as you see fit but I offer ZERO support.
 
+It's a work in progress. I hope it will be useful to others.
+
+The app should run on any python3 compliant device.
+
 # requirements
 
 - python3
@@ -14,6 +18,7 @@ I built it to support my own services. You may use this code as you see fit but 
 - print full DAY in timeline tab = strftime("%Y %B %d %A")
 
 # TODO
+- there are lots of TODOs in the code. If you want to participate, please do.
 - add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 

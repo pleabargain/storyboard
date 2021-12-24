@@ -668,17 +668,22 @@ tab_one= sg.Tab ("adj noun reg verb", [
 
 tab_two= sg.Tab ("tenses tab", [
         #create button
-    [sg.Button("shuffle the images",
+        [sg.Button("shuffle the images",
                 key = "image_shuffle",
                 ),
    
-    sg.Button("comparatives"),
-    sg.Button("idioms"),
-    sg.Button("prepositional phrases"),
-    sg.Button("conditionals"),
-    sg.Button("modals"),
-
-                ],
+        sg.Button("idioms"),
+        sg.Button("prepositional phrases"),
+        sg.Button("phrasal verbs"),
+        
+    
+        ],
+    
+        [
+        sg.Button("conditionals"),
+        sg.Button("comparatives and superlatives"),
+        sg.Button("modals"),
+        ],
 
 
     [tenses_tab_column_left, tenses_tab_column_center,tenses_tab_column_right],
@@ -1135,7 +1140,7 @@ while True:
         webbrowser.open("https://docs.google.com/spreadsheets/d/1aq_OhW0JRTGNrowS7Q4RCl52cHx7S9Upha7z9VYp-3o/edit?usp=sharing",new=1,autoraise=True )
 
     
-    if event == "comparatives":
+    if event == "comparatives and superlatives":
         webbrowser.open("https://docs.google.com/spreadsheets/d/150r972lV3ogmCmlmpjkHNOoX6tIO26Gd4EYzdfCGUW4/edit?usp=sharing",new=1,autoraise=True )
 
     if event == "idioms":

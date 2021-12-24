@@ -17,6 +17,8 @@ make sushi
 eat oysters
 make homemade beer
 make homemade wine
+first time driving a car
+white water rafting
 build a kit car
 build a kit plane
 fly a drone
