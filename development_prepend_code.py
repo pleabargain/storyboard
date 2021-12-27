@@ -36,7 +36,6 @@ for path, dirc, files in os.walk(folderdir):
 
 # now I need to figure out how to store this list and pass the list to the processing loop
 
-
   
 # Creating a variable and storing
 # the text that we want to search

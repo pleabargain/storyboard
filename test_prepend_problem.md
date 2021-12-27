@@ -1,6 +1,6 @@
 prepend problem
 
-I have 100s of files
+I have 100s SVG of files
 
 each SVG needs to be prepended
 
@@ -16,5 +16,13 @@ and replace with
 
 save the file
 
-go to the next file
+go to the next svg file
+
+when the last svg is processed
+
+convert to png
+then convert new png to
+name_thumbnail.png
+
+
 

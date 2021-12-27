@@ -8,10 +8,10 @@ import webbrowser
 import datetime
 import os
 import os.path
+import csv
 
 
-
-
+selected_topic =""
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
 
@@ -903,7 +903,11 @@ pros_cons_tab= sg.Tab ("pros cons",
         #create button
         [
 
-        [sg.Text("pros and cons issues goes here",size=(40,1),key="pros_cons_issues",enable_events=True,font=("helvetica",20)),sg.Button("edit pros cons issues")],
+        [sg.Text("pros and cons issues goes here",size=(40,1),
+                key="pros_cons_issues",
+                enable_events=True,
+                font=("helvetica",20)),
+                sg.Button("edit pros cons issues")],
 
 
         [
@@ -948,7 +952,7 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save to CSV")],
+        [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save analysis to CSV")],
    
 
     ])
@@ -993,7 +997,8 @@ while True:
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md") as myfile:
             lines = myfile.readlines()
-        window["pros_cons_issues"].update(random.choice(lines).strip()  )
+        selected_topic = random.choice(lines).strip()
+        window["pros_cons_issues"].update(selected_topic)
 
 
     #edit items
@@ -1009,6 +1014,66 @@ while True:
         # sg.PopupOK(sum_of_pros)
         window["sum_of_pros"].update(sum_of_pros)
         window["sum_of_cons"].update(sum_of_cons)
+
+    if event == "save analysis to CSV":
+        #pull name of topic into name of csv into dictionary
+        #pros_cons_issues will have spaces in the file name
+        csv_file_name=selected_topic
+        if len (csv_file_name)==0:
+            sg.PopupError("Name is empty")
+            continue
+        
+            # append the data to the csv 'a'
+        csv_exists = False
+        if os.path.exists(csv_file_name+'.csv'):
+            csv_exists = True
+
+        with open(csv_file_name+'.csv', 'a', newline='') as csvfile:
+        # define field names
+            fieldnames = ['topic', 'analysis', 'pro0text','pro0value','con0text','con0value','pro1text','pro1value','con1text','con1value','pro2text','pro2value','con2text','con2value','pro3text','pro3value','con3text','con3value','pro4text','pro4value','con4text','con4value','pro5text','pro5value','con5text','con5value','pro6text','pro6value','con6text','con6value']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            if  not csv_exists:
+                writer.writeheader()
+            writer.writerow({'topic': selected_topic,
+                            'analysis': values["analysis"],
+                            'pro0text': values['pros_0'] ,
+                            'pro0value': values['slider_pros_0'],
+                            'con0text': values['cons_0'] ,
+                            'con0value': values['slider_cons_0'],
+                            'pro1text': values['pros_1'] ,
+                            'pro1value': values['slider_pros_1'],
+                            'con1text': values['cons_1'] ,
+                            'con1value': values['slider_cons_1'],
+
+                            'pro2text': values['pros_2'] ,
+                            'pro2value': values['slider_pros_2'],
+                            'con2text': values['cons_2'] ,
+                            'con2value': values['slider_cons_2'],
+
+                            'pro3text': values['pros_3'] ,
+                            'pro3value': values['slider_pros_3'],
+                            'con3text': values['cons_3'] ,
+                            'con3value': values['slider_cons_3'],
+
+                            'pro4text': values['pros_4'] ,
+                            'pro4value': values['slider_pros_4'],
+                            'con4text': values['cons_4'] ,
+                            'con4value': values['slider_cons_4'],
+
+                            'pro5text': values['pros_5'] ,
+                            'pro5value': values['slider_pros_5'],
+                            'con5text': values['cons_5'] ,
+                            'con5value': values['slider_cons_5'],
+
+                            'pro6text': values['pros_6'] ,
+                            'pro6value': values['slider_pros_6'],
+                            'con6text': values['cons_6'] ,
+                            'con6value': values['slider_cons_6'],
+
+
+                            })
+
+        sg.PopupOK(f"{csv_file_name}.csv' file written to directory\n{os.getcwd()} dir")
 
 
 
