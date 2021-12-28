@@ -662,8 +662,8 @@ tab_one= sg.Tab ("adj noun reg verb", [
             sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
-            
-            sg.Button("reload"),sg.Button("randomize"),
+            sg.Button("edit verbs list"),sg.Button("edit adjectives list",tooltip="click to randomize"),sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),
+            sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),
         
         ],
     

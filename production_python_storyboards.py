@@ -8,14 +8,14 @@ import webbrowser
 import datetime
 import os
 import os.path
+import csv
 
 
-
-
+selected_topic =""
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
 
-#TODO fix negotiation text so that it shows only the randomly selected text list_box doesn't work
+#done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
 #TODO set text file to open code and local file
 
@@ -99,10 +99,14 @@ def split_filename(original_filename):
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
     list_of_unwanted_words = ["idiom_",
                                 "adjective_",
-                                "noun_clothing_",
+                                "adjective_feeling_",
                                 "noun_animal_",
+                                "noun_body_part_",
+                                "noun_clothing_",
                                 "noun_food_",
+                                "idiom_",
                                 "noun_",
+                                "phrase_",
                                 "verb_"]
 
     #strip the last four chars from the text
@@ -230,9 +234,9 @@ def read_list_from_file():
 
 
 # TODO 
-# try except to make sure the folder exists
-# load the files from the target directory
-# load only images with thumbnail in the name
+# TODO try except to make sure the folder exists
+# TODO load the files from the target directory
+# TODO load only images with thumbnail in the name
 
 for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
    for name in files:
@@ -269,6 +273,8 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 
 timeline_column_one = sg.Column([
                                 [sg.Text("timeline column one",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="past1",
                                 size = (20,2),
                                 enable_events=True,
@@ -276,18 +282,24 @@ timeline_column_one = sg.Column([
 
 ###
                                 [sg.Text("past2 column one",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="past2",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='Past events2')], 
 ###
                                 [sg.Text("past3",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="past3",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='past3 column one')],
 ###
                                 [sg.Text("now column one",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 key="now_event",
                                 size = (20,2),
                                 enable_events=True,
@@ -295,18 +307,24 @@ timeline_column_one = sg.Column([
 ###
                                 [sg.Text("timeline column one",
                                 key="future1",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='future1 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future2",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='future2 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future3",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (20,2),
                                 enable_events=True,
                                 tooltip='future3 event')],
@@ -318,6 +336,8 @@ timeline_column_one = sg.Column([
 timeline_column_two = sg.Column([
                                 [sg.Text("timeline column one",
                                 key="event1",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
@@ -325,36 +345,48 @@ timeline_column_two = sg.Column([
 ###
                                 [sg.Text("past2 column one",
                                 key="event2",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')], 
 ###
                                 [sg.Text("eventpast3",
                                 key="event3",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("now column one",
                                 key="event4",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="event5",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
-                                [sg.Text("timeline column one",
+                                [sg.Text("event 6 timeline column one",
                                 key="event6",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="event7",
+                                font = ("helvetica", 14),
+                                justification = "center",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
@@ -460,36 +492,39 @@ timeline_column_four = sg.Column([
 
 
 
-tenses_tab_column_left = sg.Column([
-                            #header
+tenses_tab_column_left = sg.Column(
+                            [
+                                                     
                             [sg.Text("past simple",
                             key="past_simple",
+                            font = ("helvetica",16),
                             enable_events=True,
-                            
                             tooltip='Past Simple - I built a new garage last month.')],
 
                             [sg.Text("past continuous",
+                            font = ("helvetica",16),
                             key="past_continuous", 
                             enable_events=True,
-
                             tooltip='Past Continuous - I was building a wall yesterday.')],
                             
                             [sg.Text("past perfect",
                             key="past_perfect",
+                            font = ("helvetica",16),
                             enable_events=True,
-
                             tooltip='Past Perfect - By the time my last company went bust we had already built the new shopping center.')],
 
                             [sg.Text("past perfect continuous",
                             key="past_perfect_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip= 'Past Perfect Continuous - We had been building the new\n shopping center for 2 months when we heard about the bankruptcy.'
                             )],
 
                             [sg.Multiline('text', 
                             key= "text1a",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)) 
+                            font=("Helvetica", 16)) 
                             ],
 
                             [sg.Image(filename="",
@@ -498,8 +533,10 @@ tenses_tab_column_left = sg.Column([
 #####################                            
                             [sg.Multiline('text', 
                             key= "text1b",
+                            justification = "center",
+
                             size=(17,1), 
-                            font=("Helvetica", 12)), 
+                            font=("Helvetica", 16)), 
                             ],
 
                         
@@ -511,6 +548,8 @@ tenses_tab_column_center = sg.Column([
                             #header
                             [sg.Text("present simple",
                             key="present_simple",
+                            font = ("helvetica",16),
+
                             enable_events=True,
                             tooltip='Present Simple - I usually build commercial buildings.',
                             )],
@@ -518,6 +557,7 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Text("present continuous",
                             key="present_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip='Present Continuous - It is Monday morning and I am building a wall.',
                             )],
@@ -525,6 +565,7 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Text("present perfect",
                             key="present_perfect",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip='Present Perfect Simple - I have already built two shopping centers this year.',                            
                             )],
@@ -532,21 +573,19 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Text("present perfect continuous",
                             key="present_perfect_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
                             )],
 
                             [sg.Multiline('\U0001F934', 
                             key= "text2a",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)) 
+                            font=("Helvetica", 16)) 
                             ],
 
-                            # [sg.Text('\U0001F934', 
-                            # key= "text2a",
-                            # size=(17,1), 
-                            # font=("Helvetica", 12)) 
-                            # ],
+                           
 
                             [sg.Image(filename="",
                             key='canvas2a')
@@ -554,7 +593,8 @@ tenses_tab_column_center = sg.Column([
                             
                             [sg.Multiline('\u0394', 
                             key= "text2b",size=(17,1), 
-                            font=("Helvetica", 12)), 
+                            justification = "center",
+                            font=("Helvetica", 16)), 
                             ],
 
                         
@@ -566,28 +606,33 @@ tenses_tab_column_center = sg.Column([
 tenses_tab_column_right = sg.Column([ #header
                             [sg.Text("future simple",
                             key="future_simple",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip="""Future Simple - I think I'll build my own\n house when I can afford to.""",)],
 
                             [sg.Text("future continuous",
                             enable_events=True,
                             key="future_continuous",
+                            font = ("helvetica",16),
                             tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
                             
                             [sg.Text("future perfect",
                             key="future_perfect",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip="""Future Perfect Simple - I hope I will have already built my \nown house by the time I am 40.""")],
                             
                             [sg.Text("future perfect continuous",
                             key="future_perfect_continuous",
+                            font = ("helvetica",16),
                             enable_events=True,
                             tooltip="""Future Perfect Continuous - This time next week I will have\n been building this shopping center for two months.""")],
 
                             [sg.Multiline('\u0394', 
                             key= "text3a",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)) 
+                            font=("Helvetica", 16)) 
                             ],
 
                             [sg.Image(filename="",
@@ -596,8 +641,9 @@ tenses_tab_column_right = sg.Column([ #header
                             
                             [sg.Multiline('\u0394', 
                             key= "text3b",
+                            justification = "center",
                             size=(17,1), 
-                            font=("Helvetica", 12)), 
+                            font=("Helvetica", 16)), 
                             ],
 
                         
@@ -616,8 +662,8 @@ tab_one= sg.Tab ("adj noun reg verb", [
             sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
-            
-            sg.Button("reload"),sg.Button("randomize"),
+            sg.Button("edit verbs list"),sg.Button("edit adjectives list",tooltip="click to randomize"),sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),
+            sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),
         
         ],
     
@@ -626,17 +672,20 @@ tab_one= sg.Tab ("adj noun reg verb", [
 
 tab_two= sg.Tab ("tenses tab", [
         #create button
-    [sg.Button("shuffle the images",
+        [sg.Button("shuffle the images",
                 key = "image_shuffle",
                 ),
    
-    sg.Button("comparatives"),
-    sg.Button("idioms"),
-    sg.Button("prepositional phrases"),
-    sg.Button("conditionals"),
-    sg.Button("modals"),
-
-                ],
+        sg.Button("idioms"),
+        sg.Button("prepositional phrases"),
+        sg.Button("phrasal verbs"),
+        ],
+    
+        [
+        sg.Button("conditionals"),
+        sg.Button("comparatives and superlatives"),
+        sg.Button("modals"),
+        ],
 
 
     [tenses_tab_column_left, tenses_tab_column_center,tenses_tab_column_right],
@@ -839,53 +888,56 @@ tab_three = sg.Tab("negotiation",
 
 ####################################3
 timeline_tab= sg.Tab ("timeline tenses tab", 
-        #create button
     [
+      
+        #create button
+        [sg.Button("change time",tooltip="click to change all of the times"), sg.Button("randomize events"),   ],
     
-    [sg.Text('set start date YYYY,DD,MM e.g. 2020, 1, 30', size =(15, 1)), sg.InputText(key="input_user_start_date"),sg.Text('set end date YYYY,DD,MM e.g. 2020, 1, 30', size =(20, 1)), sg.InputText(key="input_user_end_date")],
-    [sg.Button("change time"), sg.Button("randomize events"),   ],
-    [timeline_column_one,timeline_column_two,timeline_column_three,timeline_column_four],
+        [timeline_column_one,timeline_column_two],
     
-
-
-
-    ])
+    ] 
+    )
 ####################
 ### pros_cons_tab
 
 pros_cons_tab= sg.Tab ("pros cons", 
         #create button
-    [
+        [
+            #TODO this TEXT object should be a roll down or similar
+        [sg.Text("pros and cons issues goes here",size=(40,1),
+                key="pros_cons_issues",
+                tooltip = "Click to change this item.",
+                enable_events=True,
+                font=("helvetica",20)),
+                sg.Button("edit pros cons issues",tooltip="click to open editor")],
 
-        [sg.Text("pros and cons issues goes here",size=(40,1),key="pros_cons_issues",enable_events=True,font=("helvetica",20)),sg.Button("edit pros cons issues")],
 
-
-[
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
-        
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
         ],
-[
+    
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
-        
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
         ],
-[
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
         
+        [
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
         ],
-[
+
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
-        
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
         ],
-[
+
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
         
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
         ],
-[
+        [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
         
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
@@ -902,33 +954,27 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save to CSV")],
-        
-
-
+        [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save analysis to CSV")],
+   
 
     ])
 
 
 
-
-
 layout = [
     
-    #TODO column with image and text 
+    #done column with image and text 
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
     
     [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab, pros_cons_tab]],key="tabgroup")],
-    
-
-    
+   
 ]
     
 
 
-window = sg.Window('Production env! Learn English with Dennis', 
+window = sg.Window('Production! Learn English with Dennis', 
                     
                     layout, 
                     background_color="lightblue",
@@ -953,7 +999,8 @@ while True:
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md") as myfile:
             lines = myfile.readlines()
-        window["pros_cons_issues"].update(random.choice(lines).strip()  )
+        selected_topic = random.choice(lines).strip()
+        window["pros_cons_issues"].update(selected_topic)
 
 
     #edit items
@@ -970,9 +1017,78 @@ while True:
         window["sum_of_pros"].update(sum_of_pros)
         window["sum_of_cons"].update(sum_of_cons)
 
+    if event == "save analysis to CSV":
+        #pull name of topic into name of csv into dictionary
+        #pros_cons_issues will have spaces in the file name
+        csv_file_name=selected_topic
+        if len (csv_file_name)==0:
+            sg.PopupError("Name is empty",
+                            location=(2000, 1700),
+                            )
+            continue
+        
+            # append the data to the csv 'a'
+        csv_exists = False
+        if os.path.exists(csv_file_name+'.csv'):
+            csv_exists = True
+
+        with open(csv_file_name+'.csv', 'a', newline='') as csvfile:
+        # define field names
+            fieldnames = ['topic', 'analysis', 'pro0text','pro0value','con0text','con0value','pro1text','pro1value','con1text','con1value','pro2text','pro2value','con2text','con2value','pro3text','pro3value','con3text','con3value','pro4text','pro4value','con4text','con4value','pro5text','pro5value','con5text','con5value','pro6text','pro6value','con6text','con6value']
+            writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+            if  not csv_exists:
+                writer.writeheader()
+            writer.writerow({'topic': selected_topic,
+                            'analysis': values["analysis"],
+                            'pro0text': values['pros_0'] ,
+                            'pro0value': values['slider_pros_0'],
+                            'con0text': values['cons_0'] ,
+                            'con0value': values['slider_cons_0'],
+                            'pro1text': values['pros_1'] ,
+                            'pro1value': values['slider_pros_1'],
+                            'con1text': values['cons_1'] ,
+                            'con1value': values['slider_cons_1'],
+
+                            'pro2text': values['pros_2'] ,
+                            'pro2value': values['slider_pros_2'],
+                            'con2text': values['cons_2'] ,
+                            'con2value': values['slider_cons_2'],
+
+                            'pro3text': values['pros_3'] ,
+                            'pro3value': values['slider_pros_3'],
+                            'con3text': values['cons_3'] ,
+                            'con3value': values['slider_cons_3'],
+
+                            'pro4text': values['pros_4'] ,
+                            'pro4value': values['slider_pros_4'],
+                            'con4text': values['cons_4'] ,
+                            'con4value': values['slider_cons_4'],
+
+                            'pro5text': values['pros_5'] ,
+                            'pro5value': values['slider_pros_5'],
+                            'con5text': values['cons_5'] ,
+                            'con5value': values['slider_cons_5'],
+
+                            'pro6text': values['pros_6'] ,
+                            'pro6value': values['slider_pros_6'],
+                            'con6text': values['cons_6'] ,
+                            'con6value': values['slider_cons_6'],
 
 
-# shuffle images
+                            })
+
+        sg.PopupOK(f"{csv_file_name}.csv' file written to directory\n{os.getcwd()} dir",
+                    location=(2000, 1700),
+                    )
+
+
+
+# tenses tab
+
+    if event == "phrasal verbs":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=1,autoraise=True )
+        
+
 
     if event == "image_shuffle":
         random.shuffle(image_list)
@@ -1092,7 +1208,7 @@ while True:
         webbrowser.open("https://docs.google.com/spreadsheets/d/1aq_OhW0JRTGNrowS7Q4RCl52cHx7S9Upha7z9VYp-3o/edit?usp=sharing",new=1,autoraise=True )
 
     
-    if event == "comparatives":
+    if event == "comparatives and superlatives":
         webbrowser.open("https://docs.google.com/spreadsheets/d/150r972lV3ogmCmlmpjkHNOoX6tIO26Gd4EYzdfCGUW4/edit?usp=sharing",new=1,autoraise=True )
 
     if event == "idioms":
@@ -1213,28 +1329,28 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prepare_0.md"))
 
     if event == "change time":
-        now =datetime.date.today().strftime("%Y %B %d")
+        now =datetime.date.today().strftime("%Y %B %d %A")
         window["now_event"].update(now)
         #past
-        delta1= random.randint(1,7)
-        delta2= random.randint(10,30)
-        delta3= random.randint(30,90)
+        delta1= random.randint(1,370)
+        delta2= random.randint(10,300)
+        delta3= random.randint(30,390)
         past3 = datetime.date.today()-datetime.timedelta(delta1)
-        window["past3"].update(past3.strftime("%Y %B %d"))
+        window["past3"].update(past3.strftime("%Y %B %d %A"))
         past2 =  past3 -datetime.timedelta(delta2)
-        window["past2"].update(past2.strftime("%Y %B %d"))
+        window["past2"].update(past2.strftime("%Y %B %d %A"))
         past1 =  past2 -datetime.timedelta(delta3)
-        window["past1"].update(past1.strftime("%Y %B %d"))
+        window["past1"].update(past1.strftime("%Y %B %d %A"))
         #future
-        delta1= random.randint(1,7)
-        delta2= random.randint(10,30)
-        delta3= random.randint(30,90)
+        delta1= random.randint(1,600)
+        delta2= random.randint(10,390)
+        delta3= random.randint(30,690)
         future1 =   datetime.date.today()+datetime.timedelta(delta1)
-        window["future1"].update(future1.strftime("%Y %B %d"))
+        window["future1"].update(future1.strftime("%Y %B %d %A"))
         future2 =   future1 + datetime.timedelta(delta2)
-        window["future2"].update(future2.strftime("%Y %B %d"))
+        window["future2"].update(future2.strftime("%Y %B %d %A"))
         future3 =   future2 + datetime.timedelta(delta3)
-        window["future3"].update(future3.strftime("%Y %B %d"))
+        window["future3"].update(future3.strftime("%Y %B %d %A"))
 
     if event == "randomize events":
         with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
@@ -1373,43 +1489,31 @@ while True:
 
     if event == "edit agreeing_04":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agreeing_04.md"))
-                
-
 
     if event == "edit objecting_05":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/objecting_05.md"))
-                
-
 
     if event == "edit prioritizing_06":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prioritizing_06.md"))
-                
-
 
     if event == "edit clarification_07":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/clarification_07.md"))
-                
-
 
     if event == "edit compromising_08":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/compromising_08.md"))
-                
-
+           
 
     if event == "edit bargaining_09":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/bargaining_09.md"))
                 
 
-
     if event == "edit postponing_10":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/postponing_10.md"))
                 
 
-
     if event == "edit concluding_11":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/concluding_11.md"))
                 
-
 
     if event == "edit seal_the_deal_12":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md"))
