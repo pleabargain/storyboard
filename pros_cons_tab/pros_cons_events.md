@@ -10,6 +10,8 @@ work from home
 use a standing desk
 birth of first child
 become a vegetarian
+go to the gym
+lose weight
 birth of second child
 buy an apartment
 Football Champion 
