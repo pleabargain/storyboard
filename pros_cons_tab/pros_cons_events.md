@@ -1,8 +1,15 @@
 start building a new house
 Rammstein Concert
 move from my home town
-born
+buy
+buy an Xbox
+to get certified in Kubernetes
+buy a PS5
+get drunk with your mother-in-law
+work from home
+use a standing desk
 birth of first child
+become a vegetarian
 birth of second child
 buy an apartment
 Football Champion 
@@ -22,11 +29,14 @@ build a kit plane
 fly a drone
 parachute from a plane
 buy a car
+get vaccines updated
 car accident
 buy a Christmas tree
 decorate a Christmas tree
-to marry
+to get married
 to donate blood
+go on vacation in Egypt
+make a wish board
 to plant a tree
 to rent a car
 to have surgery
@@ -65,15 +75,15 @@ first kiss
 first love
 first smart phone
 first snow
-first visit to the circus
-first visit to the dentist
-first visit to the barber
+work in the circus
+visit the circus
+visit the dentist
+visit the barber
 first time shaving
 play poker with professionals
 play chess with a ranked master
 learn to play the piano
-first time living alone
-party with friends
+live alone
 have a vacation
 get robbed
 learn to box

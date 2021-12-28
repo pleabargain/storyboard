@@ -99,10 +99,14 @@ def split_filename(original_filename):
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
     list_of_unwanted_words = ["idiom_",
                                 "adjective_",
-                                "noun_clothing_",
+                                "adjective_feeling_",
                                 "noun_animal_",
+                                "noun_body_part_",
+                                "noun_clothing_",
                                 "noun_food_",
+                                "idiom_",
                                 "noun_",
+                                "phrase_",
                                 "verb_"]
 
     #strip the last four chars from the text
@@ -902,12 +906,13 @@ timeline_tab= sg.Tab ("timeline tenses tab",
 pros_cons_tab= sg.Tab ("pros cons", 
         #create button
         [
-
+            #TODO this TEXT object should be a roll down or similar
         [sg.Text("pros and cons issues goes here",size=(40,1),
                 key="pros_cons_issues",
+                tooltip = "Click to change this item.",
                 enable_events=True,
                 font=("helvetica",20)),
-                sg.Button("edit pros cons issues")],
+                sg.Button("edit pros cons issues",tooltip="click to open editor")],
 
 
         [
@@ -1020,7 +1025,9 @@ while True:
         #pros_cons_issues will have spaces in the file name
         csv_file_name=selected_topic
         if len (csv_file_name)==0:
-            sg.PopupError("Name is empty")
+            sg.PopupError("Name is empty",
+                            location=(2000, 1700),
+)
             continue
         
             # append the data to the csv 'a'
@@ -1073,7 +1080,9 @@ while True:
 
                             })
 
-        sg.PopupOK(f"{csv_file_name}.csv' file written to directory\n{os.getcwd()} dir")
+        sg.PopupOK(f"{csv_file_name}.csv' file written to directory\n{os.getcwd()} dir",
+                    location=(2000, 1700),
+                    )
 
 
 
