@@ -7,7 +7,7 @@
    viewBox="0 0 297 210"
    version="1.1"
    id="svg5"
-   inkscape:version="1.1 (c4e8f9e, 2021-05-24)"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
    sodipodi:docname="grammar_tracker_tabdrawing.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="0.53094837"
-     inkscape:cx="829.64752"
-     inkscape:cy="528.29995"
+     inkscape:zoom="1.0618967"
+     inkscape:cx="428.94943"
+     inkscape:cy="241.54891"
      inkscape:window-width="1240"
      inkscape:window-height="736"
      inkscape:window-x="1406"
@@ -44,7 +44,11 @@
        width="32.616409"
        height="8.6403999"
        x="56.163853"
-       y="26.083241" />
+       y="26.083241"
+       onmouseover="test">
+      <desc
+         id="desc10171">test</desc>
+    </rect>
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.62324;stroke-linejoin:round"
        id="rect53-60"
@@ -89,74 +93,46 @@
        y="82.569786" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
-       id="rect53-6-5"
-       width="32.616409"
-       height="8.6403999"
-       x="56.571049"
-       y="92.756729" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
-       id="rect53-3-7-6"
-       width="32.616409"
-       height="8.6403999"
-       x="56.756554"
-       y="103.66108" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
-       id="rect53-2"
-       width="32.616409"
-       height="8.6403999"
-       x="56.110603"
-       y="120.76665" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
-       id="rect53-3-9"
-       width="32.616409"
-       height="8.6403999"
-       x="56.296112"
-       y="131.67101" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
        id="rect53-6-1"
        width="32.616409"
        height="8.6403999"
-       x="56.455257"
-       y="141.85793" />
+       x="56.411903"
+       y="91.21019" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
        id="rect53-3-7-2"
        width="32.616409"
        height="8.6403999"
-       x="56.640766"
-       y="152.76228" />
+       x="56.597412"
+       y="102.11455" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
        id="rect53-5-7"
        width="32.616409"
        height="8.6403999"
-       x="56.173149"
-       y="166.34882" />
+       x="56.129795"
+       y="115.70108" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
        id="rect53-3-3-0"
        width="32.616409"
        height="8.6403999"
-       x="56.358654"
-       y="177.25319" />
+       x="56.3153"
+       y="126.60545" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
        id="rect53-6-5-9"
        width="32.616409"
        height="8.6403999"
-       x="56.517803"
-       y="187.44014" />
+       x="56.474449"
+       y="136.7924" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
        id="rect53-3-7-6-3"
        width="32.616409"
        height="8.6403999"
-       x="56.7033"
-       y="198.34448" />
+       x="56.659946"
+       y="147.69675" />
     <text
        xml:space="preserve"
        style="font-size:12.7px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.3175;stroke-linejoin:round"
@@ -202,15 +178,15 @@
     <text
        xml:space="preserve"
        style="font-size:14.0015px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.350037;stroke-linejoin:round"
-       x="4.9712434"
-       y="240.81651"
+       x="4.9341097"
+       y="181.68486"
        id="text9112-1"
        transform="scale(1.1675082,0.85652503)"><tspan
          sodipodi:role="line"
          id="tspan9110-8"
          style="stroke-width:0.350037"
-         x="4.9712434"
-         y="240.81651">issue1</tspan></text>
+         x="4.9341097"
+         y="181.68486">issue1</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:12.7px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.3175;stroke-linejoin:round"
@@ -228,7 +204,9 @@
        x="137.57372"
        y="22.180626"
        id="text24196"
-       transform="scale(0.68796484,1.4535627)"><tspan
+       transform="scale(0.68796484,1.4535627)"><title
+         id="title11389">sliders</title><desc
+         id="desc11387">add up scores</desc><tspan
          sodipodi:role="line"
          id="tspan24194"
          style="stroke-width:0.126178"
@@ -242,19 +220,19 @@
     <text
        xml:space="preserve"
        style="font-size:5.69084px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.142271;stroke-linejoin:round"
-       x="145.18002"
-       y="132.01939"
+       x="145.1129"
+       y="99.309631"
        id="text24196-7"
-       transform="scale(0.64582876,1.5483981)"><tspan
+       transform="scale(0.64582875,1.5483981)"><tspan
          sodipodi:role="line"
          id="tspan24194-9"
          style="stroke-width:0.142271"
-         x="145.18002"
-         y="132.01939">0-9 slider</tspan><tspan
+         x="145.1129"
+         y="99.309631">0-9 slider</tspan><tspan
          sodipodi:role="line"
          style="stroke-width:0.142271"
-         x="145.18002"
-         y="138.9053"
+         x="145.1129"
+         y="106.19554"
          id="tspan24198-2" /></text>
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
@@ -300,74 +278,53 @@
        y="81.974052" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
-       id="rect53-6-5-2"
-       width="26.752825"
-       height="8.3057013"
-       x="188.46925"
-       y="91.766388" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
-       id="rect53-3-7-6-2"
-       width="26.752825"
-       height="8.3057013"
-       x="188.62141"
-       y="102.24834" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
-       id="rect53-2-8"
-       width="26.752825"
-       height="8.3057013"
-       x="188.09158"
-       y="118.69129" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
-       id="rect53-3-9-9"
-       width="26.752825"
-       height="8.3057013"
-       x="188.24374"
-       y="129.17326" />
-    <rect
-       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
        id="rect53-6-1-7"
        width="26.752825"
        height="8.3057013"
-       x="188.37428"
-       y="138.96558" />
+       x="188.33093"
+       y="88.317841" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
        id="rect53-3-7-2-3"
        width="26.752825"
        height="8.3057013"
-       x="188.52644"
-       y="149.44754" />
+       x="188.48309"
+       y="98.799805" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
        id="rect53-5-7-6"
        width="26.752825"
        height="8.3057013"
-       x="188.14288"
-       y="162.50777" />
+       x="188.09953"
+       y="111.86003" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
        id="rect53-3-3-0-1"
        width="26.752825"
        height="8.3057013"
-       x="188.29504"
-       y="172.98975" />
+       x="188.25169"
+       y="122.34201" />
+    <rect
+       style="fill:#dcdcdc;stroke:#10101c;stroke-width:1.96445;stroke-linejoin:round"
+       id="rect53-3-3-0-1-6"
+       width="222.7724"
+       height="32.866779"
+       x="12.394685"
+       y="167.64842" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
        id="rect53-6-5-9-2"
        width="26.752825"
        height="8.3057013"
-       x="188.42558"
-       y="182.78209" />
+       x="188.38223"
+       y="132.13435" />
     <rect
        style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.34222;stroke-linejoin:round"
        id="rect53-3-7-6-3-9"
        width="26.752825"
        height="8.3057013"
-       x="188.57773"
-       y="193.26404" />
+       x="188.53438"
+       y="142.6163" />
     <text
        xml:space="preserve"
        style="font-size:12.4326px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.310815;stroke-linejoin:round"
@@ -383,15 +340,27 @@
     <text
        xml:space="preserve"
        style="font-size:12.4326px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.310815;stroke-linejoin:round"
-       x="136.14624"
-       y="216.63971"
+       x="136.10605"
+       y="162.01797"
        id="text9112-1-9"
-       transform="scale(1.0784636,0.92724503)"><tspan
+       transform="scale(1.0784636,0.92724502)"><tspan
          sodipodi:role="line"
          id="tspan9110-8-4"
          style="stroke-width:0.310815"
-         x="136.14624"
-         y="216.63971">issue1</tspan></text>
+         x="136.10605"
+         y="162.01797">issue1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:12.4326px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.310815;stroke-linejoin:round"
+       x="98.835297"
+       y="177.63615"
+       id="text9112-1-9-7"
+       transform="scale(1.0784636,0.92724502)"><tspan
+         sodipodi:role="line"
+         id="tspan9110-8-4-5"
+         style="stroke-width:0.310815"
+         x="98.835297"
+         y="177.63615">instructor notes</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:11.277px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.281924;stroke-linejoin:round"
@@ -423,20 +392,40 @@
          id="tspan24198-0" /></text>
     <text
        xml:space="preserve"
-       style="font-size:8.92406px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.223102;stroke-linejoin:round"
-       x="229.03322"
-       y="190.86264"
+       style="font-size:6.36542px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.159136;stroke-linejoin:round"
+       x="287.58051"
+       y="112.94284"
        id="text24196-7-3"
-       transform="scale(0.95533383,1.0467545)"><tspan
+       transform="scale(0.76107949,1.3139232)"><tspan
          sodipodi:role="line"
          id="tspan24194-9-6"
-         style="stroke-width:0.223102"
-         x="229.03322"
-         y="190.86264">0-9 slider</tspan><tspan
+         style="stroke-width:0.159136"
+         x="287.58051"
+         y="112.94284">0-9 slider</tspan><tspan
          sodipodi:role="line"
-         style="stroke-width:0.223102"
-         x="229.03322"
-         y="201.66075"
+         style="stroke-width:0.159136"
+         x="287.58051"
+         y="120.645"
          id="tspan24198-2-1" /></text>
+    <rect
+       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
+       id="rect53-2-3"
+       width="32.616409"
+       height="8.6403999"
+       x="255.03186"
+       y="192.31522" />
+    <text
+       xml:space="preserve"
+       style="font-size:6.90426px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.172607"
+       x="339.22327"
+       y="150.73018"
+       id="text1246"
+       transform="scale(0.75265753,1.3286255)"><title
+         id="title11385">{student_name}_score</title><tspan
+         sodipodi:role="line"
+         id="tspan1244"
+         style="stroke-width:0.172607"
+         x="339.22327"
+         y="150.73018">save to csv</tspan></text>
   </g>
 </svg>
