@@ -121,6 +121,7 @@ def split_filename(original_filename):
                                 "idiom_",
                                 "noun_",
                                 "phrase_",
+                                "weather_",
                                 "verb_"]
 
     #strip the last four chars from the text
@@ -286,60 +287,61 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 #                           ])
 
 timeline_column_one = sg.Column([
+                                [sg.Button("change time",tooltip="click to change all of the times")], 
                                 [sg.Text("timeline column one",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 key="past1",
-                                size = (20,2),
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='Past events1')],
 
 ###
                                 [sg.Text("past2 column one",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 key="past2",
-                                size = (20,2),
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='Past events2')], 
 ###
                                 [sg.Text("past3",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 key="past3",
-                                size = (20,2),
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='past3 column one')],
 ###
                                 [sg.Text("now column one",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 key="now_event",
-                                size = (20,2),
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='now column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future1",
-                                font = ("helvetica", 14),
-                                justification = "center",
-                                size = (20,2),
+                                font = ("helvetica", 12),
+                                justification = "left",
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='future1 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future2",
-                                font = ("helvetica", 14),
-                                justification = "center",
-                                size = (20,2),
+                                font = ("helvetica", 12),
+                                justification = "left",
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='future2 event')],
 ###
                                 [sg.Text("timeline column one",
                                 key="future3",
-                                font = ("helvetica", 14),
-                                justification = "center",
-                                size = (20,2),
+                                font = ("helvetica", 12),
+                                justification = "left",
+                                size = (30,2),
                                 enable_events=True,
                                 tooltip='future3 event')],
 
@@ -348,10 +350,11 @@ timeline_column_one = sg.Column([
 
 
 timeline_column_two = sg.Column([
+                                [sg.Button("edit timeline events") ],
                                 [sg.Text("timeline column one",
                                 key="event1",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
@@ -359,48 +362,48 @@ timeline_column_two = sg.Column([
 ###
                                 [sg.Text("past2 column one",
                                 key="event2",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')], 
 ###
                                 [sg.Text("eventpast3",
                                 key="event3",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("now column one",
                                 key="event4",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="event5",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("event 6 timeline column one",
                                 key="event6",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="event7",
-                                font = ("helvetica", 14),
-                                justification = "center",
+                                font = ("helvetica", 12),
+                                justification = "left",
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
@@ -409,8 +412,11 @@ timeline_column_two = sg.Column([
 
 
 timeline_column_three = sg.Column([
+                                [sg.Button("edit adverbs of time phrases") ],
                                 [sg.Text("timeline column one",
                                 key="adverb1",
+                                font = ("helvetica", 12),
+
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip for adverb1')],
@@ -418,6 +424,7 @@ timeline_column_three = sg.Column([
 ###
                                 [sg.Text("past2 column one",
                                 key="adverb2",
+                                font = ("helvetica", 12),
                                 size = (30,2),
                                 enable_events=True,
                                 tooltip='This is a tool tip for adverb2')], 
@@ -425,32 +432,37 @@ timeline_column_three = sg.Column([
                                 [sg.Text("eventpast3",
                                 key="adverb3",
                                 size = (30,2),
+                                font = ("helvetica", 12),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("now column one",
                                 key="adverb4",
                                 size = (30,2),
+                                font = ("helvetica", 12),
                                 enable_events=True,
                                 tooltip='This is a tool tip timeline column one')],
 ###
                                 [sg.Text("timeline column one",
                                 key="adverb5",
                                 size = (30,2),
+                                font = ("helvetica", 12),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='This is a tool tip for adverb5')],
 ###
                                 [sg.Text("timeline column one",
                                 key="adverb6",
                                 size = (30,2),
+                                font = ("helvetica", 12),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='This is a tool tip for adverb6')],
 ###
                                 [sg.Text("timeline column one",
                                 key="adverb7",
                                 size = (30,2),
+                                font = ("helvetica", 12),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='This is a tool tip for adverb7')],
 
                                 ])
 
@@ -685,7 +697,7 @@ tab_one= sg.Tab ("adj noun reg verb", [
 
     )
 
-tab_two= sg.Tab ("tenses tab", [
+storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         #create button
         [sg.Button("shuffle the images",
                 key = "image_shuffle",
@@ -710,7 +722,7 @@ tab_two= sg.Tab ("tenses tab", [
 #### negotiation TAB
 #TODO add edit button so I can quickly go in and add entries
 
-tab_three = sg.Tab("negotiation",
+negotiation_tab_three = sg.Tab("negotiation",
 [
         
 [
@@ -906,9 +918,9 @@ timeline_tab= sg.Tab ("timeline tenses tab",
     [
       
         #create button
-        [sg.Button("change time",tooltip="click to change all of the times"), sg.Button("randomize events"),   ],
+        [sg.Button("randomize timeline events"), sg.Button("randomize timeline events"),sg.Button("randomize timeline events"),  ],
     
-        [timeline_column_one,timeline_column_two],
+        [timeline_column_one,timeline_column_two, timeline_column_three],
     
     ] 
     )
@@ -969,7 +981,7 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 956 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
+        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 983 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
    
 
     ])
@@ -983,13 +995,13 @@ layout = [
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
     [sg.Text("student name:"),sg.InputText("student_name",key="student_name",tooltip="student_name goes here",justification="top")],
-    [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab, pros_cons_tab]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab]],key="tabgroup"),],
    
 ]
     
 
 
-window = sg.Window('Production '+ datetime.date.today().strftime("%Y %B %d %A") + ' Learn English with Dennis', 
+window = sg.Window('Production '+ datetime.date.today().strftime("%Y %B %d %A") + ' Dennis Helps Your Career with English', 
                     
                     layout, 
                     background_color="lightblue",
@@ -1398,7 +1410,7 @@ while True:
         future3 =   future2 + datetime.timedelta(delta3)
         window["future3"].update(future3.strftime("%Y %B %d %A"))
 
-    if event == "randomize events":
+    if event == "randomize timeline events":
         with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md") as myfile:
             lines = myfile.readlines()
         random.shuffle(lines)

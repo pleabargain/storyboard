@@ -104,7 +104,9 @@ visit my grandmother's birthplace
 visit the opera
 watch a lunar eclipse
 watch a solar eclipse
-watched a rocket launch
+watch the tide go out
+watch the tide come in
+watch a rocket launch
 white water rafting
 win a competition
 win a contest

@@ -917,7 +917,7 @@ timeline_tab= sg.Tab ("timeline tenses tab",
     [
       
         #create button
-        [sg.Button("randomize timeline events"),   ],
+        [sg.Button("randomize timeline events"), sg.Button("randomize timeline events"),sg.Button("randomize timeline events"),  ],
     
         [timeline_column_one,timeline_column_two, timeline_column_three],
     
@@ -980,13 +980,77 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 956 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
+        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 983 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
    
 
     ])
 
 
 
+grammar_tracker_tab= sg.Tab ("grammar tracker", 
+        #create button
+        [
+            #TODO this TEXT object should be a roll down or similar
+        [sg.Text("Grammar issues",size=(40,1),
+                # key="pros_cons_issues",
+                tooltip = "nothing to Click to change this item.",
+                enable_events=False,
+                font=("helvetica",20)),
+                sg.Button("edit common errors file",tooltip="click to open editor")],
+
+
+        [
+        sg.Text('articles',auto_size_text = True, size =(10, 1)), sg.InputText(key="articles_error",size=(40,2)), sg.Slider(enable_events=True,key= "slider_articles_error", orientation = "horizontal",size = (6,10),),
+        sg.Text('conditionals', size =(10, 1)), sg.InputText(key="conditionals_error",size=(40,2)), sg.Slider(enable_events=True,key= "slider_conditionals_error", orientation = "horizontal",size = (6,10),),
+        ],
+    
+        [
+        sg.Text('modals', size =(10, 1)), sg.InputText(key="modals_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_modals", orientation = "horizontal",size = (6,10),),
+        sg.Text('connecting words', size=(None, None)), sg.InputText(key="connecting_words_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_connecting_words", orientation = "horizontal",size = (6,10),),
+        ],
+        
+        [
+        sg.Text('passive voice', size=(None, None)), sg.InputText(key="passive_voice_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_passive_voice", orientation = "horizontal",size = (6,10),),
+        sg.Text('prepositions', size=(None, None)), sg.InputText(key="prepositions_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_prepositions", orientation = "horizontal",size = (6,10),),
+        ],
+
+        [
+        sg.Text('comparatives and superlatives', size=(12, 1)), sg.InputText(key="comparatives_and_superlatives_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_comparatives_and_superlatives", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros and cons', size=(None, None)), sg.InputText(key="pros_and_cons",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_and_cons_error", orientation = "horizontal",size = (6,10),),
+        ],
+
+        [
+        sg.Text('phrasal verbs', size =(10, 1)), sg.InputText(key="phrasal_verbs_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_phrasal_verbs", orientation = "horizontal",size = (6,10),),
+        sg.Text('irregular verbs', size=(None, None)), sg.InputText(key="irregular_verbs_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_irregular_verbs", orientation = "horizontal",size = (6,10),),
+        ],
+        [
+        sg.Text('pronunciation', size =(10, 1)), sg.InputText(key="pronunciation_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pronunciation", orientation = "horizontal",size = (6,10),),
+        sg.Text('questions', size =(10, 1)), sg.InputText(key="questions_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_questions", orientation = "horizontal",size = (6,10),),
+        ],
+        # [
+        # sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
+        
+        # sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
+        # ],
+
+### summary of slider
+        [
+        sg.Text("performance sum",justification="right", size=(10,1)), sg.Text("?",key="performance sum"),
+        ],
+
+### analysis
+        [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline on line 1042 of the code",font =("helvetica", 14)), sg.Button("save grammar analysis to CSV",tooltip="TODO add student name to file save")],
+   
+
+    ])
+
+
+
+
+
+
+
+### layout
 layout = [
     
     #done column with image and text 
@@ -994,7 +1058,7 @@ layout = [
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
     [sg.Text("student name:"),sg.InputText("student_name",key="student_name",tooltip="student_name goes here",justification="top")],
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
