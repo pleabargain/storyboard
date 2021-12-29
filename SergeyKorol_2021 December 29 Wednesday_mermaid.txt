@@ -1,0 +1,50 @@
+expect brave job
+#mermaid
+Q: 
+A: I expect them to do a brave job.
+Q: 
+A:
+Q: 
+A:
+
+---
+see troubled study
+#mermaid
+Q: 
+A: As I see, the study troubled all of them.
+Q: 
+A:
+Q: 
+A:
+
+---
+consider lovely side
+#mermaid
+Q: 
+A: Let's consider this task from my side.
+Q: 
+A:
+Q: 
+A:
+
+---
+track slippery government
+#mermaid
+Q: 
+A: Our organization has been trying to track our very slippery government's activities.
+Q: 
+A:
+Q: 
+A:
+
+---
+walk perfect street
+#mermaid
+Q: 
+A: I was walking on the street when I saw the perfect woman!
+Q: 
+A:
+Q: 
+A:
+
+---

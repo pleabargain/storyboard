@@ -105,6 +105,13 @@ tender
 tense
 terrible
 flabby
+fine
+yellow
+red
+tight
+loose 
+black
+low
 chubby
 fat
 rotund

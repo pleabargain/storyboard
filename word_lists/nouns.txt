@@ -40,6 +40,13 @@ program
 error
 sentence
 option
+table
+insect
+animal
+street
+rock
+stone
+mushroom
 delivery
 constraint
 question

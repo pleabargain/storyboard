@@ -97,12 +97,17 @@ tell
 test
 think
 track
+slip
 try
 turn
+jump
+follow
 type
 understand
 use
+mumble
 wait
+repeat
 walk
 want
 watch

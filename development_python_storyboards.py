@@ -1035,10 +1035,12 @@ grammar_tracker_tab= sg.Tab ("grammar tracker",
 
 ### summary of slider
         [
+        #TODO add up all the sliders
         sg.Text("performance sum",justification="right", size=(10,1)), sg.Text("?",key="performance sum"),
         ],
 
 ### analysis
+        #TODO whatever is typed in the SG.inputtext goes into the sg.multiline
         [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline on line 1042 of the code",font =("helvetica", 14)), sg.Button("save grammar analysis to CSV",tooltip="TODO add student name to file save")],
    
 
@@ -1068,7 +1070,8 @@ window = sg.Window('Development '+ datetime.date.today().strftime("%Y %B %d %A")
                     
                     layout, 
                     background_color="lightblue",
-                    size = (1100,600),
+                    size = (1100,650),
+                    
                     location=(2000, 1700),
                     default_element_size=(35, 1), 
                     grab_anywhere=True)
