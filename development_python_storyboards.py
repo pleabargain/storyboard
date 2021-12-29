@@ -171,7 +171,7 @@ def read_list_from_file():
     with open("word_lists/verbs.txt") as myfile:
         for line in myfile.readlines():
             verbs_list.append(line.strip())
-    with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.md") as myfile:
+    with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.txt") as myfile:
         for line in myfile.readlines():
             nouns_list.append(line.strip())
     with open("word_lists/adjectives.txt") as myfile:
