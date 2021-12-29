@@ -23,9 +23,9 @@
      inkscape:pagecheckerboard="0"
      inkscape:document-units="mm"
      showgrid="false"
-     inkscape:zoom="1.0618967"
-     inkscape:cx="428.94943"
-     inkscape:cy="241.54891"
+     inkscape:zoom="0.53094835"
+     inkscape:cx="492.51495"
+     inkscape:cy="353.14169"
      inkscape:window-width="1240"
      inkscape:window-height="736"
      inkscape:window-x="1406"
@@ -204,7 +204,7 @@
        x="137.57372"
        y="22.180626"
        id="text24196"
-       transform="scale(0.68796484,1.4535627)"><title
+       transform="scale(0.68796482,1.4535627)"><title
          id="title11389">sliders</title><desc
          id="desc11387">add up scores</desc><tspan
          sodipodi:role="line"
@@ -217,6 +217,25 @@
          x="137.57372"
          y="28.287617"
          id="tspan24198" /></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.0471px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.126178;stroke-linejoin:round"
+       x="137.25052"
+       y="43.138985"
+       id="text24196-3"
+       transform="scale(0.68796482,1.4535627)"><title
+         id="title11389-6">sliders</title><desc
+         id="desc11387-7">add up scores</desc><tspan
+         sodipodi:role="line"
+         id="tspan24194-53"
+         style="stroke-width:0.126178"
+         x="137.25052"
+         y="43.138985">0-9 slider</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.126178"
+         x="137.25052"
+         y="49.245975"
+         id="tspan24198-5" /></text>
     <text
        xml:space="preserve"
        style="font-size:5.69084px;line-height:121%;font-family:'Liberation Sans';-inkscape-font-specification:'Liberation Sans';writing-mode:lr-tb;fill:#000000;stroke:#10101c;stroke-width:0.142271;stroke-linejoin:round"
@@ -427,5 +446,25 @@
          style="stroke-width:0.172607"
          x="339.22327"
          y="150.73018">save to csv</tspan></text>
+    <rect
+       style="fill:#dcdcdc;stroke:#10101c;stroke-width:0.385405;stroke-linejoin:round"
+       id="rect53-3-7-6"
+       width="32.616409"
+       height="8.6403999"
+       x="253.42448"
+       y="141.0276" />
+    <text
+       xml:space="preserve"
+       style="font-size:6.65138px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.166285"
+       x="410.96469"
+       y="92.871849"
+       id="text1125"
+       transform="scale(0.62193587,1.6078828)"><desc
+         id="desc2033">ideally goes into a student focused CSV</desc><tspan
+         sodipodi:role="line"
+         id="tspan1123"
+         style="stroke-width:0.166285"
+         x="410.96469"
+         y="92.871849">sum of scores</tspan></text>
   </g>
 </svg>

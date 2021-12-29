@@ -14,6 +14,20 @@ import csv
 selected_topic =""
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
+mermaid_template = """{} {} {}
+#mermaid
+Q: 
+A:
+Q: 
+A:
+Q: 
+A:
+
+---
+
+"""
+
+
 
 #done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
@@ -653,8 +667,7 @@ tenses_tab_column_right = sg.Column([ #header
 
 tab_one= sg.Tab ("adj noun reg verb", [
     #trying to get random text to display here
-    # It's not working
-    [sg.Text(primary(),size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
+    [sg.Button("edit verbs list"),sg.Button("edit adjectives list",tooltip="click to edit"),sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),],
 
     [sg.Text("verb",size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
 
@@ -662,13 +675,15 @@ tab_one= sg.Tab ("adj noun reg verb", [
             sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
-            sg.Button("edit verbs list"),sg.Button("edit adjectives list",tooltip="click to randomize"),sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),
-            sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),
+        ],
+            [sg.Multiline(key="simple_sentence_builder_output",size =(50,5),default_text= mermaid_template,   tooltip="simple_sentence_builder_output"), ],
+            [sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),],
+            [sg.Button("save your created sentence",tooltip="save your work to a text file"),],
         
         ],
     
 
-    ])
+    )
 
 tab_two= sg.Tab ("tenses tab", [
         #create button
@@ -954,7 +969,7 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,10),font =("helvetica", 14)), sg.Button("save analysis to CSV")],
+        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 956 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
    
 
     ])
@@ -967,8 +982,8 @@ layout = [
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
-    
-    [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab, pros_cons_tab]],key="tabgroup")],
+    [sg.Text("student name:"),sg.InputText("student_name",key="student_name",tooltip="student_name goes here",justification="top")],
+    [sg.TabGroup([[tab_one,tab_two,tab_three,timeline_tab, pros_cons_tab]],key="tabgroup"),],
    
 ]
     
@@ -1029,6 +1044,7 @@ while True:
         
             # append the data to the csv 'a'
         csv_exists = False
+        #TODO add student name to file save
         if os.path.exists(csv_file_name+'.csv'):
             csv_exists = True
 
@@ -1105,20 +1121,50 @@ while True:
         window["text3a"].update(split_filename(image_list[4]))
         window["text3b"].update(split_filename(image_list[5]))
         
-# button in left tab
+# button in verb adj noun
+    if event == "edit verbs list":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/verbs.txt"))
+
+    if event == "edit nouns list":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.txt"))
+
+    if event == "edit adjectives list":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt"))
+
+
     if event == 'reload':
         read_list_from_file()
         window["verbs_list_box"].update(values=verbs_list)
         window["nouns_list_box"].update(values=nouns_list)
         window["adjectives_list_box"].update(values=adjectives_list)
 
-# button in left tab
+# button in simple sentence builder
     if event == 'randomize':
         window["verbs_list_box"].update(set_to_index=random.randint(0,len(verbs_list)-1))
         window["nouns_list_box"].update(set_to_index=random.randint(0,len(nouns_list)-1))
         window["adjectives_list_box"].update(set_to_index=random.randint(0,len(adjectives_list)-1))
         # (set_to_index=random.randint(0,len(verbs_list)-1))
+        # event, values = window.read()
+        # print(window["verbs_list_box"].get())
+        result = mermaid_template.format(window["verbs_list_box"].get()[0],window["adjectives_list_box"].get()[0],window["nouns_list_box"].get()[0])
+          
+        window['simple_sentence_builder_output'].update(result)
 
+    if event == "save your created sentence":
+        filename = values["student_name"]+"_"+datetime.date.today().strftime("%Y %B %d %A") +".txt"        
+        with open(filename, 'a') as f:
+            #TODO this should be a CSV
+            # TODO play with the output as an MD file
+            
+            f.write(values['simple_sentence_builder_output'])
+            f.write("\n")
+        filename = values["student_name"]+"_"+datetime.date.today().strftime("%Y %B %d %A") +"_mermaid.txt"        
+        with open(filename, 'a') as f:
+            #TODO this should be a CSV
+            # TODO play with the output as an MD file
+            
+            f.write(values['simple_sentence_builder_output'])
+            f.write("\n")
 
 
 ### Horst's random selection
@@ -1367,9 +1413,9 @@ while True:
 
 
 
-### negotiation events
+# negotiation events
 
-###prepare_0
+##prepare_0
     if event == "prepare_0_list_box":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prepare_0.md") as myfile:
                 lines = myfile.readlines()
@@ -1457,12 +1503,12 @@ while True:
     ###
 
 
-###concluding_11
+#concluding_11
     if event == "concluding_11_list_box":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/concluding_11.md") as myfile:
                 lines = myfile.readlines()
             window["concluding_11_list_box"].update(random.choice(lines).strip()  )
-    ###
+    
 
 
 ###seal_the_deal_12

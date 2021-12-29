@@ -25,8 +25,9 @@ search_text = "<svg"
 # the text that we want to update
 replace_text = """<svg width="150px" height="150px" """
 
+folder_name = "/home/dgd/Desktop/python_storyboard_flashcards/random_images/"
 
-for infile in glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/testrandom_images/*.*"):
+for infile in glob.glob(folder_name + "*.*"):
     file, ext = os.path.splitext(infile)
     print(file,ext)
     #ignore already processed
@@ -38,7 +39,7 @@ for infile in glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/testrand
         #                 ".jpeg",]:
         # # TODO if .svg call SVG parser to convert to png first
 
-        if ext.lower() == '.svg':
+        # if ext.lower() == '.svg':
             newlines=[]
             with open(infile) as f:
                 lines = f.readlines()
@@ -54,7 +55,7 @@ for infile in glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/testrand
             drawing = svg2rlg(infile)
             renderPM.drawToFile(drawing, file+'.png', fmt='PNG')
 
-for infile in glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/random_images/*.*"):
+for infile in glob.glob(folder_name +"*.*"):
 
     file, ext = os.path.splitext(infile)
     print(file,ext)
