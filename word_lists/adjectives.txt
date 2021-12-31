@@ -108,6 +108,7 @@ flabby
 fine
 yellow
 red
+icy
 tight
 loose 
 black

@@ -23,8 +23,13 @@ The app should run on any python3 compliant device.
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 
 
-# list of tabs
+# list of tabs (not in order)
 <img src="/support_images/tabs_22dec.png" alt="Getting started" />
+
+# grammar tracker tab
+This is automatically generated from a text file! It currently saves to file as json.
+## TODO
+Read and write to json file
 
 # adj noun reg verb tab 
 <img src="/support_images/tab_verbadjnoun.png" alt="Getting started" />
@@ -32,7 +37,14 @@ The app should run on any python3 compliant device.
 You can edit the source files and hit the reload button and the application will load the new files.
 
 
+
 # pros and cons tab
+This is a great tab for groups as you can get people discussing pros and cons ad nauseum. Think about SCRUM and story point values.
+
+Currently can save the file as csv.
+
+## TODO
+Read and write file to json.
 <img src="/support_images/pros_cons_tab.png" alt="Getting started" />
 
 # tenses tab 

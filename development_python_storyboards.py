@@ -9,7 +9,18 @@ import datetime
 import os
 import os.path
 import csv
+import json
 
+
+# this code will NOT run if this file is not available!
+
+with open("/home/dgd/Desktop/python_storyboard_flashcards/idea_grammar_tracker_tab/common_errors.md") as myfile:
+    lines=myfile.readlines()
+    #TODO error checker to keep file clean
+#take first ten lines
+#remove \n
+top_ten =[line.strip() for line in lines[:10]]
+print(top_ten)
 
 selected_topic =""
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
@@ -27,7 +38,11 @@ A:
 
 """
 
+# create a dictionary for the grammar tracker
+# nested dictionary key = student name value = another dictionary
+# dictionary year month day value another dictionary
 
+student_progress = {}
 
 #done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
@@ -75,7 +90,7 @@ def primary():
     f.close()
 
     sampling = random.sample(quotes, 1)
-    for sample in sampling: print(sample)
+    # for sample in sampling: print(sample)
 primary()
 
 # print(random_adjectives)
@@ -255,7 +270,7 @@ def read_list_from_file():
 for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
    for name in files:
        if name.endswith("_thumbnail.png"):
-           print(os.path.join(root, name))
+        #  print(os.path.join(root, name))
            image_list.append(os.path.join(root, name))
 
 #call the function
@@ -678,9 +693,18 @@ tenses_tab_column_right = sg.Column([ #header
 
 tab_one= sg.Tab ("adj noun reg verb", [
     #trying to get random text to display here
-    [sg.Button("edit verbs list"),sg.Button("edit adjectives list",tooltip="click to edit"),sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),],
+    [
+    sg.Button("edit verbs list"),
+    sg.Button("edit adjectives list",tooltip="click to edit"),
+    sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),
+    sg.Button("edit basic question words",tooltip="open local editor to edit basic questions")
+    ],
 
-    [sg.Text("verb",size=(17,1)),sg.Text("adj",size=(17,1)),sg.Text("noun",size=(17,1)),],
+    [
+    sg.Text("verb",size=(17,1)),
+    sg.Text("adj",size=(17,1)),
+    sg.Text("noun",size=(17,1)),
+    ],
 
         [  # sg.Text(verbs_list,key="verbs_list_box",enable_events=True,size=(15,15)),
             sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
@@ -711,6 +735,7 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Button("conditionals"),
         sg.Button("comparatives and superlatives"),
         sg.Button("modals"),
+        sg.Button("question modals"),
         ],
 
 
@@ -985,71 +1010,51 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
 
     ])
 
+#create empty list
+tracker_layout = []
 
-
-grammar_tracker_tab= sg.Tab ("grammar tracker", 
-        #create button
-        [
-            #TODO this TEXT object should be a roll down or similar
-        [sg.Text("Grammar issues",size=(40,1),
+#generate the tab content
+#produce 0-4
+tracker_layout.append(      
+                [
+                sg.Text("Grammar issues",size=(40,1),
                 # key="pros_cons_issues",
                 tooltip = "nothing to Click to change this item.",
                 enable_events=False,
                 font=("helvetica",20)),
-                sg.Button("edit common errors file",tooltip="click to open editor")],
+                sg.Button("edit common errors file",tooltip="click to open editor")
+                ],
+
+  )
 
 
+for x in range(0,len(top_ten)//2):
+    tracker_layout.append(        
         [
-        sg.Text('articles',auto_size_text = True, size =(10, 1)), sg.InputText(key="articles_error",size=(40,2)), sg.Slider(enable_events=True,key= "slider_articles_error", orientation = "horizontal",size = (6,10),),
-        sg.Text('conditionals', size =(10, 1)), sg.InputText(key="conditionals_error",size=(40,2)), sg.Slider(enable_events=True,key= "slider_conditionals_error", orientation = "horizontal",size = (6,10),),
-        ],
-    
-        [
-        sg.Text('modals', size =(10, 1)), sg.InputText(key="modals_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_modals", orientation = "horizontal",size = (6,10),),
-        sg.Text('connecting words', size=(None, None)), sg.InputText(key="connecting_words_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_connecting_words", orientation = "horizontal",size = (6,10),),
-        ],
+        sg.Text(top_ten[x],key="label"+ str(x),auto_size_text = True, size =(10, 1)), 
+        sg.InputText(key="input"+ str(x) ,size=(40,2)), 
+        sg.Slider(enable_events=True,key= "slider"+ str(x), orientation = "horizontal",size = (6,10),),
         
-        [
-        sg.Text('passive voice', size=(None, None)), sg.InputText(key="passive_voice_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_passive_voice", orientation = "horizontal",size = (6,10),),
-        sg.Text('prepositions', size=(None, None)), sg.InputText(key="prepositions_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_prepositions", orientation = "horizontal",size = (6,10),),
+        sg.Text(top_ten[x+5],key="label"+ str(x+5),auto_size_text = True, size =(10, 1)), 
+        sg.InputText(key="input"+ str(x+5) ,size=(40,2)), 
+        sg.Slider(enable_events=True,key= "slider"+ str(x+5), orientation = "horizontal",size = (6,10),),
         ],
+        )
 
-        [
-        sg.Text('comparatives and superlatives', size=(12, 1)), sg.InputText(key="comparatives_and_superlatives_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_comparatives_and_superlatives", orientation = "horizontal",size = (6,10),),
-        sg.Text('pros and cons', size=(None, None)), sg.InputText(key="pros_and_cons",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_and_cons_error", orientation = "horizontal",size = (6,10),),
-        ],
 
+tracker_layout.append(
         [
-        sg.Text('phrasal verbs', size =(10, 1)), sg.InputText(key="phrasal_verbs_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_phrasal_verbs", orientation = "horizontal",size = (6,10),),
-        sg.Text('irregular verbs', size=(None, None)), sg.InputText(key="irregular_verbs_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_irregular_verbs", orientation = "horizontal",size = (6,10),),
-        ],
-        [
-        sg.Text('pronunciation', size =(10, 1)), sg.InputText(key="pronunciation_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pronunciation", orientation = "horizontal",size = (6,10),),
-        sg.Text('questions', size =(10, 1)), sg.InputText(key="questions_error",size=(40,1)), sg.Slider(enable_events=True,key= "slider_questions", orientation = "horizontal",size = (6,10),),
-        ],
-        # [
-        # sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
-        
-        # sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
-        # ],
-
-### summary of slider
-        [
-        #TODO add up all the sliders
         sg.Text("performance sum",justification="right", size=(10,1)), sg.Text("?",key="performance sum"),
         ],
+                    )
 
-### analysis
-        #TODO whatever is typed in the SG.inputtext goes into the sg.multiline
-        [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline on line 1042 of the code",font =("helvetica", 14)), sg.Button("save grammar analysis to CSV",tooltip="TODO add student name to file save")],
-   
-
-    ])
+tracker_layout.append(
+        [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline on line 1042 of the code",font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
+                    )
 
 
 
-
-
+grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 
 
 ### layout
@@ -1101,8 +1106,31 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md"))
 
 
+# grammar tracker
+    if event == "save grammar analysis":
+        date_string = "{}.{}.{}".format(datetime.date.today().year, 
+                                        datetime.date.today().month,
+                                        datetime.date.today().day,
+                                        )
 
-    # fire on all sliders
+        content = {}
+        for x in range(0,len(top_ten)  ):
+            content[top_ten[x]]= [values[f"input{x}"],values[f"slider{x}"], ]
+        # content["summary"]=summary_value
+        content["grammar analysis"] = values["grammar analysis"]
+        student_progress = {date_string:content}
+        #create JSON file
+        with open (values["student_name"]+".json", "a") as myfile:
+            json.dump(student_progress,myfile)
+            
+
+
+
+
+
+
+    # fire on all pros and con sliders
+    # TODO this naming structure needs to be updated
     if "slider" in event:
         sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
         sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
@@ -1208,6 +1236,9 @@ while True:
 
     if event == "edit adjectives list":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt"))
+
+    if event == "edit basic question words":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_question_words.md"))
 
 
     if event == 'reload':
@@ -1348,6 +1379,13 @@ while True:
 
     if event == "modals":
         webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
+
+    if event == "question modals":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_questions_modals_and_auxillaries.md"))
+        # can trigger multiple events at the same time!
+        webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
+
+       
 
 
 ### timeline events
@@ -1588,7 +1626,6 @@ while True:
             window["concluding_11_list_box"].update(random.choice(lines).strip()  )
     
 
-
 ###seal_the_deal_12
     if event == "seal_the_deal_12_list_box":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md") as myfile:
@@ -1644,7 +1681,14 @@ while True:
                 
 
 
-
+### grammar tracker tab
+  # fire on all pros and con sliders
+    if "slider_grammar" in event:
+        sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
+        sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
+        # sg.PopupOK(sum_of_pros)
+        window["sum_of_pros"].update(sum_of_pros)
+        window["sum_of_cons"].update(sum_of_cons)
 
 
 

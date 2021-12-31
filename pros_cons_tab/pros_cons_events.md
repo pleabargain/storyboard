@@ -1,9 +1,11 @@
 start building a new house
 Rammstein Concert
 move from my home town
-buy
+buy a chainsaw
 buy an Xbox
 to get certified in Kubernetes
+system efficiency with X architecture
+invite mother in law to New Year's Party
 buy a PS5
 get drunk with your mother-in-law
 work from home
@@ -16,6 +18,7 @@ birth of second child
 buy an apartment
 Football Champion 
 buy a house
+go to the gym
 read the entire Bible
 read the entire Koran
 read the entire Mahabharata
@@ -23,6 +26,7 @@ to get certified
 to get a drivers license
 sing karaoke
 make sushi
+client request for Grafana dashboard
 eat oysters
 make homemade beer
 make homemade wine
@@ -68,9 +72,18 @@ go skiing
 go water skiing
 go to a meeting
 go to a conference
+private data exposed
 give a lecture
 select a vendor
 create a course
+talk to the neighbors
+break a mirror
+whistle indoors
+give even number of flowers to someone
+give odd number of flowers someone
+tip the waiter
+tip the waitress
+complement the boss
 finish the project
 ride a horse on the beach
 first kiss
