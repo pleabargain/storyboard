@@ -14,6 +14,8 @@ import json
 
 # this code will NOT run if this file is not available!
 
+# TODO this needs to be a function call so that it can be reused with better more meaningful names
+# I want to reuse this over and over
 with open("/home/dgd/Desktop/python_storyboard_flashcards/idea_grammar_tracker_tab/common_errors.md") as myfile:
     lines=myfile.readlines()
     #TODO error checker to keep file clean
@@ -1064,7 +1066,9 @@ layout = [
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
-    [sg.Text("student name:"),sg.InputText("student_name",key="student_name",tooltip="student_name goes here",justification="top")],
+    #TODO
+    # load student names from text file into Multiline
+    [sg.Text("student name:"),sg.InputText("student_name",key="student_name",tooltip="TODO this should pull from a list of students name goes here",justification="top")],
     [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
