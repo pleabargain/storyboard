@@ -82,6 +82,8 @@ whistle indoors
 give even number of flowers to someone
 give odd number of flowers someone
 tip the waiter
+quit your job
+tell your boss how you really feel
 tip the waitress
 complement the boss
 finish the project
