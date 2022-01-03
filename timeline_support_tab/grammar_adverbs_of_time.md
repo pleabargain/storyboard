@@ -42,6 +42,7 @@ day after tomorrow
 frequently
 infrequently
 never
+every once in a while
 sometimes
 hourly
 often

@@ -16,8 +16,10 @@ The app should run on any python3 compliant device.
 # DONE
 - negotiation tab: randomly chosen text should take focus or find a better way to get text to display
 - print full DAY in timeline tab = strftime("%Y %B %d %A")
+- automatically generate ten text input fields from a text file source
 
 # TODO
+- Save/Load student data from JSON file
 - there are lots of TODOs in the code. If you want to participate, please do.
 - add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />

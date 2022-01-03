@@ -10,13 +10,19 @@ import os
 import os.path
 import csv
 import json
+import glob
 
 
-# this code will NOT run if this file is not available!
-# What other defaults can I call when starting the application?
+
+# TODO question: possible to call a tab as a function call that way the tabs can be reused easily elsewhere?
+# TODO question: What other defaults can I call when starting the application?
+
 
 # TODO this needs to be a function call so that it can be reused with better more meaningful names
 # I want to reuse this over and over
+
+
+# this code will NOT run if this file is not available!
 with open("/home/dgd/Desktop/python_storyboard_flashcards/idea_grammar_tracker_tab/common_errors.md") as myfile:
     lines=myfile.readlines()
     #TODO error checker to keep file clean
@@ -25,10 +31,24 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/idea_grammar_tracker_t
 top_ten =[line.strip() for line in lines[:10]]
 print(top_ten)
 
+
+# learn about student names in the file
+# this code will NOT run if this file is not available!
+# TODO sort the names in the output
+# TODO alert user if duplicate names
+with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names.txt") as myfile:
+    lines=myfile.readlines()
+
+#strip empty lines
+student_names= [line.strip() for line in lines if len(line.strip())>0]
+
+
+
+
 selected_topic =""
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
-mermaid_template = """{} {} {}
+mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\n
 #mermaid
 Q: 
 A:
@@ -59,6 +79,7 @@ image_list = []
 verbs_list = []
 nouns_list = []
 adjectives_list =[]
+quantifiers_list = []
 
 #negotiations
 prepare_0_list = []
@@ -157,7 +178,10 @@ def read_list_from_file():
     verbs_list.clear()
     nouns_list.clear()
     adjectives_list.clear()
-    # negotations
+    quantifiers_list.clear()
+
+
+    # negotiations
     prepare_0_list.clear()      
     agenda_01_list.clear()
     making_proposals_02_list.clear()
@@ -195,6 +219,11 @@ def read_list_from_file():
     with open("word_lists/adjectives.txt") as myfile:
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
+    with open("word_lists/quantifiers.txt") as myfile:
+        for line in myfile.readlines():
+            quantifiers_list.append(line.strip())
+
+
 ###start negotiations
     with open("negotiations_tab/prepare_0.md") as myfile:
         for line in myfile.readlines():
@@ -306,106 +335,106 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
 timeline_column_one = sg.Column([
                                 [sg.Button("change time",
                                 font = ("helvetica", 12),
-                                size = (30,1),
+                                size = (18,1),
                                 tooltip="click to change all of the times")], 
 
 
 
 
-                                [sg.Text("time event past1",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="past1",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='Past events1')],
 
 ###
-                                [sg.Text("past2 column one",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="past2",
-                                size = (30,2),
+                                size = (None,None),
                                 enable_events=True,
                                 tooltip='Past events2')], 
 ###
-                                [sg.Text("past3",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="past3",
-                                size = (30,2),
+                                size = (None,None),
                                 enable_events=True,
                                 tooltip='past3 column one')],
 
-                                [sg.Text("past4",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="past4",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='past time 4 column one')],
 ###
-                                [sg.Text("present 1",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="present1",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='present1')],
 
-                                [sg.Text("present 2",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="present2",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='present1')],
 
-                                [sg.Text("present 3",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="present3",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='present1')],
 
-                                [sg.Text("now column one",
+                                [sg.Text("\u0394 time changes",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 key="now_event",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='Now is a great time!')],
 ###
-                                [sg.Text("timeline column one",
+                                [sg.Text("\u0394 time changes",
                                 key="future1",
                                 font = ("helvetica", 12),
                                 justification = "left",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='future1 event')],
 ###
-                                [sg.Text("timeline column one",
+                                [sg.Text("\u0394 time changes",
                                 key="future2",
                                 font = ("helvetica", 12),
                                 justification = "left",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='future2 event')],
 ###
-                                [sg.Text("timeline column one",
+                                [sg.Text("\u0394 time changes",
                                 key="future3",
                                 font = ("helvetica", 12),
                                 justification = "left",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='future3 event')],
 
-                                [sg.Text("future four",
+                                [sg.Text("\u0394 time changes",
                                 key="future4",
                                 font = ("helvetica", 12),
                                 justification = "left",
-                                size = (30,2),
+                                size = (30,1),
                                 enable_events=True,
                                 tooltip='future4 event')],
 
@@ -415,74 +444,87 @@ timeline_column_one = sg.Column([
 
 
 timeline_column_two = sg.Column([
-                                [sg.Button("edit timeline events") ],
+                                
+                                [sg.Button("randomize timeline events",
+                                font = ("helvetica", 12),
+                                size = (20,1),
+                                        )
+                                ],
+
+
                                 [sg.Text("timeline column one",
                                 key="event1",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='This is a random event. line 452')],
 
-###
+
                                 [sg.Text("past2 column one",
                                 key="event2",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')], 
-###
+                                tooltip='line 461')], 
+
                                 [sg.Text("eventpast3",
                                 key="event3",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
-###
+                                tooltip='line 469')],
+
                                 [sg.Text("now column one",
                                 key="event4",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
-###
+                                tooltip='line 477')],
+
                                 [sg.Text("timeline column one",
                                 key="event5",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
-###
+                                tooltip='line 485')],
+
                                 [sg.Text("event 6 timeline column one",
                                 key="event6",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
-###
+                                tooltip='line 493')],
+
                                 [sg.Text("timeline column one",
                                 key="event7",
                                 font = ("helvetica", 12),
                                 justification = "left",
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip timeline column one')],
+                                tooltip='line 501')],
 
                                 ])
 
 
 timeline_column_three = sg.Column([
-                                [sg.Button("edit adverbs of time phrases") ],
+                                [sg.Button("randomize adverbs",
+                                font = ("helvetica",12),
+                                button_color="blue",
+                                size = (30,1),
+                                )
+                                ],
+                                
                                 [sg.Text("timeline column one",
                                 key="adverb1",
                                 font = ("helvetica", 12),
 
-                                size = (30,2),
+                                size = (None,None),
                                 enable_events=True,
                                 tooltip='This is a tool tip for adverb1')],
 
@@ -535,21 +577,21 @@ timeline_column_three = sg.Column([
 timeline_column_four = sg.Column([
                                 ###
                                  [sg.Button("place holder",
-                                 size = (30,1),
+                                 size = (15,1),
                                 font = ("helvetica", 12),
                                  
                                  
                                  )],           
 
                                 [sg.Text("past simple",
-                                key="past_simple",
-                                size = (30,2),
+                                key="past_simple1",
+                                size = (30,1),
                                 font = ("helvetica", 12),
                                 enable_events=True,
                                 tooltip='Past Simple - I built a new garage last month.')],
 
                                 [sg.Text("past continuous",
-                                                                size = (30,2),
+                                                                size = (30,1),
                                 font = ("helvetica", 12),
 
                                 key="past_continuous", 
@@ -558,7 +600,7 @@ timeline_column_four = sg.Column([
                                
                                  [sg.Text("past perfect",
                                 key="past_perfect",
-                                size = (30,2),
+                                size = (30,1),
                                 font = ("helvetica", 12),
 
                                 enable_events=True,
@@ -566,7 +608,7 @@ timeline_column_four = sg.Column([
 
                                 [sg.Text("past perfect continuous",
                                 key="past_perfect_continuous",
-                                size = (30,2),
+                                size = (30,1),
                                 font = ("helvetica", 12),
 
                                 enable_events=True,
@@ -575,7 +617,7 @@ timeline_column_four = sg.Column([
 
                                 [sg.Text("present simple",
                                 key="present_simple",
-                                size = (30,2),
+                                size = (30,1),
                                 font = ("helvetica", 12),
 
 
@@ -586,7 +628,7 @@ timeline_column_four = sg.Column([
 
                             [sg.Text("present continuous",
                             key="present_continuous",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),
                             enable_events=True,
                             tooltip='Present Continuous - It is Monday morning and I am building a wall.',
@@ -595,7 +637,7 @@ timeline_column_four = sg.Column([
 
                             [sg.Text("present perfect",
                             key="present_perfect",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),                            
                             enable_events=True,
                             tooltip='Present Perfect Simple - I have already built two shopping centers this year.',                            
@@ -604,7 +646,7 @@ timeline_column_four = sg.Column([
 
                             [sg.Text("present perfect continuous",
                             key="present_perfect_continuous",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),                            
                             enable_events=True,
                             tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
@@ -612,7 +654,7 @@ timeline_column_four = sg.Column([
 
                             [sg.Text("future simple",
                             key="future_simple",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),
                             
                             enable_events=True,
@@ -621,14 +663,14 @@ timeline_column_four = sg.Column([
                             [sg.Text("future continuous",
                             enable_events=True,
                             key="future_continuous",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),
                             
                             tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
                             
                             [sg.Text("future perfect",
                             key="future_perfect",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),
                             
                             enable_events=True,
@@ -636,7 +678,7 @@ timeline_column_four = sg.Column([
                             
                             [sg.Text("future perfect continuous",
                             key="future_perfect_continuous",
-                            size = (30,2),
+                            size = (30,1),
                             font = ("helvetica", 12),
                             
                             enable_events=True,
@@ -738,7 +780,7 @@ tenses_tab_column_center = sg.Column([
                             tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
                             )],
 
-                            [sg.Multiline('\U0001F934', 
+                            [sg.Multiline('\U0001F934', #guy face emoji
                             key= "text2a",
                             justification = "center",
                             size=(17,1), 
@@ -751,7 +793,7 @@ tenses_tab_column_center = sg.Column([
                             key='canvas2a')
                             ],
                             
-                            [sg.Multiline('\u0394', 
+                            [sg.Multiline('\u0394', #delta symbol
                             key= "text2b",size=(17,1), 
                             justification = "center",
                             font=("Helvetica", 16)), 
@@ -814,9 +856,11 @@ tenses_tab_column_right = sg.Column([ #header
 tab_one= sg.Tab ("adj noun reg verb", [
     #trying to get random text to display here
     [
-    sg.Button("edit verbs list"),
-    sg.Button("edit adjectives list",tooltip="click to edit"),
-    sg.Button("edit nouns list",tooltip="open editor to edit nouns click to randomize"),
+    sg.Button("edit verbs list",tooltip="click to edit verbs"),
+    sg.Button("edit adjectives list",tooltip="click to edit adjectives"),
+    sg.Button("edit nouns list",tooltip="open editor to edit nouns"),
+    sg.Button("edit quantifiers list",tooltip="open editor to edit quantifiers"),
+    
     sg.Button("edit basic question words",tooltip="open local editor to edit basic questions")
     ],
 
@@ -824,12 +868,14 @@ tab_one= sg.Tab ("adj noun reg verb", [
     sg.Text("verb",size=(17,1)),
     sg.Text("adj",size=(17,1)),
     sg.Text("noun",size=(17,1)),
+    sg.Text("quantifiers",size=(17,1)),
     ],
 
         [  # sg.Text(verbs_list,key="verbs_list_box",enable_events=True,size=(15,15)),
             sg.Listbox(verbs_list,key="verbs_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
+            sg.Listbox(quantifiers_list,key="quantifiers_list_box",enable_events=True,change_submits=True,size=(15,15)),
         ],
             [sg.Multiline(key="simple_sentence_builder_output",size =(50,5), font = ("helvetica",14),default_text= mermaid_template,   tooltip="simple_sentence_builder_output"), ],
             [sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),],
@@ -1051,7 +1097,11 @@ negotiation_tab_three = sg.Tab("negotiation",
 
 
 ],
-[    sg.Button('save negotiation text',  size=(55,1) ),]
+[    sg.Button('save negotiation text',  
+                size=(55,1),
+                tooltip = "TODO save this file and open in an editor. Maybe even an editor in Pysimple?!"
+                
+                 ),]
 
 ###
     
@@ -1065,12 +1115,12 @@ timeline_tab= sg.Tab ("timeline tenses tab",
     [
       
         #create button
-        [sg.Button("randomize timeline events"), sg.Button("randomize timeline events"),sg.Button("randomize timeline events"),  ],
+        [sg.Button("edit timeline events"), sg.Button("edit adverbs"),sg.Button("place holder"),  ],
     
         [timeline_column_four,timeline_column_one,timeline_column_two, timeline_column_three, ],
     
     ] 
-    )
+                     )
 ####################
 ### pros_cons_tab
 
@@ -1225,14 +1275,29 @@ layout = [
     #TODO
     # load student names from text file into Multiline
     # file is /home/dgd/Desktop/python_storyboard_flashcards/students/student_names.txt
-    [sg.Text("student name:"),sg.InputText("student_name",key="student_name",tooltip="TODO this should pull from a list of students name goes here",justification="top")],
+    [sg.Text("student name:"),
+            sg.Combo(values=student_names,
+                   key="student_name",
+                    tooltip="TODO test addingnew name this should pull from a list of students name goes here",
+            ), 
+    
+    sg.Button("load student json", 
+                tooltip = "see line 1242"
+
+                ) ,
+
+    sg.Text("date picker: "), sg.Combo(values=["date1","date3"], key = "date_picker")
+    
+    
+    ],
+
     [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
 
 
-window = sg.Window('Development '+ datetime.date.today().strftime("%Y %B %d %A") + ' Dennis Helps Your Career with English', 
+window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
                     
                     layout, 
                     background_color="lightblue",
@@ -1248,9 +1313,6 @@ while True:
     event, values = window.read()
 
 
-    if event == "Open_docs":
-        webbrowser.open("https://pysimplegui.readthedocs.io/en/latest/",new=1,autoraise=True )
-        # pass
 
 # pros and cons events
     #shuffle events
@@ -1268,6 +1330,37 @@ while True:
 
 
 # grammar tracker
+    if event == "load student json":
+        student_name = values["student_name"]
+        if student_name == "":
+            sg.PopupError("No student json file by that name")
+        json_files = glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/students/*.json"  )
+        print (json_files)
+        for x_file in json_files:
+
+            if x_file.endswith(student_name+".json"):
+                sg.PopupOK("found it")
+                break
+        else:
+            sg.PopupError("not found")
+
+
+
+#menu items
+    if event == "Open_docs":
+        webbrowser.open("https://pysimplegui.readthedocs.io/en/latest/",new=1,autoraise=True )
+        # pass
+        
+    if event == 'help':
+    #     sg.popup_notify("Some text",location = (900,900))
+    #if event == "edit making_proposals_02":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
+
+
+
+# grammar tracker tab
+
+
     if event == "save grammar analysis":
         date_string = "{}.{}.{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
@@ -1281,15 +1374,12 @@ while True:
         content["grammar analysis"] = values["grammar analysis"]
         student_progress = {date_string:content}
         #create JSON file
-        with open (values["student_name"]+".json", "a") as myfile:
+        with open  ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "a") as myfile:
             json.dump(student_progress,myfile)
             
-
-
-
-
-
-
+        sg.PopupOK("{}.json File saved to directory".format(values["student_name"]))
+            
+# pros cons tab
     # fire on all pros and con sliders
     # TODO this naming structure needs to be updated
     if "slider" in event:
@@ -1398,6 +1488,9 @@ while True:
     if event == "edit adjectives list":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt"))
 
+    if event == "edit quantifiers list":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/quantifiers.txt"))    
+
     if event == "edit basic question words":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_question_words.md"))
 
@@ -1413,10 +1506,11 @@ while True:
         window["verbs_list_box"].update(set_to_index=random.randint(0,len(verbs_list)-1))
         window["nouns_list_box"].update(set_to_index=random.randint(0,len(nouns_list)-1))
         window["adjectives_list_box"].update(set_to_index=random.randint(0,len(adjectives_list)-1))
+        window["quantifiers_list_box"].update(set_to_index=random.randint(0,len(quantifiers_list)-1))
         # (set_to_index=random.randint(0,len(verbs_list)-1))
         # event, values = window.read()
         # print(window["verbs_list_box"].get())
-        result = mermaid_template.format(window["verbs_list_box"].get()[0],window["adjectives_list_box"].get()[0],window["nouns_list_box"].get()[0])
+        result = mermaid_template.format(window["verbs_list_box"].get()[0],window["adjectives_list_box"].get()[0],window["nouns_list_box"].get()[0],window["quantifiers_list_box"].get()[0]   )
           
         window['simple_sentence_builder_output'].update(result)
 
@@ -1437,7 +1531,7 @@ while True:
             f.write("\n")
 
 
-### Horst's random selection
+# Horst's random selection
 
 
     if event == 'easy':
@@ -1468,17 +1562,12 @@ while True:
 
 
 
-#menu items
-    if event == 'help':
-    #     sg.popup_notify("Some text",location = (900,900))
-    #if event == "edit making_proposals_02":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
 
 
 ### past tense events
 
 
-    if event == "past_simple":
+    if event in ("past_simple", "past_simple1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1NkmOcQcNU8Dirk_rM04yEF5CS9yaSnYGip0Tyq0AkIU/edit?usp=sharing",new=1,autoraise=True )
 
 
@@ -1556,7 +1645,7 @@ while True:
     if event == "edit timeline events":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/timeline_events.md"))
 
-    if event == "edit adverbs of time phrases":
+    if event == "edit adverbs":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md"))
 
     if event == "adverb1":
@@ -1669,6 +1758,17 @@ while True:
         window["past2"].update(past2.strftime("%Y %B %d %A"))
         past1 =  past2 -datetime.timedelta(delta3)
         window["past1"].update(past1.strftime("%Y %B %d %A"))
+        #present
+        present1 = datetime.date.today()
+        window["present1"].update(present1.strftime("%Y %B %d %A"))
+
+        present2 = datetime.date.today()
+        window["present2"].update(present2.strftime("%Y %B %d %A"))
+
+        present3 = datetime.date.today()
+        window["present3"].update(present3.strftime("%Y %B %d %A"))
+
+
         #future
         delta1= random.randint(1,600)
         delta2= random.randint(10,390)
@@ -1695,6 +1795,19 @@ while True:
         window["event5"].update(lines[4].strip())
         window["event6"].update(lines[5].strip())
         window["event7"].update(lines[6].strip())
+
+    if event == "randomize adverbs":
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/timeline_support_tab/grammar_adverbs_of_time.md") as myfile:
+            lines = myfile.readlines()
+        random.shuffle(lines)
+        window["adverb1"].update(lines[0].strip())
+        window["adverb2"].update(lines[1].strip())
+        window["adverb3"].update(lines[2].strip())
+        window["adverb4"].update(lines[3].strip())
+        window["adverb5"].update(lines[4].strip())
+        window["adverb6"].update(lines[5].strip())
+        window["adverb7"].update(lines[6].strip())
+
 
 
 

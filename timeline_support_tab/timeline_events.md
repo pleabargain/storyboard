@@ -21,6 +21,7 @@ first snow
 first time driving a car
 first time living alone
 first time shaving
+death of favorite pet
 first visit to the barber
 first visit to the circus
 first visit to the dentist
