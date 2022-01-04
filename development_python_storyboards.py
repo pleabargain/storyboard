@@ -67,10 +67,10 @@ A:
 
 student_progress = {}
 
-#done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #TODO add vocabulary column
 #TODO set text file to open code and local file
 
+#done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #done set default image size to 150x150
 #done load only images with thumbnail in the name
 image_list = []
@@ -104,17 +104,20 @@ pros_cons_issues = []
 
 
 
-
 ### random function
 
 import random
+
 def primary():
+    """
+    I have no idea what this function is for
+    """
     f = open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt")
     quotes = f.readlines()
     f.close()
 
     sampling = random.sample(quotes, 1)
-    # for sample in sampling: print(sample)
+    for sample in sampling: print(sample)
 primary()
 
 # print(random_adjectives)
@@ -188,7 +191,6 @@ def read_list_from_file():
     suggestions_03_list.clear()
     agreeing_04_list.clear()
     objecting_05_list.clear()
-    
     prioritizing_06_list.clear()
     
     clarification_07_list.clear()
@@ -299,11 +301,24 @@ def read_list_from_file():
 # TODO load the files from the target directory
 # TODO load only images with thumbnail in the name
 
-for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
-   for name in files:
-       if name.endswith("_thumbnail.png"):
-        #  print(os.path.join(root, name))
-           image_list.append(os.path.join(root, name))
+
+#why doesn't this print an error?
+try:
+    for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
+        for name in files:
+            if name.endswith("_thumbnail.png"):
+                #  print(os.path.join(root, name))
+                image_list.append(os.path.join(root, name))
+except:
+    print("folder not found")
+
+
+
+# for root, dirs, files in os.walk("/home/dgd/Desktop/python_storyboard_flashcards/random_images"):
+#    for name in files:
+#        if name.endswith("_thumbnail.png"):
+#         #  print(os.path.join(root, name))
+#            image_list.append(os.path.join(root, name))
 
 #call the function
 read_list_from_file()
@@ -1221,6 +1236,7 @@ tracker_layout = []
 
 #generate the tab content
 #produce 0-4
+# TODO needs to produce a text file with all of the keys as text
 tracker_layout.append(      
                 [
                 sg.Text("Grammar issues",size=(40,1),
@@ -1255,7 +1271,7 @@ tracker_layout.append(
                     )
 
 tracker_layout.append(
-        [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline object",font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
+        [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline object key grammar analysis",font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
                     )
 
 # tracker_layout.append(grammar_column_left)
@@ -1306,7 +1322,7 @@ window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime
                     location=(2000, 1700),
                     default_element_size=(35, 1), 
                     grab_anywhere=True)
-
+# big loop
 while True:
 
 
@@ -1339,10 +1355,25 @@ while True:
         for x_file in json_files:
 
             if x_file.endswith(student_name+".json"):
-                sg.PopupOK("found it")
+                sg.PopupOK("found it",
+                location=(2000, 100),)
                 break
         else:
-            sg.PopupError("not found")
+            sg.PopupError("not found",location=(2000, 100), )
+            continue
+        # all ok we found the JSON
+        # x_file
+        with open(x_file) as my_file:
+            hold_json = json.load(my_file)
+        print(hold_json)
+        most_recent_date = max(hold_json.keys())
+        # populate gui with JSON data
+        # first yellow is gui key
+        # second yellow is key of json
+
+        window["grammar analysis"].update(hold_json[most_recent_date]["grammar analysis"]  )
+        window["input1"].update(hold_json[most_recent_date]["passive voice"]  )
+        # window["slider1"].update(hold_json[most_recent_date]["passive voice"]  )
 
 
 
@@ -1376,8 +1407,18 @@ while True:
         #create JSON file
         with open  ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "a") as myfile:
             json.dump(student_progress,myfile)
+        #replacing }{ with comma
+        with open ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "r") as myfile:
+            text = myfile.read()
+            text = text.replace("}{",",")
+        with open ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "w") as myfile:
+            myfile.write(text)
+
             
-        sg.PopupOK("{}.json File saved to directory".format(values["student_name"]))
+            #TODO new data is not being saved to json
+        sg.PopupOK("{}.json File saved to directory".format(values["student_name"])
+                    
+                    )
             
 # pros cons tab
     # fire on all pros and con sliders

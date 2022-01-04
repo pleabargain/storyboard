@@ -1,0 +1,5 @@
+emoji==1.6.1
+Pillow==9.0.0
+PySimpleGUI==4.55.1
+reportlab==3.5.66
+svglib==1.1.0

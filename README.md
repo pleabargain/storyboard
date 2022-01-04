@@ -13,10 +13,6 @@ The app should run on any python3 compliant device.
 - pysimplegui
 
 
-# DONE
-- negotiation tab: randomly chosen text should take focus or find a better way to get text to display
-- print full DAY in timeline tab = strftime("%Y %B %d %A")
-- automatically generate ten text input fields from a text file source
 
 # TODO
 - Save/Load student data from JSON file
@@ -24,12 +20,20 @@ The app should run on any python3 compliant device.
 - add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 
+# DONE
+- negotiation tab: randomly chosen text should take focus or find a better way to get text to display
+- print full DAY in timeline tab = strftime("%Y %B %d %A")
+- automatically generate ten text input fields from a text file source
 
 # list of tabs (not in order)
 <img src="/support_images/tabs_22dec.png" alt="Getting started" />
 
 # grammar tracker tab
-This is automatically generated from a text file! It currently saves to file as json.
+This is automatically generated from a text file! It currently saves to file as json partially. It should load from json eventually but it doesn't yet. The grammar tracker tab is generated from a text file. The keys for the generated input and sliders should also be generated as well e.g.
+
+if event == "generated key":
+   pass
+
 ## TODO
 Read and write to json file
 
