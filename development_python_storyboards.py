@@ -48,7 +48,7 @@ student_names= [line.strip() for line in lines if len(line.strip())>0]
 selected_topic =""
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
-mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\n
+mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\nsub conjunction: {}\n
 #mermaid
 Q: 
 A:
@@ -80,6 +80,7 @@ verbs_list = []
 nouns_list = []
 adjectives_list =[]
 quantifiers_list = []
+subordinating_conjunctions_list = []
 
 #negotiations
 prepare_0_list = []
@@ -182,6 +183,7 @@ def read_list_from_file():
     nouns_list.clear()
     adjectives_list.clear()
     quantifiers_list.clear()
+    subordinating_conjunctions_list.clear()
 
 
     # negotiations
@@ -224,6 +226,10 @@ def read_list_from_file():
     with open("word_lists/quantifiers.txt") as myfile:
         for line in myfile.readlines():
             quantifiers_list.append(line.strip())
+
+    with open("word_lists/subordinating_conjunctions.txt") as myfile:
+        for line in myfile.readlines():
+            subordinating_conjunctions_list.append(line.strip())
 
 
 ###start negotiations
@@ -884,6 +890,7 @@ tab_one= sg.Tab ("adj noun reg verb", [
     sg.Text("adj",size=(17,1)),
     sg.Text("noun",size=(17,1)),
     sg.Text("quantifiers",size=(17,1)),
+    sg.Text("subordinating conjunctions",size=(17,1)),
     ],
 
         [  # sg.Text(verbs_list,key="verbs_list_box",enable_events=True,size=(15,15)),
@@ -891,8 +898,14 @@ tab_one= sg.Tab ("adj noun reg verb", [
             sg.Listbox(adjectives_list,key="adjectives_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(nouns_list,key="nouns_list_box",enable_events=True,change_submits=True,size=(15,15)),
             sg.Listbox(quantifiers_list,key="quantifiers_list_box",enable_events=True,change_submits=True,size=(15,15)),
+            sg.Listbox(subordinating_conjunctions_list,key="subordinating_conjunctions_list_box",enable_events=True,change_submits=True,size=(15,15)),
+
         ],
-            [sg.Multiline(key="simple_sentence_builder_output",size =(50,5), font = ("helvetica",14),default_text= mermaid_template,   tooltip="simple_sentence_builder_output"), ],
+            [sg.Multiline(key="simple_sentence_builder_output",
+                        size =(50,9), 
+                        font = ("helvetica",12),
+                        default_text= mermaid_template,   
+                        tooltip="simple_sentence_builder_output line 904"), ],
             [sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),],
             [sg.Button("save your created sentence",tooltip="save your work to a text file"),],
         
@@ -1532,6 +1545,8 @@ while True:
     if event == "edit quantifiers list":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/quantifiers.txt"))    
 
+    
+
     if event == "edit basic question words":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_question_words.md"))
 
@@ -1541,6 +1556,8 @@ while True:
         window["verbs_list_box"].update(values=verbs_list)
         window["nouns_list_box"].update(values=nouns_list)
         window["adjectives_list_box"].update(values=adjectives_list)
+        window["subordinating_conjunctions_list_box"].update(values=subordinating_conjunctions_list)
+
 
 # button in simple sentence builder
     if event == 'randomize':
@@ -1548,10 +1565,16 @@ while True:
         window["nouns_list_box"].update(set_to_index=random.randint(0,len(nouns_list)-1))
         window["adjectives_list_box"].update(set_to_index=random.randint(0,len(adjectives_list)-1))
         window["quantifiers_list_box"].update(set_to_index=random.randint(0,len(quantifiers_list)-1))
+        window["subordinating_conjunctions_list_box"].update(set_to_index=random.randint(0,len(subordinating_conjunctions_list)-1))
         # (set_to_index=random.randint(0,len(verbs_list)-1))
         # event, values = window.read()
         # print(window["verbs_list_box"].get())
-        result = mermaid_template.format(window["verbs_list_box"].get()[0],window["adjectives_list_box"].get()[0],window["nouns_list_box"].get()[0],window["quantifiers_list_box"].get()[0]   )
+        result = mermaid_template.format(window["verbs_list_box"].get()[0],
+                                        window["adjectives_list_box"].get()[0],
+                                        window["nouns_list_box"].get()[0],
+                                        window["quantifiers_list_box"].get()[0],   
+                                        window["subordinating_conjunctions_list_box"].get()[0],   
+                                         )
           
         window['simple_sentence_builder_output'].update(result)
 

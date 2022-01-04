@@ -6,6 +6,7 @@ aggressive
 agitated
 alert
 aloof
+amicable
 bored
 brave
 bright
@@ -86,6 +87,7 @@ lonely
 loose
 lovely
 lucky
+mischievous
 mysterious
 narrow
 nasty
@@ -94,11 +96,13 @@ panicky
 perfect
 perplexed
 quizzical
+rare
 sharp
 short
 silly
 slippery
 slow
+stunning
 tall
 teeny
 tender

@@ -15,10 +15,12 @@ cat
 change
 child
 city
+collateral
 community
 company
 constraint
 country
+credit
 day
 delivery
 door
@@ -96,6 +98,7 @@ reason
 research
 result
 right
+road
 rock
 room
 school
@@ -108,6 +111,8 @@ story
 street
 student
 study
+sunrise
+sunset
 system
 table
 table
@@ -121,6 +126,7 @@ war
 water
 way
 week
+withdrawal
 woman
 word
 work
