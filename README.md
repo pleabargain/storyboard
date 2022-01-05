@@ -132,7 +132,18 @@ populate after_now fields
 
 ## done
 - create list of adverbs past
-see /grammar_adverbs_of_time.md
+- see /grammar_adverbs_of_time.md
+
+# 2022 Jan 5
+Got the grammar tracker save and load JSON to work. 
+
+It's important to think through the save and load process! All of the save/load code could have been generated at the beginning. 
+
+Test often is also important.
+
+Sensical naming structures is critical e.g. 'input' is just useless when having to refactor!
+
+
 
 
 

@@ -54,8 +54,6 @@ Q:
 A:
 Q: 
 A:
-Q: 
-A:
 
 ---
 
@@ -545,9 +543,9 @@ timeline_column_three = sg.Column([
                                 key="adverb1",
                                 font = ("helvetica", 12),
 
-                                size = (None,None),
+                                size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip for adverb1')],
+                                tooltip='This is a tool tip for adverb1 of time')],
 
 ###
                                 [sg.Text("past2 column one",
@@ -902,7 +900,7 @@ tab_one= sg.Tab ("adj noun reg verb", [
 
         ],
             [sg.Multiline(key="simple_sentence_builder_output",
-                        size =(50,9), 
+                        size =(70,10), 
                         font = ("helvetica",12),
                         default_text= mermaid_template,   
                         tooltip="simple_sentence_builder_output line 904"), ],
@@ -917,11 +915,14 @@ tab_one= sg.Tab ("adj noun reg verb", [
 storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         #create button
         [sg.Button("shuffle the images",
-                key = "image_shuffle",
+                    key = "image_shuffle",
+                    tooltip = "line 919",
                 ),
    
-        sg.Button("idioms"),
-        sg.Button("prepositional phrases"),
+        sg.Button("idioms",
+                    tooltip = "line 923",),
+        sg.Button("prepositional phrases",
+                   tooltip = "line 925", ),
         sg.Button("phrasal verbs"),
         ],
     
@@ -944,9 +945,9 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
         
 [
-    sg.Text("prepare_0"),
+    sg.Text("prepare_0", tooltip="948"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="prepare_0_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -960,7 +961,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("agenda_01"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="agenda_01_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -974,7 +975,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("making_proposals_02"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="making_proposals_02_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -988,7 +989,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("suggestions_03"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="suggestions_03_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1002,7 +1003,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("agreeing_04"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="agreeing_04_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1016,7 +1017,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("objecting_05"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="objecting_05_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1030,7 +1031,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("prioritizing_06"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="prioritizing_06_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1044,7 +1045,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("clarification_07"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="clarification_07_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1058,7 +1059,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("compromising_08"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="compromising_08_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1072,7 +1073,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("bargaining_09"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="bargaining_09_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1086,7 +1087,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("postponing_10"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="postponing_10_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1100,7 +1101,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("concluding_11"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="concluding_11_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1114,7 +1115,7 @@ negotiation_tab_three = sg.Tab("negotiation",
 [
     sg.Text("seal_the_deal_12"),
     sg.Text(
-            text= "Have your prepared enough?!",
+            text= "Have you prepared enough?!",
             key="seal_the_deal_12_list_box",
             enable_events=True,
             font=("Helvetica", 14),
@@ -1212,35 +1213,6 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
     ])
 
 
-### Grammar Tracker Tab
-# create a column
-# grammar_column_left = sg.Column(
-#                             [sg.Text("future simple",
-#                             key="PlaceHolder1",
-#                             font = ("helvetica",16),
-#                             enable_events=True,
-#                             tooltip="""Future Simple - I think I'll build my own\n house when I can afford to.""",)],
-
-#                             [sg.Text("future continuous",
-#                             enable_events=True,
-#                             key="PlaceHolder11",
-#                             font = ("helvetica",16),
-#                             tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
-#                             )
-
-# grammar_column_right = sg.Column(
-#                             [sg.Text("future simple",
-#                             key="PlaceHolder111",
-#                             font = ("helvetica",16),
-#                             enable_events=True,
-#                             tooltip="""Future Simple - I think I'll build my own\n house when I can afford to.""",)],
-
-#                             [sg.Text("future continuous",
-#                             enable_events=True,
-#                             key="PlaceHolder1111",
-#                             font = ("helvetica",16),
-#                             tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
-#                             )
 
 
 
@@ -1262,17 +1234,26 @@ tracker_layout.append(
 
   )
 
+# TODO this should generate all required if event == "x"   
+# see line 1396 for reference
+# label
+# input
+# slider      
+# window["input1"].update(hold_json[most_recent_date]["passive voice"]  )
+
+# for passing data to the json file
+# 
 
 for x in range(0,len(top_ten)//2):
     tracker_layout.append(        
         [
         sg.Text(top_ten[x],key="label"+ str(x),auto_size_text = True, size =(10, 1)), 
-        sg.InputText(key="input"+ str(x) ,size=(40,2)), 
-        sg.Slider(enable_events=True,key= "slider"+ str(x), orientation = "horizontal",size = (6,10),),
+        sg.InputText(key="input"+ str(x) ,size=(40,2), tooltip = "input"+ str(x)), 
+        sg.Slider(enable_events=True,key= "grammar_slider"+ str(x),tooltip = "grammar_slider"+ str(x) ,   orientation = "horizontal",size = (6,10),),
         
         sg.Text(top_ten[x+5],key="label"+ str(x+5),auto_size_text = True, size =(10, 1)), 
-        sg.InputText(key="input"+ str(x+5) ,size=(40,2)), 
-        sg.Slider(enable_events=True,key= "slider"+ str(x+5), orientation = "horizontal",size = (6,10),),
+        sg.InputText(key="input"+ str(x+5) ,size=(40,2),tooltip = "input"+ str(x+5)   ), 
+        sg.Slider(enable_events=True,key= "grammar_slider"+ str(x+5), tooltip = "grammar_slider"+ str(x+5) , orientation = "horizontal",size = (6,10),),
         ],
         )
 
@@ -1286,6 +1267,8 @@ tracker_layout.append(
 tracker_layout.append(
         [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline object key grammar analysis",font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
                     )
+
+
 
 # tracker_layout.append(grammar_column_left)
 
@@ -1343,7 +1326,7 @@ while True:
 
 
 
-# pros and cons events
+# pros and cons tab events
     #shuffle events
     if event == "pros_cons_issues":
         read_list_from_file()
@@ -1358,7 +1341,7 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md"))
 
 
-# grammar tracker
+# grammar tracker tab events
     if event == "load student json":
         student_name = values["student_name"]
         if student_name == "":
@@ -1383,11 +1366,30 @@ while True:
         # populate gui with JSON data
         # first yellow is gui key
         # second yellow is key of json
-
+        # [0] get first element of list
         window["grammar analysis"].update(hold_json[most_recent_date]["grammar analysis"]  )
-        window["input1"].update(hold_json[most_recent_date]["passive voice"]  )
-        # window["slider1"].update(hold_json[most_recent_date]["passive voice"]  )
-
+        window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
+        window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
+        window["input2"].update(hold_json[most_recent_date]["articles"][0])
+        window["input3"].update(hold_json[most_recent_date]["modals"][0])
+        window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
+        window["input5"].update(hold_json[most_recent_date]["prepositions"][0])
+        window["input6"].update(hold_json[most_recent_date]["comparatives and superlatives"][0])
+        window["input7"].update(hold_json[most_recent_date]["phrasal verbs"][0])
+        window["input8"].update(hold_json[most_recent_date]["irregular verbs"][0])
+        window["input9"].update(hold_json[most_recent_date]["pronunciation"][0])
+        #handle slider values of grammar tracker 
+        # [1] get second element of list
+        window["grammar_slider0"].update(hold_json[most_recent_date]["passive voice"][1])
+        window["grammar_slider1"].update(hold_json[most_recent_date]["conditionals"][1])
+        window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
+        window["grammar_slider3"].update(hold_json[most_recent_date]["modals"][1])
+        window["grammar_slider4"].update(hold_json[most_recent_date]["connecting words"][1])
+        window["grammar_slider5"].update(hold_json[most_recent_date]["prepositions"][1])
+        window["grammar_slider6"].update(hold_json[most_recent_date]["comparatives and superlatives"][1])
+        window["grammar_slider7"].update(hold_json[most_recent_date]["phrasal verbs"][1])
+        window["grammar_slider8"].update(hold_json[most_recent_date]["irregular verbs"][1])
+        window["grammar_slider9"].update(hold_json[most_recent_date]["pronunciation"][1])
 
 
 #menu items
@@ -1413,7 +1415,7 @@ while True:
 
         content = {}
         for x in range(0,len(top_ten)  ):
-            content[top_ten[x]]= [values[f"input{x}"],values[f"slider{x}"], ]
+            content[top_ten[x]]= [values[f"input{x}"],values[f"grammar_slider{x}"], ]
         # content["summary"]=summary_value
         content["grammar analysis"] = values["grammar analysis"]
         student_progress = {date_string:content}
@@ -1428,7 +1430,12 @@ while True:
             myfile.write(text)
 
             
-            #TODO new data is not being saved to json
+            #fixed new data is not being saved to json
+            # TODO save sum of values to JSON
+            ## requires new field in JSON
+            # TODO save vocabulary entries into JSON
+            ## requires new field in JSON
+            # TODO generate a simple graph of performance
         sg.PopupOK("{}.json File saved to directory".format(values["student_name"])
                     
                     )
@@ -1436,7 +1443,7 @@ while True:
 # pros cons tab
     # fire on all pros and con sliders
     # TODO this naming structure needs to be updated
-    if "slider" in event:
+    if ("slider_pros" in event) or ("slider_cons" in event):
         sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
         sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
         # sg.PopupOK(sum_of_pros)
@@ -1449,7 +1456,7 @@ while True:
         csv_file_name=selected_topic
         if len (csv_file_name)==0:
             sg.PopupError("Name is empty",
-                            location=(2000, 1700),
+                            location=(2000, 100),
                             )
             continue
         
