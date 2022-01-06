@@ -193,6 +193,7 @@ waste
 watch
 wave
 welcome
+wiggle
 will(modal)
 win(irr)
 wish
@@ -201,5 +202,6 @@ work
 would(modal)
 write
 x
+yell
 yield
-z
+zip

@@ -158,6 +158,9 @@ cat verbs.txt | sort | uniq>outv.txt
 
 quickly sort and get uniq values only. 
 
+# language teacher?
+Check out the tips page in the app. It's not complete but it'll get your started.
+
 
 # thanks
 Thanks go to Horst Jens who was instrumental in teaching me how to build this application. 

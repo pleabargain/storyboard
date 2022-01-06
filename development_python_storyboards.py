@@ -334,7 +334,7 @@ sg.ChangeLookAndFeel('GreenTan')
 # ------ Menu Definition ------ #
 menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
-            ['&Help', 'help','&Open_docs'], ]
+            ['&Help', ['tips','README',],'&Open_docs'], ]
 
 # ------ Column Definition ------ #
 # column1 = [[sg.Text('Column 1', background_color='lightblue', justification='center', size=(10, 1))],
@@ -1265,9 +1265,22 @@ tracker_layout.append(
                     )
 
 tracker_layout.append(
-        [sg.Multiline(key="grammar analysis",size =(40,5),tooltip="This is a multiline object key grammar analysis",font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
-                    )
+        [sg.Multiline(key="grammar analysis",
+                        default_text='put the grammar analysis here',
+                        size =(40,5),
+                        tooltip="This is a multiline object key grammar analysis",
+                        font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
+                     )
+tracker_layout.append(
+        [sg.Multiline(key="vocabulary_used",
+                        default_text='put vocabulary words here',
 
+                        size =(40,5),
+                        tooltip="This is a multiline object key vocabulary_used",
+                        font =("helvetica", 14)), 
+                        sg.Button("save vocabulary used",
+                        tooltip="TODO save to json file add student name to file save")],
+                    )   
 
 
 # tracker_layout.append(grammar_column_left)
@@ -1290,15 +1303,19 @@ layout = [
     [sg.Text("student name:"),
             sg.Combo(values=student_names,
                    key="student_name",
-                    tooltip="TODO test addingnew name this should pull from a list of students name goes here",
+                    tooltip="TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 1242"
+                tooltip = "see line 1310"
 
                 ) ,
 
-    sg.Text("date picker: "), sg.Combo(values=["date1","date3"], key = "date_picker")
+    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file"), 
+    # I tried removing the values but still got keyerror
+    sg.Combo(values=["a",'b'], 
+            key = "date_picker", 
+            tooltip="TODO this needs to load from the json file line 1317")
     
     
     ],
@@ -1367,6 +1384,9 @@ while True:
         # first yellow is gui key
         # second yellow is key of json
         # [0] get first element of list
+        # testing date picker
+        window["date_picker"].update(hold_json[most_recent_date]["date_picker"]  )
+
         window["grammar analysis"].update(hold_json[most_recent_date]["grammar analysis"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
         window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
@@ -1397,10 +1417,11 @@ while True:
         webbrowser.open("https://pysimplegui.readthedocs.io/en/latest/",new=1,autoraise=True )
         # pass
         
-    if event == 'help':
-    #     sg.popup_notify("Some text",location = (900,900))
-    #if event == "edit making_proposals_02":
+    if event == 'README':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
+
+    if event == 'tips':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/tips.md"))
 
 
 
@@ -1417,7 +1438,9 @@ while True:
         for x in range(0,len(top_ten)  ):
             content[top_ten[x]]= [values[f"input{x}"],values[f"grammar_slider{x}"], ]
         # content["summary"]=summary_value
-        content["grammar analysis"] = values["grammar analysis"]
+        # content["grammar analysis"] = values["grammar analysis"]
+        #vocabulary_used
+        content["vocabulary_used"] = values["vocabulary_used"]
         student_progress = {date_string:content}
         #create JSON file
         with open  ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "a") as myfile:
