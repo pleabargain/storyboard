@@ -15,10 +15,13 @@ The app should run on any python3 compliant device.
 
 
 # TODO
-- set python script to run BASH `cat verbs.txt | sort | uniq>outv.txt` to quickly sort and get uniq values only. )
+There are lots of TODOs in the code. If you want to participate, please do.
+
+- strip empty spaces from files
+- sort text files
 - strip txt files of empty lines
+- set python script to run BASH `cat verbs.txt | sort | uniq>outv.txt` to quickly sort and get uniq values only. )
 - Save/Load student data from JSON file
-- there are lots of TODOs in the code. If you want to participate, please do.
 - add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 
@@ -36,9 +39,18 @@ This is automatically generated from a text file! It currently saves to file as 
 if event == "generated key":
    pass
 
-## TODO
-Read and write to json file
+see form_generator_description.md
 
+## TODO
+- load data based on date
+- started Read and write to json file
+- save vocabulary data to json file
+- create a graph of the student data
+
+
+## done
+- create list of adverbs past
+- see /grammar_adverbs_of_time.md
 # adj noun reg verb tab 
 <img src="/support_images/tab_verbadjnoun.png" alt="Getting started" />
 
@@ -132,10 +144,6 @@ populate after_now fields
 
 
 
-## done
-- create list of adverbs past
-- see /grammar_adverbs_of_time.md
-
 # 2022 Jan 6
 found my word list folder was missing!
 
@@ -151,6 +159,7 @@ It's important to think through the save and load process! All of the save/load 
 Test often is also important.
 
 Sensical naming structures is critical e.g. 'input' is just useless when having to refactor!
+
 
 
 # bash tip

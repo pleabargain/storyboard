@@ -880,15 +880,15 @@ tab_one= sg.Tab ("adj noun reg verb", [
     sg.Button("edit nouns list",tooltip="open editor to edit nouns"),
     sg.Button("edit quantifiers list",tooltip="open editor to edit quantifiers"),
     
-    sg.Button("edit basic question words",tooltip="open local editor to edit basic questions")
+    sg.Button("edit basic question words",tooltip="line 883 open local editor to edit basic questions")
     ],
 
     [
-    sg.Text("verb",size=(17,1)),
+    sg.Text("verb",size=(17,1), tooltip = "Verbs are action words."),
     sg.Text("adj",size=(17,1)),
     sg.Text("noun",size=(17,1)),
     sg.Text("quantifiers",size=(17,1)),
-    sg.Text("subordinating conjunctions",size=(17,1)),
+    sg.Text("subordinating conjunctions",size=(None,None)),
     ],
 
         [  # sg.Text(verbs_list,key="verbs_list_box",enable_events=True,size=(15,15)),
@@ -1385,7 +1385,7 @@ while True:
         # second yellow is key of json
         # [0] get first element of list
         # testing date picker
-        window["date_picker"].update(hold_json[most_recent_date]["date_picker"]  )
+        window["date_picker"].update(hold_json[most_recent_date]["date_picker"][0]  )
 
         window["grammar analysis"].update(hold_json[most_recent_date]["grammar analysis"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
@@ -1579,6 +1579,8 @@ while True:
 
     if event == "edit basic question words":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_question_words.md"))
+        webbrowser.open("https://docs.google.com/document/d/1FRGc3k_AkcAbH_w4COKyms9fOjxS7YJfKygv_nin9F4/edit?usp=sharing",new=1,autoraise=True )
+
 
 
     if event == 'reload':

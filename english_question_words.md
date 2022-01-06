@@ -7,6 +7,7 @@
 
 
 # Who
+- Who was born on Christmas day according to tradition?
 - Who invented _this_ robot?
 - Who was the first girl you played chess with?
 - Who is in the TV show?
@@ -42,6 +43,14 @@
 - With whom?
 
 # What
+- What is your comfort food?
+- What do you think about eating only healthy food?
+- What is the best burger you have ever eaten?
+- What is your favorite Christmas food?
+- What food did you use to eat often?
+- What is an epic cheeseburger?
+- What is your most comforting food?
+- What should be burned during the Orthodox Christmas liturgy?
 - What can this robot do?
 - What is your favorite chess board situation?
 - What is the TV show about?
@@ -110,6 +119,7 @@
 - And so what?
 
 # Where
+- Where is the main place where O.C. celebrate Christmas?
 - Where can we buy this robot?
 - Where has the werewolf been since last night?
 - Where does your wife prefer to play chess?
@@ -141,10 +151,10 @@
 - Where are we going tonight?
 - Where are we going to watch the game tonight?
 - Where… from ..?  
-
 - Where are your neighbors from?  
 
 # When
+- When do O.C. celebrate the birth of Christ?
 - When can they deliver the robot to my apartment?
 - When was the last time you played chess?
 - When was the last time you watched the TV show?
@@ -184,6 +194,7 @@
 
 # Why
 
+- Why is there such a difference between O.C. and C. celebrations?
 - Why is this robot expensive?
 - Why is the werewolf howling?
 - Why is the maintenance icon a different color?
@@ -220,6 +231,9 @@
 
 
 # How
+- How is it possible that we can eat so much Salad Olivier?
+- How is it possible to eat twelve holy dishes at one sitting?
+- How do Japanese celebrate New Years?
 - How is this robot useful to us?
 - How is that working for you?
 - How long have you lived here?
@@ -231,7 +245,6 @@
 - How often do you read books?
 - How do you hack a strong password?
 - How do you crack a strong password?
-- How do Japanese celebrate New Years?
 - How are you going to get there?
 - How much did it cost?
 - How long will it take to drive there?
