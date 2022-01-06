@@ -31,6 +31,3 @@ every
 few 
 a small number of
 a large number of
-
-
-

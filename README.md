@@ -15,6 +15,8 @@ The app should run on any python3 compliant device.
 
 
 # TODO
+- set python script to run BASH `cat verbs.txt | sort | uniq>outv.txt` to quickly sort and get uniq values only. )
+- strip txt files of empty lines
 - Save/Load student data from JSON file
 - there are lots of TODOs in the code. If you want to participate, please do.
 - add usage license
@@ -134,6 +136,13 @@ populate after_now fields
 - create list of adverbs past
 - see /grammar_adverbs_of_time.md
 
+# 2022 Jan 6
+found my word list folder was missing!
+
+I don't remember if I had pushed my most recent changes to github before ending my day yesterday. 
+
+
+
 # 2022 Jan 5
 Got the grammar tracker save and load JSON to work. 
 
@@ -144,7 +153,10 @@ Test often is also important.
 Sensical naming structures is critical e.g. 'input' is just useless when having to refactor!
 
 
+# bash tip
+cat verbs.txt | sort | uniq>outv.txt
 
+quickly sort and get uniq values only. 
 
 
 # thanks
