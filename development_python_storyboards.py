@@ -1313,7 +1313,7 @@ layout = [
 
     sg.Text("date picker: ",tooltip="TODO this needs to load from the json file"), 
     # I tried removing the values but still got keyerror
-    sg.Combo(values=["a",'b'], 
+    sg.Combo(values=["load from json a",'load from json b'], 
             key = "date_picker", 
             tooltip="TODO this needs to load from the json file line 1317")
     

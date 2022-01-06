@@ -4,10 +4,12 @@ appear
 apply
 ask
 attack
+approach
 attend
 bake
 become(irr)
 begin(irr)
+belong
 be(irr)
 believe
 bet (irr)
@@ -19,6 +21,7 @@ buy(irr)
 call
 can(modal)
 cause
+carry
 change
 check
 climb
@@ -49,11 +52,13 @@ determine
 die
 direct
 display
+delay
 do
 dream
 elaborate
 examine
 expand
+explore
 expect
 explain
 fail
@@ -61,6 +66,7 @@ fake
 fall
 feel
 find
+fix
 finish
 fly(irr)
 focus
@@ -70,12 +76,14 @@ garantee
 gesture
 get(irr)
 give(irr)
+gravitate
 go(irr)
 grow(irr)
 happen
 have(irr)
 hear(irr)
 help
+hurry
 hold(irr)
 humiliate
 imagine
@@ -83,6 +91,9 @@ include
 indicate
 inherit
 insist
+improvise
+jab
+join
 jeopardize
 jump
 keep(irr)
