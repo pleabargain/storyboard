@@ -1260,7 +1260,7 @@ for x in range(0,len(top_ten)//2):
 
 tracker_layout.append(
         [
-        sg.Text("performance sum",justification="right", size=(10,1)), sg.Text("?",key="performance sum"),
+        sg.Text("performance sum",justification="right", size=(None,None)), sg.Input("0",key="performance sum"),
         ],
                     )
 
@@ -1311,10 +1311,11 @@ layout = [
 
                 ) ,
 
-    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file"), 
+    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file line 1314"), 
     # I tried removing the values but still got keyerror
     sg.Combo(values=["load from json a",'load from json b'], 
             key = "date_picker", 
+            enable_events=True,
             tooltip="TODO this needs to load from the json file line 1317")
     
     
@@ -1359,14 +1360,97 @@ while True:
 
 
 # grammar tracker tab events
+
+    if "grammar_slider" in event:
+        #update performance sum field
+        window["performance sum"].update(values["grammar_slider0"]+
+                                         values["grammar_slider1"]+
+                                         values["grammar_slider2"]+
+                                         values["grammar_slider3"]+
+                                         values["grammar_slider4"]+
+                                         values["grammar_slider5"]+
+                                         values["grammar_slider6"]+
+                                         values["grammar_slider7"]+
+                                         values["grammar_slider8"]+
+                                         values["grammar_slider9"]
+                                        )
+
+
+    if event == "date_picker":
+        student_name = values["student_name"]
+        if student_name == "":
+            sg.PopupError("No student json file by that name", 
+                            location=(2000, 100),)
+            continue
+        json_files = glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/students/*.json"  )
+        # print (json_files)
+        for x_file in json_files:
+            #TODO allow users to enter new students through UI
+            # BUG at this point loading any json will throw an error
+            if x_file.endswith(student_name+".json"):
+                sg.PopupOK("found it",
+                location=(2000, 100),)
+                break
+        else:
+            sg.PopupError("not found",location=(2000, 100), )
+            continue
+        # all ok we found the JSON
+        # x_file
+        with open(x_file) as my_file:
+            hold_json = json.load(my_file)
+        print(hold_json)
+        # most_recent_date = max(hold_json.keys())
+        most_recent_date = values["date_picker"]
+        # populate gui with JSON data
+        # first yellow is gui key
+        # second yellow is key of json
+        
+        # TODO get the dates as a list in the combo box at line 1316
+        # testing date picker 
+
+        # window["date_picker"].update(values = list(hold_json.keys()))
+
+        # window["date_picker"].update(most_recent_date)
+
+        window["grammar analysis"].update(hold_json[most_recent_date]["grammar analysis"]  )
+        window["vocabulary_used"].update(hold_json[most_recent_date]["vocabulary_used"]  )
+        window["performance sum"].update(hold_json[most_recent_date]["performance sum"]  )
+        window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
+        window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
+        window["input2"].update(hold_json[most_recent_date]["articles"][0])
+        window["input3"].update(hold_json[most_recent_date]["modals"][0])
+        window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
+        window["input5"].update(hold_json[most_recent_date]["prepositions"][0])
+        window["input6"].update(hold_json[most_recent_date]["comparatives and superlatives"][0])
+        window["input7"].update(hold_json[most_recent_date]["phrasal verbs"][0])
+        window["input8"].update(hold_json[most_recent_date]["irregular verbs"][0])
+        window["input9"].update(hold_json[most_recent_date]["pronunciation"][0])
+        #handle slider values of grammar tracker 
+        # [1] get second element of list
+        window["grammar_slider0"].update(hold_json[most_recent_date]["passive voice"][1])
+        window["grammar_slider1"].update(hold_json[most_recent_date]["conditionals"][1])
+        window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
+        window["grammar_slider3"].update(hold_json[most_recent_date]["modals"][1])
+        window["grammar_slider4"].update(hold_json[most_recent_date]["connecting words"][1])
+        window["grammar_slider5"].update(hold_json[most_recent_date]["prepositions"][1])
+        window["grammar_slider6"].update(hold_json[most_recent_date]["comparatives and superlatives"][1])
+        window["grammar_slider7"].update(hold_json[most_recent_date]["phrasal verbs"][1])
+        window["grammar_slider8"].update(hold_json[most_recent_date]["irregular verbs"][1])
+        window["grammar_slider9"].update(hold_json[most_recent_date]["pronunciation"][1])
+
+
+
     if event == "load student json":
         student_name = values["student_name"]
         if student_name == "":
-            sg.PopupError("No student json file by that name")
+            sg.PopupError("No student json file by that name", 
+                            location=(2000, 100),)
+            continue
         json_files = glob.glob("/home/dgd/Desktop/python_storyboard_flashcards/students/*.json"  )
-        print (json_files)
+        # print (json_files)
         for x_file in json_files:
-
+            #TODO allow users to enter new students through UI
+            # BUG at this point loading any json will throw an error
             if x_file.endswith(student_name+".json"):
                 sg.PopupOK("found it",
                 location=(2000, 100),)
@@ -1383,11 +1467,17 @@ while True:
         # populate gui with JSON data
         # first yellow is gui key
         # second yellow is key of json
-        # [0] get first element of list
-        # testing date picker
-        window["date_picker"].update(hold_json[most_recent_date]["date_picker"][0]  )
+        
+        # TODO get the dates as a list in the combo box at line 1316
+        # testing date picker 
 
+        window["date_picker"].update(values = list(hold_json.keys()))
+
+        window["date_picker"].update(most_recent_date)
+        
         window["grammar analysis"].update(hold_json[most_recent_date]["grammar analysis"]  )
+        window["vocabulary_used"].update(hold_json[most_recent_date]["vocabulary_used"]  )
+        window["performance sum"].update(hold_json[most_recent_date]["performance sum"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
         window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
         window["input2"].update(hold_json[most_recent_date]["articles"][0])
@@ -1429,18 +1519,24 @@ while True:
 
 
     if event == "save grammar analysis":
-        date_string = "{}.{}.{}".format(datetime.date.today().year, 
+        date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
                                         datetime.date.today().day,
+                                        datetime.datetime.today().hour,
+                                        datetime.datetime.today().minute,
+                                        datetime.datetime.today().second,
+
                                         )
 
+        #empty dict
         content = {}
         for x in range(0,len(top_ten)  ):
             content[top_ten[x]]= [values[f"input{x}"],values[f"grammar_slider{x}"], ]
         # content["summary"]=summary_value
-        # content["grammar analysis"] = values["grammar analysis"]
+        content["grammar analysis"] = values["grammar analysis"]
         #vocabulary_used
         content["vocabulary_used"] = values["vocabulary_used"]
+        content["performance sum"]= values["performance sum"]
         student_progress = {date_string:content}
         #create JSON file
         with open  ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "a") as myfile:
@@ -1459,7 +1555,8 @@ while True:
             # TODO save vocabulary entries into JSON
             ## requires new field in JSON
             # TODO generate a simple graph of performance
-        sg.PopupOK("{}.json File saved to directory".format(values["student_name"])
+        sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
+                    location  = (1700,100))
                     
                     )
             
@@ -1535,7 +1632,7 @@ while True:
                             })
 
         sg.PopupOK(f"{csv_file_name}.csv' file written to directory\n{os.getcwd()} dir",
-                    location=(2000, 1700),
+                    location=(2000, 100),
                     )
 
 
@@ -2077,8 +2174,3 @@ while True:
         break
 
 window.close()
-
-# sg.Popup('Title',
-#          'The results of the window.',
-#          'The button clicked was "{}"'.format(event),
-#          'The values are', values)
