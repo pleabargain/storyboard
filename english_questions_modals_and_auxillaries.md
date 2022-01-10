@@ -17,9 +17,11 @@
 
 # are
 - Are we going to visit the amusement park this weekend?
+- Are you going parachuting this weekend?
 
 # can
 
+- Can you go parachuting with me?
 - Can we skip the planning phase?
 - Can you imagine yourself as a [chauffeur | driver]?
 - Can you imagine yourself as a [merchant marine|sailor|naval officer]?
@@ -29,6 +31,9 @@
 - Can you play football with us next Saturday?
 
 # could
+
+- Could you please help me to get me a conviction on this burglar?
+- Could you go parachuting tomorrow?
 - Could you please explain to us the timeline for building an autonomous tractor?
 - Could you name the next country where you are planning to go sailing?
 - Could you name the next country where you are planning to go yachting?
@@ -39,27 +44,34 @@
 
 
 # do 
+- Do you play tennis?
 - Do we someone for the designing phase?
 - Do your windows open the whole way?
 - Do you know how to get from Finland to Thailand by sea?
 - Do you have experience with building autonomous tractors?
 
 # does
+- Does your neighbor play tennis?
 - Does anybody have a good recipe for apple pie?
 
 # did
+- Did you exchange some money at the airport?
 - Did you send the contract to your business partner yesterday?
 - Did your company ever make autonomous tractors?
 
 # have
+- Have you ever [belonged to|joined] a dance team before?
 - Have you ever belonged to a boxing club?
+- Have you ever been fully sedated?
 
 
 # if
-- If I pass my yachting exam this spring, I will go sailing in the summer.
+- If I pass my yachting exam this spring, will you go sailing in the summer?
+- If you were a decent guy, you would kill that bastard who murdered your family!
+- 
 
 # is
-- Is analysis important for the success of the project?
+- Is a front end analysis important for the success of the project?
 
 
 # may
@@ -68,6 +80,8 @@
 # which 
 - Which antique shop do you like?
 - Which technology will be used to operate the tractor remotely?
+- Which direction should I go?
+- Which color do you [like|prefer]?
 
 # would 
 - Would you take out the trash please?

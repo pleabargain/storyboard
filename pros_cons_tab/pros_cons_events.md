@@ -38,6 +38,8 @@ buy a car
 get vaccines updated
 car accident
 buy a Christmas tree
+go outside
+go shopping at the mall
 decorate a Christmas tree
 to get married
 to donate blood

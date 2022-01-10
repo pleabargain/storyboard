@@ -159,6 +159,7 @@ def split_filename(original_filename):
                                 "noun_body_part_",
                                 "noun_clothing_",
                                 "noun_food_",
+                                "daily_routine_",
                                 "idiom_",
                                 "noun_",
                                 "phrase_",
@@ -208,6 +209,7 @@ def read_list_from_file():
     pros_cons_issues.clear()
     
    
+### connecting words
 
       
  
@@ -1556,7 +1558,7 @@ while True:
             ## requires new field in JSON
             # TODO generate a simple graph of performance
         sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
-                    location  = (1700,100))
+                    location  = (2000,100))
                     
                     )
             

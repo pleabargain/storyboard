@@ -162,10 +162,15 @@ Sensical naming structures is critical e.g. 'input' is just useless when having 
 
 
 
-# bash tip
+# bash tip sort
 cat verbs.txt | sort | uniq>outv.txt
 
 quickly sort and get uniq values only. 
+
+# bash tip change upper case to lower
+tr '[:upper:]' '[:lower:]' < linking_words_reason.txt > output.txt
+
+
 
 # language teacher?
 Check out the tips page in the app. It's not complete but it'll get your started.

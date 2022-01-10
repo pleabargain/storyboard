@@ -19,6 +19,7 @@ belong
 bet (irr)
 boil
 bicycle
+bike
 borrow
 break(irr)
 bring(irr)
@@ -69,6 +70,8 @@ disappoint
 display
 do
 dream
+drive(irr)
+drink(irr)
 dump
 elaborate
 elevate
@@ -95,6 +98,7 @@ follow
 foresee
 forewarn
 freeze
+fry
 gab
 garantee
 gesture
@@ -109,6 +113,7 @@ happen
 have(irr)
 hear(irr)
 help
+hide
 hire
 hike
 hold(irr)
@@ -118,6 +123,7 @@ imagine
 improvise
 include
 improve
+impose
 increase
 indicate
 inherit
@@ -203,6 +209,7 @@ provide
 put(irr)
 quit
 question
+quote
 ransack
 rap
 reach
@@ -222,7 +229,9 @@ run(irr)
 rush
 sacrifice
 satisfy
+save
 say(irr)
+sedated
 see(irr)
 seem
 sell(irr)
@@ -292,6 +301,7 @@ win(irr)
 wink
 wish
 withdraw
+plead
 work
 would(modal)
 wrap
@@ -301,6 +311,7 @@ yap
 yell
 yield
 yoke
+zap
 zero
 zip
 zoom
