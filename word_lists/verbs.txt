@@ -5,6 +5,7 @@ apologize
 appear
 apply
 approach
+arrest
 arrive
 ask
 attack
@@ -75,6 +76,8 @@ drink(irr)
 dump
 elaborate
 elevate
+encounter
+endorse
 escalate
 examine
 expand
@@ -194,6 +197,9 @@ pat
 pay
 pee 
 paint
+permit
+persist
+persuade
 ping
 plan
 play
@@ -223,6 +229,7 @@ remember
 remind
 repeat
 request
+rescue
 reverse
 review
 run(irr)
