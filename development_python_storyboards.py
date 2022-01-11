@@ -1159,7 +1159,7 @@ pros_cons_tab= sg.Tab ("pros cons",
         #create button
         [
             #TODO this TEXT object should be a roll down or similar
-        [sg.Text("pros and cons issues goes here",size=(40,1),
+        [sg.Text("pros and cons issues",size=(40,1),
                 key="pros_cons_issues",
                 tooltip = "Click to change this item.",
                 enable_events=True,

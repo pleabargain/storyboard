@@ -7,6 +7,7 @@
 
 
 # Who
+- Who is still sailing schooners?
 - Who was born on Christmas day according to tradition?
 - Who invented _this_ robot?
 - Who was the first girl you played chess with?
@@ -43,6 +44,7 @@
 - With whom?
 
 # What
+- What is the main purpose of schooners?
 - What is your comfort food?
 - What do you think about eating only healthy food?
 - What is the best burger you have ever eaten?
@@ -119,6 +121,7 @@
 - And so what?
 
 # Where
+- Where would you sail a schooner today?
 - Where is the main place where O.C. celebrate Christmas?
 - Where can we buy this robot?
 - Where has the werewolf been since last night?
@@ -154,7 +157,8 @@
 - Where are your neighbors from?  
 
 # When
-- When do O.C. celebrate the birth of Christ?
+- When is the best time to sail a schooner?
+- When do Orthodox Christians celebrate the birth of Christ?
 - When can they deliver the robot to my apartment?
 - When was the last time you played chess?
 - When was the last time you watched the TV show?
@@ -194,6 +198,7 @@
 
 # Why
 
+- Why are people still [sailing|using] schooners?
 - Why is there such a difference between O.C. and C. celebrations?
 - Why is this robot expensive?
 - Why is the werewolf howling?
@@ -231,6 +236,7 @@
 
 
 # How
+- How should I begin to learn how to sail schooners?
 - How is it possible that we can eat so much Salad Olivier?
 - How is it possible to eat twelve holy dishes at one sitting?
 - How do Japanese celebrate New Years?

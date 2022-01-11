@@ -4,6 +4,7 @@ allow
 apologize
 appear
 apply
+appreciate
 approach
 arrest
 arrive
@@ -13,9 +14,11 @@ attend
 avoid
 author
 bake
+bare
 become(irr)
 begin(irr)
 be(irr)
+bear
 believe
 belong
 bet (irr)
@@ -43,6 +46,7 @@ come(irr)
 comfort
 commute
 compete
+confirm
 conserve
 consider
 construct
@@ -92,6 +96,7 @@ fake
 fall
 feed
 feel
+fill
 find
 finish
 fit
@@ -116,8 +121,10 @@ grow(irr)
 happen
 have(irr)
 hear(irr)
+heal
+hesitate
 help
-hide
+hide (irr)
 hire
 hike
 hope
@@ -148,6 +155,7 @@ keep(irr)
 kill
 know(irr)
 knock
+lay
 lead(irr)
 leak
 lean
@@ -186,8 +194,10 @@ narrate
 navigate
 need
 nod
+note
 negotiate
 nudge
+obey
 observe
 offer
 open
@@ -220,12 +230,16 @@ promote
 propose
 protect
 provide
+prove
 put(irr)
 quit
 question
 quote
+queue
 ransack
 rap
+rush
+race
 reach
 read(irr)
 recognize
@@ -236,20 +250,24 @@ reinforce
 remain
 remember
 remind
+rent
 repeat
 request
+research
 rescue
 reverse
 review
 run(irr)
 rush
 sacrifice
+sail
 satisfy
 save
 say(irr)
 sedated
 see(irr)
 seem
+seek(irr)
 sell(irr)
 send(irr)
 serve
@@ -275,11 +293,13 @@ store
 study
 suggest
 survey
+surround
 take(irr)
 talk
 target
 taste
 tell(irr)
+tend
 test
 think(irr)
 throw(irr)
@@ -296,6 +316,7 @@ underestimate
 understand
 undo
 unify
+uncover
 unite
 unpack
 use
@@ -305,6 +326,7 @@ violate
 visit
 vanish
 volunteer
+wag
 wait
 walk
 want
@@ -317,6 +339,7 @@ will(modal)
 win(irr)
 wink
 wish
+wound
 withdraw
 plead
 work
