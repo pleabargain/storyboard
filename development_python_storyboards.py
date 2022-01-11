@@ -1164,27 +1164,48 @@ pros_cons_tab= sg.Tab ("pros cons",
                 tooltip = "Click to change this item.",
                 enable_events=True,
                 font=("helvetica",20)),
-                sg.Button("edit pros cons issues",tooltip="click to open editor")],
+                sg.Button("edit pros cons issues",
+                tooltip="click to open editor")],
 
 
         [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
+        sg.Text("Linking Words for Results", 
+                key="linking_words_results",
+                enable_events=True,
+                size= (None,None),
+                )
         ],
     
         [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
+        sg.Text("Connecting Words for Emphasis", 
+                key="connecting_words_emphasis",
+                enable_events=True,
+                size= (None,None),
+                )
         ],
         
         [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
+        sg.Text("Linking Words for Addition", 
+                key="linking_words_addition",
+                enable_events=True,
+                size= (None,None),
+                )
         ],
 
         [
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
+        sg.Text("Connecting Words for Illustration", 
+                key="connecting_words_illustration",
+                enable_events=True,
+                size= (None,None),
+                )
         ],
 
         [
@@ -1227,7 +1248,6 @@ tracker_layout = []
 tracker_layout.append(      
                 [
                 sg.Text("Grammar issues",size=(40,1),
-                # key="pros_cons_issues",
                 tooltip = "nothing to Click to change this item.",
                 enable_events=False,
                 font=("helvetica",20)),
@@ -1355,6 +1375,35 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["pros_cons_issues"].update(selected_topic)
 
+    if event == "linking_words_results":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_results"].update(selected_topic)
+
+    if event == "connecting_words_emphasis":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["connecting_words_emphasis"].update(selected_topic)
+
+    if event == "linking_words_addition":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_addition"].update(selected_topic)
+
+    if event == "connecting_words_illustration":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_illustration.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["connecting_words_illustration"].update(selected_topic)
+
+
 
     #edit items
     if event == "edit pros cons issues":
@@ -1394,7 +1443,8 @@ while True:
                 location=(2000, 100),)
                 break
         else:
-            sg.PopupError("not found",location=(2000, 100), )
+            sg.PopupError("not found",
+                        location=(2000, 100), )
             continue
         # all ok we found the JSON
         # x_file
@@ -1458,7 +1508,8 @@ while True:
                 location=(2000, 100),)
                 break
         else:
-            sg.PopupError("not found",location=(2000, 100), )
+            sg.PopupError("not found",
+                        location=(2000, 100), )
             continue
         # all ok we found the JSON
         # x_file
@@ -1520,6 +1571,18 @@ while True:
 # grammar tracker tab
 
 
+
+# fire on all pros and con sliders
+    if "slider_grammar" in event:
+        sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
+        sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
+        # sg.PopupOK(sum_of_pros)
+        window["sum_of_pros"].update(sum_of_pros)
+        window["sum_of_cons"].update(sum_of_cons)
+
+
+
+
     if event == "save grammar analysis":
         date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
@@ -1552,13 +1615,13 @@ while True:
 
             
             #fixed new data is not being saved to json
-            # TODO save sum of values to JSON
+            # DONE save sum of values to JSON
             ## requires new field in JSON
-            # TODO save vocabulary entries into JSON
+            # DONE save vocabulary entries into JSON
             ## requires new field in JSON
             # TODO generate a simple graph of performance
         sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
-                    location  = (2000,100))
+                    location  = (1900,50),)
                     
                     )
             
@@ -2108,7 +2171,6 @@ while True:
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md") as myfile:
                 lines = myfile.readlines()
             window["seal_the_deal_12_list_box"].update(random.choice(lines).strip()  )
-###
 
     if event == "edit agenda_01":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agenda_01.md"))
@@ -2157,15 +2219,6 @@ while True:
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md"))
                 
 
-
-### grammar tracker tab
-  # fire on all pros and con sliders
-    if "slider_grammar" in event:
-        sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
-        sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
-        # sg.PopupOK(sum_of_pros)
-        window["sum_of_pros"].update(sum_of_pros)
-        window["sum_of_cons"].update(sum_of_cons)
 
 
 

@@ -85,6 +85,8 @@ own a cat
 own a dog
 parachute from a plane
 perform on stage
+buy a franchise
+visit the in-laws
 plan for New Years
 play chess with a ranked master
 play poker with professionals
@@ -128,6 +130,8 @@ visit the barber
 visit the circus
 visit the dentist
 visit the opera
+start your own business
+buy a business
 wake up early
 watch a lunar eclipse
 watch a solar eclipse
@@ -137,3 +141,6 @@ win a contest
 work from home
 work in the circus
 write a book
+get an English grammar workbook
+read a fun book
+read a book about my industry

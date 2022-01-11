@@ -11,6 +11,7 @@ ask
 attack
 attend
 avoid
+author
 bake
 become(irr)
 begin(irr)
@@ -119,9 +120,11 @@ help
 hide
 hire
 hike
+hope
 hold(irr)
 humiliate
 hurry
+illusrate
 imagine
 improvise
 include
@@ -141,6 +144,7 @@ jumble
 jump
 keep(irr)
 key
+keep(irr)
 kill
 know(irr)
 knock
@@ -178,6 +182,7 @@ move
 mumble
 must (modal)
 nail
+narrate
 navigate
 need
 nod
@@ -186,6 +191,7 @@ nudge
 observe
 offer
 open
+operate
 organize
 order
 ought(modal)
@@ -207,10 +213,12 @@ pour
 power-down
 power-up
 predict
+present
 prod
 produce
 promote
 propose
+protect
 provide
 put(irr)
 quit
@@ -224,6 +232,7 @@ recognize
 recover
 redirect
 reflect
+reinforce
 remain
 remember
 remind
@@ -265,6 +274,7 @@ stop
 store
 study
 suggest
+survey
 take(irr)
 talk
 target
