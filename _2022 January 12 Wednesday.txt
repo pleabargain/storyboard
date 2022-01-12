@@ -24,3 +24,68 @@ Q:
 A:
 
 ---
+verb: visit
+adjective: small
+noun: name
+quantifier: not many
+sub conjunction: though
+
+#mermaid
+Q: 
+A: A man visited a small city named Poltava. Though there were not many homes it was a pretty place.
+Q: 
+A:
+
+---
+verb: visit
+adjective: small
+noun: name
+quantifier: not many
+sub conjunction: though
+
+#mermaid
+Q: 
+A: A man visited a small city named Poltava. Though there were not many homes it was a pretty place.
+Q: 
+A:
+
+---
+verb: visit
+adjective: small
+noun: name
+quantifier: not many
+sub conjunction: though
+
+#mermaid
+Q: 
+A: A man visited a small city named Poltava. Though there were not many homes it was a pretty place.
+Q: 
+A:
+
+---
+verb: visit
+adjective: small
+noun: name
+quantifier: not many
+sub conjunction: though
+
+#mermaid
+Q: 
+A: A man visited a small city named Poltava. Though there were not many homes it was a pretty place.
+Q: 
+A:
+
+---
+verb: hear(irr)
+adjective: partial
+noun: issue
+quantifier: a bunch of
+sub conjunction: before
+
+#mermaid
+Q: 
+A: I heard that you have a bunch of issues. They were solved partially before but there are still a bunch of them. 
+Q: 
+A:
+
+---

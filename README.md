@@ -142,6 +142,10 @@ populate after_now fields
 
 # 2022 jan 12
 
+
+TODO
+on save notify user that sentence was saved in adj noun verb tab
+
 TODO clear all text fields contents in pros_cons
 
 ---

@@ -1424,6 +1424,7 @@ while True:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["connecting_words_emphasis"].update(selected_topic)
+        
 
     if event == "connecting_words_illustration":
         read_list_from_file()
