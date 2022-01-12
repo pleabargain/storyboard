@@ -1159,7 +1159,7 @@ pros_cons_tab= sg.Tab ("pros cons",
         #create button
         [
             #TODO this TEXT object should be a roll down or similar
-        [sg.Text("pros and cons issues",size=(40,1),
+        [sg.Text("pros and cons issues",size=(None,None),
                 key="pros_cons_issues",
                 tooltip = "Click to change this item.",
                 enable_events=True,
@@ -1169,18 +1169,23 @@ pros_cons_tab= sg.Tab ("pros cons",
 
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
         sg.Text("Linking Words for Results", 
                 key="linking_words_results",
+                enable_events=True,
+                size= (None,None),
+                ),
+        sg.Text("Summarizing", 
+                key="connecting_words_summary",
                 enable_events=True,
                 size= (None,None),
                 )
         ],
     
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
         sg.Text("Connecting Words for Emphasis", 
                 key="connecting_words_emphasis",
                 enable_events=True,
@@ -1189,8 +1194,8 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
         
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
         sg.Text("Linking Words for Addition", 
                 key="linking_words_addition",
                 enable_events=True,
@@ -1199,29 +1204,55 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
         sg.Text("Connecting Words for Illustration", 
                 key="connecting_words_illustration",
                 enable_events=True,
                 size= (None,None),
-                )
+                ),
+        sg.Text("Linking Words for Condition", 
+                key="linking_words_condition",
+                enable_events=True,
+                size= (None,None),
+                ),
+
+
         ],
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
-        
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
+        sg.Text("Linking Words for Contrast", 
+                key="linking_words_contrast",
+                enable_events=True,
+                size= (None,None),
+                )
+
         ],
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
-        
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
+        sg.Text("Linking Words for Reason", 
+                key="linking_words_reason",
+                enable_events=True,
+                size= (None,None),
+                ),
+        sg.Text("Connecting Words for Concession", 
+                key="connecting_words_concession",
+                enable_events=True,
+                size= (None,None),
+                ),
+
         ],
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
-        
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
+         sg.Text("Linking Words for Comparison", 
+                key="linking_words_comparison",
+                enable_events=True,
+                size= (None,None),
+                )
         ],
 
 ### summary of slider
@@ -1230,7 +1261,8 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 983 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
+        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 1259 of the code",font =("helvetica", 14)), ],
+        [sg.Button("save analysis to CSV",size =(40,1),tooltip="TODO add student name to file save")]
    
 
     ])
@@ -1349,7 +1381,7 @@ layout = [
     
 
 
-window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
+window = sg.Window('Working Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
                     
                     layout, 
                     background_color="lightblue",
@@ -1375,19 +1407,39 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["pros_cons_issues"].update(selected_topic)
 
-    if event == "linking_words_results":
+
+
+    if event == "connecting_words_concession":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.txt") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
-        window["linking_words_results"].update(selected_topic)
+        window["connecting_words_concession"].update(selected_topic)
 
+
+   
     if event == "connecting_words_emphasis":
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.txt") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["connecting_words_emphasis"].update(selected_topic)
+
+    if event == "connecting_words_illustration":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_illustration.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["connecting_words_illustration"].update(selected_topic)
+
+    if event == "connecting_words_summary":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["connecting_words_summary"].update(selected_topic)
+
+
 
     if event == "linking_words_addition":
         read_list_from_file()
@@ -1396,12 +1448,52 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["linking_words_addition"].update(selected_topic)
 
-    if event == "connecting_words_illustration":
+
+    if event == "linking_words_comparison":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_illustration.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_comparison.txt") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
-        window["connecting_words_illustration"].update(selected_topic)
+        window["linking_words_comparison"].update(selected_topic)
+
+    if event == "linking_words_condition":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_condition"].update(selected_topic)
+
+
+
+
+        
+
+
+    if event == "linking_words_contrast":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_contrast"].update(selected_topic)
+
+
+    if event == "linking_words_reason":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_reason.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_reason"].update(selected_topic)
+
+
+
+
+    if event == "linking_words_results":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_results"].update(selected_topic)
+
 
 
 

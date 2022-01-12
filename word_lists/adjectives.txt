@@ -1,6 +1,7 @@
 abnormal
 abrupt
 abstract
+abusive
 acidic
 adorable
 absolute
@@ -9,7 +10,6 @@ affordable
 aggressive
 agitated
 alert
-aloof
 amicable
 attractive
 avid
@@ -20,6 +20,7 @@ bittersweet
 black
 blurry
 boorish
+bold
 bored
 brave
 bright
@@ -27,6 +28,7 @@ carnivore
 chubby
 chunky
 cold
+connected
 colossal
 comfortable
 condescending
@@ -46,6 +48,7 @@ democratic
 despicable
 determined
 different
+diverse
 dilapidated
 diminutive
 distressed
@@ -76,6 +79,7 @@ foolish
 frank
 frantic
 fresh
+familiar
 friendly
 frightened
 frothy
@@ -89,6 +93,7 @@ gaudy
 glorious
 gorgeous
 graceful
+good
 greasy
 great 
 grieving
@@ -102,6 +107,7 @@ happy
 harebrained
 healthy
 helpful
+humid
 helpless
 hilarious
 high
@@ -123,9 +129,11 @@ intrigued
 interesting
 irate
 jealous
+jovial
 just
 jumpy
 keen
+kinetic
 large
 lazy
 lean
@@ -143,9 +151,11 @@ micro
 many
 mischievous
 mysterious
+musical
 naughty
 narrow
 nasty
+ninth
 neat
 omnivore
 obvious
@@ -155,16 +165,19 @@ overweight
 panicky
 perfect
 peaceful
+patriotic
 partial
 perplexed
 positive
 quaint
 quick
+questionable
 quiet
 quantified
 quizzical
 rare
 red
+reactive
 regular
 relaxed
 rotund
@@ -173,6 +186,7 @@ sharp
 short
 small
 silly
+solar
 simple
 slippery
 slow
@@ -185,6 +199,7 @@ tame
 tasty
 teeny
 tender
+tentative
 tense
 terrible
 tight
@@ -194,12 +209,14 @@ tricky
 troubled
 unclear
 useless
+universal
 unsightly
 upset
 ugly
 vegan 
 vegetarian
 variable
+venerable
 victorious
 vertical
 warm
@@ -207,6 +224,7 @@ waste
 wicked
 wonderful
 wrathful
+xenophobic
 yellow
 young
 yummy

@@ -264,6 +264,7 @@ sail
 satisfy
 save
 say(irr)
+scale
 sedated
 see(irr)
 seem
