@@ -11,8 +11,6 @@ import os.path
 import csv
 import json
 import glob
-import pandas as pd
-
 
 
 
@@ -44,7 +42,6 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names
 #strip empty lines
 student_names= [line.strip() for line in lines if len(line.strip())>0]
 
-DATABASE = "/home/dgd/Desktop/EnglishHelpsYourCareer/question_bank_2.csv"
 
 
 
@@ -109,20 +106,6 @@ pros_cons_issues = []
 ### random function
 
 import random
-
-def get_categorylist(database):
-    try:
-        df = pd.read_csv(database)
-    except Exception as e:
-        sg.PopupError("error with reading database:" + e, keep_on_top=True)
-        return
-    unique_cat_list = [topic for topic in df['CATEGORY'].unique() if
-                       (type(topic) == str) and (topic is not None) and (len(topic) > 0) and (topic != "nan")]
-    # sg.PopupOK(unique_cat_list)
-    unique_cat_list.sort()
-    return unique_cat_list
-
-all_categories = get_categorylist(DATABASE)
 
 def primary():
     """
@@ -1256,14 +1239,8 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
 
 
 
-
-
 #create empty list
 tracker_layout = []
-
-
-
-
 
 #generate the tab content
 #produce 0-4
@@ -1335,59 +1312,6 @@ tracker_layout.append(
 grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 
 
-# question tab layout
-question_tab_layout = [
-
-
-        [sg.Text("HOMEWORK"), sg.Text("questions per topic:"), sg.Button("reload topics"),
-         sg.Text("instructions:"), sg.Button("reload", key="load_instructions"), sg.Button("save", key="save_instructions",
-         tooltip= "make sure you save your edits!"),
-         sg.Text("", key="instructiontext")],
-        # [,
-        # ,
-        # sg.Input(default_text="1", key="questions_per_topic", size=(5, 1)),
-        # ],
-        # [sg.Text("number of  ", ),
-        # sg.Input(default_text="1", key="questions_per_topic", size=(5,1)),
-        # ],
-        [sg.Text("all topics"),
-         sg.Slider(range=(1, 25), default_value=1, orientation="h", size=(25, 7),
-                   key="questions_per_topic", enable_events=True),
-         sg.Button("add", key="add_topic", expand_x=False,
-                   tooltip="select topic(s) (hold STRG) in the left listbox below and click to add them to the right listbox"),
-         #sg.Text(" ", expand_x=True),
-
-         sg.Button("remove", key="remove_topic",
-                   tooltip="select on topic in the right listbox below and click to remove it"),
-         sg.Text("selected topics      instructions"),
-         ],
-        # [sg.Multiline(default_text=str(ALL_CATEGORIES), size=(60, 10), key="category_display")],
-        [sg.Listbox(values=all_categories, select_mode=sg.LISTBOX_SELECT_MODE_EXTENDED, key="topicbox",
-                    size=(30, 10), enable_events=True  ),
-         # sg.Listbox(values=topics, select_mode=sg.LISTBOX_SELECT_MODE_EXTENDED, key="topicbox2",
-         #           size=(20, 10), ),
-
-         sg.Table(values=tablevalues, headings=["topic", "how many"],
-                  select_mode=sg.TABLE_SELECT_MODE_EXTENDED,
-                  # col_widths=[30, 5],
-                  auto_size_columns=True,
-                  display_row_numbers=False,
-                  alternating_row_color="grey",
-                  vertical_scroll_only=True,
-                  justification="right",
-                  key="topictable",
-                  expand_x=True,
-                  ),
-         sg.Multiline(default_text="", key="instructions", change_submits=True, expand_y=True, disabled=True )
-         ],
-        # ])
-    ]
-
-
-question_tab= sg.Tab ("questions",question_tab_layout)
-
-
-
 ### layout
 layout = [
     
@@ -1419,7 +1343,7 @@ layout = [
     
     ],
 
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,grammar_tracker_tab,]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
