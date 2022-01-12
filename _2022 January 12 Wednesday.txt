@@ -1,0 +1,26 @@
+verb: change
+adjective: abrupt
+noun: service
+quantifier: few
+sub conjunction: so that
+
+#mermaid
+Q: 
+A: I bought a new car and I needed to change the tires. I went to a service center where I met a very abrupt mechanic. I had to open my trunk so that he could get the tires out. He did the job in a few minutes and I was happy.
+Q: 
+A:
+
+---
+verb: spend(irr)
+adjective: fuzzy
+noun: student
+quantifier: a bunch of
+sub conjunction: since
+
+#mermaid
+Q: 
+A:  Since I'm a good student, I try to spend a bunch of time in the library studying. However I'm a bit fuzzy on how much time I really do spend there.
+Q: 
+A:
+
+---

@@ -140,7 +140,21 @@ populate after_now fields
 5. save content to file
 
 
+# 2022 jan 12
 
+TODO clear all text fields contents in pros_cons
+
+---
+bug report 
+
+on saving new student grammar track
+
+error
+
+```Traceback (most recent call last):
+  File "/home/dgd/Desktop/python_storyboard_flashcards/working.development_python_storyboards.py", line 1628, in <module>
+    window["input2"].update(hold_json[most_recent_date]["articles"][0])
+KeyError: 'articles'```
 
 
 

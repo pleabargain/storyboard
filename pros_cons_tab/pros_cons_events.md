@@ -77,6 +77,7 @@ make a wish board
 make homemade beer
 make homemade wine
 make sushi
+move to a different town
 meet enemy
 meet spouse
 move from my home town
