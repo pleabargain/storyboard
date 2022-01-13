@@ -1,0 +1,39 @@
+verb: fix
+adjective: diminutive
+noun: month
+quantifier: not much
+sub conjunction: after
+
+#mermaid
+Q: 
+A: It took me around a month, after the first time I heard it, to get the pronunciation right of the diminutive name of my Indian friend.
+Q: 
+A:
+
+---
+verb: add
+adjective: questionable
+noun: octopus
+quantifier: a teeny weeny amount
+sub conjunction: now that
+
+#mermaid
+Q: 
+A: Now that I have established my new diet, I could add a teeny weeny amount of octopus in order to make it more satisfying.
+Q: 
+A:
+
+---
+verb: add
+adjective: questionable
+noun: octopus
+quantifier: a teeny weeny amount
+sub conjunction: now that
+
+#mermaid
+Q: 
+A: Now that I have established my new diet, I could add a teeny weeny amount of octopus in order to make it more satisfying.
+Q: 
+A:
+
+---

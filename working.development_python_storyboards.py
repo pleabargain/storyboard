@@ -925,7 +925,11 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
                     tooltip = "line 923",),
         sg.Button("prepositional phrases",
                    tooltip = "line 925", ),
-        sg.Button("phrasal verbs"),
+        sg.Button("phrasal verbs",
+                   tooltip = "line 929" ,)
+        sg.Button("collocations",
+                    tooltip = "line 930",)    ,
+        # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
         ],
     
         [
@@ -952,9 +956,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="prepare_0_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit prepare_0'),
 
@@ -966,9 +970,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="agenda_01_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit agenda_01'),
 
@@ -980,9 +984,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="making_proposals_02_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit making_proposals_02'),
 
@@ -994,9 +998,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="suggestions_03_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit suggestions_03'),
 
@@ -1008,9 +1012,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="agreeing_04_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit agreeing_04'),
 
@@ -1022,9 +1026,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="objecting_05_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit objecting_05'),
 
@@ -1036,9 +1040,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="prioritizing_06_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit prioritizing_06'),
 
@@ -1050,9 +1054,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="clarification_07_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit clarification_07'),
 
@@ -1064,9 +1068,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="compromising_08_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit compromising_08'),
 
@@ -1078,9 +1082,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="bargaining_09_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit bargaining_09'),
 
@@ -1092,9 +1096,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="postponing_10_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit postponing_10'),
 
@@ -1106,9 +1110,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="concluding_11_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit concluding_11'),
 
@@ -1120,16 +1124,17 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="seal_the_deal_12_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit seal_the_deal_12'),
 
 
 ],
+#TODO save the output!
 [    sg.Button('save negotiation text',  
-                size=(55,1),
+                size=(85,1),
                 tooltip = "TODO save this file and open in an editor. Maybe even an editor in Pysimple?!"
                 
                  ),]
@@ -1799,8 +1804,9 @@ while True:
 
     if event == "phrasal verbs":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=1,autoraise=True )
-        
-
+    
+    if event == "collocations":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
 
     if event == "image_shuffle":
         random.shuffle(image_list)

@@ -34,6 +34,7 @@ call
 can(modal)
 carry
 cause
+celebrate
 change
 check
 chew
@@ -53,6 +54,7 @@ consider
 construct
 continue
 convince
+convolute
 correct
 could(modal)
 create
@@ -142,6 +144,7 @@ include
 increase
 indicate
 inherit
+insert
 insist
 inspire
 jab
@@ -323,6 +326,7 @@ unite
 unpack
 use
 utilize
+vaccinate
 vanish
 view
 violate

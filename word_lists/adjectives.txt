@@ -69,6 +69,7 @@ excited
 exhausted
 exhilarated
 exhuberant
+entertaining
 extensive
 extraordinary
 exuberant
@@ -119,6 +120,7 @@ hilarious
 hollow
 homely
 hot
+hard
 humid
 hungry
 hurt
@@ -147,6 +149,7 @@ lean
 liberal
 livid
 lonely
+lasting
 long
 loose
 loud
