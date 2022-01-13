@@ -141,6 +141,8 @@ visit the barber
 visit the circus
 visit the dentist
 visit the in-laws
+develop MVP
+develop POC
 visit the opera
 buy a new computer
 wake up early

@@ -926,7 +926,7 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Button("prepositional phrases",
                    tooltip = "line 925", ),
         sg.Button("phrasal verbs",
-                   tooltip = "line 929" ,)
+                   tooltip = "line 929" ,),
         sg.Button("collocations",
                     tooltip = "line 930",)    ,
         # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"

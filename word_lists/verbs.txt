@@ -69,6 +69,7 @@ demo
 demonstrate
 depend
 deposit
+describe
 destroy
 detect
 determine
@@ -147,6 +148,7 @@ inherit
 insert
 insist
 inspire
+investigate
 jab
 jeer
 jeopardize
@@ -211,6 +213,8 @@ ought(modal)
 outmanoeuvre
 overestimate
 oversleep(irr)
+owe
+own
 paint
 part
 pat
