@@ -122,8 +122,6 @@ primary()
 # print(random_adjectives)
 
 
-
-
 def reset_tenses():
     """
     clear the background color of the text objects
@@ -336,6 +334,7 @@ sg.ChangeLookAndFeel('GreenTan')
 # ------ Menu Definition ------ #
 menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
+            ['&Vocabulary',['core vocab','3 words','business vocab'],],
             ['&Help', ['tips','README',],'&Open_docs'], ]
 
 # ------ Column Definition ------ #
@@ -599,9 +598,8 @@ timeline_column_four = sg.Column([
                                 ###
                                  [sg.Button("place holder",
                                  size = (15,1),
-                                font = ("helvetica", 12),
-                                 
-                                 
+                                 font = ("helvetica", 12),
+                                                              
                                  )],           
 
                                 [sg.Text("past simple",
@@ -1375,7 +1373,8 @@ layout = [
     sg.Combo(values=["load from json a",'load from json b'], 
             key = "date_picker", 
             enable_events=True,
-            tooltip="TODO this needs to load from the json file line 1317")
+            tooltip="TODO this needs to load from the json file line 1317"),
+    sg.Button("load syllabus", tooltip="will open md file"),
     
     
     ],
@@ -1664,6 +1663,12 @@ while True:
     if event == 'tips':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/tips.md"))
 
+    if event == "load syllabus":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/20_week_syllabus.md"))
+
+    if event == "core vocab":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
+        # pass
 
 
 # grammar tracker tab
@@ -1734,6 +1739,7 @@ while True:
         window["sum_of_cons"].update(sum_of_cons)
 
     if event == "save analysis to CSV":
+        # TODO there's a bug in the save to CSV it's not saving to the right location
         #pull name of topic into name of csv into dictionary
         #pros_cons_issues will have spaces in the file name
         csv_file_name=selected_topic
@@ -1745,11 +1751,11 @@ while True:
         
             # append the data to the csv 'a'
         csv_exists = False
-        #TODO add student name to file save
-        if os.path.exists(csv_file_name+'.csv'):
+        #TODO add student name to file save to PROS cons tab
+        if os.path.exists("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab" + csv_file_name +'.csv'):
             csv_exists = True
 
-        with open(csv_file_name+'.csv', 'a', newline='') as csvfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab" + csv_file_name +'.csv', 'a', newline='') as csvfile:
         # define field names
             fieldnames = ['topic', 'analysis', 'pro0text','pro0value','con0text','con0value','pro1text','pro1value','con1text','con1value','pro2text','pro2value','con2text','con2value','pro3text','pro3value','con3text','con3value','pro4text','pro4value','con4text','con4value','pro5text','pro5value','con5text','con5value','pro6text','pro6value','con6text','con6value']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)

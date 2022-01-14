@@ -191,9 +191,10 @@ quizzical
 rare
 reactive
 red
-rediculous
 regular
 relaxed
+ridiculous
+robust
 rotund
 sarcastic
 shallow

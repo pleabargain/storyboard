@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="UI.drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.5"
+     inkscape:cx="397"
+     inkscape:cy="389"
+     inkscape:window-width="1240"
+     inkscape:window-height="736"
+     inkscape:window-x="1406"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient62704"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#0000c2;stop-opacity:1;"
+         offset="0"
+         id="stop62702" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient6627">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop6623" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop6625" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient6627"
+       id="linearGradient6629"
+       x1="326.21301"
+       y1="14.374166"
+       x2="285.5755"
+       y2="65.722305"
+       gradientUnits="userSpaceOnUse" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#666666;stroke-width:0.264583"
+       id="rect31"
+       width="9.1571684"
+       height="186.62851"
+       x="270.93051"
+       y="9.2140446" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583;fill-opacity:1;fill:url(#linearGradient6629)"
+       x="332.72723"
+       y="6.5660863"
+       id="text5337"><tspan
+         sodipodi:role="line"
+         id="tspan5335"
+         style="stroke-width:0.264583;fill-opacity:1;fill:url(#linearGradient6629)"
+         x="332.72723"
+         y="6.5660863">scroll bar</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 324.58927,15.115528 C 287.64806,59.939086 287.02764,61.231176 287.02764,61.231176"
+       id="path6808" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="14.050804"
+       y="11.461619"
+       id="text10354"><tspan
+         sodipodi:role="line"
+         id="tspan10352"
+         style="stroke-width:0.264583"
+         x="14.050804"
+         y="11.461619">week 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="16.128386"
+       y="59.717068"
+       id="text10354-6"><tspan
+         sodipodi:role="line"
+         id="tspan10352-7"
+         style="stroke-width:0.264583"
+         x="16.128386"
+         y="59.717068">week 2</tspan></text>
+    <rect
+       style="fill:#666666;stroke-width:0.143636"
+       id="rect13744"
+       width="65.885826"
+       height="22.51433"
+       x="133.11491"
+       y="24.810743" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="90.297607"
+       y="-13.535252"
+       id="text16410"><tspan
+         sodipodi:role="line"
+         id="tspan16408"
+         style="stroke-width:0.264583"
+         x="90.297607"
+         y="-13.535252">text field for </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="90.297607"
+         y="-0.30612755"
+         id="tspan45078">notes</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.0869786px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 125.31529,-8.6887985 c 7.82802,33.5868835 7.82802,33.5868835 7.82802,33.5868835"
+       id="path17897" />
+    <rect
+       style="fill:#666666;stroke-width:0.163273"
+       id="rect13744-3"
+       width="65.735634"
+       height="29.15732"
+       x="136.10617"
+       y="62.7663" />
+    <rect
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="rect21258"
+       width="48.262039"
+       height="17.513369"
+       x="209.87453"
+       y="179.73819" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="219.29837"
+       y="187.77461"
+       id="text25164"><tspan
+         sodipodi:role="line"
+         id="tspan25162"
+         style="stroke-width:0.264583"
+         x="219.29837"
+         y="187.77461">saves</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="152.5934"
+       y="11.138161"
+       id="text43438"><tspan
+         sodipodi:role="line"
+         id="tspan43436"
+         style="stroke-width:0.264583"
+         x="152.5934"
+         y="11.138161">student name</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="30.225096"
+       y="23.585253"
+       id="text60434"><tspan
+         sodipodi:role="line"
+         id="tspan60432"
+         style="stroke-width:0.264583"
+         x="30.225096"
+         y="23.585253">item 1</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="30.225096"
+         y="36.814377"
+         id="tspan60438" /></text>
+    <rect
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="rect61166"
+       width="12.966715"
+       height="10.451122"
+       x="74.586998"
+       y="16.759699" />
+    <rect
+       style="opacity:0.703815;fill:#800000;stroke:#c400c2;stroke-width:0.265;stroke-miterlimit:4;stroke-dasharray:0.265, 0.265;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect61166-5"
+       width="12.966715"
+       height="10.451122"
+       x="74.586998"
+       y="27.210821" />
+    <rect
+       style="fill:#ff0000;stroke-width:0.264583"
+       id="rect61166-3"
+       width="12.966715"
+       height="10.451122"
+       x="74.586998"
+       y="37.661942" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="31.070454"
+       y="37.665417"
+       id="text66615"><tspan
+         sodipodi:role="line"
+         id="tspan66613"
+         style="stroke-width:0.264583"
+         x="31.070454"
+         y="37.665417">item 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="-123.35603"
+       y="-1.7182413"
+       id="text72940"><tspan
+         sodipodi:role="line"
+         id="tspan72938"
+         style="stroke-width:0.264583"
+         x="-123.35603"
+         y="-1.7182413">item 1 is pulled from question DB</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="-123.35603"
+         y="11.510883"
+         id="tspan72942">on click open that item</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="220.29495"
+       y="-20.265631"
+       id="text85616"><tspan
+         sodipodi:role="line"
+         id="tspan85614"
+         style="stroke-width:0.264583"
+         x="220.29495"
+         y="-20.265631">rolldown</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 241.96946,-15.713309 C 221.26698,2.0767143 220.53809,0.57643445 220.53809,0.57643445 v 0 l -0.16821,0.76434285"
+       id="path89467" />
+  </g>
+</svg>

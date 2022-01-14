@@ -294,6 +294,7 @@ solve
 sort
 speak(irr)
 spend(irr)
+spill
 stand(irr)
 start
 stay

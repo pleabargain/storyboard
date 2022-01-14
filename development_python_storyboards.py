@@ -31,7 +31,7 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/idea_grammar_tracker_t
 #take first ten lines
 #remove \n
 top_ten =[line.strip() for line in lines[:10]]
-print(top_ten)
+# print(top_ten)
 
 
 # learn about student names in the file
@@ -45,6 +45,11 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names
 student_names= [line.strip() for line in lines if len(line.strip())>0]
 
 DATABASE = "/home/dgd/Desktop/EnglishHelpsYourCareer/question_bank_2.csv"
+
+# try to replicate db 
+topicdict = {"accept except": 2,
+            "active or passive voice": 2,
+            "adjectives": 2,}
 
 
 
@@ -106,6 +111,8 @@ pros_cons_issues = []
 
 
 
+
+
 ### random function
 
 import random
@@ -123,6 +130,8 @@ def get_categorylist(database):
     return unique_cat_list
 
 all_categories = get_categorylist(DATABASE)
+category_list = get_categorylist(DATABASE)
+print(category_list)
 
 def primary():
     """
@@ -1339,48 +1348,31 @@ grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 question_tab_layout = [
 
 
-        [sg.Text("HOMEWORK"), sg.Text("questions per topic:"), sg.Button("reload topics"),
-         sg.Text("instructions:"), sg.Button("reload", key="load_instructions"), sg.Button("save", key="save_instructions",
-         tooltip= "make sure you save your edits!"),
-         sg.Text("", key="instructiontext")],
-        # [,
-        # ,
-        # sg.Input(default_text="1", key="questions_per_topic", size=(5, 1)),
-        # ],
-        # [sg.Text("number of  ", ),
-        # sg.Input(default_text="1", key="questions_per_topic", size=(5,1)),
-        # ],
-        [sg.Text("all topics"),
-         sg.Slider(range=(1, 25), default_value=1, orientation="h", size=(25, 7),
-                   key="questions_per_topic", enable_events=True),
-         sg.Button("add", key="add_topic", expand_x=False,
-                   tooltip="select topic(s) (hold STRG) in the left listbox below and click to add them to the right listbox"),
-         #sg.Text(" ", expand_x=True),
+        [sg.Text("HOMEWORK"), sg.Text("instructions:")],
+                
+        [sg.Text("select one category"), 
+        sg.Combo(values=category_list, 
+                key="db_category", 
+                enable_events=True, size=(None,None), tooltip="line 1351 db_category" )   ],
 
-         sg.Button("remove", key="remove_topic",
-                   tooltip="select on topic in the right listbox below and click to remove it"),
-         sg.Text("selected topics      instructions"),
-         ],
-        # [sg.Multiline(default_text=str(ALL_CATEGORIES), size=(60, 10), key="category_display")],
-        [sg.Listbox(values=all_categories, select_mode=sg.LISTBOX_SELECT_MODE_EXTENDED, key="topicbox",
-                    size=(30, 10), enable_events=True  ),
-         # sg.Listbox(values=topics, select_mode=sg.LISTBOX_SELECT_MODE_EXTENDED, key="topicbox2",
-         #           size=(20, 10), ),
-
-         sg.Table(values=tablevalues, headings=["topic", "how many"],
-                  select_mode=sg.TABLE_SELECT_MODE_EXTENDED,
-                  # col_widths=[30, 5],
-                  auto_size_columns=True,
-                  display_row_numbers=False,
-                  alternating_row_color="grey",
-                  vertical_scroll_only=True,
-                  justification="right",
-                  key="topictable",
-                  expand_x=True,
-                  ),
-         sg.Multiline(default_text="", key="instructions", change_submits=True, expand_y=True, disabled=True )
-         ],
-        # ])
+        [sg.Text("selected topics instructions"),],
+        
+        [sg.Multiline(default_text="", 
+                    key="instructions", change_submits=True, expand_y=True, disabled=True )],
+        #link to open the csv 
+        # button to save the current question number for future review
+        [sg.Text("?",key= "db_choice1",size=(None,None))],
+        [sg.Text("?",key= "db_choice2",size=(None,None))],
+        [sg.Text("?",key= "db_choice3",size=(None,None))],
+        [sg.Text("?",key= "db_choice4",size=(None,None))],
+        [sg.Text("?",key= "db_choice5",size=(None,None))],
+        [sg.Text("?",key= "db_choice6",size=(None,None))],
+        [sg.Text("?",key= "db_choice7",size=(None,None))],
+        [sg.Text("?",key= "db_choice8",size=(None,None))],
+        [sg.Text("?",key= "db_choice9",size=(None,None))],
+        [sg.Text("?",key= "db_choice10",size=(None,None))],
+        [sg.Button("display correct answer"),sg.Text("???",visible=False,key="correct_answer")],
+        [sg.Button("get next question", key="get_next_random_question",)],
     ]
 
 
@@ -1435,6 +1427,11 @@ window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime
                     default_element_size=(35, 1), 
                     grab_anywhere=True)
 # big loop
+
+#testing category list
+
+
+
 while True:
 
 
