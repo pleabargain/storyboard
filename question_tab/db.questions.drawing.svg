@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="db.questions.drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.65008588"
+     inkscape:cx="746.8244"
+     inkscape:cy="363.79809"
+     inkscape:window-width="1240"
+     inkscape:window-height="736"
+     inkscape:window-x="1406"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2">
+    <rect
+       x="42.835198"
+       y="64.110604"
+       width="1058.8991"
+       height="53.484473"
+       id="rect92075" />
+    <rect
+       x="68.804213"
+       y="94.380403"
+       width="290.56778"
+       height="54.431054"
+       id="rect7533" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#666666;fill-rule:evenodd;stroke-width:0.115519"
+       id="rect31"
+       width="36.178894"
+       height="7.1181064"
+       x="12.59058"
+       y="84.497742" />
+    <rect
+       style="fill:#666666;fill-rule:evenodd;stroke-width:0.115519"
+       id="rect31-3"
+       width="36.178894"
+       height="7.1181064"
+       x="57.181904"
+       y="84.231216" />
+    <rect
+       style="fill:#666666;fill-rule:evenodd;stroke-width:0.115519"
+       id="rect31-3-6"
+       width="36.178894"
+       height="7.1181064"
+       x="99.564117"
+       y="84.231216" />
+    <rect
+       style="fill:#666666;fill-rule:evenodd;stroke-width:0.115519"
+       id="rect31-3-6-7"
+       width="36.178894"
+       height="7.1181064"
+       x="143.15649"
+       y="84.528824" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.4403px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#ff0000;stroke-width:0.186008"
+       x="9.3874788"
+       y="70.16127"
+       id="text1941"
+       transform="scale(0.9958274,1.0041901)"><tspan
+         sodipodi:role="line"
+         id="tspan1939"
+         style="fill:#ff0000;stroke-width:0.186008"
+         x="9.3874788"
+         y="70.16127">Question: Text</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text7531"
+       style="line-height:1.25;font-family:sans-serif;font-size:40px;word-spacing:0px;white-space:pre;shape-inside:url(#rect7533)" />
+    <text
+       xml:space="preserve"
+       style="font-size:7.4403px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.186008"
+       x="76.680756"
+       y="70.35363"
+       id="text10795"
+       transform="scale(0.9958274,1.0041901)"><tspan
+         sodipodi:role="line"
+         id="tspan10793"
+         style="stroke-width:0.186008"
+         x="76.680756"
+         y="70.35363">Question: Number</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.4403px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.186008"
+       x="149.45892"
+       y="70.227852"
+       id="text27183"
+       transform="scale(0.9958274,1.0041901)"><tspan
+         sodipodi:role="line"
+         id="tspan27181"
+         style="stroke-width:0.186008"
+         x="149.45892"
+         y="70.227852">Flag if problem</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.4403px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#ff0000;stroke-width:0.186008"
+       x="17.109442"
+       y="89.888649"
+       id="text36854"
+       transform="scale(0.9958274,1.0041901)"><tspan
+         sodipodi:role="line"
+         id="tspan36852"
+         style="fill:#ff0000;stroke-width:0.186008"
+         x="17.109442"
+         y="89.888649">answer</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.4403px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#ff0000;stroke-width:0.186008"
+       x="60.756248"
+       y="90.05191"
+       id="text36854-5"
+       transform="scale(0.9958274,1.0041901)"><tspan
+         sodipodi:role="line"
+         id="tspan36852-3"
+         style="fill:#ff0000;stroke-width:0.186008"
+         x="60.756248"
+         y="90.05191">answer</tspan></text>
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.099397"
+       id="path39479"
+       cx="17.419409"
+       cy="96.873123"
+       rx="1.1658512"
+       ry="1.1734115" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.68338px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.0670846"
+       x="14.927353"
+       y="77.089806"
+       id="text47372"
+       transform="scale(0.76467097,1.307752)"><tspan
+         sodipodi:role="line"
+         id="tspan47370"
+         style="stroke-width:0.0670846"
+         x="14.927353"
+         y="77.089806">student choice</tspan></text>
+    <ellipse
+       style="fill:#ff0000;stroke-width:0.099397"
+       id="path39479-2"
+       cx="40.01516"
+       cy="96.509407"
+       rx="1.1658512"
+       ry="1.1734115" />
+    <text
+       xml:space="preserve"
+       style="font-size:2.68338px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.0670846"
+       x="44.476994"
+       y="76.811684"
+       id="text47372-7"
+       transform="scale(0.76467097,1.307752)"><tspan
+         sodipodi:role="line"
+         id="tspan47370-0"
+         style="stroke-width:0.0670846"
+         x="44.476994"
+         y="76.811684">radio button</tspan></text>
+    <rect
+       style="fill:#ff00ff;stroke-width:0.264583"
+       id="rect48581"
+       width="59.96973"
+       height="12.013879"
+       x="27.806147"
+       y="157.04889" />
+    <text
+       xml:space="preserve"
+       style="font-size:8.69558px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.21739"
+       x="128.65895"
+       y="147.8054"
+       id="text56923"
+       transform="scale(1.0291113,0.97171217)"><tspan
+         sodipodi:role="line"
+         id="tspan56921"
+         style="stroke-width:0.21739"
+         x="128.65895"
+         y="147.8054">save</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.44776px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.211194"
+       x="159.19243"
+       y="129.52098"
+       id="text62495"
+       transform="scale(0.81226401,1.2311268)"><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.211194"
+         x="159.19243"
+         y="129.52098"
+         id="tspan62497">on save: get studentname and</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.211194"
+         x="159.19243"
+         y="140.08067"
+         id="tspan62501">date.html</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:8.69558px;line-height:1.25;font-family:sans-serif;word-spacing:0px;fill:#666666;stroke-width:0.21739"
+       x="11.553344"
+       y="46.118721"
+       id="text81519"
+       transform="scale(1.0291113,0.97171217)"><tspan
+         sodipodi:role="line"
+         id="tspan81517"
+         style="fill:#666666;stroke-width:0.21739"
+         x="11.553344"
+         y="46.118721">Grammar description goes here</tspan></text>
+    <text
+       xml:space="preserve"
+       transform="scale(0.26458333)"
+       id="text92073"
+       style="line-height:1.25;font-family:sans-serif;font-size:40px;word-spacing:0px;white-space:pre;shape-inside:url(#rect92075);fill:#333333" />
+    <rect
+       style="fill:#666666;stroke-width:0.186008"
+       id="rect99163"
+       width="181.3299"
+       height="9.8770962"
+       x="10.772066"
+       y="49.155262" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="311.57278"
+       y="54.204582"
+       id="text101667"><tspan
+         sodipodi:role="line"
+         id="tspan101665"
+         style="stroke-width:0.264583"
+         x="311.57278"
+         y="54.204582">student only</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="311.57278"
+         y="67.433708"
+         id="tspan101669">gets subset</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="311.57278"
+         y="80.662834"
+         id="tspan101671">question</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:3.72012px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.0930038"
+       x="20.398977"
+       y="110.40064"
+       id="text110589"
+       transform="scale(0.87996094,1.1364141)"><tspan
+         sodipodi:role="line"
+         id="tspan110587"
+         style="stroke-width:0.0930038"
+         x="20.398977"
+         y="110.40064">counter: number of questions viewed</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.0930038"
+         x="20.398977"
+         y="115.0508"
+         id="tspan124058">number of correct answers</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="11.736303"
+       y="10.356974"
+       id="text140128"><tspan
+         sodipodi:role="line"
+         id="tspan140126"
+         style="stroke-width:0.264583"
+         x="11.736303"
+         y="10.356974">grammar question loader: display categories</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.59634px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.114909"
+       x="130.3909"
+       y="16.941263"
+       id="text151374"
+       transform="scale(0.79949895,1.2507834)"><tspan
+         sodipodi:role="line"
+         id="tspan151372"
+         style="stroke-width:0.114909"
+         x="130.3909"
+         y="16.941263">button to next random question </tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.114909"
+         x="130.3909"
+         y="22.686686"
+         id="tspan151376">in category onclick save AND get next question</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:7.35854px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.183964"
+       x="258.47626"
+       y="13.578358"
+       id="text164559"
+       transform="scale(1.1760657,0.85029262)"><tspan
+         sodipodi:role="line"
+         id="tspan164557"
+         style="stroke-width:0.183964"
+         x="258.47626"
+         y="13.578358">track category</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.183964"
+         x="258.47626"
+         y="22.776531"
+         id="tspan164561">to show progress</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.183964"
+         x="258.47626"
+         y="31.974709"
+         id="tspan164563">correct/incorrect</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 239.75799,156.37043 C 319.59878,84.321342 319.59878,84.321342 319.59878,84.321342"
+       id="path180028" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="310.06769"
+       y="111.23093"
+       id="text181902"><tspan
+         sodipodi:role="line"
+         id="tspan181900"
+         style="stroke-width:0.264583"
+         x="310.06769"
+         y="111.23093">design studentcsv</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="314.96927"
+       y="125.27626"
+       id="text187021"><tspan
+         sodipodi:role="line"
+         id="tspan187019"
+         style="stroke-width:0.264583"
+         x="314.96927"
+         y="125.27626">use email address</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="314.96927"
+         y="138.50539"
+         id="tspan187702">as uniq ID</tspan></text>
+  </g>
+</svg>

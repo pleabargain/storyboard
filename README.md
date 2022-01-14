@@ -140,6 +140,11 @@ populate after_now fields
 5. save content to file
 
 
+
+# 20222 Jan 14
+Trying to get question tab working in development version. Much to do there yet. Thinking hard about what forces are behind creating a web UI. I can't copy and paste working bits to get them working elsewhere. Too much repetition in the code!
+
+
 # 2022 jan 12
 
 
@@ -149,6 +154,7 @@ on save notify user that sentence was saved in adj noun verb tab
 TODO clear all text fields contents in pros_cons
 
 ---
+
 bug report 
 
 on saving new student grammar track
@@ -163,6 +169,7 @@ KeyError: 'articles'```
 
 
 # 2022 Jan 6
+
 found my word list folder was missing!
 
 I don't remember if I had pushed my most recent changes to github before ending my day yesterday. 

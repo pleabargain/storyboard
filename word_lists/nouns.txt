@@ -107,9 +107,12 @@ mouse
 mushroom
 name
 neck
+blood
+negotiation
 nuclear
 niece
 night
+note
 number
 octopus
 office
@@ -163,10 +166,12 @@ team
 thing
 time
 toast
+ooze
 toe 
 token
 umbrella
 unrest
+slush
 view
 virtualization
 war

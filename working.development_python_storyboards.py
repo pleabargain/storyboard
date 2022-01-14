@@ -121,6 +121,15 @@ primary()
 
 # print(random_adjectives)
 
+# TODO
+# save pros cons csv to pro con folder!
+# TODO 
+# get all linking words into one big block 
+# create function that calls it and randomizes the output
+# use on pros and cons
+###
+# TODO
+# use linking words in negotiation tab
 
 def reset_tenses():
     """
@@ -334,7 +343,7 @@ sg.ChangeLookAndFeel('GreenTan')
 # ------ Menu Definition ------ #
 menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
-            ['&Vocabulary',['core vocab','3 words','business vocab'],],
+            ['&Vocabulary',['core vocab','2 letter words','3 letter words','4 letter words','business vocab'],],
             ['&Help', ['tips','README',],'&Open_docs'], ]
 
 # ------ Column Definition ------ #
@@ -1669,6 +1678,18 @@ while True:
     if event == "core vocab":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
         # pass
+
+
+    if event == "2 letter words":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/12_mq9Pp5VSyrYeXf1qxsZGXrF22fOI4yQksBoziaT9g/edit?usp=sharing",new=1,autoraise=True )
+        # pass
+    if event == "3 letter words":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1YZcrl4TU9LKJnaSP-HLUtZkFLuq4cZkU8eCR-X2WwG0/edit?usp=sharing",new=1,autoraise=True )
+        # pass
+
+    if event == "4 letter words":
+        #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
 
 
 # grammar tracker tab

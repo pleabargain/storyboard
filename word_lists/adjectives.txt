@@ -184,7 +184,12 @@ perplexed
 positive
 quaint
 quantified
+muddy
+mushy
+misty
+dirty
 questionable
+slushy
 quick
 quiet
 quizzical

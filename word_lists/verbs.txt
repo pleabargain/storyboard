@@ -1,5 +1,6 @@
 accept
 add
+adjust
 allow
 apologize
 appear
@@ -24,6 +25,7 @@ belong
 bet (irr)
 bicycle
 bike
+bleed
 boil
 borrow
 break(irr)
@@ -191,6 +193,7 @@ merge
 might (modal)
 miss
 mix
+modify
 move
 mumble
 must (modal)
@@ -240,6 +243,7 @@ protect
 prove
 provide
 put(irr)
+purchase
 question
 queue
 quit
@@ -255,6 +259,8 @@ recover
 redirect
 reflect
 reinforce
+rehearse
+reject
 remain
 remember
 remind
@@ -295,6 +301,7 @@ sort
 speak(irr)
 spend(irr)
 spill
+squeeze
 stand(irr)
 start
 stay

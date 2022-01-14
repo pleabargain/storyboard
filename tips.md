@@ -7,3 +7,5 @@ This can be a rapid fire exercise to get students thinking about a number of iss
 
 # vocabulary
 Get students to create a table of three columns. Label the rows with each letter of the alphabet. At the top of each column put ADJ then NOUN then VERB. Students ID words for each letter of the alphabet over the course of the work week. Easy, fast, cheap and shows student and teacher how student is paying attention to the English in their life. (This will work for any language.)
+
+# 
