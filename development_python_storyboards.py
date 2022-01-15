@@ -1,5 +1,6 @@
 # !/usr/bin/python3
 
+from ast import Continue
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
@@ -118,6 +119,9 @@ pros_cons_issues = []
 import random
 
 def get_categorylist(database):
+    """
+    opens csv with pandas dataframe
+    """
     try:
         df = pd.read_csv(database)
     except Exception as e:
@@ -127,10 +131,12 @@ def get_categorylist(database):
                        (type(topic) == str) and (topic is not None) and (len(topic) > 0) and (topic != "nan")]
     # sg.PopupOK(unique_cat_list)
     unique_cat_list.sort()
-    return unique_cat_list
+    return unique_cat_list, df
 
-all_categories = get_categorylist(DATABASE)
-category_list = get_categorylist(DATABASE)
+# all_categories = get_categorylist(DATABASE)
+#load the file from the database and dataframe
+category_list,df = get_categorylist(DATABASE)
+df2 = None
 print(category_list)
 
 def primary():
@@ -1353,28 +1359,82 @@ question_tab_layout = [
         [sg.Text("select one category"), 
         sg.Combo(values=category_list, 
                 key="db_category", 
-                enable_events=True, size=(None,None), tooltip="line 1351 db_category" )   ],
+                enable_events=True, 
+                size=(None,None), 
+                tooltip="line 1362 db_category" ), 
+                sg.Text("Database info:"),
+                sg.Text("", key= "questions_db_info",size=(20,1)),
+                 ],
 
-        [sg.Text("selected topics instructions"),],
+        [sg.Text("selected topics instructions", tooltip="line 1369")],
         
         [sg.Multiline(default_text="", 
-                    key="instructions", change_submits=True, expand_y=True, disabled=True )],
+                    key="instructions", 
+                    tooltip ="TODO I want to be able to write/update changes here,line 1373",
+                    size=(None, None),
+                    change_submits=True, 
+                    expand_y=True, 
+                    disabled=True )],
         #link to open the csv 
         # button to save the current question number for future review
-        [sg.Text("?",key= "db_choice1",size=(None,None))],
-        [sg.Text("?",key= "db_choice2",size=(None,None))],
-        [sg.Text("?",key= "db_choice3",size=(None,None))],
-        [sg.Text("?",key= "db_choice4",size=(None,None))],
-        [sg.Text("?",key= "db_choice5",size=(None,None))],
-        [sg.Text("?",key= "db_choice6",size=(None,None))],
-        [sg.Text("?",key= "db_choice7",size=(None,None))],
-        [sg.Text("?",key= "db_choice8",size=(None,None))],
-        [sg.Text("?",key= "db_choice9",size=(None,None))],
-        [sg.Text("?",key= "db_choice10",size=(None,None))],
-        [sg.Button("display correct answer"),sg.Text("???",visible=False,key="correct_answer")],
-        [sg.Button("get next question", key="get_next_random_question",)],
+        
+             
+
+        [sg.Text("question #: ",
+                tooltip = "q # pulled from db line 1384"
+                ),
+        sg.Text("",key="db_question_number"), 
+        sg.Text("flag",tooltip="line1379"),
+        sg.Radio('needs attention', "RADIO1", default=False, size=(None,None)), 
+        ],
+        
+        [ sg.Text("",
+                key="db_question",
+                size=(40,2),
+                justification="center",
+                font="helvetica",
+                tooltip="line 1394")
+        ],
+        
+        [sg.Button("display correct answer",
+                    size=(40,1),
+                    tooltip="line 1401",
+
+                    ),
+        sg.Text("???",
+                visible=False,
+                key="correct_answer",
+                font = "helvetica",
+                size=(40,1),
+
+                )
+        ],
+
+        
+        #start question area
+        [sg.Text("Question: ")],
+        [sg.Text("1: "),sg.Text("?",key= "db_choice1",size=(None,None))],
+        [sg.Text("2: "),sg.Text("?",key= "db_choice2",size=(None,None))],
+        [sg.Text("3: "),sg.Text("?",key= "db_choice3",size=(None,None))],
+        [sg.Text("4: "),sg.Text("?",key= "db_choice4",size=(None,None))],
+        [sg.Text("5: "),sg.Text("?",key= "db_choice5",size=(None,None))],
+        [sg.Text("6: "),sg.Text("?",key= "db_choice6",size=(None,None))],
+        [sg.Text("7: "),sg.Text("?",key= "db_choice7",size=(None,None))],
+        [sg.Text("8: "),sg.Text("?",key= "db_choice8",size=(None,None))],
+        [sg.Text("9: "),sg.Text("?",key= "db_choice9",size=(None,None))],
+        [sg.Text("10: "),sg.Text("?",key= "db_choice10",size=(None,None))],
+        [sg.Text("Put first choice here: "),sg.Input(default_text="answer?",key= "student_question_choice")],
+        
+        #handle the buttons at the bottom of the screen
+        [sg.Button("get next question", key="get_next_random_question", size=(50,1)),
+        sg.Button("save and export",
+                    key="export_student_questions",
+                    size=(30,1))
+        ],
+        
     ]
 
+#end of question tab layout
 
 question_tab= sg.Tab ("questions",question_tab_layout)
 
@@ -1392,7 +1452,8 @@ layout = [
     # file is /home/dgd/Desktop/python_storyboard_flashcards/students/student_names.txt
     [sg.Text("student name:"),
             sg.Combo(values=student_names,
-                   key="student_name",
+                    key="student_name",
+                    default_value="Horst",
                     tooltip="TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
@@ -1641,7 +1702,124 @@ while True:
 
 
 
-# grammar tracker tab
+# question tab events
+
+    if event == "export_student_questions":
+            # this should be a function call as we are saving to CSV and JSON elsewhere!
+            #what needs to be saved here
+            # student name
+            # time stamp
+            # student choice
+            # question
+            # choices
+            # instructions
+            # do NOT share source file names
+        
+
+
+
+        date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                                        datetime.date.today().month,
+                                        datetime.date.today().day,
+                                        datetime.datetime.today().hour,
+                                        datetime.datetime.today().minute,
+                                        datetime.datetime.today().second,
+
+                                        )
+
+
+    if event == "display correct answer":
+        window["correct_answer"].update(visible=True)
+
+    if event == "get_next_random_question":
+        window["correct_answer"].update(visible=False)
+        if values["db_category"] not in category_list:
+            continue
+        print("line",line[0])
+        current_question =line[0]
+        found = False
+        for line in df2.iterrows():
+            my_line = line
+            # window["db_question_number"].update(line[0])
+            # break        
+            
+            if line[0]==current_question:
+                found=True
+                continue
+            if found:
+                break    
+        else:
+            sg.PopupOK("all questions used",
+                        location=(2000, 100),
+                        )
+            continue
+        # correct question display
+        window["db_question_number"].update(line[0])
+
+        window["db_question"].update(line[1]["QUESTION"])
+        window["db_choice1"].update(line[1]["CHOICE 1"])
+        window["db_choice2"].update(line[1]["CHOICE 2"])
+        window["db_choice3"].update(line[1]["CHOICE 3"])
+        window["db_choice4"].update(line[1]["CHOICE 4"])
+        window["db_choice5"].update(line[1]["CHOICE 5"])
+        window["db_choice6"].update(line[1]["CHOICE 6"])
+        window["db_choice7"].update(line[1]["CHOICE 7"])
+        window["db_choice8"].update(line[1]["CHOICE 8"])
+        window["db_choice9"].update(line[1]["CHOICE 9"])
+        window["db_choice10"].update(line[1]["CHOICE 10"])
+        #make sure correct answer is invisible
+        window["correct_answer"].update(visible=False)
+        window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
+
+
+
+
+
+
+    if event == "db_category":
+        #check if student name is selected
+        if values["student_name"] =="":
+            sg.PopupError("select student name in above")
+            continue
+    
+
+        #df holds the question bank dataframe
+        #check if valid category
+        if values["db_category"] not in category_list:
+            continue
+        print("category selected: ",values["db_category"])
+        selected_category = values["db_category"]
+        lines_of_this_cat = df[df['CATEGORY'] == selected_category]
+        print("I found questions: ",len(lines_of_this_cat))
+        window["questions_db_info"].update(f"I found questions: {len(lines_of_this_cat)}")
+        # randomize order 
+        # create new df with my_lines
+        my_lines = lines_of_this_cat.sample(len(lines_of_this_cat))
+        df2 = my_lines
+        for line in df2.iterrows():
+            my_line = line
+            window["db_question_number"].update(line[0])
+            break
+        #filling in choices
+        window["db_question"].update(line[1]["QUESTION"])
+        window["db_choice1"].update(line[1]["CHOICE 1"])
+        window["db_choice2"].update(line[1]["CHOICE 2"])
+        window["db_choice3"].update(line[1]["CHOICE 3"])
+        window["db_choice4"].update(line[1]["CHOICE 4"])
+        window["db_choice5"].update(line[1]["CHOICE 5"])
+        window["db_choice6"].update(line[1]["CHOICE 6"])
+        window["db_choice7"].update(line[1]["CHOICE 7"])
+        window["db_choice8"].update(line[1]["CHOICE 8"])
+        window["db_choice9"].update(line[1]["CHOICE 9"])
+        window["db_choice10"].update(line[1]["CHOICE 10"])
+        #make sure correct answer is invisible
+        window["correct_answer"].update(visible=False)
+        window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
+
+
+
+
+# grammar tracker tab events
 
 
 
@@ -1726,7 +1904,36 @@ while True:
 
         with open(csv_file_name+'.csv', 'a', newline='') as csvfile:
         # define field names
-            fieldnames = ['topic', 'analysis', 'pro0text','pro0value','con0text','con0value','pro1text','pro1value','con1text','con1value','pro2text','pro2value','con2text','con2value','pro3text','pro3value','con3text','con3value','pro4text','pro4value','con4text','con4value','pro5text','pro5value','con5text','con5value','pro6text','pro6value','con6text','con6value']
+            fieldnames = ['topic', 
+                            'analysis', 
+                            'pro0text',
+                            'pro0value',
+                            'con0text',
+                            'con0value',
+                            'pro1text',
+                            'pro1value',
+                            'con1text',
+                            'con1value',
+                            'pro2text',
+                            'pro2value',
+                            'con2text',
+                            'con2value',
+                            'pro3text',
+                            'pro3value',
+                            'con3text',
+                            'con3value',
+                            'pro4text',
+                            'pro4value',
+                            'con4text',
+                            'con4value',
+                            'pro5text',
+                            'pro5value',
+                            'con5text',
+                            'con5value',
+                            'pro6text',
+                            'pro6value',
+                            'con6text',
+                            'con6value']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             if  not csv_exists:
                 writer.writeheader()

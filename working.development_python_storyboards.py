@@ -65,15 +65,16 @@ A:
 
 student_progress = {}
 
-#TODO add vocabulary column
 #TODO set text file to open code and local file
 
+#done add vocabulary column: see grammar tracker tab
 #done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #done set default image size to 150x150
 #done load only images with thumbnail in the name
+
+
+# create empty dictionaries to hold the contents of the files
 image_list = []
-
-
 verbs_list = []
 nouns_list = []
 adjectives_list =[]
@@ -105,21 +106,19 @@ pros_cons_issues = []
 
 ### random function
 
-import random
+# def primary():
+#     """
+#     I have no idea what this function is for
+#     """
+#     f = open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt")
+#     quotes = f.readlines()
+#     f.close()
 
-def primary():
-    """
-    I have no idea what this function is for
-    """
-    f = open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt")
-    quotes = f.readlines()
-    f.close()
+#     sampling = random.sample(quotes, 1)
+#     for sample in sampling: print(sample)
+# primary()
 
-    sampling = random.sample(quotes, 1)
-    for sample in sampling: print(sample)
-primary()
-
-# print(random_adjectives)
+# # print(random_adjectives)
 
 # TODO
 # save pros cons csv to pro con folder!
@@ -130,6 +129,14 @@ primary()
 ###
 # TODO
 # use linking words in negotiation tab
+
+def open_generic_file(file,key):
+        with open(file) as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window[key].update(selected_topic)
+
+
 
 def reset_tenses():
     """
@@ -156,7 +163,7 @@ def split_filename(original_filename):
     This will split a file name by _ so that a space will appear
     returns a string minus the file extension
     display only the text after the last slash
-
+    This function is primarily used in the storyboard tenses tab
     """
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
     list_of_unwanted_words = ["idiom_",
@@ -190,8 +197,6 @@ def read_list_from_file():
     adjectives_list.clear()
     quantifiers_list.clear()
     subordinating_conjunctions_list.clear()
-
-
     # negotiations
     prepare_0_list.clear()      
     agenda_01_list.clear()
@@ -200,17 +205,11 @@ def read_list_from_file():
     agreeing_04_list.clear()
     objecting_05_list.clear()
     prioritizing_06_list.clear()
-    
     clarification_07_list.clear()
-    
     compromising_08_list.clear()
-    
     bargaining_09_list.clear()
-    
     postponing_10_list.clear()
-    
     concluding_11_list.clear()
-    
     seal_the_deal_12_list.clear()
     # pros and cons
     pros_cons_issues.clear()
@@ -1079,6 +1078,11 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
+    sg.Text("Connecting Words for Concession", 
+            key="connecting_words_concession",
+            enable_events=True,
+            size= (None,None),
+            ),
     sg.Button('edit compromising_08'),
 
 ],
@@ -1093,6 +1097,12 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
+    sg.Text("Linking Words for Condition", 
+            key="linking_words_condition",
+            enable_events=True,
+            size= (None,None),
+            ),
+
     sg.Button('edit bargaining_09'),
 
 ],
@@ -1121,6 +1131,16 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
+     sg.Text("Linking Words for Results", 
+                key="linking_words_results",
+                enable_events=True,
+                size= (None,None),
+                ),
+    sg.Text("Summarizing", 
+                key="connecting_words_summary1",
+                enable_events=True,
+                size= (None,None),
+                ),
     sg.Button('edit concluding_11'),
 
 ],
@@ -1188,11 +1208,7 @@ pros_cons_tab= sg.Tab ("pros cons",
                 enable_events=True,
                 size= (None,None),
                 ),
-        sg.Text("Summarizing", 
-                key="connecting_words_summary",
-                enable_events=True,
-                size= (None,None),
-                )
+      
         ],
     
         [
@@ -1223,11 +1239,7 @@ pros_cons_tab= sg.Tab ("pros cons",
                 enable_events=True,
                 size= (None,None),
                 ),
-        sg.Text("Linking Words for Condition", 
-                key="linking_words_condition",
-                enable_events=True,
-                size= (None,None),
-                ),
+
 
 
         ],
@@ -1250,11 +1262,7 @@ pros_cons_tab= sg.Tab ("pros cons",
                 enable_events=True,
                 size= (None,None),
                 ),
-        sg.Text("Connecting Words for Concession", 
-                key="connecting_words_concession",
-                enable_events=True,
-                size= (None,None),
-                ),
+       
 
         ],
         [
@@ -1424,10 +1432,8 @@ while True:
 
     if event == "connecting_words_concession":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.txt") as myfile:
-            lines = myfile.readlines()
-        selected_topic = random.choice(lines).strip()
-        window["connecting_words_concession"].update(selected_topic)
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.txt","connecting_words_concession")
+    
 
 
    
@@ -1446,12 +1452,12 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["connecting_words_illustration"].update(selected_topic)
 
-    if event == "connecting_words_summary":
+    # if event == "connecting_words_summary":
+    # this will fire when any text includes connecting_words_summary
+    if "connecting_words_summary" in event:
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt") as myfile:
-            lines = myfile.readlines()
-        selected_topic = random.choice(lines).strip()
-        window["connecting_words_summary"].update(selected_topic)
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt","connecting_words_summary")
+        
 
 
 
@@ -1472,10 +1478,11 @@ while True:
 
     if event == "linking_words_condition":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt") as myfile:
-            lines = myfile.readlines()
-        selected_topic = random.choice(lines).strip()
-        window["linking_words_condition"].update(selected_topic)
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt","linking_words_condition")
+        # with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt") as myfile:
+        #     lines = myfile.readlines()
+        # selected_topic = random.choice(lines).strip()
+        # window["linking_words_condition"].update(selected_topic)
 
 
 
@@ -1501,15 +1508,15 @@ while True:
 
 
 
+
+
     if event == "linking_words_results":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt") as myfile:
-            lines = myfile.readlines()
-        selected_topic = random.choice(lines).strip()
-        window["linking_words_results"].update(selected_topic)
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt","linking_words_results")
+      
 
 
-
+# def open_generic_file(file,key)
 
     #edit items
     if event == "edit pros cons issues":

@@ -25,7 +25,7 @@
      showgrid="false"
      inkscape:zoom="0.65008588"
      inkscape:cx="746.8244"
-     inkscape:cy="363.79809"
+     inkscape:cy="362.25983"
      inkscape:window-width="1240"
      inkscape:window-height="736"
      inkscape:window-x="1406"
@@ -361,5 +361,20 @@
          x="314.96927"
          y="138.50539"
          id="tspan187702">as uniq ID</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="145.40115"
+       y="109.80461"
+       id="text2461"><tspan
+         sodipodi:role="line"
+         id="tspan2459"
+         style="stroke-width:0.264583"
+         x="145.40115"
+         y="109.80461">student thinks it's X</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.264583px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 125.79899,92.579363 c 20.3467,13.147767 20.3467,13.147767 20.3467,13.147767"
+       id="path3210" />
   </g>
 </svg>
