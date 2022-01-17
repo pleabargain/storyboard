@@ -11,12 +11,16 @@ import os.path
 import csv
 import json
 import glob
-
+import pandas as pd
+import spacy
+from spacy import displacy
+from pathlib import Path
 
 
 # TODO question: possible to call a tab as a function call that way the tabs can be reused easily elsewhere?
 # TODO question: What other defaults can I call when starting the application?
 
+nlp = spacy.load('en_core_web_sm')
 
 # TODO this needs to be a function call so that it can be reused with better more meaningful names
 # I want to reuse this over and over
@@ -42,7 +46,20 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names
 #strip empty lines
 student_names= [line.strip() for line in lines if len(line.strip())>0]
 
+DATABASE = "/home/dgd/Desktop/EnglishHelpsYourCareer/question_bank_2.csv"
 
+#this uses pipes as 
+INSTRUCTIONS_FILENAME = "/home/dgd/Desktop/EnglishHelpsYourCareer/category_instructions.csv"
+#create empty dict
+instructions = {}
+#read csv 
+#category_name	category_instructions
+
+with open(INSTRUCTIONS_FILENAME) as tmp:
+        ireader = csv.reader(tmp, delimiter='|', quotechar='"')
+        for row in ireader:
+            cat, text = row
+            instructions[cat] = text
 
 
 selected_topic =""
@@ -102,23 +119,188 @@ sum_of_pros= 0
 sum_of_cons= 0
 pros_cons_issues = []
 
+### quuestion student export field names for export csv
+# 
+
+STUDENT_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/students"
+QUESTION_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/question_tab"
+
+attention_field_names =[
+                    "timestamp",
+                    "UNIQUE_ID",	
+                        ]
 
 
-### random function
+question_student_field_names =[
+                        "timestamp",
+                        "student_choice",
+                        "UNIQUE_ID",	
+                        "CATEGORY",	
+                        "QUESTION",	
+                        "CORRECT_ANSWERS",	
+                        "CHOICE1",
+                    	"CHOICE2",
+                        "CHOICE3",	
+                        "CHOICE4",	
+                        "CHOICE5",	
+                        "CHOICE6",	    
+                        "CHOICE7",	
+                        "CHOICE8",	
+                        "CHOICE9",	
+                        "CHOICE10",
 
-# def primary():
-#     """
-#     I have no idea what this function is for
-#     """
-#     f = open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt")
-#     quotes = f.readlines()
-#     f.close()
+                                ]
 
-#     sampling = random.sample(quotes, 1)
-#     for sample in sampling: print(sample)
-# primary()
 
-# # print(random_adjectives)
+def save_attention():
+
+    """
+    save attention file
+    we enter integer
+    save the integer
+    """
+    # check if empty
+    
+    if not values["needs_attention"] :
+        return
+    print("needs attention")
+
+
+    if values["db_category"] == "":
+        sg.PopupError("cat empty",location=(2000,10))
+        return
+    if values["student_name"] == "":
+        sg.PopupError("student name",location=(2000,10))
+        return
+    
+    #create csv
+    attention_filename = QUESTION_FOLDER + "/needs_attention.csv"
+       #check to see if file exists
+    
+    csv_exists= os.path.exists(attention_filename)
+        
+   
+    with open (attention_filename,'a') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=attention_field_names)
+        if not csv_exists:
+            writer.writeheader()
+        #this will get all of the object attributes
+        # sg.PopupOK(dir(window["db_question_number"]))
+
+
+        # sg.PopupOK(window["db_question_number"].DisplayText)
+        data_dict = {
+                    "timestamp":  "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                    datetime.date.today().month,
+                    datetime.date.today().day,
+                    datetime.datetime.today().hour,
+                    datetime.datetime.today().minute,
+                    datetime.datetime.today().second,
+                    ),
+                    "UNIQUE_ID":window["db_question_number"].DisplayText,	
+                    }
+
+    
+        #create student_name + questions.csv  append 
+        writer.writerow(data_dict)    
+
+
+
+
+
+
+
+
+def save_student_answers():
+    """
+    student says x to a question
+    we enter integer
+    save the integer
+    """
+    # check if empty
+    if values["student_question_choice"] in ("","answer?",None):
+        sg.PopupError("enter student choice",location=(2000,10)) 
+        return
+    if values["db_category"] == "":
+        sg.PopupError("cat empty",location=(2000,10))
+        return
+    if values["student_name"] == "":
+        sg.PopupError("student name",location=(2000,10))
+        return
+    
+    #create csv
+    student_question_filename = STUDENT_FOLDER + "/" +values["student_name"]+".csv"
+    #check to see if file exists
+    
+    csv_exists= os.path.exists(student_question_filename)
+        
+   
+    with open (student_question_filename,'a') as csvfile:
+        writer = csv.DictWriter(csvfile, fieldnames=question_student_field_names)
+        if not csv_exists:
+            writer.writeheader()
+        #this will get all of the object attributes
+        # sg.PopupOK(dir(window["db_question_number"]))
+
+
+        # sg.PopupOK(window["db_question_number"].DisplayText)
+        data_dict = {
+                            "timestamp":  "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                            datetime.date.today().month,
+                            datetime.date.today().day,
+                            datetime.datetime.today().hour,
+                            datetime.datetime.today().minute,
+                            datetime.datetime.today().second,
+                            ),
+                        "student_choice": values["student_question_choice"],
+                         "UNIQUE_ID":window["db_question_number"].DisplayText,	
+                        "CATEGORY":values["db_category"],	
+                        "QUESTION":window["db_question"].DisplayText,	
+                        "CORRECT_ANSWERS":window["correct_answer"].DisplayText,	
+                        "CHOICE1":window["db_choice1"].DisplayText,
+                    	"CHOICE2":window["db_choice2"].DisplayText,
+                        "CHOICE3":window["db_choice3"].DisplayText,	
+                        "CHOICE4":window["db_choice4"].DisplayText,	
+                        "CHOICE5":window["db_choice5"].DisplayText,	
+                        "CHOICE6":window["db_choice6"].DisplayText,	    
+                        "CHOICE7":window["db_choice7"].DisplayText,	
+                        "CHOICE8":window["db_choice8"].DisplayText,	
+                        "CHOICE9":window["db_choice9"].DisplayText,	
+                        "CHOICE10":window["db_choice10"].DisplayText,
+                        }
+
+    
+        #create student_name + questions.csv  append 
+        writer.writerow(data_dict)    
+
+
+
+def get_categorylist(database):
+    """
+    opens csv with pandas dataframe
+    """
+    try:
+        df = pd.read_csv(database)
+    except Exception as e:
+        sg.PopupError("error with reading database:" + e, keep_on_top=True)
+        return
+    unique_cat_list = [topic for topic in df['CATEGORY'].unique() if
+                       (type(topic) == str) and (topic is not None) and (len(topic) > 0) and (topic != "nan")]
+    # sg.PopupOK(unique_cat_list)
+    for field in df:
+        print(field)
+
+
+    unique_cat_list.sort()
+    return unique_cat_list, df
+
+# all_categories = get_categorylist(DATABASE)
+#load the file from the database and dataframe
+category_list,df = get_categorylist(DATABASE)
+df2 = None
+print(category_list)
+
+
 
 # TODO
 # save pros cons csv to pro con folder!
@@ -962,9 +1144,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="prepare_0_list_box",
             enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
+            font=("Helvetica",14),
+            justification = "center",
+            size=(55,1)
             ),
     sg.Button('edit prepare_0'),
 
@@ -976,9 +1158,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="agenda_01_list_box",
             enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
+           font=("Helvetica", 14),
+            justification = "center",
+            size=(55,1)
             ),
     sg.Button('edit agenda_01'),
 
@@ -1343,7 +1525,9 @@ tracker_layout.append(
                         default_text='put the grammar analysis here',
                         size =(40,5),
                         tooltip="This is a multiline object key grammar analysis",
-                        font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
+                        font =("helvetica", 14)), 
+        sg.Button("save grammar analysis",
+                        tooltip="line 1530 TODO add student name to file save")],
                      )
 tracker_layout.append(
         [sg.Multiline(key="vocabulary_used",
@@ -1363,6 +1547,105 @@ tracker_layout.append(
 #grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout,grammar_column_left,grammar_column_right)
 grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 
+# question tab layout
+question_tab_layout = [
+
+
+        [sg.Text("HOMEWORK"), sg.Text("instructions:")],
+                
+        [sg.Text("select one category"), 
+        # bug KeyError: 'intermediate English'
+        sg.Combo(values=category_list, 
+                key="db_category", 
+                enable_events=True, 
+                size=(None,None), 
+                tooltip="line 1560 key=db_category" ), 
+                sg.Text("Database info:"),
+                sg.Text("", key= "questions_db_info",size=(20,1)),
+                 ],
+
+        [sg.Text("selected topics instructions", tooltip="line 1369")],
+        
+        [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
+                    key="question_instruction", 
+                    font = ("helvetica",16),
+                    tooltip ="TODO I want to be able to write/update changes here,line 1546",
+                    size=(40,2 ),
+                    change_submits=True, 
+                    # expand_y=True, 
+                    disabled=True ), sg.Button("Open instructions file",key ="open_question_instructions",tooltip="line1558")],
+        #TODO link to open the instructions csv 
+        # /home/dgd/Desktop/EnglishHelpsYourCareer/category_instructions.csv
+        # done button to save the current question number for future review
+        
+             
+
+        [sg.Text("question #: ",
+                tooltip = "q # pulled from db line 1384"
+                ),
+        sg.Text("",key="db_question_number"), 
+        sg.Text("flag",tooltip="line1569"),
+        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)), 
+        ],
+        
+        [ sg.Text("",
+                key="db_question",
+                size=(None,None),
+                justification="left",
+                font=("helvetica",16),
+                tooltip="line 1578")
+        ],
+        
+        [sg.Button("display correct answer",
+                    size=(20,1),
+                    font=('helvetica'),
+                    tooltip="line 1584",
+
+                    ) ,
+        sg.Button("display grammar graph",
+                    key = "display_grammar_graph",
+                    size=(40,1),
+                    tooltip="line 1590",
+
+                    ) ,
+        sg.Text("???",
+                visible=False,
+                key="correct_answer",
+                font = ("helvetica",28)
+                # size=(80,1),
+
+                )
+        ],
+
+        
+        #start question area
+        [sg.Text("Question: ")],
+        [sg.Text("01: "),sg.Text("?",key= "db_choice1", enable_events=True,size=(None,None))],
+        [sg.Text("02: "),sg.Text("?",key= "db_choice2",enable_events=True,size=(None,None))],
+        [sg.Text("03: "),sg.Text("?",key= "db_choice3",enable_events=True,size=(None,None))],
+        [sg.Text("04: "),sg.Text("?",key= "db_choice4",enable_events=True,size=(None,None))],
+        [sg.Text("05: "),sg.Text("?",key= "db_choice5",enable_events=True,size=(None,None))],
+        [sg.Text("06: "),sg.Text("?",key= "db_choice6",enable_events=True,size=(None,None))],
+        [sg.Text("07: "),sg.Text("?",key= "db_choice7",enable_events=True,size=(None,None))],
+        [sg.Text("08: "),sg.Text("?",key= "db_choice8",enable_events=True,size=(None,None))],
+        [sg.Text("09: "),sg.Text("?",key= "db_choice9",enable_events=True,size=(None,None))],
+        [sg.Text("10: "),sg.Text("?",key= "db_choice10",enable_events=True,size=(None,None))],
+        [sg.Text("Put first choice here: "),sg.Input(default_text="answer?",key= "student_question_choice")],
+        
+        #handle the buttons at the bottom of the screen
+        [sg.Button("get next question", key="get_next_random_question", size=(50,1)),
+        sg.Button("save and export",
+                    key="export_student_questions",
+                    size=(30,1))
+        ],
+        
+    ]
+
+#end of question tab layout
+
+question_tab= sg.Tab ("questions",question_tab_layout)
+
+
 
 ### layout
 layout = [
@@ -1377,6 +1660,8 @@ layout = [
     [sg.Text("student name:"),
             sg.Combo(values=student_names,
                    key="student_name",
+                    default_value="Horst",
+
                     tooltip="TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
@@ -1396,7 +1681,7 @@ layout = [
     
     ],
 
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab, grammar_tracker_tab,]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
@@ -1427,6 +1712,15 @@ while True:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["pros_cons_issues"].update(selected_topic)
+
+    if event == "linking_words_results":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_results"].update(selected_topic)
+
+
 
 
 
@@ -1615,7 +1909,7 @@ while True:
         # print (json_files)
         for x_file in json_files:
             #TODO allow users to enter new students through UI
-            # BUG at this point loading any json will throw an error
+            # 
             if x_file.endswith(student_name+".json"):
                 sg.PopupOK("found it",
                 location=(2000, 100),)
@@ -1634,7 +1928,7 @@ while True:
         # first yellow is gui key
         # second yellow is key of json
         
-        # TODO get the dates as a list in the combo box at line 1316
+        # done get the dates as a list in the combo box at line 
         # testing date picker 
 
         window["date_picker"].update(values = list(hold_json.keys()))
@@ -1697,6 +1991,155 @@ while True:
     if event == "4 letter words":
         #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
         webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
+# -----------------------------------------question tab events---------------------
+
+    if event == "display_grammar_graph":
+        question = window["db_question"].DisplayText
+        question_number = window["db_question_number"].DisplayText
+
+
+        sentence_nlp = nlp(question)
+        svg = displacy.render(sentence_nlp, style="dep")
+        output_path = Path(f"/home/dgd/Desktop/python_storyboard_flashcards/question_tab/{question_number}.{question}.svg") # you can keep there only "dependency_plot.svg" if you want to save it in the same folder where you run the script 
+        output_path.open("w", encoding="utf-8").write(svg)
+        #brave-browser
+        # os.system("{} {}".format("brave-browser",f"/home/dgd/Desktop/python_storyboard_flashcards/question_tab/{question_number}.{question}.svg")) 
+
+
+    if event == "open_question_instructions":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/category_instructions.csv"))
+
+    if event == "export_student_questions":
+        save_student_answers()
+        save_attention()
+
+
+    if event == "db_choice1":
+        window["student_question_choice"].update(window["db_choice1"].DisplayText)
+
+    if event == "db_choice2":
+        window["student_question_choice"].update(window["db_choice2"].DisplayText)
+    if event == "db_choice3":
+            window["student_question_choice"].update(window["db_choice3"].DisplayText)
+    if event == "db_choice4":
+            window["student_question_choice"].update(window["db_choice4"].DisplayText)
+    if event == "db_choice5":
+            window["student_question_choice"].update(window["db_choice5"].DisplayText)
+    if event == "db_choice6":
+            window["student_question_choice"].update(window["db_choice6"].DisplayText)
+    if event == "db_choice7":
+            window["student_question_choice"].update(window["db_choice7"].DisplayText)
+    if event == "db_choice8":
+            window["student_question_choice"].update(window["db_choice8"].DisplayText)
+    if event == "db_choice9":
+            window["student_question_choice"].update(window["db_choice9"].DisplayText)
+    if event == "db_choice10":
+            window["student_question_choice"].update(window["db_choice10"].DisplayText)
+        
+
+    if event == "display correct answer":
+        window["correct_answer"].update(visible=True)
+
+    if event == "get_next_random_question":
+        save_student_answers()
+        save_attention()
+        # clear the radio button 
+        # clear student choice
+        window["needs_attention"].update(False)
+        window["student_question_choice"].update("")
+
+        window["correct_answer"].update(visible=False)
+        if values["db_category"] not in category_list:
+            continue
+        print("line",line[0])
+        current_question =line[0]
+        found = False
+        for line in df2.iterrows():
+            my_line = line
+            # window["db_question_number"].update(line[0])
+            # break        
+            
+            if line[0]==current_question:
+                found=True
+                continue
+            if found:
+                break    
+        else:
+            sg.PopupOK("all questions used",
+                        location=(2000, 100),
+                        )
+            continue
+        # correct question display
+        window["db_question_number"].update(line[0])
+
+        window["db_question"].update(line[1]["QUESTION"])
+        window["db_choice1"].update(line[1]["CHOICE 1"])
+        window["db_choice2"].update(line[1]["CHOICE 2"])
+        window["db_choice3"].update(line[1]["CHOICE 3"])
+        window["db_choice4"].update(line[1]["CHOICE 4"])
+        window["db_choice5"].update(line[1]["CHOICE 5"])
+        window["db_choice6"].update(line[1]["CHOICE 6"])
+        window["db_choice7"].update(line[1]["CHOICE 7"])
+        window["db_choice8"].update(line[1]["CHOICE 8"])
+        window["db_choice9"].update(line[1]["CHOICE 9"])
+        window["db_choice10"].update(line[1]["CHOICE 10"])
+        #make sure correct answer is invisible
+        window["correct_answer"].update(visible=False)
+        window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
+
+
+
+
+
+
+    if event == "db_category":
+        #check if student name is selected
+        if values["student_name"] =="":
+            sg.PopupError("select student name in above")
+            continue
+    
+
+        #df holds the question bank dataframe
+        #check if valid category
+        if values["db_category"] not in category_list:
+            continue
+        print("category selected: ",values["db_category"])
+        selected_category = values["db_category"]
+        lines_of_this_cat = df[df['CATEGORY'] == selected_category]
+        print("I found questions: ",len(lines_of_this_cat))
+        #TODO error catch if column is empty then continue!
+        window["questions_db_info"].update(f"I found questions: {len(lines_of_this_cat)}")
+        # randomize order 
+        # create new df with my_lines
+        my_lines = lines_of_this_cat.sample(len(lines_of_this_cat))
+        df2 = my_lines
+        for line in df2.iterrows():
+            my_line = line
+            window["db_question_number"].update(line[0])
+            break
+        #filling in choices
+        window["db_question"].update(line[1]["QUESTION"])
+        window["db_choice1"].update(line[1]["CHOICE 1"])
+        window["db_choice2"].update(line[1]["CHOICE 2"])
+        window["db_choice3"].update(line[1]["CHOICE 3"])
+        window["db_choice4"].update(line[1]["CHOICE 4"])
+        window["db_choice5"].update(line[1]["CHOICE 5"])
+        window["db_choice6"].update(line[1]["CHOICE 6"])
+        window["db_choice7"].update(line[1]["CHOICE 7"])
+        window["db_choice8"].update(line[1]["CHOICE 8"])
+        window["db_choice9"].update(line[1]["CHOICE 9"])
+        window["db_choice10"].update(line[1]["CHOICE 10"])
+        #make sure correct answer is invisible
+        window["correct_answer"].update(visible=False)
+        window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
+
+        # display instructions for this category
+        # values["db_category"]
+        window["question_instruction"].update(instructions[values["db_category"]])
+
+
+# ------------------- grammar tracker tab events
+
 
 
 # grammar tracker tab
@@ -1744,17 +2187,12 @@ while True:
         with open ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "w") as myfile:
             myfile.write(text)
 
-            
-            #fixed new data is not being saved to json
-            # DONE save sum of values to JSON
-            ## requires new field in JSON
-            # DONE save vocabulary entries into JSON
-            ## requires new field in JSON
-            # TODO generate a simple graph of performance
-        sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
-                    location  = (1900,50),)
+        # TODO generate a simple graph of performance
+        # sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
+        #             location  = (1900,50),
+        #             )
                     
-                    )
+                #   )
             
 # pros cons tab
     # fire on all pros and con sliders

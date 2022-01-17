@@ -1,0 +1,12 @@
+timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHOICE2,CHOICE3,CHOICE4,CHOICE5,CHOICE6,CHOICE7,CHOICE8,CHOICE9,CHOICE10
+2022.1.17 13:2:21,static PVs,5605,kubernetes,"Dynamic  When none of the    _ _ _    the administrator created match a user's PersistentVolumeClaim, the cluster may try to dynamically provision a volume specially for the PVC.",static PVs,static PVs,dynamic Pvs,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 13:37:3,when,24350,prepositions of time,Isabella was occupied in the kitchen___we heard the news.,when,in,while,during,when,nan,nan,nan,nan,nan,nan
+2022.1.17 13:37:17,for,24152,prepositions of time,My wife and I lived in China___three years.,for,during,for,in,while,nan,nan,nan,nan,nan,nan
+2022.1.17 13:37:37,in,24074,prepositions of time,He visited Robert ___his business trip in Japan.,during,during,while,for,in,nan,nan,nan,nan,nan,nan
+2022.1.17 13:38:11,when,24324,prepositions of time,Chris was working in the office___the police arrived.,when,in,while,during,when,nan,nan,nan,nan,nan,nan
+2022.1.17 13:38:48,had been gifting,3005,tense: past perfect continuous,How long had you been leaving dry bread for the birds on the balcony?I ___dry bread for the birds on the balcony for about two weeks.,had been leaving,had been leaving,had been giving,had been gifting,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 13:39:56,the,23830,determiners: articles: definite,She is ____ tallest girl in the class.,the,the,-,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 13:41:0,slow down,8472,negotiation phrasal verbs,You  ___  and turn into a gravel driveway.,slow down,slow down,get rid of,get on,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 13:43:6,the negotiation,22432,negotiation,■ Know how to say no without ending  ___ .,the negotiation,the negotiation,the participation,the agitation,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 13:43:36,some,1395,nouns: countable uncountable,Someone  told Daisy that there is ___stench in the back of the car. Do you know anything about that?,some,some,many,much,any,nan,nan,nan,nan,nan,nan
+2022.1.17 13:44:44,many,1306,nouns: countable uncountable,Someone  told Luna that there is ___cheese in the train. Do you know anything about that?,a lot of,a lot of,many,much,any,few,nan,nan,nan,nan,nan

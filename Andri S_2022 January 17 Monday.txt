@@ -1,0 +1,17 @@
+verb: zap
+adjective: rare
+noun: head
+quantifier: numerous
+sub conjunction: as much as
+
+#mermaid
+Q: How often do you have a headache?
+A: I rarely have a headache. 
+
+Q: What happened during the riot?
+A:A numerous amount of people were zapped by the police during the riot. 
+
+Q: How much do you like sister?
+A: I like my sister as much as I like my mother but don't tell either of them that! 
+
+---
