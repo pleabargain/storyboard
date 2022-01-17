@@ -1,0 +1,27 @@
+timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHOICE2,CHOICE3,CHOICE4,CHOICE5,CHOICE6,CHOICE7,CHOICE8,CHOICE9,CHOICE10
+2022.1.17 10:7:42,accept,261,accept except,Lucas doesn't  ___ criticism gracefully.,accept,except,accept,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:9:55,accept,252,accept except,Lucas doesn't  ___ criticism gracefully.,accept,except,accept,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:12:37,except,226,accept except,Everyone showed up at the company party ____Eliza.,except,except,accept,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:12:43,except,226,accept except,Everyone showed up at the company party ____Eliza.,except,except,accept,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:13:4,accept,244,accept except,I refuse to ____ money from Penelope!,accept,except,accept,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:15:1,active,329,active or passive voice,I will introduce you to my boss this week.,passive,passive,active,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:17:14,active,307,active or passive voice,Spectators thronged the streets.,active,active,passive,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:18:17,passive,354,active or passive voice,The thieves were caught by the police.,passive,passive,active,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:20:14,poor,386,adjectives,They're rich. They aren't ___.,poor,poor,poorest,rain,reassuringly,saddest.,nan,nan,nan,nan,nan
+2022.1.17 10:20:32,sad,389,adjectives,He's always happy. He's never,sad,sad,saddest.,smallest,snow,steadyly,nan,nan,nan,nan,nan
+2022.1.17 10:20:47,raining,387,adjectives,It wasn't ____ when  it went  to Taipei.,raining,raining,rain,rained,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:22:31,passive,385,adjectives,Chandler is quite ___ for a juggler.,passive,passive,passively,unpassively,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:22:51,hot,378,adjectives,It wasn't ____ when  I went  to Boston.,hot,hot,hottest,hotly,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:22:56,passive,384,adjectives,Aiden is quite ___ for a computer scientist.,passive,passive,passively,unpassively,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:23:57,more,4792,adjectives: comparitives,You have to be ___ careful when working with power tools.,more,more,least,best,most,nan,nan,nan,nan,nan,nan
+2022.1.17 10:24:9,taller,4833,adjectives: comparitives,Thomas is ___ than his wife.,taller,taller,tallest,tall,more tall,nan,nan,nan,nan,nan,nan
+2022.1.17 10:24:18,difficult,913,adjectives: comparitives,The task that I had yesterday was more ___ than the task I have now.,difficult,difficult,the difficult,the difficultest,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:24:34,smarter,915,adjectives: comparitives,"Right now, I'm working with guys that are ___ than the guys that I was working with before.",smarter,smarter,the smart,smartest,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:25:15,older,4801,adjectives: comparitives,"Your brother is ___ than you. So, please listen to him when we're not here.",older,older,oldier,oldest,more old,nan,nan,nan,nan,nan,nan
+2022.1.17 10:25:16,older,4801,adjectives: comparitives,"Your brother is ___ than you. So, please listen to him when we're not here.",older,older,oldier,oldest,more old,nan,nan,nan,nan,nan,nan
+2022.1.17 10:25:36,longer,914,adjectives: comparitives,The flight to Amesterdam was ___ than the flight to Lviv.,longer,longer,the longer,the longest,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:43:47,calls upon,429,adverbial phrases,Identify the correct phrase to correctly complete the sentence: Adversity ''''' the best qualities in man.,calls in,calls in,calls upon,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:47:4,look into,437,adverbial phrases,Identify the correct phrase to correctly complete the sentence: The judge promised to '''''' the matter himself.,look into,look into,go off,look on,look by,nan,nan,nan,nan,nan,nan
+2022.1.17 10:49:43,laid down,436,adverbial phrases,Identify the correct phrase to correctly complete the sentence: A large number of men and women '___ their lives for winning us our independence.,laid down,laid down,lied by,laid,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:51:20,call upon,428,adverbial phrases,Identify the correct phrase to correctly complete the sentence: I shall ___ you next Monday.,call upon,call upon,call for,nan,nan,nan,nan,nan,nan,nan,nan
+2022.1.17 10:52:10,get away with it,433,adverbial phrases,Identify the correct phrase to correctly complete the sentence: Spoiled rich kids often seem to believe that they can commit a crime and then ___.,get away with it,get away with it,get rid of,get on,get over,get by,nan,nan,nan,nan,nan

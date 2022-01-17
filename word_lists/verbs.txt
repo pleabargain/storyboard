@@ -271,6 +271,7 @@ rescue
 research
 reverse
 review
+riot
 run(irr)
 rush
 sacrifice
@@ -320,6 +321,7 @@ tend
 test
 think(irr)
 throw(irr)
+throng
 tick 
 track
 transfer
