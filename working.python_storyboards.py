@@ -1549,6 +1549,7 @@ tracker_layout.append(
 grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 
 # question tab layout
+# BUG KeyError: 'anything everything nothing something'
 question_tab_layout = [
 
 
@@ -1950,6 +1951,9 @@ while True:
         window["performance sum"].update(hold_json[most_recent_date]["performance sum"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
         window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
+        #todo KeyError: 'articles'
+        #can't create new JSON
+        # this file is NOT being updated based on the common error file :(
         window["input2"].update(hold_json[most_recent_date]["articles"][0])
         window["input3"].update(hold_json[most_recent_date]["modals"][0])
         window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
@@ -2204,6 +2208,7 @@ while True:
 
         # display instructions for this category
         # values["db_category"]
+        # getting an error: KeyError: 'pre-intermediate English'
         window["question_instruction"].update(instructions[values["db_category"]])
 
 

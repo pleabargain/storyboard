@@ -131,7 +131,9 @@ pencil
 people
 person
 participant
+peer
 pet
+pier
 place
 point
 power

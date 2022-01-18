@@ -33,6 +33,7 @@ cold
 colossal
 comfortable
 condescending
+conscientious
 confused
 connected
 conservative
@@ -47,6 +48,7 @@ creative
 creepy
 cruel
 curious
+decisive
 deep
 democratic
 demographic
@@ -165,6 +167,7 @@ millenial
 mischievous
 musical
 mysterious
+naive
 narrow
 nasty
 naughty
@@ -183,6 +186,7 @@ patriotic
 peaceful
 perfect
 perplexed
+poor
 positive
 quaint
 quantified
@@ -200,6 +204,7 @@ reactive
 red
 regular
 relaxed
+responsible
 ridiculous
 robust
 rotund
@@ -225,6 +230,7 @@ tender
 tense
 tentative
 terrible
+thoughtful
 tight
 tiny
 tiresome
@@ -246,6 +252,7 @@ victorious
 vulnerable
 warm
 waste
+wealthy
 wicked
 wonderful
 worst
