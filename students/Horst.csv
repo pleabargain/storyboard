@@ -22,3 +22,24 @@ timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHO
 2022.1.17 13:52:37,long,379,adjectives,He doesn't have short hair. He has ___ hair.,long,long,longest,lowerst,newest,Nothing,nan,nan,nan,nan,nan
 2022.1.17 13:53:13,younger,4854,adjectives: comparitives,Jim is ___ than Michael.,younger,younger,youngest,nan,more young,nan,nan,nan,nan,nan,nan
 2022.1.17 13:53:31,smarter,915,adjectives: comparitives,"Right now, I'm working with guys that are ___ than the guys that I was working with before.",smarter,smarter,the smart,smartest,nan,nan,nan,nan,nan,nan,nan
+2022.1.18 7:44:33,hardly ever,414,adverb of frequency,Identify the adverb of frequency:Phoebe hardly ever heads out a little earlier.,hardly ever,heads out,a little earlier.,hardly ever,nan,nan,nan,nan,nan,nan,nan
+2022.1.18 7:44:46,often,422,adverb of frequency,Identify the adverb of frequency:Amber often departs on time.,often,departs,on time.,often,nan,nan,nan,nan,nan,nan,nan
+2022.1.18 7:44:52,hardly ever,413,adverb of frequency,Identify the adverb of frequency:Eva hardly ever gets in after eight o'clock.,hardly ever,gets in,after eight o'clock.,hardly ever,nan,nan,nan,nan,nan,nan,nan
+2022.1.18 7:45:4,always,410,adverb of frequency,Identify the adverb of frequency:Emma always departs on time.,always,departs,on time.,always,nan,nan,nan,nan,nan,nan,nan
+2022.1.18 8:36:9,gave,3276,tense: past simple,What did you do? I ___ him my coat.,gave,gived,given,gave,?,?,?,?,?,?,?
+2022.1.18 8:41:35,ourselves,4836,pronouns: reflexive ,Eileen and  I ended up painting the apartment ___.,ourselves,our self,ourselves,myselves,our selves,?,?,?,?,?,?
+2022.1.18 8:41:56,themselves,4857,pronouns: reflexive ,Eileen and Henry will arrange their travel plans ___.,themselves,them selves,their selves,themselves,our selves,?,?,?,?,?,?
+2022.1.18 8:42:24,ourselves,4826,pronouns: reflexive ,Mila and  I ended up painting the apartment ___.,ourselves,our self,ourselves,myselves,our selves,?,?,?,?,?,?
+2022.1.18 8:42:40,yourself,4745,pronouns: reflexive ,Would you like to pour ___  some sparkling water?,yourself,your self,yourselves,yourself,youself,?,?,?,?,?,?
+2022.1.18 8:42:47,himself,4762,pronouns: reflexive ,Alan made this dish___.,himself,himself,his self,himselves,youself,?,?,?,?,?,?
+2022.1.18 8:42:52,herself,4814,pronouns: reflexive ,Trudy enjoyed ___ at the party.,herself,myself,herself,ourself,youself,?,?,?,?,?,?
+2022.1.18 8:52:6,static PVs,5889,kubernetes,"Dynamic  When none of the    _ _ _    the administrator created match a user's PersistentVolumeClaim, the cluster may try to dynamically provision a volume specially for the PVC.",static PVs,static PVs,dynamic Pvs,?,?,?,?,?,?,?,?
+2022.1.18 8:52:10,static PVs,5889,kubernetes,"Dynamic  When none of the    _ _ _    the administrator created match a user's PersistentVolumeClaim, the cluster may try to dynamically provision a volume specially for the PVC.",static PVs,static PVs,dynamic Pvs,?,?,?,?,?,?,?,?
+2022.1.18 8:52:39,particularly,22186,linking results,The inner city traffic problem is ___ acute in Los Angeles.,particularly,slowly,particularly,ably,cutely,?,?,?,?,?,?
+2022.1.18 8:52:46,including,20725,linking results,"I got scared, thinking he was panicking, but when he pulled back, I saw that he was laughing  ___  hard that tears were streaming down his cheeks.",so,Similarly,so,including,cutely,?,?,?,?,?,?
+2022.1.18 13:50:12,ask,947,conditionals,If we have time on Wednesday then  let's ___ out Eva our new Malian colleague.,ask,ask,visit,plan,gone,went,?,?,?,?,?
+2022.1.18 13:50:47,will clean the,1093,conditionals,If Oskar is going to clean the bedroom then Misha___meeting room.,will clean the,wants clean the,couldn't clean the,will have cleaned the,will clean the,went,?,?,?,?,?
+2022.1.18 13:52:30,didn't,967,conditionals,"If Mike___fix that bug soon, he's going to have to cancel his trip to Philippines.",doesn't,to do,didn't,doesn't,don't,do not,?,?,?,?,?
+2022.1.18 13:54:5,many,6170,determiners: quantifiers,Even if you've got nothing wrong or weird with your body -- and how    _ _ _    of us can say that?,many,many,much,will have cleaned the,couldn't clean the,do not,?,?,?,?,?
+2022.1.18 13:54:21,much,6217,determiners: quantifiers,How    _ _ _    sleep did you get last night?,much,many,much,will have cleaned the,couldn't clean the,do not,?,?,?,?,?
+2022.1.18 13:54:34,a few,4703,determiners: quantifiers,We have ___ chairs but we need more.,a few,any,none,a few,couldn't clean the,do not,?,?,?,?,?

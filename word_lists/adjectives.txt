@@ -25,6 +25,7 @@ boorish
 bored
 brave
 bright
+cantankerous
 carnivore
 chubby
 chunky
@@ -82,6 +83,7 @@ favorite
 fine
 fishetarian
 flabby
+flawless
 fluffy
 foolish
 frank

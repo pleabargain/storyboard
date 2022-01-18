@@ -36,6 +36,7 @@ echo
 education
 end
 ear
+epiphany
 error
 eye
 face

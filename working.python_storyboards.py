@@ -255,7 +255,8 @@ def save_student_answers():
                         "student_choice": values["student_question_choice"],
                          "UNIQUE_ID":window["db_question_number"].DisplayText,	
                         "CATEGORY":values["db_category"],	
-                        "QUESTION":window["db_question"].DisplayText,	
+                        #multiline
+                        "QUESTION":values["db_question"],	
                         "CORRECT_ANSWERS":window["correct_answer"].DisplayText,	
                         "CHOICE1":window["db_choice1"].DisplayText,
                     	"CHOICE2":window["db_choice2"].DisplayText,
@@ -1570,10 +1571,17 @@ question_tab_layout = [
                     key="question_instruction", 
                     font = ("helvetica",16),
                     tooltip ="TODO I want to be able to write/update changes here,line 1546",
-                    size=(40,2 ),
+                    size=(None,2 ),
                     change_submits=True, 
                     # expand_y=True, 
-                    disabled=True ), sg.Button("Open instructions file",key ="open_question_instructions",tooltip="line1558")],
+                    disabled=True ), 
+            sg.Button("Open\ninstructions\nfile",
+                        size=(None,3),
+                        key ="open_question_instructions",
+                        tooltip="line1580 key = open_question_instructions"),
+
+        ],
+        
         #TODO link to open the instructions csv 
         # /home/dgd/Desktop/EnglishHelpsYourCareer/category_instructions.csv
         # done button to save the current question number for future review
@@ -1584,16 +1592,18 @@ question_tab_layout = [
                 tooltip = "q # pulled from db line 1384"
                 ),
         sg.Text("",key="db_question_number"), 
-        sg.Text("flag",tooltip="line1569"),
-        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)), 
+        sg.Text("flag",tooltip="line1588"),
+        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
+        sg.Button("open attention csv",key="open_attention_csv"), 
         ],
         
-        [ sg.Text("",
+        [ sg.Multiline("",
                 key="db_question",
-                size=(None,None),
+                size=(None,2),
+                disabled = True,
                 justification="left",
                 font=("helvetica",16),
-                tooltip="line 1578")
+                tooltip="line 1591")
         ],
         
         [sg.Button("display correct answer",
@@ -1636,6 +1646,7 @@ question_tab_layout = [
         [sg.Button("get next question", key="get_next_random_question", size=(50,1)),
         sg.Button("save and export",
                     key="export_student_questions",
+                    tooltip="1639 key get_next_random_question",
                     size=(30,1))
         ],
         
@@ -1662,11 +1673,11 @@ layout = [
                    key="student_name",
                     default_value="Horst",
 
-                    tooltip="TODO test adding new name this should pull from a list of students name goes here",
+                    tooltip="line 1676 TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 1310"
+                tooltip = "see line 1679"
 
                 ) ,
 
@@ -1675,8 +1686,8 @@ layout = [
     sg.Combo(values=["load from json a",'load from json b'], 
             key = "date_picker", 
             enable_events=True,
-            tooltip="TODO this needs to load from the json file line 1317"),
-    sg.Button("load syllabus", tooltip="will open md file"),
+            tooltip="TODO this needs to load from the json file line 1689"),
+    sg.Button("load syllabus", tooltip="will open md file in VS code"),
     
     
     ],
@@ -1723,12 +1734,16 @@ while True:
 
 
 
-
-    if event == "connecting_words_concession":
+    #allows reuse of events
+    if "connecting_words_concession" in event:
         read_list_from_file()
         open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.txt","connecting_words_concession")
     
 
+    if  "connecting_words_summary" in event:
+        read_list_from_file()
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt","connecting_words_summary")
+        
 
    
     if event == "connecting_words_emphasis":
@@ -1746,12 +1761,7 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["connecting_words_illustration"].update(selected_topic)
 
-    # if event == "connecting_words_summary":
-    # this will fire when any text includes connecting_words_summary
-    if "connecting_words_summary" in event:
-        read_list_from_file()
-        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt","connecting_words_summary")
-        
+    
 
 
 
@@ -1991,15 +2001,20 @@ while True:
     if event == "4 letter words":
         #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
         webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
+
+
+
 # -----------------------------------------question tab events---------------------
 
     if event == "display_grammar_graph":
-        question = window["db_question"].DisplayText
+        question = values["db_question"]
         question_number = window["db_question_number"].DisplayText
 
 
         sentence_nlp = nlp(question)
-        svg = displacy.render(sentence_nlp, style="dep")
+        svg = displacy.render(sentence_nlp, 
+                                options = {"compact": True},
+                                style="dep")
         output_path = Path(f"/home/dgd/Desktop/python_storyboard_flashcards/question_tab/{question_number}.{question}.svg") # you can keep there only "dependency_plot.svg" if you want to save it in the same folder where you run the script 
         output_path.open("w", encoding="utf-8").write(svg)
         #brave-browser
@@ -2040,6 +2055,11 @@ while True:
     if event == "display correct answer":
         window["correct_answer"].update(visible=True)
 
+    if event == "open_attention_csv":
+        os.system("{} {}".format(EXTERNAL_EDITOR, QUESTION_FOLDER + "/needs_attention.csv"))
+
+
+
     if event == "get_next_random_question":
         save_student_answers()
         save_attention()
@@ -2055,7 +2075,7 @@ while True:
         current_question =line[0]
         found = False
         for line in df2.iterrows():
-            my_line = line
+            # my_line = line
             # window["db_question_number"].update(line[0])
             # break        
             
@@ -2070,24 +2090,48 @@ while True:
                         )
             continue
         # correct question display
-        window["db_question_number"].update(line[0])
+        window["db_question_number"].update(line[1]["UNIQUE_ID"]   )
+        #filling in choices
+
+        # filter out NANs
+        # create list of answers from db
+        answers = [
+            line[1]["CHOICE 1"], 
+            line[1]["CHOICE 2"], 
+            line[1]["CHOICE 3"], 
+            line[1]["CHOICE 4"], 
+            line[1]["CHOICE 5"], 
+            line[1]["CHOICE 6"], 
+            line[1]["CHOICE 7"], 
+            line[1]["CHOICE 8"], 
+            line[1]["CHOICE 9"], 
+            line[1]["CHOICE 10"], 
+        
+                    ]
+
+        useful_answers = [a for a in answers if type (a) != float  ]
+        print(useful_answers)
+        # render all as invisible
+        for j in range (1,11):
+            window[f"db_choice{j}"].update(visible=False)    
+                
+        # randomize order
+        random.shuffle(useful_answers)        
+        # iterate over useful answers
+        # enumarate start with 1
+        for i, u in enumerate(useful_answers):
+            window[f"db_choice{i+1}"].update(u)    
+            window[f"db_choice{i+1}"].update(visible=True)    
+
 
         window["db_question"].update(line[1]["QUESTION"])
-        window["db_choice1"].update(line[1]["CHOICE 1"])
-        window["db_choice2"].update(line[1]["CHOICE 2"])
-        window["db_choice3"].update(line[1]["CHOICE 3"])
-        window["db_choice4"].update(line[1]["CHOICE 4"])
-        window["db_choice5"].update(line[1]["CHOICE 5"])
-        window["db_choice6"].update(line[1]["CHOICE 6"])
-        window["db_choice7"].update(line[1]["CHOICE 7"])
-        window["db_choice8"].update(line[1]["CHOICE 8"])
-        window["db_choice9"].update(line[1]["CHOICE 9"])
-        window["db_choice10"].update(line[1]["CHOICE 10"])
-        #make sure correct answer is invisible
+        # make sure correct answer is invisible
         window["correct_answer"].update(visible=False)
         window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
 
-
+        # display instructions for this category
+        # values["db_category"]
+        window["question_instruction"].update(instructions[values["db_category"]])
 
 
 
@@ -2110,26 +2154,51 @@ while True:
         #TODO error catch if column is empty then continue!
         window["questions_db_info"].update(f"I found questions: {len(lines_of_this_cat)}")
         # randomize order 
-        # create new df with my_lines
+        # create new df with my_lines 
+        # randomize the selection of the database
         my_lines = lines_of_this_cat.sample(len(lines_of_this_cat))
         df2 = my_lines
+        #line contains all db choices
         for line in df2.iterrows():
-            my_line = line
-            window["db_question_number"].update(line[0])
+            # my_line = line
+            # update line panda created
+            window["db_question_number"].update(line[1]["UNIQUE_ID"]   )
             break
+
         #filling in choices
+        # filter out NANs
+        # create list of answers from db
+        answers = [
+            line[1]["CHOICE 1"], 
+            line[1]["CHOICE 2"], 
+            line[1]["CHOICE 3"], 
+            line[1]["CHOICE 4"], 
+            line[1]["CHOICE 5"], 
+            line[1]["CHOICE 6"], 
+            line[1]["CHOICE 7"], 
+            line[1]["CHOICE 8"], 
+            line[1]["CHOICE 9"], 
+            line[1]["CHOICE 10"], 
+        
+                    ]
+
+        useful_answers = [a for a in answers if type (a) != float  ]
+        print(useful_answers)
+        # render all as invisible
+        for j in range (1,11):
+            window[f"db_choice{j}"].update(visible=False)    
+                
+        # randomize order
+        random.shuffle(useful_answers)        
+        # iterate over useful answers
+        # enumarate start with 1
+        for i, u in enumerate(useful_answers):
+            window[f"db_choice{i+1}"].update(u)    
+            window[f"db_choice{i+1}"].update(visible=True)    
+
+
         window["db_question"].update(line[1]["QUESTION"])
-        window["db_choice1"].update(line[1]["CHOICE 1"])
-        window["db_choice2"].update(line[1]["CHOICE 2"])
-        window["db_choice3"].update(line[1]["CHOICE 3"])
-        window["db_choice4"].update(line[1]["CHOICE 4"])
-        window["db_choice5"].update(line[1]["CHOICE 5"])
-        window["db_choice6"].update(line[1]["CHOICE 6"])
-        window["db_choice7"].update(line[1]["CHOICE 7"])
-        window["db_choice8"].update(line[1]["CHOICE 8"])
-        window["db_choice9"].update(line[1]["CHOICE 9"])
-        window["db_choice10"].update(line[1]["CHOICE 10"])
-        #make sure correct answer is invisible
+        # make sure correct answer is invisible
         window["correct_answer"].update(visible=False)
         window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
 
