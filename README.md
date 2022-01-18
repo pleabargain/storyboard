@@ -11,7 +11,7 @@ The app should run on any python3 compliant device.
 
 - python3
 - pysimplegui
-
+- see the requirements text
 
 
 # TODO
@@ -21,17 +21,24 @@ There are lots of TODOs in the code. If you want to participate, please do.
 - sort text files
 - strip txt files of empty lines
 - set python script to run BASH `cat verbs.txt | sort | uniq>outv.txt` to quickly sort and get uniq values only. )
-- Save/Load student data from JSON file
 - add usage license
 <img src="/support_images/todo.2021-12-22_10-58.png" alt="todo" />
 
 # DONE
+- Save/Load student data from JSON file
 - negotiation tab: randomly chosen text should take focus or find a better way to get text to display
 - print full DAY in timeline tab = strftime("%Y %B %d %A")
 - automatically generate ten text input fields from a text file source
 
 # list of tabs (not in order)
-<img src="/support_images/tabs_22dec.png" alt="Getting started" />
+<img src="/support_images/tabs2022-01-18_13-58.png" alt="Getting started" />
+
+# questions tab
+- Display multiple choice questions in the UI.
+- flag problem questions
+- save student results
+- display instructions by category
+
 
 # grammar tracker tab
 This is automatically generated from a text file! It currently saves to file as json partially. It should load from json eventually but it doesn't yet. The grammar tracker tab is generated from a text file. The keys for the generated input and sliders should also be generated as well e.g.
@@ -140,8 +147,15 @@ populate after_now fields
 5. save content to file
 
 
+# 2022 Jan 18
+got questions to randomize
 
-# 20222 Jan 14
+cleaned up the UI  a bit
+
+explored SPACY rendering in the question tab UI. Debating if the value of the word is more important than the graph.
+
+
+# 2022 Jan 14
 Trying to get question tab working in development version. Much to do there yet. Thinking hard about what forces are behind creating a web UI. I can't copy and paste working bits to get them working elsewhere. Too much repetition in the code!
 
 
