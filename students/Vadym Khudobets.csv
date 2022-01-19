@@ -1,0 +1,6 @@
+timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHOICE2,CHOICE3,CHOICE4,CHOICE5,CHOICE6,CHOICE7,CHOICE8,CHOICE9,CHOICE10
+2022.1.19 16:50:51,working,1970,gerunds,I miss ___ in Haiti.,working,worked,to work,work,working,?,?,?,?,?,?
+2022.1.19 16:51:25,working,1984,gerunds,I miss ___ in Slovakia.,working,working,worked,work,to work,?,?,?,?,?,?
+2022.1.19 16:52:51,wafer,22656,integrated circuits,"Wafer thickness is reduced (for microcontroller    chips, thickness is reduced from 650 to 380 microns), and sometimes a thin gold    layer is deposited on the back of the  ___ .",wafer,carafe,curtain,wafer,curtain,?,?,?,?,?,?
+2022.1.19 16:53:40,components,7491,integrated circuits,This ability of a PN junction to either conduct or insulate depending on which side the voltage is applied can be used to form integrated circuit  ___  that direct and control current flows in the same manner as diodes and transistors.,components,capacitors,components,diodes,curtain,?,?,?,?,?,?
+2022.1.19 16:55:4,dopant,7125,integrated circuits,"Within a PN junction, the atoms of the two regions bond in such a manner as to create a third region, called a depletion region, in which the P  ___  atoms capture all the N  ___  extra electrons, thus depleting them.",dopant,glues,chemical,dopant,curtain,?,?,?,?,?,?

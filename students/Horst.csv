@@ -59,3 +59,38 @@ timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHO
 2022.1.18 18:52:46,until,5252,for until since,You'll  have been working on this project___Feburary.,since,for,since,until,until,?,?,?,?,?,?
 2022.1.18 18:53:1,since,5236,for until since,I have been working at Megacorp company ___ 2016.,since,for,until,since,until,?,?,?,?,?,?
 2022.1.18 18:56:3,until,5260,for until since,I was awake studying ___ three in the morning.,since,since,for,until,until,?,?,?,?,?,?
+2022.1.19 7:20:58,BROKE UP,3415,phrasal verb: break,The student (lost control of her emotions) when she heard she had failed.,BROKE DOWN,BROKE UP,BROKE IN,BROKE DOWN,could speak,?,?,?,?,?,?
+2022.1.19 7:24:28,hand in,8744,negotiation phrasal verbs,"Tenant A: I had a  ___  it, but our senior corporate counsel did the yeoman's work.",hand in,hand in,?,?,?,?,?,?,?,?,?
+2022.1.19 7:24:35,get by,8325,negotiation phrasal verbs,"'Let's focus on that idea for a minute,' you might say, or 'Maybe we could fold that into what we were talking about earlier.' If you're  ___  someone who knows you well, a raised eyebrow might signal 'Don't go there,' while a tilt of your head could send the message 'Maybe now we're getting someplace.'
+
+Some negotiators are naturals at letting other parties hold the floor while nevertheless steering the conversation.",dealing with,get by,do with,know about,forged ahead,dealing with,?,?,?,?,?
+2022.1.19 7:24:40,plan for,8480,negotiation phrasal verbs,"Even when the US Marines have only a short time to  ___  combat, they prepare for both the most likely and the most dangerous courses of action the enemy might take.",plan for,plan for,do with,know about,forged ahead,dealing with,?,?,?,?,?
+2022.1.19 7:24:43,dealing with,8583,negotiation phrasal verbs,"In real-world negotiation, however, you can't limit yourself to  ___  people who match your own temperament and style.",dealing with,dealing with,do with,know about,forged ahead,dealing with,?,?,?,?,?
+2022.1.19 7:26:0,under,24425,prepositions of place,Do you live ___ Japan?,in,under,threw up,slipped down,gave it up,got off,backed it up,?,?,?,?
+2022.1.19 7:26:8,behind,24429,prepositions of place,You are standing ___ my foot.,on,behind,threw up,slipped down,gave it up,got off,backed it up,?,?,?,?
+2022.1.19 7:26:19,discovered,25601,pre-intermediate English,The PC was ___ long before most of us first used it.,invented,designed,discovered,tracked,invented,got off,backed it up,?,?,?,?
+2022.1.19 7:29:41,suddenly,25615,pre-intermediate English,"The lion moved ____ , and frightened everyone.",suddenly,luckily,pick,sadly,suddenly,?,?,?,?,?,?
+2022.1.19 7:30:58,in front,25600,pre-intermediate English,There’s a big garden ___ of our house.,in front,fact,in front,behind,in the middle,?,?,?,?,?,?
+2022.1.19 7:31:4,the,25546,pre-intermediate English,That’s___best movie I’ve ever seen.,the,X,a,the,our,?,?,?,?,?,?
+2022.1.19 7:31:17,can speak,25526,pre-intermediate English,"If you___five languages, which languages would you speak?",could speak,could spoke,could speak,X,can speak,?,?,?,?,?,?
+2022.1.19 7:33:10,cried at,25597,pre-intermediate English,Have you ____ any meetings this morning?,had,have,had,cried at,done,we,anywhere,?,?,?,?
+2022.1.19 7:33:13,at,25536,pre-intermediate English,They lived___Australia in 2004.,in,at,for,X,in,we,anywhere,?,?,?,?
+2022.1.19 7:33:19,to,25549,pre-intermediate English,I travelled around the world for a year___ learn about other cultures.,to,X,to,in order,Answer Text Correct Choice(s),for,anywhere,?,?,?,?
+2022.1.19 8:58:27,accept,197,accept except,The whole marching band is out of step ___ Harold.,except,accept,except,?,?,?,?,?,?,?,?
+2022.1.19 8:59:36,accept,229,accept except,Everyone showed up at the company party ____Harold.,except,accept,except,?,?,?,?,?,?,?,?
+2022.1.19 9:41:24,except,206,accept except,Lucas can do everything ___ make money.,except,accept,except,?,?,?,?,?,?,?,?
+2022.1.19 9:42:32,except,226,accept except,Everyone showed up at the company party ____Aiden.,except,except,accept,?,?,?,?,?,?,?,?
+2022.1.19 9:44:34,except,226,accept except,Everyone showed up at the company party ____Aiden.,except,except,accept,?,?,?,?,?,?,?,?
+2022.1.19 9:44:36,except,226,accept except,Everyone showed up at the company party ____Aiden.,except,except,accept,?,?,?,?,?,?,?,?
+2022.1.19 9:45:4,loud,408,adjectives,Your sister is quiet. She isn't ___.,loud,lowd,loudest,loud,the louder,?,?,?,?,?,?
+2022.1.19 9:45:30,tallest,397,adjectives,He's short. He's not ___.,tall,thinnest,unhelpfully,thinnest,tall,tallest,?,?,?,?,?
+2022.1.19 17:47:26,head,779,nouns: collective,Identify the collective noun(s):,set,detective,head,city,set,john,sort,?,?,?,?
+2022.1.19 17:48:18,pack,773,nouns: collective,Identify the collective noun(s):,pack,descent,interest,pack,control,sense,way,?,?,?,?
+2022.1.19 17:49:14,family,765,nouns: collective,Identify the collective noun(s):,family,tree,family,rock,pen,heap,south,?,?,?,?
+2022.1.19 17:51:3,gang,767,nouns: collective,Identify the collective noun(s):,gang,desire,change,gang,education,heap,south,?,?,?,?
+2022.1.19 17:53:48,told,12385,reported speech: said told,"Well, well, the rubber manufacturer went out in the byways and got him a
+young man who was  ___  to find out, if he could, whether or not there
+was any market for hard rubber tires on gas and electric industrial
+trucks, tractors and trailers, and allied equipment.",told,telling,said,say,told,heap,south,?,?,?,?
+2022.1.19 17:54:21,said,11169,reported speech: said told,"""No way,"" Liam  ___ .",said,told,say,telling,said,heap,south,?,?,?,?
+2022.1.19 17:55:58,told,12457,reported speech: said told,"I  ___  her that we needed to be *honest* with you so that we could clear up any suspicion and get out of here.""",told,telling,told,said,say,heap,south,?,?,?,?

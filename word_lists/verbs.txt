@@ -59,6 +59,7 @@ convince
 convolute
 correct
 could(modal)
+count
 create
 credit
 customized
@@ -74,6 +75,7 @@ deposit
 describe
 destroy
 detect
+deteriorate
 determine
 die
 direct
@@ -85,6 +87,7 @@ dream
 drink(irr)
 drive(irr)
 dump
+edit
 elaborate
 elevate
 encounter
@@ -280,6 +283,7 @@ satisfy
 save
 say(irr)
 scale
+seal
 sedated
 see(irr)
 seek(irr)
@@ -297,6 +301,7 @@ sleep(irr)
 slip
 smell
 snack
+spot
 solve
 sort
 speak(irr)
@@ -353,6 +358,7 @@ want
 waste
 watch
 wave
+wear
 welcome
 wiggle
 will(modal)

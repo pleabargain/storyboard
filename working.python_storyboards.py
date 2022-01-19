@@ -19,6 +19,7 @@ from pathlib import Path
 
 # TODO question: possible to call a tab as a function call that way the tabs can be reused easily elsewhere?
 # TODO question: What other defaults can I call when starting the application?
+# TODO with open text and md files, sort and remove duplicates first.
 
 nlp = spacy.load('en_core_web_sm')
 
@@ -45,6 +46,8 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names
 
 #strip empty lines
 student_names= [line.strip() for line in lines if len(line.strip())>0]
+
+ERROR_LOG_FILENAME = "/home/dgd/Desktop/python_storyboard_flashcards/error_log/error_log.txt"
 
 DATABASE = "/home/dgd/Desktop/EnglishHelpsYourCareer/question_bank_2.csv"
 
@@ -127,7 +130,8 @@ QUESTION_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/question_tab"
 
 attention_field_names =[
                     "timestamp",
-                    "UNIQUE_ID",	
+                    "UNIQUE_ID",
+                    "student_answer1"	,
                         ]
 
 
@@ -197,7 +201,8 @@ def save_attention():
                     datetime.datetime.today().minute,
                     datetime.datetime.today().second,
                     ),
-                    "UNIQUE_ID":window["db_question_number"].DisplayText,	
+                    "UNIQUE_ID":window["db_question_number"].DisplayText,
+                    "student_answer1":	values["student_answer1"],
                     }
 
     
@@ -1315,10 +1320,12 @@ negotiation_tab_three = sg.Tab("negotiation",
             size=(None,None)
             ),
      sg.Text("Linking Words for Results", 
-                key="linking_words_results",
+                key="linking_words_results2",
+                tooltip="bug link not working need to number the keys.line 1323 ",
                 enable_events=True,
                 size= (None,None),
                 ),
+
     sg.Text("Summarizing", 
                 key="connecting_words_summary1",
                 enable_events=True,
@@ -1387,7 +1394,7 @@ pros_cons_tab= sg.Tab ("pros cons",
         sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
         sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
         sg.Text("Linking Words for Results", 
-                key="linking_words_results",
+                key="linking_words_results1",
                 enable_events=True,
                 size= (None,None),
                 ),
@@ -1535,10 +1542,11 @@ tracker_layout.append(
                         default_text='put vocabulary words here',
 
                         size =(40,5),
-                        tooltip="This is a multiline object key vocabulary_used",
+                        tooltip="This is a multiline object key vocabulary_used line 1538",
                         font =("helvetica", 14)), 
-                        sg.Button("save vocabulary used",
-                        tooltip="TODO save to json file add student name to file save")],
+                        # sg.Button("save vocabulary used",
+                        # tooltip="TODO save to json file add student name to file save")
+        ],
                     )   
 
 
@@ -1550,13 +1558,14 @@ grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 
 # question tab layout
 # BUG KeyError: 'anything everything nothing something'
+# bug KeyError: 'intermediate English'
+
 question_tab_layout = [
 
 
         [sg.Text("HOMEWORK"), sg.Text("instructions:")],
                 
         [sg.Text("select one category"), 
-        # bug KeyError: 'intermediate English'
         sg.Combo(values=category_list, 
                 key="db_category", 
                 enable_events=True, 
@@ -1593,7 +1602,7 @@ question_tab_layout = [
                 tooltip = "q # pulled from db line 1384"
                 ),
         sg.Text("",key="db_question_number"), 
-        sg.Text("flag",tooltip="line1588"),
+        sg.Text("flag",tooltip="line1600"),
         sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
         sg.Button("open attention csv",key="open_attention_csv"), 
         ],
@@ -1604,9 +1613,9 @@ question_tab_layout = [
                 disabled = True,
                 justification="left",
                 font=("helvetica",16),
-                tooltip="line 1591")
+                tooltip="line 1611")
         ],
-        
+        [sg.Button("show_possible_answers",key="show_possible_answers")],
         [sg.Button("display correct answer",
                     size=(20,1),
                     font=('helvetica'),
@@ -1630,8 +1639,8 @@ question_tab_layout = [
 
         
         #start question area
-        [sg.Text("Question: ")],
-        [sg.Text("01: "),sg.Text("?",key= "db_choice1", enable_events=True,size=(None,None))],
+        [sg.Text("Possible Answers: ")],
+        [sg.Text("01: "),sg.Input("",key="student_answer1", tooltip="student_answer1 line 1638") ,sg.Text("?",key= "db_choice1", enable_events=True,size=(None,None))],
         [sg.Text("02: "),sg.Text("?",key= "db_choice2",enable_events=True,size=(None,None))],
         [sg.Text("03: "),sg.Text("?",key= "db_choice3",enable_events=True,size=(None,None))],
         [sg.Text("04: "),sg.Text("?",key= "db_choice4",enable_events=True,size=(None,None))],
@@ -1678,17 +1687,19 @@ layout = [
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 1679"
+                tooltip = "see line 1683"
 
                 ) ,
 
-    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file line 1314"), 
-    # I tried removing the values but still got keyerror
-    sg.Combo(values=["load from json a",'load from json b'], 
-            key = "date_picker", 
+    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file line 1687"), 
+    # bug: load Horst and then key error. I tried removing the values but still got keyerror
+    # KeyError: 'questions'
+    sg.Combo(values=[""], 
+            size = (20,1),
+                        key = "date_picker", 
             enable_events=True,
-            tooltip="TODO this needs to load from the json file line 1689"),
-    sg.Button("load syllabus", tooltip="will open md file in VS code"),
+            tooltip="loads from the json file line 1692"),
+    sg.Button("load syllabus", tooltip="will open md file in VS code line 1693"),
     
     
     ],
@@ -1703,9 +1714,9 @@ window = sg.Window('Working Development version! DATE: '+ datetime.date.today().
                     
                     layout, 
                     background_color="lightblue",
-                    size = (1100,650),
+                    size = (1100,700),
                     
-                    location=(2000, 1700),
+                    location=(1800, 50),
                     default_element_size=(35, 1), 
                     grab_anywhere=True)
 # big loop
@@ -1784,10 +1795,7 @@ while True:
     if event == "linking_words_condition":
         read_list_from_file()
         open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt","linking_words_condition")
-        # with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt") as myfile:
-        #     lines = myfile.readlines()
-        # selected_topic = random.choice(lines).strip()
-        # window["linking_words_condition"].update(selected_topic)
+       
 
 
 
@@ -1814,11 +1822,13 @@ while True:
 
 
 
+#    if "grammar_slider" in event:
 
-    if event == "linking_words_results":
+    if "linking_words_results" in event:
         read_list_from_file()
-        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt","linking_words_results")
-      
+        # open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt","linking_words_results")
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt"))
+
 
 
 # def open_generic_file(file,key)
@@ -1855,7 +1865,7 @@ while True:
         # print (json_files)
         for x_file in json_files:
             #TODO allow users to enter new students through UI
-            # BUG at this point loading any json will throw an error
+            
             if x_file.endswith(student_name+".json"):
                 sg.PopupOK("found it",
                 location=(2000, 100),)
@@ -1887,7 +1897,8 @@ while True:
         window["performance sum"].update(hold_json[most_recent_date]["performance sum"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
         window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
-        window["input2"].update(hold_json[most_recent_date]["articles"][0])
+        window["input2"].update(hold_json[most_recent_date]["questions"][0])
+        # window["input2"].update(hold_json[most_recent_date]["articles"][0])
         window["input3"].update(hold_json[most_recent_date]["modals"][0])
         window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
         window["input5"].update(hold_json[most_recent_date]["prepositions"][0])
@@ -1899,7 +1910,8 @@ while True:
         # [1] get second element of list
         window["grammar_slider0"].update(hold_json[most_recent_date]["passive voice"][1])
         window["grammar_slider1"].update(hold_json[most_recent_date]["conditionals"][1])
-        window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
+        window["grammar_slider2"].update(hold_json[most_recent_date]["questions"][1])
+        # window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
         window["grammar_slider3"].update(hold_json[most_recent_date]["modals"][1])
         window["grammar_slider4"].update(hold_json[most_recent_date]["connecting words"][1])
         window["grammar_slider5"].update(hold_json[most_recent_date]["prepositions"][1])
@@ -1954,7 +1966,8 @@ while True:
         #todo KeyError: 'articles'
         #can't create new JSON
         # this file is NOT being updated based on the common error file :(
-        window["input2"].update(hold_json[most_recent_date]["articles"][0])
+        window["input2"].update(hold_json[most_recent_date]["questions"][0])
+        # window["input2"].update(hold_json[most_recent_date]["articles"][0])
         window["input3"].update(hold_json[most_recent_date]["modals"][0])
         window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
         window["input5"].update(hold_json[most_recent_date]["prepositions"][0])
@@ -1966,7 +1979,8 @@ while True:
         # [1] get second element of list
         window["grammar_slider0"].update(hold_json[most_recent_date]["passive voice"][1])
         window["grammar_slider1"].update(hold_json[most_recent_date]["conditionals"][1])
-        window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
+        window["grammar_slider2"].update(hold_json[most_recent_date]["questions"][1])
+        # window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
         window["grammar_slider3"].update(hold_json[most_recent_date]["modals"][1])
         window["grammar_slider4"].update(hold_json[most_recent_date]["connecting words"][1])
         window["grammar_slider5"].update(hold_json[most_recent_date]["prepositions"][1])
@@ -2125,7 +2139,8 @@ while True:
         # enumarate start with 1
         for i, u in enumerate(useful_answers):
             window[f"db_choice{i+1}"].update(u)    
-            window[f"db_choice{i+1}"].update(visible=True)    
+            # turn off visibility until user recativates visiblity
+            window[f"db_choice{i+1}"].update(visible=False)    
 
 
         window["db_question"].update(line[1]["QUESTION"])
@@ -2135,9 +2150,26 @@ while True:
 
         # display instructions for this category
         # values["db_category"]
-        window["question_instruction"].update(instructions[values["db_category"]])
+        
+        try:
+            window["question_instruction"].update(instructions[values["db_category"]])
+        except KeyError:
+                date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                                        datetime.date.today().month,
+                                        datetime.date.today().day,
+                                        datetime.datetime.today().hour,
+                                        datetime.datetime.today().minute,
+                                        datetime.datetime.today().second,)
+                window["question_instruction"].update("missing instructions")
+                with open(ERROR_LOG_FILENAME, "a") as myfile:
+                    myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
 
-
+            
+    if event == "show_possible_answers":
+         for i, u in enumerate(useful_answers):
+            window[f"db_choice{i+1}"].update(u)    
+            # toggle visibility
+            window[f"db_choice{i+1}"].update(visible=True)  
 
 
     if event == "db_category":
@@ -2198,7 +2230,8 @@ while True:
         # enumarate start with 1
         for i, u in enumerate(useful_answers):
             window[f"db_choice{i+1}"].update(u)    
-            window[f"db_choice{i+1}"].update(visible=True)    
+            # toggle visibility
+            window[f"db_choice{i+1}"].update(visible=False)    
 
 
         window["db_question"].update(line[1]["QUESTION"])
@@ -2209,7 +2242,21 @@ while True:
         # display instructions for this category
         # values["db_category"]
         # getting an error: KeyError: 'pre-intermediate English'
-        window["question_instruction"].update(instructions[values["db_category"]])
+        try:
+            window["question_instruction"].update(instructions[values["db_category"]])
+        except KeyError:
+            date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                                        datetime.date.today().month,
+                                        datetime.date.today().day,
+                                        datetime.datetime.today().hour,
+                                        datetime.datetime.today().minute,
+                                        datetime.datetime.today().second,)
+            window["question_instruction"].update("missing instructions")
+            with open(ERROR_LOG_FILENAME, "a") as myfile:
+                myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
+
+            
+
 
 
 # ------------------- grammar tracker tab events
@@ -2292,10 +2339,10 @@ while True:
             # append the data to the csv 'a'
         csv_exists = False
         #TODO add student name to file save to PROS cons tab
-        if os.path.exists("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab" + csv_file_name +'.csv'):
+        if os.path.exists("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/" + csv_file_name +'.csv'):
             csv_exists = True
-
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab" + csv_file_name +'.csv', 'a', newline='') as csvfile:
+        #missing trailing / meant files saved to same directory
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/" + csv_file_name +'.csv', 'a', newline='') as csvfile:
         # define field names
             fieldnames = ['topic', 'analysis', 'pro0text','pro0value','con0text','con0value','pro1text','pro1value','con1text','con1value','pro2text','pro2value','con2text','con2value','pro3text','pro3value','con3text','con3value','pro4text','pro4value','con4text','con4value','pro5text','pro5value','con5text','con5value','pro6text','pro6value','con6text','con6value']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)

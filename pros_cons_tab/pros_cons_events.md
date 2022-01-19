@@ -6,6 +6,7 @@ become a vegetarian
 become software architect
 become team lead
 birth of first child
+get a dog
 birth of second child
 break a mirror
 build a kit car

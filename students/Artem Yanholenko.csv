@@ -25,3 +25,14 @@ timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHO
 2022.1.17 10:49:43,laid down,436,adverbial phrases,Identify the correct phrase to correctly complete the sentence: A large number of men and women '___ their lives for winning us our independence.,laid down,laid down,lied by,laid,nan,nan,nan,nan,nan,nan,nan
 2022.1.17 10:51:20,call upon,428,adverbial phrases,Identify the correct phrase to correctly complete the sentence: I shall ___ you next Monday.,call upon,call upon,call for,nan,nan,nan,nan,nan,nan,nan,nan
 2022.1.17 10:52:10,get away with it,433,adverbial phrases,Identify the correct phrase to correctly complete the sentence: Spoiled rich kids often seem to believe that they can commit a crime and then ___.,get away with it,get away with it,get rid of,get on,get over,get by,nan,nan,nan,nan,nan
+2022.1.19 10:11:23,itself,4631,pronouns,It speak for ___ in this matter.,itself,its,itself,it,?,?,?,?,?,?,?
+2022.1.19 10:11:45,himself,4551,pronouns,"Don't worry about Zed, he can take care of ___.",himself,his self,he's self,himself,?,?,?,?,?,?,?
+2022.1.19 10:12:23,What,4580,pronouns,____ do you know about recruiting?,What,Which,What,When,Who,Where,?,?,?,?,?
+2022.1.19 10:13:30,them,4662,pronouns,Have you seen ___ since the Metallica concert?,them,they,there,them,Who,Where,?,?,?,?,?
+2022.1.19 10:16:41,That,24378,pronouns: demonstrative,____ bike over there is mine.,That,Those,That,This,These,Where,?,?,?,?,?
+2022.1.19 10:16:47,That,24378,pronouns: demonstrative,____ bike over there is mine.,That,Those,That,This,These,Where,?,?,?,?,?
+2022.1.19 10:17:3,this,24378,pronouns: demonstrative,Can I use ____ pencil here?,this,those,that,this,these,Where,?,?,?,?,?
+2022.1.19 10:18:47,anybody,2132,pronouns: indefinite,Has ___seen Cathy recently?,anybody,you,anywhere,we,anybody,anything,each one,?,?,?,?
+2022.1.19 10:19:2,anybody,2136,pronouns: indefinite,Has ___seen Ellen today?,anybody,each one,we,anywhere,you,anything,anybody,?,?,?,?
+2022.1.19 10:19:58,anything,643,pronouns: indefinite: anything nothing,Do you want ___  from the store?,anything,anything,nothing,anybody,each of whom,each one,you,?,?,?,?
+2022.1.19 10:30:46,nothing,649,pronouns: indefinite: anything nothing,"The lecture was ___special, but the seminar was very good.",nothing,nothing,anything,anybody,each of whom,each one,you,?,?,?,?

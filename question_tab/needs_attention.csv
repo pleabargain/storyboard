@@ -1,1 +1,16 @@
-timestamp,UNIQUE_ID
+timestamp,UNIQUE_ID,student_answer1
+2022.1.19 8:59:36,229,somethign
+2022.1.19 9:42:7,188,somethign
+2022.1.19 9:45:4,408,loud
+2022.1.19 9:45:30,397,tall
+2022.1.19 10:11:23,4631,he
+2022.1.19 10:16:41,24378,The road that I took this morning had lots of traffic.
+2022.1.19 10:16:47,24378,The road that I took this morning had lots of traffic.
+2022.1.19 10:18:47,2132,"someone, anyone, anybody"
+2022.1.19 10:19:58,643,"something, anything"
+2022.1.19 10:30:46,649,something
+2022.1.19 16:50:51,1970,"snow, skiing"
+2022.1.19 16:51:25,1984,scuba diving
+2022.1.19 16:55:4,7125,element
+2022.1.19 17:48:58,769,"family, council"
+2022.1.19 17:53:48,12385,
