@@ -43,6 +43,7 @@ error
 eye
 face
 fact
+factoid
 finger
 family
 father

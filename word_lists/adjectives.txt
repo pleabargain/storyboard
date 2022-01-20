@@ -16,6 +16,7 @@ attractive
 avid
 awesome
 beautiful
+belligerent
 bitter
 bittersweet
 black
@@ -162,6 +163,7 @@ low
 lucky
 macho
 many
+menial
 micro
 millenial
 mischievous

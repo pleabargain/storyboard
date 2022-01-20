@@ -160,8 +160,7 @@ def save_attention():
 
     """
     save attention file
-    we enter integer
-    save the integer
+    enter text automatically by clicking on answer
     """
     # check if empty
     
@@ -1615,19 +1614,29 @@ question_tab_layout = [
                 font=("helvetica",16),
                 tooltip="line 1611")
         ],
-        [sg.Button("show_possible_answers",key="show_possible_answers")],
-        [sg.Button("display correct answer",
+        
+        [sg.Button("show_possible_answers",
+                    key="show_possible_answers",
+                    size=(20,1),
+                    ),
+
+        sg.Button("display correct answer",
                     size=(20,1),
                     font=('helvetica'),
-                    tooltip="line 1584",
-
+                    tooltip="line 1626",
                     ) ,
-        sg.Button("display grammar graph",
-                    key = "display_grammar_graph",
-                    size=(40,1),
-                    tooltip="line 1590",
 
-                    ) ,
+        sg.Button("get next question", 
+                    key="get_next_random_question", 
+                    size=(20,1)),
+        sg.Button("advance to next question", 
+                    #TODO set up button to go ahead as content can be repetitive
+                    key="advance_to_next_random_question", 
+                    size=(20,1)),
+
+        ],
+
+        [
         sg.Text("???",
                 visible=False,
                 key="correct_answer",
@@ -1639,8 +1648,26 @@ question_tab_layout = [
 
         
         #start question area
-        [sg.Text("Possible Answers: ")],
-        [sg.Text("01: "),sg.Input("",key="student_answer1", tooltip="student_answer1 line 1638") ,sg.Text("?",key= "db_choice1", enable_events=True,size=(None,None))],
+        [sg.Text("Possible Answers: ",
+                    font=("helvetica",18)),
+        ],
+        
+        [
+        sg.Text("01: ", 
+                font=("helvetica",18)),
+        sg.Input("",
+                # get student input
+                key="student_answer1",
+                font=("helvetica",18), 
+                tooltip="student_answer1 line 1659"
+                ),
+        sg.Text("?",
+                key= "db_choice1", 
+                enable_events=True,
+                size=(None,None),
+                )
+        ],
+
         [sg.Text("02: "),sg.Text("?",key= "db_choice2",enable_events=True,size=(None,None))],
         [sg.Text("03: "),sg.Text("?",key= "db_choice3",enable_events=True,size=(None,None))],
         [sg.Text("04: "),sg.Text("?",key= "db_choice4",enable_events=True,size=(None,None))],
@@ -1653,10 +1680,17 @@ question_tab_layout = [
         [sg.Text("Put first choice here: "),sg.Input(default_text="answer?",key= "student_question_choice")],
         
         #handle the buttons at the bottom of the screen
-        [sg.Button("get next question", key="get_next_random_question", size=(50,1)),
+        [
+        sg.Button("display grammar graph",
+                    key = "display_grammar_graph",
+                    size=(40,1),
+                    tooltip="line 1684",
+
+                    ) ,
+
         sg.Button("save and export",
                     key="export_student_questions",
-                    tooltip="1639 key get_next_random_question",
+                    tooltip="1690 key export student questions",
                     size=(30,1))
         ],
         
@@ -1876,6 +1910,8 @@ while True:
             continue
         # all ok we found the JSON
         # x_file
+        # BUG need to catch errors without crashing
+        # KeyError: 'questions'
         with open(x_file) as my_file:
             hold_json = json.load(my_file)
         print(hold_json)
@@ -2076,7 +2112,9 @@ while True:
     if event == "open_attention_csv":
         os.system("{} {}".format(EXTERNAL_EDITOR, QUESTION_FOLDER + "/needs_attention.csv"))
 
-
+    if event == "advance_to_next_random_question":
+        pass
+        #TODO this should advance to next random question without saving the displayed question
 
     if event == "get_next_random_question":
         save_student_answers()

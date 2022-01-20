@@ -1,0 +1,19 @@
+timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHOICE2,CHOICE3,CHOICE4,CHOICE5,CHOICE6,CHOICE7,CHOICE8,CHOICE9,CHOICE10
+2022.1.20 11:23:45,anybody,2140,pronouns: indefinite,Has ___seen Irene today?,anybody,each one,you,we,each of whom,anybody,anything,?,?,?,?
+2022.1.20 11:24:7,anybody,2132,pronouns: indefinite,Has ___seen Cathy recently?,anybody,each one,anything,anywhere,we,anybody,you,?,?,?,?
+2022.1.20 11:24:52,They,24370,pronouns: personal,Where are Tom and Kate living? _____ live next to my house.,They,She,We,He,They,anywhere,anything,?,?,?,?
+2022.1.20 11:25:4,her,24368,pronouns: personal,It's Mary's birthday today. I called _____ this morning.,her,it,him,her,she,anywhere,anything,?,?,?,?
+2022.1.20 11:25:32,She,24372,pronouns: personal,Who is Kate? Kate is my friend. ____ is a teacher.,He,He,Her,His,She,anywhere,anything,?,?,?,?
+2022.1.20 11:25:48,you,24366,pronouns: personal,I don't see them. Do _____ see them?,you,they,I,you,me,anywhere,anything,?,?,?,?
+2022.1.20 11:26:1,He,24373,pronouns: personal,Who is this man? This is Henry. _____ is my boss.,He,She,Her,He,His,anywhere,anything,?,?,?,?
+2022.1.20 11:26:12,him,24365,pronouns: personal,"Do you know Tom? Yes, I know _____.",him,him,she,her,he,anywhere,anything,?,?,?,?
+2022.1.20 11:26:24,it,24367,pronouns: personal,I love this book! Did you read _____?,it,he,they,she,it,anywhere,anything,?,?,?,?
+2022.1.20 11:28:2,ours us,3640,pronouns: possessive,If that laptop is ___ then please give it back to ___.,ours us,us ours,us our,ours ours,ours us,anywhere,anything,?,?,?,?
+2022.1.20 11:29:58,hers her,3617,pronouns: possessive,If that bag is ___ then please give it back to ___.,hers her,hers her,hers she,hers shes,shes her,anywhere,anything,?,?,?,?
+2022.1.20 11:30:26,ours us,3644,pronouns: possessive,If that seat is ___ then please give it back to ___.,ours us,ours ours,us ours,us our,ours us,anywhere,anything,?,?,?,?
+2022.1.20 11:31:2,ours,3635,pronouns: possessive,Is that Harold 's money or is it___?___?,ours,he,our,ours,she,anywhere,anything,?,?,?,?
+2022.1.20 11:31:24,mine me,3633,pronouns: possessive,If that suitcase is ___ then please give it back to ___.,mine me,mines me,mine me,I mines,I me,anywhere,anything,?,?,?,?
+2022.1.20 11:33:26,each other,25002,pronouns: reciprocal,Chris and Zara were arguing with ___ in the hallway.,each other,each other,one another,my,his,anywhere,anything,?,?,?,?
+2022.1.20 11:33:40,each other,24939,pronouns: reciprocal,Lucy and Imogen were talking to___ in the kitchen..,each other,each other,one another,my,his,anywhere,anything,?,?,?,?
+2022.1.20 11:33:55,each other,25024,pronouns: reciprocal,Thea and Emma were talking to___ in the hallway.,each other,each other,one another,my,his,anywhere,anything,?,?,?,?
+2022.1.20 11:34:52,each other,25076,pronouns: reciprocal,Millie and Darcy were arguing with ___during the meeting.,each other,one another,each other,my,his,anywhere,anything,?,?,?,?

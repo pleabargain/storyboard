@@ -1,0 +1,15 @@
+timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHOICE2,CHOICE3,CHOICE4,CHOICE5,CHOICE6,CHOICE7,CHOICE8,CHOICE9,CHOICE10
+2022.1.20 13:14:26,What's,1542,determiners,A: I grew up in Damascus. B: Really? I used to live there. ___ neighborhood did you live in?,Which,Which,What's,Whose,?,?,?,?,?,?,?
+2022.1.20 13:15:14,which,1515,determiners,I can't remember___ company Yuri works at. Is it Keramet?,which,whose,any,while,which,?,?,?,?,?,?
+2022.1.20 13:15:41,last,1578,determiners,We went for a picnic with some friends ___ December.,last,last,to last,lasting,which,?,?,?,?,?,?
+2022.1.20 13:15:57,which,1505,determiners,I can't remember___ company George works at. Is it IBM?,which,whose,while,any,which,?,?,?,?,?,?
+2022.1.20 13:16:10,Which,1546,determiners,A: I grew up in Kyiv. B: Really? I used to live there. ___ neighborhood did you live in?,Which,Which,What's,Whose,which,?,?,?,?,?,?
+2022.1.20 13:24:31,a,669,determiners: articles,___friendly cat,a,a,an,the no article,no article is necessary,the no article,?,?,?,?,?
+2022.1.20 13:25:59,these,734,determiners: articles,"Can I help you? May I buy five of ..... plants hanging over there, please?",those,those,these,that,no article is necessary,the no article,?,?,?,?,?
+2022.1.20 13:28:4,a,662,determiners: articles,Is there ____ grocery store nearby?,a,NONE,an,the,a,the no article,?,?,?,?,?
+2022.1.20 13:28:12,an,676,determiners: articles,___easy question,an,an,a,the,a,the no article,?,?,?,?,?
+2022.1.20 13:28:22,a,668,determiners: articles,___flat,a,an,a,the,a,the no article,?,?,?,?,?
+2022.1.20 13:30:3,the,754,determiners: articles,Have you ever visited ____ Tower of London?,the,the,a,a,the,the the,?,?,?,?,?
+2022.1.20 13:30:38,a,673,determiners: articles,___sad person,a,an,a,a,the,the the,?,?,?,?,?
+2022.1.20 13:30:53,an,680,determiners: articles,___expensive house,an,an,a,a,the,the the,?,?,?,?,?
+2022.1.20 13:32:1,much,6341,determiners: quantifiers,It looks    _ _ _    worse than it is.,much,many,much,This,These,the the,?,?,?,?,?

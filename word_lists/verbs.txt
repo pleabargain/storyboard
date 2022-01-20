@@ -53,6 +53,7 @@ concede
 confirm
 conserve
 consider
+consume
 construct
 continue
 convince
@@ -94,6 +95,7 @@ encounter
 endorse
 escalate
 examine
+exasperate
 exit
 expand
 expect
@@ -119,6 +121,7 @@ forewarn
 freeze
 fry
 gab
+gamble
 garantee
 gesture
 get(irr)
@@ -261,6 +264,7 @@ recognize
 recover
 redirect
 reflect
+regurgitate
 reinforce
 rehearse
 reject
@@ -351,6 +355,7 @@ view
 violate
 visit
 volunteer
+vomit
 wag
 wait
 walk
