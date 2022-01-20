@@ -1,0 +1,27 @@
+verb: allow
+adjective: excessive
+noun: money
+quantifier: several
+sub conjunction: before
+
+#mermaid
+Q: (context:bank) Will you allow me to  borrow a lot of money before the end of the month?
+A:   We can't allow you to take an excessive amount of money before the end of the month because you already have several loans now.
+
+Q: 
+A:
+
+---
+verb: accept
+adjective: xenophobic
+noun: curfew
+quantifier: enough
+sub conjunction: what
+
+#mermaid
+Q: (context: government) I accept that the government needs a curfew. However, I'm afraid that people will become xenophobic because they will have no social life.
+A:
+Q: 
+A:
+
+---

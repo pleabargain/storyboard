@@ -353,8 +353,7 @@ def split_filename(original_filename):
     This function is primarily used in the storyboard tenses tab
     """
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
-    list_of_unwanted_words = ["idiom_",
-                                "adjective_",
+    list_of_unwanted_words = [  "adjective_",
                                 "adjective_feeling_",
                                 "noun_animal_",
                                 "noun_body_part_",
@@ -362,7 +361,9 @@ def split_filename(original_filename):
                                 "noun_food_",
                                 "daily_routine_",
                                 "idiom_",
+                                "insect_",
                                 "noun_",
+                                "weather_",
                                 "phrase_",
                                 "verb_"]
 
@@ -1578,9 +1579,9 @@ question_tab_layout = [
         
         [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
                     key="question_instruction", 
-                    font = ("helvetica",16),
+                    font = ("helvetica",13),
                     tooltip ="TODO I want to be able to write/update changes here,line 1546",
-                    size=(None,2 ),
+                    size=(None,3 ),
                     change_submits=True, 
                     # expand_y=True, 
                     disabled=True ), 
@@ -1608,10 +1609,10 @@ question_tab_layout = [
         
         [ sg.Multiline("",
                 key="db_question",
-                size=(None,2),
+                size=(None,3),
                 disabled = True,
                 justification="left",
-                font=("helvetica",16),
+                font=("helvetica",13),
                 tooltip="line 1611")
         ],
         
@@ -1663,14 +1664,31 @@ question_tab_layout = [
                 ),
         sg.Text("?",
                 key= "db_choice1", 
+                font=("helvetica",18), 
+
                 enable_events=True,
                 size=(None,None),
                 )
         ],
 
-        [sg.Text("02: "),sg.Text("?",key= "db_choice2",enable_events=True,size=(None,None))],
-        [sg.Text("03: "),sg.Text("?",key= "db_choice3",enable_events=True,size=(None,None))],
-        [sg.Text("04: "),sg.Text("?",key= "db_choice4",enable_events=True,size=(None,None))],
+        [sg.Text("02: "),
+            sg.Text("?",
+                    key= "db_choice2",
+                    font=("helvetica",18), 
+                    enable_events=True,
+                    size=(None,None))],
+        [sg.Text("03: "),
+            sg.Text("?",
+                    key= "db_choice3",
+                    font=("helvetica",18), 
+                    enable_events=True,
+                    size=(None,None))],
+        [sg.Text("04: "),
+            sg.Text("?",
+                    key= "db_choice4",
+                    font=("helvetica",18), 
+                    enable_events=True,
+                    size=(None,None))],
         [sg.Text("05: "),sg.Text("?",key= "db_choice5",enable_events=True,size=(None,None))],
         [sg.Text("06: "),sg.Text("?",key= "db_choice6",enable_events=True,size=(None,None))],
         [sg.Text("07: "),sg.Text("?",key= "db_choice7",enable_events=True,size=(None,None))],

@@ -12,6 +12,7 @@ aggressive
 agitated
 alert
 amicable
+arrogant
 attractive
 avid
 awesome
@@ -30,6 +31,7 @@ cantankerous
 carnivore
 chubby
 chunky
+coarse
 cold
 colossal
 comfortable
@@ -66,6 +68,7 @@ dramatic
 dull
 eager
 easy
+empty
 exasperated
 excellent
 excessive
@@ -97,6 +100,7 @@ frightened
 frothy
 fruity
 frustrating
+full
 funny
 furry
 fuzzy
@@ -136,6 +140,7 @@ immense
 immersive
 impressionable
 innate
+innocent
 intended
 interesting
 intrigued
@@ -204,6 +209,7 @@ quiet
 quizzical
 rare
 reactive
+recur
 red
 regular
 relaxed

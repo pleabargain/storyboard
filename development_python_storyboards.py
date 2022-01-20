@@ -1603,7 +1603,7 @@ question_tab_layout = [
         
         #start question area
         [sg.Text("Question: ")],
-        [sg.Text("01: "),sg.Text("?",key= "db_choice1", enable_events=True,size=(None,None))],
+        [sg.Text("01: "),sg.Text("?",key= "db_choice1", enable_events=True,font=("helvetica",18))],
         [sg.Text("02: "),sg.Text("?",key= "db_choice2",enable_events=True,size=(None,None))],
         [sg.Text("03: "),sg.Text("?",key= "db_choice3",enable_events=True,size=(None,None))],
         [sg.Text("04: "),sg.Text("?",key= "db_choice4",enable_events=True,size=(None,None))],
