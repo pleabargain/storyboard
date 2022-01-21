@@ -286,6 +286,7 @@ sacrifice
 sail
 satisfy
 save
+savor
 say(irr)
 scale
 seal

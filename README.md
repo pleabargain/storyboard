@@ -7,6 +7,11 @@ It's a work in progress. I hope it will be useful to others.
 
 The app should run on any python3 compliant device.
 
+# advice
+- Do not edit the database manually unless you have to!
+- Make frequent back ups!
+- Use good naming structures for your variables
+
 # requirements
 
 - python3
@@ -26,6 +31,7 @@ There are lots of TODOs in the code. If you want to participate, please do.
 
 # DONE
 - Save/Load student data from JSON file
+  - The json reader is sensitive. If it doesn't find a value on open it will die!
 - negotiation tab: randomly chosen text should take focus or find a better way to get text to display
 - print full DAY in timeline tab = strftime("%Y %B %d %A")
 - automatically generate ten text input fields from a text file source
@@ -41,7 +47,7 @@ There are lots of TODOs in the code. If you want to participate, please do.
 
 
 # grammar tracker tab
-This is automatically generated from a text file! It currently saves to file as json partially. It should load from json eventually but it doesn't yet. The grammar tracker tab is generated from a text file. The keys for the generated input and sliders should also be generated as well e.g.
+- The content in this tab is automatically generated from a text file! It currently saves to file as json. It should load from a student json file. The grammar tracker tab is generated from a text file. The keys for the generated input and sliders should also be generated as well e.g.
 
 if event == "generated key":
    pass
@@ -50,12 +56,12 @@ see form_generator_description.md
 
 ## TODO
 - load data based on date
-- started Read and write to json file
-- save vocabulary data to json file
 - create a graph of the student data
 
 
 ## done
+- read and write to json file
+- save vocabulary data to json file
 - create list of adverbs past
 - see /grammar_adverbs_of_time.md
 # adj noun reg verb tab 
@@ -71,7 +77,9 @@ This is a great tab for groups as you can get people discussing pros and cons ad
 Currently can save the file as csv.
 
 ## TODO
-Read and write file to json.
+Read file from csv.
+
+
 <img src="/support_images/pros_cons_tab.png" alt="Getting started" />
 
 # tenses tab 
@@ -105,6 +113,10 @@ The dates will be from past to present(now) to future
 Random events will be displayed
 
 The teacher instructs the learner to use the time stamp and tell a story with the event.
+## todo
+- needs to be trimmed down
+  - remove unnecessary repetition
+  - prompt for input!
 
 ## pseudo code for timeline tab
 load tab

@@ -1,6 +1,5 @@
 # !/usr/bin/python3
 
-from ast import Continue
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
@@ -18,17 +17,15 @@ from spacy import displacy
 from pathlib import Path
 
 
-
+# TODO search code for ALL keys and produce a report :goal:normalize naming of keys
 # TODO question: possible to call a tab as a function call that way the tabs can be reused easily elsewhere?
 # TODO question: What other defaults can I call when starting the application?
-
+# TODO with open text and md files, sort and remove duplicates first.
 
 nlp = spacy.load('en_core_web_sm')
 
-
 # TODO this needs to be a function call so that it can be reused with better more meaningful names
 # I want to reuse this over and over
-
 
 
 # this code will NOT run if this file is not available!
@@ -38,10 +35,7 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/idea_grammar_tracker_t
 #take first ten lines
 #remove \n
 top_ten =[line.strip() for line in lines[:10]]
-# print(top_ten)
-
-
-
+print(top_ten)
 
 
 # learn about student names in the file
@@ -53,6 +47,8 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names
 
 #strip empty lines
 student_names= [line.strip() for line in lines if len(line.strip())>0]
+
+ERROR_LOG_FILENAME = "/home/dgd/Desktop/python_storyboard_flashcards/error_log/error_log.txt"
 
 DATABASE = "/home/dgd/Desktop/EnglishHelpsYourCareer/question_bank_2.csv"
 
@@ -90,15 +86,16 @@ A:
 
 student_progress = {}
 
-#TODO add vocabulary column
 #TODO set text file to open code and local file
 
+#done add vocabulary column: see grammar tracker tab
 #done fix negotiation text so that it shows only the randomly selected text list_box doesn't work
 #done set default image size to 150x150
 #done load only images with thumbnail in the name
+
+
+# create empty dictionaries to hold the contents of the files
 image_list = []
-
-
 verbs_list = []
 nouns_list = []
 adjectives_list =[]
@@ -126,7 +123,6 @@ sum_of_pros= 0
 sum_of_cons= 0
 pros_cons_issues = []
 
-
 ### quuestion student export field names for export csv
 # 
 
@@ -135,7 +131,8 @@ QUESTION_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/question_tab"
 
 attention_field_names =[
                     "timestamp",
-                    "UNIQUE_ID",	
+                    "UNIQUE_ID",
+                    "student_answer1"	,
                         ]
 
 
@@ -160,30 +157,17 @@ question_student_field_names =[
                                 ]
 
 
-# TODO on clicking question number save to "put first choice here"
-
-
-### random function
-
-import random
-
-
-
-
-
 def save_attention():
 
     """
     save attention file
-    we enter integer
-    save the integer
-    """
-    # check if empty
+    enter text automatically by clicking on answer
     
-    if not values["needs_attention"] :
+    """
+    
+    if (not values["needs_attention"])  and (values["student_answer1" ]==""):
         return
-    print("needs attention")
-
+        
 
     if values["db_category"] == "":
         sg.PopupError("cat empty",location=(2000,10))
@@ -216,7 +200,8 @@ def save_attention():
                     datetime.datetime.today().minute,
                     datetime.datetime.today().second,
                     ),
-                    "UNIQUE_ID":window["db_question_number"].DisplayText,	
+                    "UNIQUE_ID":window["db_question_number"].DisplayText,
+                    "student_answer1":	values["student_answer1"],
                     }
 
     
@@ -225,21 +210,16 @@ def save_attention():
 
 
 
-
-
-
-
-
 def save_student_answers():
     """
     student says x to a question
-    we enter integer
-    save the integer
+   
     """
     # check if empty
-    if values["student_question_choice"] in ("","answer?",None):
-        sg.PopupError("enter student choice",location=(2000,10)) 
-        return
+    # this popup is distracting!
+    # if values["student_question_choice"] in ("","answer?",None):
+    #     sg.PopupError("enter student choice",location=(2000,10)) 
+    #     return
     if values["db_category"] == "":
         sg.PopupError("cat empty",location=(2000,10))
         return
@@ -274,18 +254,19 @@ def save_student_answers():
                         "student_choice": values["student_question_choice"],
                          "UNIQUE_ID":window["db_question_number"].DisplayText,	
                         "CATEGORY":values["db_category"],	
-                        "QUESTION":window["db_question"].DisplayText,	
+                        #multiline
+                        "QUESTION":values["db_question"],	
                         "CORRECT_ANSWERS":window["correct_answer"].DisplayText,	
                         "CHOICE1":window["db_choice1"].DisplayText,
                     	"CHOICE2":window["db_choice2"].DisplayText,
                         "CHOICE3":window["db_choice3"].DisplayText,	
                         "CHOICE4":window["db_choice4"].DisplayText,	
                         "CHOICE5":window["db_choice5"].DisplayText,	
-                        "CHOICE6":window["db_choice6"].DisplayText,	    
-                        "CHOICE7":window["db_choice7"].DisplayText,	
-                        "CHOICE8":window["db_choice8"].DisplayText,	
-                        "CHOICE9":window["db_choice9"].DisplayText,	
-                        "CHOICE10":window["db_choice10"].DisplayText,
+                        # "CHOICE6":window["db_choice6"].DisplayText,	    
+                        # "CHOICE7":window["db_choice7"].DisplayText,	
+                        # "CHOICE8":window["db_choice8"].DisplayText,	
+                        # "CHOICE9":window["db_choice9"].DisplayText,	
+                        # "CHOICE10":window["db_choice10"].DisplayText,
                         }
 
     
@@ -319,20 +300,23 @@ category_list,df = get_categorylist(DATABASE)
 df2 = None
 print(category_list)
 
-def primary():
-    """
-    I have no idea what this function is for
-    """
-    f = open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt")
-    quotes = f.readlines()
-    f.close()
 
-    sampling = random.sample(quotes, 1)
-    for sample in sampling: print(sample)
-primary()
 
-# print(random_adjectives)
+# TODO
+# save pros cons csv to pro con folder!
+# TODO 
+# get all linking words into one big block 
+# create function that calls it and randomizes the output
+# use on pros and cons
+###
+# TODO
+# use linking words in negotiation tab
 
+def open_generic_file(file,key):
+        with open(file) as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window[key].update(selected_topic)
 
 
 
@@ -361,11 +345,10 @@ def split_filename(original_filename):
     This will split a file name by _ so that a space will appear
     returns a string minus the file extension
     display only the text after the last slash
-
+    This function is primarily used in the storyboard tenses tab
     """
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
-    list_of_unwanted_words = ["idiom_",
-                                "adjective_",
+    list_of_unwanted_words = [  "adjective_",
                                 "adjective_feeling_",
                                 "noun_animal_",
                                 "noun_body_part_",
@@ -373,7 +356,9 @@ def split_filename(original_filename):
                                 "noun_food_",
                                 "daily_routine_",
                                 "idiom_",
+                                "noun_insect_",
                                 "noun_",
+                                "weather_",
                                 "phrase_",
                                 "verb_"]
 
@@ -395,8 +380,6 @@ def read_list_from_file():
     adjectives_list.clear()
     quantifiers_list.clear()
     subordinating_conjunctions_list.clear()
-
-
     # negotiations
     prepare_0_list.clear()      
     agenda_01_list.clear()
@@ -405,17 +388,11 @@ def read_list_from_file():
     agreeing_04_list.clear()
     objecting_05_list.clear()
     prioritizing_06_list.clear()
-    
     clarification_07_list.clear()
-    
     compromising_08_list.clear()
-    
     bargaining_09_list.clear()
-    
     postponing_10_list.clear()
-    
     concluding_11_list.clear()
-    
     seal_the_deal_12_list.clear()
     # pros and cons
     pros_cons_issues.clear()
@@ -548,6 +525,7 @@ sg.ChangeLookAndFeel('GreenTan')
 # ------ Menu Definition ------ #
 menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
+            ['&Vocabulary',['core vocab','2 letter words','3 letter words','4 letter words','business vocab'],],
             ['&Help', ['tips','README',],'&Open_docs'], ]
 
 # ------ Column Definition ------ #
@@ -811,9 +789,8 @@ timeline_column_four = sg.Column([
                                 ###
                                  [sg.Button("place holder",
                                  size = (15,1),
-                                font = ("helvetica", 12),
-                                 
-                                 
+                                 font = ("helvetica", 12),
+                                                              
                                  )],           
 
                                 [sg.Text("past simple",
@@ -1137,7 +1114,11 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
                     tooltip = "line 923",),
         sg.Button("prepositional phrases",
                    tooltip = "line 925", ),
-        sg.Button("phrasal verbs"),
+        sg.Button("phrasal verbs",
+                   tooltip = "line 929" ,),
+        sg.Button("collocations",
+                    tooltip = "line 930",)    ,
+        # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
         ],
     
         [
@@ -1164,7 +1145,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="prepare_0_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
+            font=("Helvetica",14),
             justification = "center",
             size=(55,1)
             ),
@@ -1178,7 +1159,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="agenda_01_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
+           font=("Helvetica", 14),
             justification = "center",
             size=(55,1)
             ),
@@ -1192,9 +1173,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="making_proposals_02_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit making_proposals_02'),
 
@@ -1206,9 +1187,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="suggestions_03_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit suggestions_03'),
 
@@ -1220,9 +1201,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="agreeing_04_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit agreeing_04'),
 
@@ -1234,9 +1215,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="objecting_05_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit objecting_05'),
 
@@ -1248,9 +1229,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="prioritizing_06_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit prioritizing_06'),
 
@@ -1262,9 +1243,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="clarification_07_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit clarification_07'),
 
@@ -1276,9 +1257,14 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="compromising_08_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
+            ),
+    sg.Text("Connecting Words for Concession", 
+            key="connecting_words_concession",
+            enable_events=True,
+            size= (None,None),
             ),
     sg.Button('edit compromising_08'),
 
@@ -1290,10 +1276,16 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="bargaining_09_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
+    sg.Text("Linking Words for Condition", 
+            key="linking_words_condition",
+            enable_events=True,
+            size= (None,None),
+            ),
+
     sg.Button('edit bargaining_09'),
 
 ],
@@ -1304,9 +1296,9 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="postponing_10_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit postponing_10'),
 
@@ -1318,10 +1310,22 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="concluding_11_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
+     sg.Text("Linking Words for Results", 
+                key="linking_words_results2",
+                tooltip="bug link not working need to number the keys.line 1323 ",
+                enable_events=True,
+                size= (None,None),
+                ),
+
+    sg.Text("Summarizing", 
+                key="connecting_words_summary1",
+                enable_events=True,
+                size= (None,None),
+                ),
     sg.Button('edit concluding_11'),
 
 ],
@@ -1332,16 +1336,17 @@ negotiation_tab_three = sg.Tab("negotiation",
             text= "Have you prepared enough?!",
             key="seal_the_deal_12_list_box",
             enable_events=True,
-            font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
+            font=("Helvetica"),
+            justification = "left",
+            size=(None,None)
             ),
     sg.Button('edit seal_the_deal_12'),
 
 
 ],
+#TODO save the output!
 [    sg.Button('save negotiation text',  
-                size=(55,1),
+                size=(85,1),
                 tooltip = "TODO save this file and open in an editor. Maybe even an editor in Pysimple?!"
                 
                  ),]
@@ -1371,7 +1376,7 @@ pros_cons_tab= sg.Tab ("pros cons",
         #create button
         [
             #TODO this TEXT object should be a roll down or similar
-        [sg.Text("pros and cons issues",size=(40,1),
+        [sg.Text("pros and cons issues",size=(None,None),
                 key="pros_cons_issues",
                 tooltip = "Click to change this item.",
                 enable_events=True,
@@ -1381,18 +1386,19 @@ pros_cons_tab= sg.Tab ("pros cons",
 
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
         sg.Text("Linking Words for Results", 
-                key="linking_words_results",
+                key="linking_words_results1",
                 enable_events=True,
                 size= (None,None),
-                )
+                ),
+      
         ],
     
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
         sg.Text("Connecting Words for Emphasis", 
                 key="connecting_words_emphasis",
                 enable_events=True,
@@ -1401,8 +1407,8 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
         
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
         sg.Text("Linking Words for Addition", 
                 key="linking_words_addition",
                 enable_events=True,
@@ -1411,29 +1417,47 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
         sg.Text("Connecting Words for Illustration", 
                 key="connecting_words_illustration",
                 enable_events=True,
                 size= (None,None),
-                )
+                ),
+
+
+
         ],
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
-        
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
+        sg.Text("Linking Words for Contrast", 
+                key="linking_words_contrast",
+                enable_events=True,
+                size= (None,None),
+                )
+
         ],
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
-        
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
+        sg.Text("Linking Words for Reason", 
+                key="linking_words_reason",
+                enable_events=True,
+                size= (None,None),
+                ),
+       
+
         ],
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
-        
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(40,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
+         sg.Text("Linking Words for Comparison", 
+                key="linking_words_comparison",
+                enable_events=True,
+                size= (None,None),
+                )
         ],
 
 ### summary of slider
@@ -1442,7 +1466,8 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
         ],
 
 ### analysis
-        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 983 of the code",font =("helvetica", 14)), sg.Button("save analysis to CSV",tooltip="TODO add student name to file save")],
+        [sg.Multiline(key="analysis",size =(40,5),tooltip="This is a multiline on line 1259 of the code",font =("helvetica", 14)), ],
+        [sg.Button("save analysis to CSV",size =(40,1),tooltip="TODO add student name to file save")]
    
 
     ])
@@ -1451,14 +1476,8 @@ sg.Text("",size=(34,1)), sg.Text("Sum of cons",justification="left", size=(10,1)
 
 
 
-
-
 #create empty list
 tracker_layout = []
-
-
-
-
 
 #generate the tab content
 #produce 0-4
@@ -1509,17 +1528,19 @@ tracker_layout.append(
                         default_text='put the grammar analysis here',
                         size =(40,5),
                         tooltip="This is a multiline object key grammar analysis",
-                        font =("helvetica", 14)), sg.Button("save grammar analysis",tooltip="TODO add student name to file save")],
+                        font =("helvetica", 14)), 
+        sg.Button("save grammar analysis",
+                        tooltip="line 1530 ")],
                      )
 tracker_layout.append(
         [sg.Multiline(key="vocabulary_used",
                         default_text='put vocabulary words here',
 
                         size =(40,5),
-                        tooltip="This is a multiline object key vocabulary_used",
+                        tooltip="This is a multiline object key vocabulary_used line 1538",
                         font =("helvetica", 14)), 
-                        sg.Button("save vocabulary used",
-                        tooltip="TODO save to json file add student name to file save")],
+                        
+        ],
                     )   
 
 
@@ -1529,68 +1550,265 @@ tracker_layout.append(
 #grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout,grammar_column_left,grammar_column_right)
 grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 
-
 # question tab layout
+# BUG KeyError: 'anything everything nothing something'
+# bug KeyError: 'intermediate English'
+
+worksheet_tab_layout = [
+
+
+        [sg.Text("Worksheet"), sg.Button("TODO worksheet",key="TODO_worksheet"),
+        sg.Text("instructions:")
+        ],
+                
+        [sg.Text("select one category"), 
+        sg.Combo(values=category_list, 
+                # this key event must be unique so how to call it in events?
+                # if db_category in event?
+                key="db_category", 
+                enable_events=True, 
+                size=(None,None), 
+                tooltip="line 1568 key=db_category" ), 
+                sg.Text("Database info:"), # pulling from new db
+                sg.Text("", key= "questions_db_info",size=(20,1)),
+                 ],
+
+        [sg.Text("selected topics instructions", tooltip="line 1575 TODO start pulling from new DB")],
+        
+        [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
+                    key="question_instruction", 
+                    font = ("helvetica",13),
+                    tooltip ="TODO I want to be able to write/update changes here,line 1580",
+                    size=(None,3 ),
+                    change_submits=True, 
+                    # expand_y=True, 
+                    disabled=True ), 
+        sg.Button("Open\ninstructions\nfile",
+                    size=(16,3),
+                    key ="open_question_instructions",
+                    tooltip="line1588 key = open_question_instructions"),
+
+        ],
+        
+     
+
+        
+        #start question area
+        # layout is ugly
+       # prompt 1
+        [sg.Text("---------------prompt 1-------------------")],        
+        [sg.Multiline("Here is a a really long prompt to check if the UI can handle it.: ",
+                    tooltip = "1599",
+                    # TODO set meaningful key
+                    size = (None,2),
+                    font=("helvetica"),
+                    ),
+        sg.Button("get next question", 
+                    #hopefully
+                    key="get_next_random_question1", 
+                    button_color="red",
+                    size=(20,1)),
+        ],
+
+
+        [
+        sg.Text("question #: ",
+                tooltip = "q # pulled from db line 1384"
+                ),
+        sg.Text("",key="db_question_number"), 
+        # sg.Text("flag",tooltip="line1611"),
+        #TODO identify radio groupname
+        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
+        
+        ], 
+       
+        [sg.Multiline("This is where the student response goes.",
+                # get student input
+                # this can then be added to the db if time allows
+                # size none is not using full
+                size =(None,1),
+                key="prompt_response1",
+                font=("helvetica"), 
+                tooltip="student_answer1 line 1621"
+                ),
+        
+        sg.Button("Save prompt response 1",
+                button_color="green",
+                key="save_prompt_response1",
+                ),
+        ],
+
+
+
+        [sg.Button("display grammar graph",
+                    key = "display_grammar_graph_prompt_response1",
+                    size=(20,1),
+                    tooltip="line 1684",
+
+                    ) ,
+
+        
+        ],
+
+        
+       # prompt 2
+[sg.Text("---------------prompt 2-------------------")],        
+        [sg.Multiline("Here is a a really long prompt to check if the UI can handle it.: ",
+                    tooltip = "1599",
+                    # TODO set meaningful key
+                    size = (None,2),
+                    font=("helvetica"),
+                    ),
+        sg.Button("get next question", 
+                    #hopefully
+                    key="get_next_random_question1", 
+                    button_color="red",
+                    size=(20,1)),
+        ],
+
+
+        [
+        sg.Text("question #: ",
+                tooltip = "q # pulled from db line 1384"
+                ),
+        sg.Text("",key="db_question_number"), 
+        # sg.Text("flag",tooltip="line1611"),
+        #TODO identify radio groupname
+        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
+        
+        ], 
+       
+        [sg.Multiline("This is where the student response goes.",
+                # get student input
+                # this can then be added to the db if time allows
+                # size none is not using full
+                size =(None,1),
+                key="prompt_response1",
+                font=("helvetica"), 
+                tooltip="student_answer1 line 1621"
+                ),
+        
+        sg.Button("Save prompt response 2",
+                button_color="green",
+                key="save_prompt_response2",
+                ),
+        ],
+
+
+
+        [sg.Button("display grammar graph",
+                    key = "display_grammar_graph_prompt_response1",
+                    size=(20,1),
+                    tooltip="line 1684",
+
+                    ) ,
+
+        
+        ],
+
+
+
+        #bottom of the tab
+        [sg.Button("open attention csv",
+        tooltip ="line 1649",
+        key="open_attention_csv"),
+        ]
+
+
+        
+    ]
+
+#end of worksheet tab layout
+
+# --- end of worksheet layout
+
+worksheet_tab= sg.Tab ("worksheet",worksheet_tab_layout)
+
+
+
 question_tab_layout = [
 
 
         [sg.Text("HOMEWORK"), sg.Text("instructions:")],
                 
         [sg.Text("select one category"), 
-        # bug KeyError: 'intermediate English'
         sg.Combo(values=category_list, 
                 key="db_category", 
                 enable_events=True, 
                 size=(None,None), 
-                tooltip="line 1398 db_category" ), 
+                tooltip="line 1560 key=db_category" ), 
                 sg.Text("Database info:"),
                 sg.Text("", key= "questions_db_info",size=(20,1)),
                  ],
 
         [sg.Text("selected topics instructions", tooltip="line 1369")],
         
-        [sg.Multiline(default_text="This a multiline object that holds the instructions. Welcome!", 
+        [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
                     key="question_instruction", 
-                    font = ("helvetica",16),
-                    tooltip ="TODO I want to be able to write/update changes here,line 1546",
-                    size=(60,2 ),
+                    font = ("helvetica",13),
+                    tooltip ="TODO I want to be able to write/update changes here,line 1748\nmaybe new DB will allow me to do that!",
+                    size=(None,3 ),
                     change_submits=True, 
                     # expand_y=True, 
-                    disabled=True ), sg.Button("Open instructions file",key ="open_question_instructions",tooltip="line1558")],
-        #TODO link to open the instructions csv 
+                    disabled=True ), 
+            sg.Button("Open\ninstructions\nfile",
+                        size=(None,3),
+                        key ="open_question_instructions",
+                        tooltip="line1580 key = open_question_instructions"),
+
+        ],
+        
+        #done link to open the instructions csv 
         # /home/dgd/Desktop/EnglishHelpsYourCareer/category_instructions.csv
         # done button to save the current question number for future review
         
              
 
         [sg.Text("question #: ",
-                tooltip = "q # pulled from db line 1384"
+                tooltip = "q # pulled from db line 1699"
                 ),
         sg.Text("",key="db_question_number"), 
-        sg.Text("flag",tooltip="line1569"),
-        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)), 
+        # sg.Text("flag",tooltip="line1700"),
+        sg.Radio('needs attention', "RADIO2", key="needs_attention", default=False, size=(None,None)),
+        sg.Button("open attention csv",key="open_attention_csv"), 
         ],
         
-        [ sg.Text("",
+        [ sg.Multiline("",
                 key="db_question",
-                size=(None,None),
+                size=(None,3),
+                disabled = True,
                 justification="left",
-                font=("helvetica",20),
-                tooltip="line 1578")
+                font=("helvetica",13),
+                tooltip="line 1611")
         ],
         
-        [sg.Button("display correct answer",
+        [sg.Button("1 show possible answers",
+                    button_color="green",
+                    key="show_possible_answers",
                     size=(20,1),
+                    ),
+                    sg.Text("! indicates wrong answers separate answers with ;",visible=False),
+
+        sg.Button("display correct answer",
+                    size=(20,1),
+                    button_color="yellow",
+
                     font=('helvetica'),
-                    tooltip="line 1584",
-
+                    tooltip="line 1626",
                     ) ,
-        sg.Button("display grammar graph",
-                    key = "display_grammar_graph",
-                    size=(40,1),
-                    tooltip="line 1590",
 
-                    ) ,
+        sg.Button("get next question", 
+                    key="get_next_random_question", 
+                    button_color="red",
+                    size=(20,1)),
+        # sg.Button("advance to next question", 
+        #             #done set up button to go ahead as content can be repetitive
+        #             key="advance_to_next_random_question", 
+        #             size=(20,1)),
+
+        ],
+
+        [
         sg.Text("???",
                 visible=False,
                 key="correct_answer",
@@ -1602,23 +1820,71 @@ question_tab_layout = [
 
         
         #start question area
-        [sg.Text("Question: ")],
-        [sg.Text("01: "),sg.Text("?",key= "db_choice1", enable_events=True,font=("helvetica",18))],
-        [sg.Text("02: "),sg.Text("?",key= "db_choice2",enable_events=True,size=(None,None))],
-        [sg.Text("03: "),sg.Text("?",key= "db_choice3",enable_events=True,size=(None,None))],
-        [sg.Text("04: "),sg.Text("?",key= "db_choice4",enable_events=True,size=(None,None))],
-        [sg.Text("05: "),sg.Text("?",key= "db_choice5",enable_events=True,size=(None,None))],
-        [sg.Text("06: "),sg.Text("?",key= "db_choice6",enable_events=True,size=(None,None))],
-        [sg.Text("07: "),sg.Text("?",key= "db_choice7",enable_events=True,size=(None,None))],
-        [sg.Text("08: "),sg.Text("?",key= "db_choice8",enable_events=True,size=(None,None))],
-        [sg.Text("09: "),sg.Text("?",key= "db_choice9",enable_events=True,size=(None,None))],
-        [sg.Text("10: "),sg.Text("?",key= "db_choice10",enable_events=True,size=(None,None))],
+        [sg.Text("Possible Answers: ",
+                    font=("helvetica",18)),
+        sg.Input("",
+                # get student input
+                # this can then be added to the db if time allows
+                key="student_answer1",
+                font=("helvetica",18), 
+                tooltip="student_answer1 line 1658"
+                ), 
+                
+                sg.Text("! indicates wrong answers separate answers with ;"),
+        ],
+        
+        [
+        sg.Text("01: ", 
+                font=("helvetica",18)),
+        
+        sg.Text("?",
+                key= "db_choice1", 
+                font=("helvetica",18), 
+
+                enable_events=True,
+                size=(None,None),
+                )
+        ],
+
+        [sg.Text("02: ",
+            font=("helvetica",18)),
+            sg.Text("?",
+                    key= "db_choice2",
+                    font=("helvetica",18), 
+                    enable_events=True,
+                    size=(None,None))],
+        [sg.Text("03: ", font=("helvetica",18) ),
+            sg.Text("?",
+                    key= "db_choice3",
+                    font=("helvetica",18), 
+                    enable_events=True,
+                    size=(None,None))],
+        [sg.Text("04: ", font=("helvetica",18)),
+            sg.Text("?",
+                    key= "db_choice4",
+                    font=("helvetica",18), 
+                    enable_events=True,
+                    size=(None,None))],
+        [sg.Text("05: ", font=("helvetica",18)),sg.Text("", font=("helvetica",18),key= "db_choice5",enable_events=True,size=(None,None))],
+        # [sg.Text("06: "),sg.Text("?",key= "db_choice6",enable_events=True,size=(None,None))],
+        # [sg.Text("07: "),sg.Text("?",key= "db_choice7",enable_events=True,size=(None,None))],
+        # [sg.Text("08: "),sg.Text("?",key= "db_choice8",enable_events=True,size=(None,None))],
+        # [sg.Text("09: "),sg.Text("?",key= "db_choice9",enable_events=True,size=(None,None))],
+        # [sg.Text("10: "),sg.Text("?",key= "db_choice10",enable_events=True,size=(None,None))],
         [sg.Text("Put first choice here: "),sg.Input(default_text="answer?",key= "student_question_choice")],
         
         #handle the buttons at the bottom of the screen
-        [sg.Button("get next question", key="get_next_random_question", size=(50,1)),
+        [
+        sg.Button("display grammar graph",
+                    key = "display_grammar_graph",
+                    size=(40,1),
+                    tooltip="line 1684",
+
+                    ) ,
+
         sg.Button("save and export",
                     key="export_student_questions",
+                    tooltip="1690 key export student questions",
                     size=(30,1))
         ],
         
@@ -1637,56 +1903,62 @@ layout = [
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
-    #TODO
-    # load student names from text file into Multiline
+    #done load student names from text file into Multiline
     # file is /home/dgd/Desktop/python_storyboard_flashcards/students/student_names.txt
     [sg.Text("student name:"),
             sg.Combo(values=student_names,
-                    key="student_name",
+                   key="student_name",
                     default_value="Horst",
-                    tooltip="TODO test adding new name this should pull from a list of students name goes here",
+
+                    tooltip="line 1912 TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 1310"
+                tooltip = "see line 1916"
 
                 ) ,
 
-    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file line 1314"), 
-    # I tried removing the values but still got keyerror
-    sg.Combo(values=["load from json a",'load from json b'], 
-            key = "date_picker", 
+    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file line 1687"), 
+    # bug: load Horst and then key error. I tried removing the values but still got keyerror
+    # KeyError: 'questions'
+    sg.Combo(values=[""], 
+            size = (20,1),
+                        key = "date_picker", 
             enable_events=True,
-            tooltip="TODO this needs to load from the json file line 1317")
+            tooltip="loads from the json file line 1927"),
+    sg.Button("load syllabus", tooltip="will open md file in VS code line 1928"),
     
     
     ],
 
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,grammar_tracker_tab,]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,worksheet_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
 
 
-window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
+window = sg.Window('Working Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
                     
                     layout, 
                     background_color="lightblue",
-                    size = (1100,650),
+                    size = (1100,700),
                     
-                    location=(2000, 1700),
+                    location=(1800, 50),
                     default_element_size=(35, 1), 
                     grab_anywhere=True)
 # big loop
-
-#testing category list
-
-
-
 while True:
 
 
     event, values = window.read()
+
+
+# worksheet tab
+
+    if event == "TODO_worksheet":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/worksheet_tab/TODO_worksheet_tab.md"))
+
+
 
 
 
@@ -1706,19 +1978,28 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["linking_words_results"].update(selected_topic)
 
+
+
+
+    #allows reuse of events
+    if "connecting_words_concession" in event:
+        read_list_from_file()
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.txt","connecting_words_concession")
+    
+
+    if  "connecting_words_summary" in event:
+        read_list_from_file()
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt","connecting_words_summary")
+        
+
+   
     if event == "connecting_words_emphasis":
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.txt") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["connecting_words_emphasis"].update(selected_topic)
-
-    if event == "linking_words_addition":
-        read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.txt") as myfile:
-            lines = myfile.readlines()
-        selected_topic = random.choice(lines).strip()
-        window["linking_words_addition"].update(selected_topic)
+        
 
     if event == "connecting_words_illustration":
         read_list_from_file()
@@ -1727,7 +2008,65 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["connecting_words_illustration"].update(selected_topic)
 
+    
 
+
+
+    if event == "linking_words_addition":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_addition"].update(selected_topic)
+
+
+    if event == "linking_words_comparison":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_comparison.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_comparison"].update(selected_topic)
+
+    if event == "linking_words_condition":
+        read_list_from_file()
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt","linking_words_condition")
+       
+
+
+
+
+        
+
+
+    if event == "linking_words_contrast":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_contrast"].update(selected_topic)
+
+
+    if event == "linking_words_reason":
+        read_list_from_file()
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_reason.txt") as myfile:
+            lines = myfile.readlines()
+        selected_topic = random.choice(lines).strip()
+        window["linking_words_reason"].update(selected_topic)
+
+
+
+
+
+#    if "grammar_slider" in event:
+
+    if "linking_words_results" in event:
+        read_list_from_file()
+        # open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt","linking_words_results")
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt"))
+
+
+
+# def open_generic_file(file,key)
 
     #edit items
     if event == "edit pros cons issues":
@@ -1761,7 +2100,7 @@ while True:
         # print (json_files)
         for x_file in json_files:
             #TODO allow users to enter new students through UI
-            # BUG at this point loading any json will throw an error
+            
             if x_file.endswith(student_name+".json"):
                 sg.PopupOK("found it",
                 location=(2000, 100),)
@@ -1772,6 +2111,8 @@ while True:
             continue
         # all ok we found the JSON
         # x_file
+        # BUG need to catch errors without crashing
+        # KeyError: 'questions'
         with open(x_file) as my_file:
             hold_json = json.load(my_file)
         print(hold_json)
@@ -1793,7 +2134,8 @@ while True:
         window["performance sum"].update(hold_json[most_recent_date]["performance sum"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
         window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
-        window["input2"].update(hold_json[most_recent_date]["articles"][0])
+        window["input2"].update(hold_json[most_recent_date]["questions"][0])
+        # window["input2"].update(hold_json[most_recent_date]["articles"][0])
         window["input3"].update(hold_json[most_recent_date]["modals"][0])
         window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
         window["input5"].update(hold_json[most_recent_date]["prepositions"][0])
@@ -1805,7 +2147,8 @@ while True:
         # [1] get second element of list
         window["grammar_slider0"].update(hold_json[most_recent_date]["passive voice"][1])
         window["grammar_slider1"].update(hold_json[most_recent_date]["conditionals"][1])
-        window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
+        window["grammar_slider2"].update(hold_json[most_recent_date]["questions"][1])
+        # window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
         window["grammar_slider3"].update(hold_json[most_recent_date]["modals"][1])
         window["grammar_slider4"].update(hold_json[most_recent_date]["connecting words"][1])
         window["grammar_slider5"].update(hold_json[most_recent_date]["prepositions"][1])
@@ -1826,7 +2169,7 @@ while True:
         # print (json_files)
         for x_file in json_files:
             #TODO allow users to enter new students through UI
-            # BUG at this point loading any json will throw an error
+            # 
             if x_file.endswith(student_name+".json"):
                 sg.PopupOK("found it",
                 location=(2000, 100),)
@@ -1845,7 +2188,7 @@ while True:
         # first yellow is gui key
         # second yellow is key of json
         
-        # TODO get the dates as a list in the combo box at line 1316
+        # done get the dates as a list in the combo box at line 
         # testing date picker 
 
         window["date_picker"].update(values = list(hold_json.keys()))
@@ -1857,7 +2200,11 @@ while True:
         window["performance sum"].update(hold_json[most_recent_date]["performance sum"]  )
         window["input0"].update(hold_json[most_recent_date]["passive voice"][0])
         window["input1"].update(hold_json[most_recent_date]["conditionals"][0])
-        window["input2"].update(hold_json[most_recent_date]["articles"][0])
+        #todo KeyError: 'articles'
+        #can't create new JSON
+        # this file is NOT being updated based on the common error file :(
+        window["input2"].update(hold_json[most_recent_date]["questions"][0])
+        # window["input2"].update(hold_json[most_recent_date]["articles"][0])
         window["input3"].update(hold_json[most_recent_date]["modals"][0])
         window["input4"].update(hold_json[most_recent_date]["connecting words"][0])
         window["input5"].update(hold_json[most_recent_date]["prepositions"][0])
@@ -1869,7 +2216,8 @@ while True:
         # [1] get second element of list
         window["grammar_slider0"].update(hold_json[most_recent_date]["passive voice"][1])
         window["grammar_slider1"].update(hold_json[most_recent_date]["conditionals"][1])
-        window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
+        window["grammar_slider2"].update(hold_json[most_recent_date]["questions"][1])
+        # window["grammar_slider2"].update(hold_json[most_recent_date]["articles"][1])
         window["grammar_slider3"].update(hold_json[most_recent_date]["modals"][1])
         window["grammar_slider4"].update(hold_json[most_recent_date]["connecting words"][1])
         window["grammar_slider5"].update(hold_json[most_recent_date]["prepositions"][1])
@@ -1890,17 +2238,38 @@ while True:
     if event == 'tips':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/tips.md"))
 
+    if event == "load syllabus":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/20_week_syllabus.md"))
+
+    if event == "core vocab":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
+        # pass
 
 
-    # -----------------------------------------question tab events---------------------
+    if event == "2 letter words":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/12_mq9Pp5VSyrYeXf1qxsZGXrF22fOI4yQksBoziaT9g/edit?usp=sharing",new=1,autoraise=True )
+        # pass
+    if event == "3 letter words":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1YZcrl4TU9LKJnaSP-HLUtZkFLuq4cZkU8eCR-X2WwG0/edit?usp=sharing",new=1,autoraise=True )
+        # pass
+
+    if event == "4 letter words":
+        #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
+
+
+
+# -----------------------------------------question tab events---------------------
 
     if event == "display_grammar_graph":
-        question = window["db_question"].DisplayText
+        question = values["db_question"]
         question_number = window["db_question_number"].DisplayText
 
 
         sentence_nlp = nlp(question)
-        svg = displacy.render(sentence_nlp, style="dep")
+        svg = displacy.render(sentence_nlp, 
+                                options = {"compact": True},
+                                style="dep")
         output_path = Path(f"/home/dgd/Desktop/python_storyboard_flashcards/question_tab/{question_number}.{question}.svg") # you can keep there only "dependency_plot.svg" if you want to save it in the same folder where you run the script 
         output_path.open("w", encoding="utf-8").write(svg)
         #brave-browser
@@ -1941,6 +2310,13 @@ while True:
     if event == "display correct answer":
         window["correct_answer"].update(visible=True)
 
+    if event == "open_attention_csv":
+        os.system("{} {}".format(EXTERNAL_EDITOR, QUESTION_FOLDER + "/needs_attention.csv"))
+
+    if event == "advance_to_next_random_question":
+        pass
+        #TODO this should advance to next random question without saving the displayed question
+
     if event == "get_next_random_question":
         save_student_answers()
         save_attention()
@@ -1948,6 +2324,8 @@ while True:
         # clear student choice
         window["needs_attention"].update(False)
         window["student_question_choice"].update("")
+        #clear input field
+        window["student_answer1"].update("")
 
         window["correct_answer"].update(visible=False)
         if values["db_category"] not in category_list:
@@ -1956,7 +2334,7 @@ while True:
         current_question =line[0]
         found = False
         for line in df2.iterrows():
-            my_line = line
+            # my_line = line
             # window["db_question_number"].update(line[0])
             # break        
             
@@ -1971,26 +2349,70 @@ while True:
                         )
             continue
         # correct question display
-        window["db_question_number"].update(line[0])
+        window["db_question_number"].update(line[1]["UNIQUE_ID"]   )
+        #filling in choices
+
+        # filter out NANs
+        # create list of answers from db
+        answers = [
+            line[1]["CHOICE 1"], 
+            line[1]["CHOICE 2"], 
+            line[1]["CHOICE 3"], 
+            line[1]["CHOICE 4"], 
+            line[1]["CHOICE 5"], 
+            line[1]["CHOICE 6"], 
+            line[1]["CHOICE 7"], 
+            line[1]["CHOICE 8"], 
+            line[1]["CHOICE 9"], 
+            line[1]["CHOICE 10"], 
+        
+                    ]
+
+        useful_answers = [a for a in answers if type (a) != float  ]
+        print(useful_answers)
+        # render all as invisible
+        #only display 5 possible answers
+        # students can't read options
+        for j in range (1,6):
+            window[f"db_choice{j}"].update(visible=False)    
+                
+        # randomize order
+        random.shuffle(useful_answers)        
+        # iterate over useful answers
+        # enumerate start with 1
+        for i, u in enumerate(useful_answers):
+            window[f"db_choice{i+1}"].update(u)    
+            # turn off visibility until user reactivates visiblity
+            window[f"db_choice{i+1}"].update(visible=False)    
+
 
         window["db_question"].update(line[1]["QUESTION"])
-        window["db_choice1"].update(line[1]["CHOICE 1"])
-        window["db_choice2"].update(line[1]["CHOICE 2"])
-        window["db_choice3"].update(line[1]["CHOICE 3"])
-        window["db_choice4"].update(line[1]["CHOICE 4"])
-        window["db_choice5"].update(line[1]["CHOICE 5"])
-        window["db_choice6"].update(line[1]["CHOICE 6"])
-        window["db_choice7"].update(line[1]["CHOICE 7"])
-        window["db_choice8"].update(line[1]["CHOICE 8"])
-        window["db_choice9"].update(line[1]["CHOICE 9"])
-        window["db_choice10"].update(line[1]["CHOICE 10"])
-        #make sure correct answer is invisible
+        # make sure correct answer is invisible
         window["correct_answer"].update(visible=False)
         window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
 
+        # display instructions for this category
+        # values["db_category"]
+        
+        try:
+            window["question_instruction"].update(instructions[values["db_category"]])
+        except KeyError:
+                date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                                        datetime.date.today().month,
+                                        datetime.date.today().day,
+                                        datetime.datetime.today().hour,
+                                        datetime.datetime.today().minute,
+                                        datetime.datetime.today().second,)
+                window["question_instruction"].update("missing instructions")
+                with open(ERROR_LOG_FILENAME, "a") as myfile:
+                    myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
 
-
-
+            
+    if event == "show_possible_answers":
+         for i, u in enumerate(useful_answers):
+            window[f"db_choice{i+1}"].update(u)    
+            # toggle visibility
+            window[f"db_choice{i+1}"].update(visible=True)  
 
 
     if event == "db_category":
@@ -2008,37 +2430,83 @@ while True:
         selected_category = values["db_category"]
         lines_of_this_cat = df[df['CATEGORY'] == selected_category]
         print("I found questions: ",len(lines_of_this_cat))
+        #TODO error catch if column is empty then continue!
         window["questions_db_info"].update(f"I found questions: {len(lines_of_this_cat)}")
         # randomize order 
-        # create new df with my_lines
+        # create new df with my_lines 
+        # randomize the selection of the database
         my_lines = lines_of_this_cat.sample(len(lines_of_this_cat))
         df2 = my_lines
+        #line contains all db choices
         for line in df2.iterrows():
-            my_line = line
-            window["db_question_number"].update(line[0])
+            # my_line = line
+            # update line panda created
+            window["db_question_number"].update(line[1]["UNIQUE_ID"]   )
             break
+
         #filling in choices
+        # filter out NANs
+        # create list of answers from db
+        answers = [
+            line[1]["CHOICE 1"], 
+            line[1]["CHOICE 2"], 
+            line[1]["CHOICE 3"], 
+            line[1]["CHOICE 4"], 
+            line[1]["CHOICE 5"], 
+            # line[1]["CHOICE 6"], 
+            # line[1]["CHOICE 7"], 
+            # line[1]["CHOICE 8"], 
+            # line[1]["CHOICE 9"], 
+            # line[1]["CHOICE 10"], 
+        
+                    ]
+
+        useful_answers = [a for a in answers if type (a) != float  ]
+        print(useful_answers)
+        # render all as invisible
+        for j in range (1,6):
+            window[f"db_choice{j}"].update(visible=False)    
+                
+        # randomize order
+        random.shuffle(useful_answers)        
+        # iterate over useful answers
+        # enumarate start with 1
+        for i, u in enumerate(useful_answers):
+            window[f"db_choice{i+1}"].update(u)    
+            # toggle visibility
+            window[f"db_choice{i+1}"].update(visible=False)    
+
+
         window["db_question"].update(line[1]["QUESTION"])
-        window["db_choice1"].update(line[1]["CHOICE 1"])
-        window["db_choice2"].update(line[1]["CHOICE 2"])
-        window["db_choice3"].update(line[1]["CHOICE 3"])
-        window["db_choice4"].update(line[1]["CHOICE 4"])
-        window["db_choice5"].update(line[1]["CHOICE 5"])
-        window["db_choice6"].update(line[1]["CHOICE 6"])
-        window["db_choice7"].update(line[1]["CHOICE 7"])
-        window["db_choice8"].update(line[1]["CHOICE 8"])
-        window["db_choice9"].update(line[1]["CHOICE 9"])
-        window["db_choice10"].update(line[1]["CHOICE 10"])
-        #make sure correct answer is invisible
+        # make sure correct answer is invisible
         window["correct_answer"].update(visible=False)
         window["correct_answer"].update(line[1]["CORRECT ANSWERS"])
 
         # display instructions for this category
         # values["db_category"]
-        window["question_instruction"].update(instructions[values["db_category"]])
+        # getting an error: KeyError: 'pre-intermediate English'
+        try:
+            window["question_instruction"].update(instructions[values["db_category"]])
+        except KeyError:
+            date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                                        datetime.date.today().month,
+                                        datetime.date.today().day,
+                                        datetime.datetime.today().hour,
+                                        datetime.datetime.today().minute,
+                                        datetime.datetime.today().second,)
+            window["question_instruction"].update("missing instructions")
+            with open(ERROR_LOG_FILENAME, "a") as myfile:
+                myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
+
+            
+
 
 
 # ------------------- grammar tracker tab events
+
+
+
+# grammar tracker tab
 
 
 
@@ -2083,17 +2551,12 @@ while True:
         with open ( "/home/dgd/Desktop/python_storyboard_flashcards/students/" + values["student_name"]+".json", "w") as myfile:
             myfile.write(text)
 
-            
-            #fixed new data is not being saved to json
-            # DONE save sum of values to JSON
-            ## requires new field in JSON
-            # DONE save vocabulary entries into JSON
-            ## requires new field in JSON
-            # TODO generate a simple graph of performance
-        sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
-                    location  = (1900,50),)
+        # TODO generate a simple graph of performance
+        # sg.PopupOK("{}.json File saved to directory".format(values["student_name"], 
+        #             location  = (1900,50),
+        #             )
                     
-                    )
+                #   )
             
 # pros cons tab
     # fire on all pros and con sliders
@@ -2106,6 +2569,7 @@ while True:
         window["sum_of_cons"].update(sum_of_cons)
 
     if event == "save analysis to CSV":
+        # TODO there's a bug in the save to CSV it's not saving to the right location
         #pull name of topic into name of csv into dictionary
         #pros_cons_issues will have spaces in the file name
         csv_file_name=selected_topic
@@ -2117,42 +2581,13 @@ while True:
         
             # append the data to the csv 'a'
         csv_exists = False
-        #TODO add student name to file save
-        if os.path.exists(csv_file_name+'.csv'):
+        #TODO add student name to file save to PROS cons tab
+        if os.path.exists("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/" + csv_file_name +'.csv'):
             csv_exists = True
-
-        with open(csv_file_name+'.csv', 'a', newline='') as csvfile:
+        #missing trailing / meant files saved to same directory
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/" + csv_file_name +'.csv', 'a', newline='') as csvfile:
         # define field names
-            fieldnames = ['topic', 
-                            'analysis', 
-                            'pro0text',
-                            'pro0value',
-                            'con0text',
-                            'con0value',
-                            'pro1text',
-                            'pro1value',
-                            'con1text',
-                            'con1value',
-                            'pro2text',
-                            'pro2value',
-                            'con2text',
-                            'con2value',
-                            'pro3text',
-                            'pro3value',
-                            'con3text',
-                            'con3value',
-                            'pro4text',
-                            'pro4value',
-                            'con4text',
-                            'con4value',
-                            'pro5text',
-                            'pro5value',
-                            'con5text',
-                            'con5value',
-                            'pro6text',
-                            'pro6value',
-                            'con6text',
-                            'con6value']
+            fieldnames = ['topic', 'analysis', 'pro0text','pro0value','con0text','con0value','pro1text','pro1value','con1text','con1value','pro2text','pro2value','con2text','con2value','pro3text','pro3value','con3text','con3value','pro4text','pro4value','con4text','con4value','pro5text','pro5value','con5text','con5value','pro6text','pro6value','con6text','con6value']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             if  not csv_exists:
                 writer.writeheader()
@@ -2205,8 +2640,9 @@ while True:
 
     if event == "phrasal verbs":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=1,autoraise=True )
-        
-
+    
+    if event == "collocations":
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
 
     if event == "image_shuffle":
         random.shuffle(image_list)

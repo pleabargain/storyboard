@@ -1,0 +1,33 @@
+start: 
+instructions:
+Supply the best word or phrase:
+
+We really (enjoy) the game last Sunday.score
+(Marco / win) the golf competition?score
+They(not play) very well yesterday. They lost the match.score
+How many goals(your team / score) in the first half?score
+Sandra(not want) to go rowing with me.score
+(they / go) to the swimming pool yesterday?
+I(buy) a new baseball cap last week.
+James(stop) his car in front of the sports shops.
+
+script process / output
+
+
+sg.TextWe really (enjoy) the game last Sunday.score
+(Marco / win) the golf competition?score
+They(not play) very well yesterday. They lost the match.score
+How many goals(your team / score) in the first half?score
+Sandra(not want) to go rowing with me.score
+(they / go) to the swimming pool yesterday?score
+I(buy) a new baseball cap last week.score
+James(stop) his car in front of the sports shops.score
+
+save button 
+
+
+---
+csv on save: prompt,input
+
+
+file_name:{studentname}_{date}_nameoffile.csv
