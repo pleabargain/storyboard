@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg98580"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="question_types_drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview98582"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.45968013"
+     inkscape:cx="397.0152"
+     inkscape:cy="562.34756"
+     inkscape:window-width="1240"
+     inkscape:window-height="736"
+     inkscape:window-x="808"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs98577" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="21.413425"
+       y="35.132164"
+       id="text99334"><tspan
+         sodipodi:role="line"
+         id="tspan99332"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="35.132164">cloze</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="48.36129"
+         id="tspan99336" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="61.590412"
+         id="tspan99338">multiple choice</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="74.819534"
+         id="tspan99340" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="88.04866"
+         id="tspan99342">human:essay</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="101.27779"
+         id="tspan99344" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="114.50691"
+         id="tspan99346">sorting</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="127.73604"
+         id="tspan99348" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="140.96516"
+         id="tspan99350">human:fill in the blank</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="154.19429"
+         id="tspan99352" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="21.413425"
+         y="167.42342"
+         id="tspan99354">boolean(true false)</tspan></text>
+  </g>
+</svg>

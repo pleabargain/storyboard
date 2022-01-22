@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="297mm"
+   height="210mm"
+   viewBox="0 0 297 210"
+   version="1.1"
+   id="svg114566"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="sorting_drawing.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview114568"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.45968013"
+     inkscape:cx="397.0152"
+     inkscape:cy="562.34756"
+     inkscape:window-width="1240"
+     inkscape:window-height="736"
+     inkscape:window-x="808"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs114563" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="42.984867"
+       y="67.15593"
+       id="text115122"><tspan
+         sodipodi:role="line"
+         id="tspan115120"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="67.15593">A</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="80.385056"
+         id="tspan115124" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="93.614182"
+         id="tspan115126">C</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="106.8433"
+         id="tspan115130" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="120.07243"
+         id="tspan115136">D</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="133.30156"
+         id="tspan115140" /><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="42.984867"
+         y="146.53067"
+         id="tspan115142">E</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;word-spacing:0px;stroke-width:0.264583"
+       x="24.053358"
+       y="33.884956"
+       id="text116850"><tspan
+         sodipodi:role="line"
+         id="tspan116848"
+         style="stroke-width:0.264583"
+         x="24.053358"
+         y="33.884956">Put these items into the correct order</tspan></text>
+  </g>
+</svg>

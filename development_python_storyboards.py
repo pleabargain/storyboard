@@ -123,7 +123,7 @@ sum_of_pros= 0
 sum_of_cons= 0
 pros_cons_issues = []
 
-### quuestion student export field names for export csv
+### question student export field names for export csv
 # 
 
 STUDENT_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/students"
@@ -353,10 +353,10 @@ def split_filename(original_filename):
                                 "noun_animal_",
                                 "noun_body_part_",
                                 "noun_clothing_",
+                                "noun_insect_",
                                 "noun_food_",
                                 "daily_routine_",
                                 "idiom_",
-                                "noun_insect_",
                                 "noun_",
                                 "weather_",
                                 "phrase_",
@@ -1598,13 +1598,15 @@ worksheet_tab_layout = [
        # prompt 1
         [sg.Text("---------------prompt 1-------------------")],        
         [sg.Multiline("This will be populated by the db. Here is a a really long prompt to check if the UI can handle it.: ",
-                    tooltip = "1599",
+                    key ="worksheet_prompt1",
+                    tooltip = "key worksheet_prompt1 1599",
                     # TODO set meaningful key
                     size = (None,2),
                     font=("helvetica"),
                     ),
         sg.Button("get next question", 
                     #hopefully
+                    # this should be aware of previously used questions
                     key="get_next_random_question1", 
                     button_color="red",
                     size=(20,1)),
@@ -1615,10 +1617,13 @@ worksheet_tab_layout = [
         sg.Text("question #: ",
                 tooltip = "q # pulled from db line 1384"
                 ),
-        sg.Text("",key="db_question_number"), 
+        sg.Text("",key="worksheet_question_number1"), 
         # sg.Text("flag",tooltip="line1611"),
         #TODO identify radio groupname
-        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
+        sg.Radio('needs attention', "worksheet_RADIO1",  
+                key="worksheet_needs_attention1", 
+                default=False, 
+                size=(None,None)),
         
         ], 
        
@@ -1626,10 +1631,11 @@ worksheet_tab_layout = [
                 # get student input
                 # this can then be added to the db if time allows
                 # size none is not using full
+                # this is where the student' input goes
                 size =(None,1),
                 key="prompt_response1",
                 font=("helvetica"), 
-                tooltip="student_answer1 line 1621"
+                tooltip="prompt_response1 line 1637"
                 ),
         
         sg.Button("Save prompt response 1",
@@ -1649,7 +1655,7 @@ worksheet_tab_layout = [
 
         sg.Button("view generated grammar graph",
                     key = "view_grammar_graph_prompt_response1",
-                    size=(20,1),
+                    size=(25,1),
                     tooltip="TODO link to grammar graph line 1653",
 
                     ) ,
@@ -1661,14 +1667,16 @@ worksheet_tab_layout = [
        # prompt 2
 [sg.Text("---------------prompt 2-------------------")],        
         [sg.Multiline("This will be populated by the db. Here is a a really long prompt to check if the UI can handle it.: ",
-                    tooltip = "1599",
+                    key ="worksheet_prompt2",
+                    tooltip = "key worksheet_prompt2 1666",
+                    
                     # TODO set meaningful key
                     size = (None,2),
                     font=("helvetica"),
                     ),
         sg.Button("get next question", 
                     #hopefully
-                    key="get_next_random_question1", 
+                    key="get_next_random_question2", 
                     button_color="red",
                     size=(20,1)),
         ],
@@ -1678,10 +1686,11 @@ worksheet_tab_layout = [
         sg.Text("question #: ",
                 tooltip = "q # pulled from db line 1384"
                 ),
-        sg.Text("",key="db_question_number"), 
-        # sg.Text("flag",tooltip="line1611"),
+        sg.Text("",key="worksheet_question_number2"),   
+            
         #TODO identify radio groupname
-        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
+        sg.Radio('needs attention', "worksheet_RADIO2", 
+                key="worksheet_needs_attention2", default=False, size=(None,None)),
         
         ], 
        
@@ -1690,9 +1699,9 @@ worksheet_tab_layout = [
                 # this can then be added to the db if time allows
                 # size none is not using full
                 size =(None,1),
-                key="prompt_response1",
+                key="prompt_response2",
                 font=("helvetica"), 
-                tooltip="student_answer1 line 1621"
+                tooltip="prompt_response2 line 1703"
                 ),
         
         sg.Button("Save prompt response 2",
@@ -1704,12 +1713,17 @@ worksheet_tab_layout = [
 
 
         [sg.Button("display grammar graph",
-                    key = "display_grammar_graph_prompt_response1",
+                    key = "display_grammar_graph_prompt_response2",
                     size=(20,1),
                     tooltip="line 1684",
 
                     ) ,
+         sg.Button("view generated grammar graph",
+                    key = "view_grammar_graph_prompt_response2",
+                    size=(25,1),
+                    tooltip="TODO link to grammar graph line 1722",
 
+                    ) ,
         
         ],
 
@@ -2445,6 +2459,7 @@ while True:
         my_lines = lines_of_this_cat.sample(len(lines_of_this_cat))
         df2 = my_lines
         #line contains all db choices
+        # iterate over the options
         for line in df2.iterrows():
             # my_line = line
             # update line panda created
