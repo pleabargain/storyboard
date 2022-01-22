@@ -23,7 +23,7 @@ The app should run on any python3 compliant device.
 There are lots of TODOs in the code. If you want to participate, please do.
 
 - strip empty spaces from files
-- sort text files
+- create a function tht sorts and eliminates duplicate text (students, nouns,verbs,etc.)files before loading them into UI
 - strip txt files of empty lines
 - set python script to run BASH `cat verbs.txt | sort | uniq>outv.txt` to quickly sort and get uniq values only. )
 - add usage license
@@ -39,12 +39,16 @@ There are lots of TODOs in the code. If you want to participate, please do.
 # list of tabs (not in order)
 <img src="/support_images/tabs2022-01-18_13-58.png" alt="Getting started" />
 
+
 # questions tab
 - Display multiple choice questions in the UI.
 - flag problem questions
 - save student results
 - display instructions by category
 
+# worksheet tab
+- This will allow teachers(T) to prompt students(S) questions from a database. The S response is entered by the T.
+- short answer questions = !wrong;right (no special characters, this is to reduce the amount of clicking!)
 
 # grammar tracker tab
 - The content in this tab is automatically generated from a text file! It currently saves to file as json. It should load from a student json file. The grammar tracker tab is generated from a text file. The keys for the generated input and sliders should also be generated as well e.g.
@@ -64,6 +68,7 @@ see form_generator_description.md
 - save vocabulary data to json file
 - create list of adverbs past
 - see /grammar_adverbs_of_time.md
+
 # adj noun reg verb tab 
 <img src="/support_images/tab_verbadjnoun.png" alt="Getting started" />
 

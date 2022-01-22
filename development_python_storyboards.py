@@ -1597,7 +1597,7 @@ worksheet_tab_layout = [
         # layout is ugly
        # prompt 1
         [sg.Text("---------------prompt 1-------------------")],        
-        [sg.Multiline("Here is a a really long prompt to check if the UI can handle it.: ",
+        [sg.Multiline("This will be populated by the db. Here is a a really long prompt to check if the UI can handle it.: ",
                     tooltip = "1599",
                     # TODO set meaningful key
                     size = (None,2),
@@ -1640,10 +1640,17 @@ worksheet_tab_layout = [
 
 
 
-        [sg.Button("display grammar graph",
+        [sg.Button("generate grammar graph",
                     key = "display_grammar_graph_prompt_response1",
                     size=(20,1),
-                    tooltip="line 1684",
+                    tooltip="TODO generate clickable button link in UI line 1646",
+
+                    ) ,
+
+        sg.Button("view generated grammar graph",
+                    key = "view_grammar_graph_prompt_response1",
+                    size=(20,1),
+                    tooltip="TODO link to grammar graph line 1653",
 
                     ) ,
 
@@ -1653,7 +1660,7 @@ worksheet_tab_layout = [
         
        # prompt 2
 [sg.Text("---------------prompt 2-------------------")],        
-        [sg.Multiline("Here is a a really long prompt to check if the UI can handle it.: ",
+        [sg.Multiline("This will be populated by the db. Here is a a really long prompt to check if the UI can handle it.: ",
                     tooltip = "1599",
                     # TODO set meaningful key
                     size = (None,2),
