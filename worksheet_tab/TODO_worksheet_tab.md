@@ -1,6 +1,7 @@
 # todo 
 - replace possible answers with prompt
 - fix layout
+- put todo button at the top of the UI
 
 # code
 - get all keys 
