@@ -17,6 +17,7 @@ from spacy import displacy
 from pathlib import Path
 
 
+# TODO search code for ALL keys and produce a report :goal:normalize naming of keys
 # TODO question: possible to call a tab as a function call that way the tabs can be reused easily elsewhere?
 # TODO question: What other defaults can I call when starting the application?
 # TODO with open text and md files, sort and remove duplicates first.
@@ -122,7 +123,7 @@ sum_of_pros= 0
 sum_of_cons= 0
 pros_cons_issues = []
 
-### quuestion student export field names for export csv
+### question student export field names for export csv
 # 
 
 STUDENT_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/students"
@@ -161,13 +162,12 @@ def save_attention():
     """
     save attention file
     enter text automatically by clicking on answer
-    """
-    # check if empty
     
-    if not values["needs_attention"] :
+    """
+    
+    if (not values["needs_attention"])  and (values["student_answer1" ]==""):
         return
-    print("needs attention")
-
+        
 
     if values["db_category"] == "":
         sg.PopupError("cat empty",location=(2000,10))
@@ -210,21 +210,16 @@ def save_attention():
 
 
 
-
-
-
-
-
 def save_student_answers():
     """
     student says x to a question
-    we enter integer
-    save the integer
+   
     """
     # check if empty
-    if values["student_question_choice"] in ("","answer?",None):
-        sg.PopupError("enter student choice",location=(2000,10)) 
-        return
+    # this popup is distracting!
+    # if values["student_question_choice"] in ("","answer?",None):
+    #     sg.PopupError("enter student choice",location=(2000,10)) 
+    #     return
     if values["db_category"] == "":
         sg.PopupError("cat empty",location=(2000,10))
         return
@@ -267,11 +262,11 @@ def save_student_answers():
                         "CHOICE3":window["db_choice3"].DisplayText,	
                         "CHOICE4":window["db_choice4"].DisplayText,	
                         "CHOICE5":window["db_choice5"].DisplayText,	
-                        "CHOICE6":window["db_choice6"].DisplayText,	    
-                        "CHOICE7":window["db_choice7"].DisplayText,	
-                        "CHOICE8":window["db_choice8"].DisplayText,	
-                        "CHOICE9":window["db_choice9"].DisplayText,	
-                        "CHOICE10":window["db_choice10"].DisplayText,
+                        # "CHOICE6":window["db_choice6"].DisplayText,	    
+                        # "CHOICE7":window["db_choice7"].DisplayText,	
+                        # "CHOICE8":window["db_choice8"].DisplayText,	
+                        # "CHOICE9":window["db_choice9"].DisplayText,	
+                        # "CHOICE10":window["db_choice10"].DisplayText,
                         }
 
     
@@ -358,10 +353,10 @@ def split_filename(original_filename):
                                 "noun_animal_",
                                 "noun_body_part_",
                                 "noun_clothing_",
+                                "noun_insect_",
                                 "noun_food_",
                                 "daily_routine_",
                                 "idiom_",
-                                "insect_",
                                 "noun_",
                                 "weather_",
                                 "phrase_",
@@ -1535,7 +1530,7 @@ tracker_layout.append(
                         tooltip="This is a multiline object key grammar analysis",
                         font =("helvetica", 14)), 
         sg.Button("save grammar analysis",
-                        tooltip="line 1530 TODO add student name to file save")],
+                        tooltip="line 1530 ")],
                      )
 tracker_layout.append(
         [sg.Multiline(key="vocabulary_used",
@@ -1544,8 +1539,7 @@ tracker_layout.append(
                         size =(40,5),
                         tooltip="This is a multiline object key vocabulary_used line 1538",
                         font =("helvetica", 14)), 
-                        # sg.Button("save vocabulary used",
-                        # tooltip="TODO save to json file add student name to file save")
+                        
         ],
                     )   
 
@@ -1559,6 +1553,201 @@ grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 # question tab layout
 # BUG KeyError: 'anything everything nothing something'
 # bug KeyError: 'intermediate English'
+
+worksheet_tab_layout = [
+
+
+        [sg.Text("Worksheet"), sg.Button("TODO worksheet",key="TODO_worksheet"),
+        sg.Text("instructions:")
+        ],
+                
+        [sg.Text("select one category"), 
+        sg.Combo(values=category_list, 
+                # this key event must be unique so how to call it in events?
+                # if db_category in event?
+                key="db_category", 
+                enable_events=True, 
+                size=(None,None), 
+                tooltip="line 1568 key=db_category" ), 
+                sg.Text("Database info:"), # pulling from new db
+                sg.Text("", key= "questions_db_info",size=(20,1)),
+                 ],
+
+        [sg.Text("selected topics instructions", tooltip="line 1575 TODO start pulling from new DB")],
+        
+        [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
+                    key="question_instructions", 
+                    font = ("helvetica",13),
+                    tooltip ="TODO I want to be able to write/update changes here,line 1580",
+                    size=(None,3 ),
+                    change_submits=True, 
+                    # expand_y=True, 
+                    disabled=True ), 
+        sg.Button("Open\ninstructions\nfile",
+                    size=(18,5),
+                    key ="open_question_instructions",
+                    tooltip="line1588 key = open_question_instructions"),
+
+        ],
+        
+     
+
+        
+        #start question area
+        # layout is ugly
+       # prompt 1
+        [sg.Text("---------------prompt 1-------------------")],        
+        [sg.Multiline("This will be populated by the db. Here is a a really long prompt to check if the UI can handle it.: ",
+                    key ="worksheet_prompt1",
+                    tooltip = "key worksheet_prompt1 1599",
+                    # TODO set meaningful key
+                    size = (None,2),
+                    font=("helvetica"),
+                    ),
+        sg.Button("get next question", 
+                    #hopefully
+                    # this should be aware of previously used questions
+                    # This should ideally NOT pull a question that has already been seen by the student.
+
+                    key="get_next_random_question1", 
+                    button_color="red",
+                    size=(20,1)),
+        ],
+
+
+        [
+        sg.Text("question #: ",
+                tooltip = "q # pulled from db line 1384"
+                ),
+        sg.Text("",key="worksheet_question_number1"), 
+        # sg.Text("flag",tooltip="line1611"),
+        #TODO identify radio groupname
+        sg.Radio('needs attention', "worksheet_RADIO1",  
+                key="worksheet_needs_attention1", 
+                default=False, 
+                size=(None,None)),
+        
+        ], 
+       
+        [sg.Multiline("This is where the student response goes.",
+                # get student input
+                # this can then be added to the db if time allows
+                # size none is not using full
+                # this is where the student' input goes
+                size =(None,1),
+                key="prompt_response1",
+                font=("helvetica"), 
+                tooltip="prompt_response1 line 1637"
+                ),
+        
+        sg.Button("Save prompt response 1",
+                button_color="green",
+                key="save_prompt_response1",
+                ),
+        ],
+
+
+
+        [sg.Button("generate grammar graph",
+                    key = "display_grammar_graph_prompt_response1",
+                    size=(20,1),
+                    tooltip="TODO generate clickable button link in UI line 1646",
+
+                    ) ,
+
+        sg.Button("view generated grammar graph",
+                    key = "view_grammar_graph_prompt_response1",
+                    size=(25,1),
+                    tooltip="TODO link to grammar graph line 1653",
+
+                    ) ,
+
+        
+        ],
+
+        
+       # prompt 2
+[sg.Text("---------------prompt 2-------------------")],        
+        [sg.Multiline("This will be populated by the db. Here is a a really long prompt to check if the UI can handle it.: ",
+                    key ="worksheet_prompt2",
+                    tooltip = "key worksheet_prompt2 1666",
+                    
+                    # TODO set meaningful key
+                    size = (None,2),
+                    font=("helvetica"),
+                    ),
+        sg.Button("get next question", 
+                    #hopefully
+                    key="get_next_random_question2", 
+                    button_color="red",
+                    size=(20,1)),
+        ],
+
+
+        [
+        sg.Text("question #: ",
+                tooltip = "q # pulled from db line 1689"
+                ),
+        sg.Text("",key="worksheet_question_number2"),   
+            
+        #TODO identify radio groupname
+        sg.Radio('needs attention', "worksheet_RADIO2", 
+                key="worksheet_needs_attention2", default=False, size=(None,None)),
+        
+        ], 
+       
+        [sg.Multiline("This is where the student response goes.",
+                # get student input
+                # this can then be added to the db if time allows
+                # size none is not using full
+                size =(None,1),
+                key="prompt_response2",
+                font=("helvetica"), 
+                tooltip="prompt_response2 line 1703"
+                ),
+        
+        sg.Button("Save prompt response 2",
+                button_color="green",
+                key="save_prompt_response2",
+                ),
+        ],
+
+
+
+        [sg.Button("display grammar graph",
+                    key = "display_grammar_graph_prompt_response2",
+                    size=(20,1),
+                    tooltip="line 1684",
+
+                    ) ,
+         sg.Button("view generated grammar graph",
+                    key = "view_grammar_graph_prompt_response2",
+                    size=(25,1),
+                    tooltip="TODO link to grammar graph line 1722",
+
+                    ) ,
+        
+        ],
+
+
+
+        #bottom of the tab
+        [sg.Button("open attention csv",
+        tooltip ="line 1649",
+        key="open_attention_csv"),
+        ]
+
+
+        
+    ]
+
+#end of worksheet tab layout
+
+# --- end of worksheet layout
+
+worksheet_tab= sg.Tab ("worksheet",worksheet_tab_layout)
+
+
 
 question_tab_layout = [
 
@@ -1578,9 +1767,9 @@ question_tab_layout = [
         [sg.Text("selected topics instructions", tooltip="line 1369")],
         
         [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
-                    key="question_instruction", 
+                    key="question_instructions", 
                     font = ("helvetica",13),
-                    tooltip ="TODO I want to be able to write/update changes here,line 1546",
+                    tooltip ="TODO I want to be able to write/update changes here,line 1748\nmaybe new DB will allow me to do that!",
                     size=(None,3 ),
                     change_submits=True, 
                     # expand_y=True, 
@@ -1588,22 +1777,22 @@ question_tab_layout = [
             sg.Button("Open\ninstructions\nfile",
                         size=(None,3),
                         key ="open_question_instructions",
-                        tooltip="line1580 key = open_question_instructions"),
+                        tooltip="line1780 key = open_question_instructions"),
 
         ],
         
-        #TODO link to open the instructions csv 
+        #done link to open the instructions csv 
         # /home/dgd/Desktop/EnglishHelpsYourCareer/category_instructions.csv
         # done button to save the current question number for future review
         
              
 
         [sg.Text("question #: ",
-                tooltip = "q # pulled from db line 1384"
+                tooltip = "q # pulled from db line 1699"
                 ),
         sg.Text("",key="db_question_number"), 
-        sg.Text("flag",tooltip="line1600"),
-        sg.Radio('needs attention', "RADIO1", key="needs_attention", default=False, size=(None,None)),
+        # sg.Text("flag",tooltip="line1700"),
+        sg.Radio('needs attention', "RADIO2", key="needs_attention", default=False, size=(None,None)),
         sg.Button("open attention csv",key="open_attention_csv"), 
         ],
         
@@ -1616,24 +1805,29 @@ question_tab_layout = [
                 tooltip="line 1611")
         ],
         
-        [sg.Button("show_possible_answers",
+        [sg.Button("1 show possible answers",
+                    button_color="green",
                     key="show_possible_answers",
                     size=(20,1),
                     ),
+                    sg.Text("! indicates wrong answers separate answers with ;",visible=False),
 
         sg.Button("display correct answer",
                     size=(20,1),
+                    button_color="yellow",
+
                     font=('helvetica'),
                     tooltip="line 1626",
                     ) ,
 
         sg.Button("get next question", 
                     key="get_next_random_question", 
+                    button_color="red",
                     size=(20,1)),
-        sg.Button("advance to next question", 
-                    #TODO set up button to go ahead as content can be repetitive
-                    key="advance_to_next_random_question", 
-                    size=(20,1)),
+        # sg.Button("advance to next question", 
+        #             #done set up button to go ahead as content can be repetitive
+        #             key="advance_to_next_random_question", 
+        #             size=(20,1)),
 
         ],
 
@@ -1651,17 +1845,21 @@ question_tab_layout = [
         #start question area
         [sg.Text("Possible Answers: ",
                     font=("helvetica",18)),
+        sg.Input("",
+                # get student input
+                # this can then be added to the db if time allows
+                key="student_answer1",
+                font=("helvetica",18), 
+                tooltip="student_answer1 line 1658"
+                ), 
+                
+                sg.Text("! indicates wrong answers separate answers with ;"),
         ],
         
         [
         sg.Text("01: ", 
                 font=("helvetica",18)),
-        sg.Input("",
-                # get student input
-                key="student_answer1",
-                font=("helvetica",18), 
-                tooltip="student_answer1 line 1659"
-                ),
+        
         sg.Text("?",
                 key= "db_choice1", 
                 font=("helvetica",18), 
@@ -1671,35 +1869,37 @@ question_tab_layout = [
                 )
         ],
 
-        [sg.Text("02: "),
+        [sg.Text("02: ",
+            font=("helvetica",18)),
             sg.Text("?",
                     key= "db_choice2",
                     font=("helvetica",18), 
                     enable_events=True,
                     size=(None,None))],
-        [sg.Text("03: "),
+        [sg.Text("03: ", font=("helvetica",18) ),
             sg.Text("?",
                     key= "db_choice3",
                     font=("helvetica",18), 
                     enable_events=True,
                     size=(None,None))],
-        [sg.Text("04: "),
+        [sg.Text("04: ", font=("helvetica",18)),
             sg.Text("?",
                     key= "db_choice4",
                     font=("helvetica",18), 
                     enable_events=True,
                     size=(None,None))],
-        [sg.Text("05: "),sg.Text("?",key= "db_choice5",enable_events=True,size=(None,None))],
-        [sg.Text("06: "),sg.Text("?",key= "db_choice6",enable_events=True,size=(None,None))],
-        [sg.Text("07: "),sg.Text("?",key= "db_choice7",enable_events=True,size=(None,None))],
-        [sg.Text("08: "),sg.Text("?",key= "db_choice8",enable_events=True,size=(None,None))],
-        [sg.Text("09: "),sg.Text("?",key= "db_choice9",enable_events=True,size=(None,None))],
-        [sg.Text("10: "),sg.Text("?",key= "db_choice10",enable_events=True,size=(None,None))],
+        [sg.Text("05: ", font=("helvetica",18)),sg.Text("", font=("helvetica",18),key= "db_choice5",enable_events=True,size=(None,None))],
+        # [sg.Text("06: "),sg.Text("?",key= "db_choice6",enable_events=True,size=(None,None))],
+        # [sg.Text("07: "),sg.Text("?",key= "db_choice7",enable_events=True,size=(None,None))],
+        # [sg.Text("08: "),sg.Text("?",key= "db_choice8",enable_events=True,size=(None,None))],
+        # [sg.Text("09: "),sg.Text("?",key= "db_choice9",enable_events=True,size=(None,None))],
+        # [sg.Text("10: "),sg.Text("?",key= "db_choice10",enable_events=True,size=(None,None))],
         [sg.Text("Put first choice here: "),sg.Input(default_text="answer?",key= "student_question_choice")],
         
         #handle the buttons at the bottom of the screen
         [
         sg.Button("display grammar graph",
+                    #this should open the file
                     key = "display_grammar_graph",
                     size=(40,1),
                     tooltip="line 1684",
@@ -1708,7 +1908,7 @@ question_tab_layout = [
 
         sg.Button("save and export",
                     key="export_student_questions",
-                    tooltip="1690 key export student questions",
+                    tooltip="1909 key export student questions",
                     size=(30,1))
         ],
         
@@ -1727,19 +1927,18 @@ layout = [
     [sg.Menu(menu_def, tearoff=True)],
     # [sg.Canvas(size=(500, 200), key='canvas')],
     #done use image resizer on images
-    #TODO
-    # load student names from text file into Multiline
+    #done load student names from text file into Multiline
     # file is /home/dgd/Desktop/python_storyboard_flashcards/students/student_names.txt
     [sg.Text("student name:"),
             sg.Combo(values=student_names,
                    key="student_name",
                     default_value="Horst",
 
-                    tooltip="line 1676 TODO test adding new name this should pull from a list of students name goes here",
+                    tooltip="line 1912 TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 1683"
+                tooltip = "see line 1916"
 
                 ) ,
 
@@ -1750,13 +1949,13 @@ layout = [
             size = (20,1),
                         key = "date_picker", 
             enable_events=True,
-            tooltip="loads from the json file line 1692"),
-    sg.Button("load syllabus", tooltip="will open md file in VS code line 1693"),
+            tooltip="loads from the json file line 1927"),
+    sg.Button("load syllabus", tooltip="will open md file in VS code line 1928"),
     
     
     ],
 
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,grammar_tracker_tab,]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,worksheet_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
@@ -1776,6 +1975,14 @@ while True:
 
 
     event, values = window.read()
+
+
+# worksheet tab
+
+    if event == "TODO_worksheet":
+                os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/worksheet_tab/TODO_worksheet_tab.md"))
+
+
 
 
 
@@ -2141,6 +2348,8 @@ while True:
         # clear student choice
         window["needs_attention"].update(False)
         window["student_question_choice"].update("")
+        #clear input field
+        window["student_answer1"].update("")
 
         window["correct_answer"].update(visible=False)
         if values["db_category"] not in category_list:
@@ -2186,16 +2395,18 @@ while True:
         useful_answers = [a for a in answers if type (a) != float  ]
         print(useful_answers)
         # render all as invisible
-        for j in range (1,11):
+        #only display 5 possible answers
+        # students can't read options
+        for j in range (1,6):
             window[f"db_choice{j}"].update(visible=False)    
                 
         # randomize order
         random.shuffle(useful_answers)        
         # iterate over useful answers
-        # enumarate start with 1
+        # enumerate start with 1
         for i, u in enumerate(useful_answers):
             window[f"db_choice{i+1}"].update(u)    
-            # turn off visibility until user recativates visiblity
+            # turn off visibility until user reactivates visiblity
             window[f"db_choice{i+1}"].update(visible=False)    
 
 
@@ -2208,7 +2419,7 @@ while True:
         # values["db_category"]
         
         try:
-            window["question_instruction"].update(instructions[values["db_category"]])
+            window["question_instructions"].update(instructions[values["db_category"]])
         except KeyError:
                 date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
@@ -2216,7 +2427,7 @@ while True:
                                         datetime.datetime.today().hour,
                                         datetime.datetime.today().minute,
                                         datetime.datetime.today().second,)
-                window["question_instruction"].update("missing instructions")
+                window["question_instructions"].update("missing instructions")
                 with open(ERROR_LOG_FILENAME, "a") as myfile:
                     myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
 
@@ -2251,6 +2462,7 @@ while True:
         my_lines = lines_of_this_cat.sample(len(lines_of_this_cat))
         df2 = my_lines
         #line contains all db choices
+        # iterate over the options
         for line in df2.iterrows():
             # my_line = line
             # update line panda created
@@ -2266,18 +2478,18 @@ while True:
             line[1]["CHOICE 3"], 
             line[1]["CHOICE 4"], 
             line[1]["CHOICE 5"], 
-            line[1]["CHOICE 6"], 
-            line[1]["CHOICE 7"], 
-            line[1]["CHOICE 8"], 
-            line[1]["CHOICE 9"], 
-            line[1]["CHOICE 10"], 
+            # line[1]["CHOICE 6"], 
+            # line[1]["CHOICE 7"], 
+            # line[1]["CHOICE 8"], 
+            # line[1]["CHOICE 9"], 
+            # line[1]["CHOICE 10"], 
         
                     ]
 
         useful_answers = [a for a in answers if type (a) != float  ]
         print(useful_answers)
         # render all as invisible
-        for j in range (1,11):
+        for j in range (1,6):
             window[f"db_choice{j}"].update(visible=False)    
                 
         # randomize order
@@ -2299,7 +2511,7 @@ while True:
         # values["db_category"]
         # getting an error: KeyError: 'pre-intermediate English'
         try:
-            window["question_instruction"].update(instructions[values["db_category"]])
+            window["question_instructions"].update(instructions[values["db_category"]])
         except KeyError:
             date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
@@ -2307,7 +2519,7 @@ while True:
                                         datetime.datetime.today().hour,
                                         datetime.datetime.today().minute,
                                         datetime.datetime.today().second,)
-            window["question_instruction"].update("missing instructions")
+            window["question_instructions"].update("missing instructions")
             with open(ERROR_LOG_FILENAME, "a") as myfile:
                 myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
 

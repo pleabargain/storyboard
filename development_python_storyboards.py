@@ -1576,7 +1576,7 @@ worksheet_tab_layout = [
         [sg.Text("selected topics instructions", tooltip="line 1575 TODO start pulling from new DB")],
         
         [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
-                    key="question_instruction", 
+                    key="question_instructions", 
                     font = ("helvetica",13),
                     tooltip ="TODO I want to be able to write/update changes here,line 1580",
                     size=(None,3 ),
@@ -1584,7 +1584,7 @@ worksheet_tab_layout = [
                     # expand_y=True, 
                     disabled=True ), 
         sg.Button("Open\ninstructions\nfile",
-                    size=(16,3),
+                    size=(18,5),
                     key ="open_question_instructions",
                     tooltip="line1588 key = open_question_instructions"),
 
@@ -1607,6 +1607,7 @@ worksheet_tab_layout = [
         sg.Button("get next question", 
                     #hopefully
                     # this should be aware of previously used questions
+                    # This should ideally NOT pull a question that has already been seen by the student.
                     key="get_next_random_question1", 
                     button_color="red",
                     size=(20,1)),
@@ -1684,7 +1685,7 @@ worksheet_tab_layout = [
 
         [
         sg.Text("question #: ",
-                tooltip = "q # pulled from db line 1384"
+                tooltip = "q # pulled from db line 1687"
                 ),
         sg.Text("",key="worksheet_question_number2"),   
             
@@ -1765,7 +1766,7 @@ question_tab_layout = [
         [sg.Text("selected topics instructions", tooltip="line 1369")],
         
         [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
-                    key="question_instruction", 
+                    key="question_instructions", 
                     font = ("helvetica",13),
                     tooltip ="TODO I want to be able to write/update changes here,line 1748\nmaybe new DB will allow me to do that!",
                     size=(None,3 ),
@@ -1775,7 +1776,7 @@ question_tab_layout = [
             sg.Button("Open\ninstructions\nfile",
                         size=(None,3),
                         key ="open_question_instructions",
-                        tooltip="line1580 key = open_question_instructions"),
+                        tooltip="line1778 key = open_question_instructions"),
 
         ],
         
@@ -1897,6 +1898,7 @@ question_tab_layout = [
         #handle the buttons at the bottom of the screen
         [
         sg.Button("display grammar graph",
+                    # this should open the file 
                     key = "display_grammar_graph",
                     size=(40,1),
                     tooltip="line 1684",
@@ -1905,7 +1907,7 @@ question_tab_layout = [
 
         sg.Button("save and export",
                     key="export_student_questions",
-                    tooltip="1690 key export student questions",
+                    tooltip="1909 key export student questions",
                     size=(30,1))
         ],
         
@@ -1944,10 +1946,12 @@ layout = [
     # KeyError: 'questions'
     sg.Combo(values=[""], 
             size = (20,1),
-                        key = "date_picker", 
+            key = "date_picker", 
             enable_events=True,
-            tooltip="loads from the json file line 1927"),
-    sg.Button("load syllabus", tooltip="will open md file in VS code line 1928"),
+            tooltip="loads from the json file line 1947"),
+    sg.Button("load syllabus", 
+            #this opens the md syllabus file
+            tooltip="will open md file in VS code line 1950"),
     
     
     ],
@@ -1958,7 +1962,7 @@ layout = [
     
 
 
-window = sg.Window('Working Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
+window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime("%Y %B %d %A ") + 'contact Dennis@\nEnglishHelpsYourCareer.com', 
                     
                     layout, 
                     background_color="lightblue",
@@ -2416,7 +2420,7 @@ while True:
         # values["db_category"]
         
         try:
-            window["question_instruction"].update(instructions[values["db_category"]])
+            window["question_instructions"].update(instructions[values["db_category"]])
         except KeyError:
                 date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
@@ -2424,7 +2428,7 @@ while True:
                                         datetime.datetime.today().hour,
                                         datetime.datetime.today().minute,
                                         datetime.datetime.today().second,)
-                window["question_instruction"].update("missing instructions")
+                window["question_instructions"].update("missing instructions")
                 with open(ERROR_LOG_FILENAME, "a") as myfile:
                     myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
 
@@ -2508,7 +2512,7 @@ while True:
         # values["db_category"]
         # getting an error: KeyError: 'pre-intermediate English'
         try:
-            window["question_instruction"].update(instructions[values["db_category"]])
+            window["question_instructions"].update(instructions[values["db_category"]])
         except KeyError:
             date_string = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                                         datetime.date.today().month,
@@ -2516,7 +2520,7 @@ while True:
                                         datetime.datetime.today().hour,
                                         datetime.datetime.today().minute,
                                         datetime.datetime.today().second,)
-            window["question_instruction"].update("missing instructions")
+            window["question_instructions"].update("missing instructions")
             with open(ERROR_LOG_FILENAME, "a") as myfile:
                 myfile.write(f'date: {date_string} | missing instructions: {values["db_category"]}\n')
 
