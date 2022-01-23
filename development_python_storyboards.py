@@ -1063,6 +1063,250 @@ tenses_tab_column_right = sg.Column([ #header
                             key='canvas3b'),]
                         ])
 
+
+# new columns
+negotiation_column_left = sg.Column(
+                            [
+                                                     
+                            
+                            [sg.Text('prepare', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Text('agenda', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Text('offers and proposals', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+
+                            [sg.Text('suggestions', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('agreeing', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('objecting', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('prioritizing', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('clarifying', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('compromising', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('bargaining', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('postponing', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                           [sg.Text('concluding', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Text('seal the deal', 
+                            justification = "center",
+                            tooltip = "1074",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                        
+                        ])
+
+negotiation_column_center = sg.Column([
+                            #header
+                            
+                            [sg.Multiline('prepare', #guy face emoji
+                            key="prepare_0_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('agenda',
+                            key="agenda_01_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Multiline('make proposals', #guy face emoji
+                            key="making_proposals_02_list_box",                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+                            
+                            [sg.Multiline('make suggestions', #guy face emoji
+                            key="suggestions_03_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('find agreement', 
+                            key="agreeing_04_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('objecting', 
+                            key="objecting_05_list_box",
+                            tooltip = "1210",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('prioritizing', 
+                            key="prioritizing_06_list_box",
+                            tooltip = "1220",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('clarifying',
+                            key="clarification_07_list_box",
+                            tooltip = "1229",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('compromising', 
+                            key="compromising_08_list_box",
+                            tooltip ="1237",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            [sg.Multiline('bargaining', #guy face emoji
+                            key="bargaining_09_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+
+                            [sg.Multiline('postponing', #guy face emoji
+                            key="postponing_10_list_box",
+                            tooltip="1256",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+
+                            [sg.Multiline('concluding', 
+                            key="concluding_11_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                            
+                            [sg.Multiline('seal the deal', 
+                            key="seal_the_deal_12_list_box",
+                            enable_events=True,
+                            justification = "center",
+                            size=(None,None), 
+                            font=("Helvetica", 16)) 
+                            ],
+
+                        
+
+                            ])
+
+negotiation_column_right = sg.Column([ #header
+                            
+                            [sg.Button('edit prepare_0'),],
+                            [sg.Button('edit agenda_01'),],
+                            [sg.Button('edit making_proposals_02'),],
+                            [sg.Button('edit suggestions_03'),],
+                            [sg.Button('edit agreeing_04'),],
+                            [sg.Button('edit objecting_05'),],
+
+                            [sg.Button('edit prioritizing_06'),],
+                            [sg.Button('edit clarification_07'),],
+                            [sg.Button('edit compromising_08'),],
+                            [sg.Button('edit bargaining_09'),],
+                            [sg.Button('edit postponing_10'),],
+                            [sg.Button('edit concluding_11'),],     
+                            [sg.Button('edit seal_the_deal_12')],
+                                    ])
+
+
+
+
+
+
+
+
 tab_one= sg.Tab ("adj noun reg verb", [
     #trying to get random text to display here
     [
@@ -1133,6 +1377,36 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
 
     ])
 
+
+# ----------------- get negotiation columns
+
+
+new_negotiation_tab= sg.Tab ("new tab", [
+        #create button
+        [sg.Button("idioms1",
+                    tooltip = "line 1215",),
+        sg.Button("prepositional phrases1",
+                   tooltip = "line 925", ),
+        sg.Button("phrasal verbs1",
+                   tooltip = "line 929" ,),
+        sg.Button("collocations1",
+                    tooltip = "line 930",)    ,
+        # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
+        sg.Button("conditionals1"),
+        sg.Button("comparatives and superlatives1"),
+        sg.Button("modals1"),
+        sg.Button("question modals1"),
+        ],
+
+
+    [negotiation_column_left, negotiation_column_center,negotiation_column_right],
+
+    ])
+
+
+
+
+
 #### negotiation TAB
 #TODO add edit button so I can quickly go in and add entries
 
@@ -1143,8 +1417,8 @@ negotiation_tab_three = sg.Tab("negotiation",
     sg.Text("prepare_0", tooltip="948"),
     sg.Text(
             text= "Have you prepared enough?!",
-            key="prepare_0_list_box",
-            enable_events=True,
+            # key="prepare_0_list_box",
+            # enable_events=True,
             font=("Helvetica",14),
             justification = "center",
             size=(55,1)
@@ -1163,7 +1437,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "center",
             size=(55,1)
             ),
-    sg.Button('edit agenda_01'),
+    # sg.Button('edit agenda_01'),
 
 ],
 
@@ -1177,7 +1451,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit making_proposals_02'),
+    # sg.Button('edit making_proposals_02'),
 
 ],
 
@@ -1191,7 +1465,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit suggestions_03'),
+    # sg.Button('edit suggestions_03'),
 
 ],
 
@@ -1205,7 +1479,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit agreeing_04'),
+    # sg.Button('edit agreeing_04'),
 
 ],
 
@@ -1219,7 +1493,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit objecting_05'),
+    # sg.Button('edit objecting_05'),
 
 ],
 
@@ -1233,7 +1507,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit prioritizing_06'),
+    # sg.Button('edit prioritizing_06'),
 
 ],
 
@@ -1247,7 +1521,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit clarification_07'),
+    # sg.Button('edit clarification_07'),
 
 ],
 
@@ -1266,7 +1540,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             enable_events=True,
             size= (None,None),
             ),
-    sg.Button('edit compromising_08'),
+    # sg.Button('edit compromising_08'),
 
 ],
 
@@ -1286,7 +1560,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             size= (None,None),
             ),
 
-    sg.Button('edit bargaining_09'),
+    # sg.Button('edit bargaining_09'),
 
 ],
 
@@ -1300,7 +1574,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit postponing_10'),
+    # sg.Button('edit postponing_10'),
 
 ],
 
@@ -1326,7 +1600,7 @@ negotiation_tab_three = sg.Tab("negotiation",
                 enable_events=True,
                 size= (None,None),
                 ),
-    sg.Button('edit concluding_11'),
+    # sg.Button('edit concluding_11'),
 
 ],
 
@@ -1340,7 +1614,7 @@ negotiation_tab_three = sg.Tab("negotiation",
             justification = "left",
             size=(None,None)
             ),
-    sg.Button('edit seal_the_deal_12'),
+    # sg.Button('edit seal_the_deal_12'),
 
 
 ],
@@ -1956,7 +2230,7 @@ layout = [
     
     ],
 
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,worksheet_tab, grammar_tracker_tab,]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,new_negotiation_tab,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,worksheet_tab, grammar_tracker_tab,]],key="tabgroup"),],
    
 ]
     
