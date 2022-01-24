@@ -1,5 +1,7 @@
 air
 animal
+angle
+angel
 apple
 apron
 area

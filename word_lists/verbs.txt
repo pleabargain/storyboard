@@ -5,8 +5,10 @@ allow
 apologize
 appear
 apply
+appraise
 appreciate
 approach
+archive
 arrest
 arrive
 ask
