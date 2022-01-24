@@ -1831,8 +1831,8 @@ grammar_tracker_tab= sg.Tab ("grammar tracker",tracker_layout)
 worksheet_tab_layout = [
 
 
-        [sg.Text("Worksheet"), sg.Button("TODO worksheet",key="TODO_worksheet"),
-        sg.Text("instructions:")
+        [sg.Text("Worksheet"), 
+        sg.Text("instructions:"),
         ],
                 
         [sg.Text("select one category"), 
@@ -1996,7 +1996,7 @@ worksheet_tab_layout = [
          sg.Button("view generated grammar graph",
                     key = "view_grammar_graph_prompt_response2",
                     size=(25,1),
-                    tooltip="TODO link to grammar graph line 1722",
+                    tooltip="1999 TODO link to grammar graph line 1722",
 
                     ) ,
         
@@ -2006,7 +2006,7 @@ worksheet_tab_layout = [
 
         #bottom of the tab
         [sg.Button("open attention csv",
-        tooltip ="line 1649",
+        tooltip ="line 2009",
         key="open_attention_csv"),
         ]
 
@@ -2032,9 +2032,11 @@ question_tab_layout = [
                 key="db_category", 
                 enable_events=True, 
                 size=(None,None), 
-                tooltip="line 1560 key=db_category" ), 
+                tooltip="line 2035 key=db_category" ), 
                 sg.Text("Database info:"),
-                sg.Text("", key= "questions_db_info",size=(20,1)),
+                sg.Text("", 
+                        key= "questions_db_info",
+                        size=(20,1)),
                  ],
 
         [sg.Text("selected topics instructions", tooltip="line 1369")],
@@ -2042,7 +2044,7 @@ question_tab_layout = [
         [sg.Multiline(default_text="Welcome! You are about to experience\none of the most advanced English classes ever.", 
                     key="question_instructions", 
                     font = ("helvetica",13),
-                    tooltip ="TODO I want to be able to write/update changes here,line 1748\nmaybe new DB will allow me to do that!",
+                    tooltip ="2045 TODO I want to be able to write/update changes here,line 1748\nmaybe new DB will allow me to do that!",
                     size=(None,3 ),
                     change_submits=True, 
                     # expand_y=True, 
@@ -2050,7 +2052,7 @@ question_tab_layout = [
             sg.Button("Open\ninstructions\nfile",
                         size=(None,3),
                         key ="open_question_instructions",
-                        tooltip="line1778 key = open_question_instructions"),
+                        tooltip="line 2053 key = open_question_instructions"),
 
         ],
         
@@ -2065,8 +2067,13 @@ question_tab_layout = [
                 ),
         sg.Text("",key="db_question_number"), 
         # sg.Text("flag",tooltip="line1700"),
-        sg.Radio('needs attention', "RADIO2", key="needs_attention", default=False, size=(None,None)),
-        sg.Button("open attention csv",key="open_attention_csv"), 
+        sg.Radio('needs attention', 
+                    "RADIO2", 
+                    key="needs_attention", 
+                    default=False, 
+                    size=(None,None)),
+        sg.Button("open attention csv",
+                key="open_attention_csv"), 
         ],
         
         [ sg.Multiline("",
@@ -2075,7 +2082,7 @@ question_tab_layout = [
                 disabled = True,
                 justification="left",
                 font=("helvetica",13),
-                tooltip="line 1611")
+                tooltip="line 2078")
         ],
         
         [sg.Button("1 show possible answers",
@@ -2090,7 +2097,7 @@ question_tab_layout = [
                     button_color="yellow",
 
                     font=('helvetica'),
-                    tooltip="line 1626",
+                    tooltip="line 2093",
                     ) ,
 
         sg.Button("get next question", 
@@ -2123,7 +2130,7 @@ question_tab_layout = [
                 # this can then be added to the db if time allows
                 key="student_answer1",
                 font=("helvetica",18), 
-                tooltip="student_answer1 line 1658"
+                tooltip="student_answer1 line 2126"
                 ), 
                 
                 sg.Text("! indicates wrong answers separate answers with ;"),
@@ -2167,7 +2174,9 @@ question_tab_layout = [
         # [sg.Text("08: "),sg.Text("?",key= "db_choice8",enable_events=True,size=(None,None))],
         # [sg.Text("09: "),sg.Text("?",key= "db_choice9",enable_events=True,size=(None,None))],
         # [sg.Text("10: "),sg.Text("?",key= "db_choice10",enable_events=True,size=(None,None))],
-        [sg.Text("Put first choice here: "),sg.Input(default_text="answer?",key= "student_question_choice")],
+        [sg.Text("Put first choice here: "),
+        sg.Input(default_text="answer?",
+        key= "student_question_choice")],
         
         #handle the buttons at the bottom of the screen
         [
@@ -2175,13 +2184,13 @@ question_tab_layout = [
                     # this should open the file 
                     key = "display_grammar_graph",
                     size=(40,1),
-                    tooltip="line 1684",
+                    tooltip="line 2178",
 
                     ) ,
 
         sg.Button("save and export",
                     key="export_student_questions",
-                    tooltip="1909 key export student questions",
+                    tooltip="2184 key export student questions",
                     size=(30,1))
         ],
         
@@ -2189,7 +2198,10 @@ question_tab_layout = [
 
 #end of question tab layout
 
-question_tab= sg.Tab ("questions",question_tab_layout)
+question_tab= sg.Tab ("questions", 
+                    question_tab_layout, 
+                    #looks like tooltips don't work with tabs
+                    tooltip="test")
 
 
 
@@ -2207,27 +2219,29 @@ layout = [
                    key="student_name",
                     default_value="Horst",
 
-                    tooltip="line 1912 TODO test adding new name this should pull from a list of students name goes here",
+                    tooltip="line 2210 TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 1916"
+                tooltip = "see line 2214",
 
                 ) ,
 
-    sg.Text("date picker: ",tooltip="TODO this needs to load from the json file line 1687"), 
-    # bug: load Horst and then key error. I tried removing the values but still got keyerror
-    # KeyError: 'questions'
+    sg.Text("date picker: ",
+            tooltip="TODO this needs to load from the json file line 2231",), 
+    
     sg.Combo(values=[""], 
             size = (20,1),
             key = "date_picker", 
             enable_events=True,
-            tooltip="loads from the json file line 1947"),
+            tooltip="loads from the json file line 2237"),
     sg.Button("load syllabus", 
             #this opens the md syllabus file
-            tooltip="will open md file in VS code line 1950"),
+            tooltip="will open md file in VS code line 2240"),
     
-    sg.Button("TODO worksheet",key="TODO_worksheet"),
+    sg.Button("TODO worksheet",
+            key="TODO_worksheet",
+            tooltip="2245" ),
     
     ],
 

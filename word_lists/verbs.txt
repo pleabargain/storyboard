@@ -225,6 +225,7 @@ ought(modal)
 outmanoeuvre
 overestimate
 oversleep(irr)
+overwhelmed
 owe
 own
 paint

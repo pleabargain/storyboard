@@ -100,6 +100,7 @@ lie
 life
 line
 lot
+lounge
 lump
 magic
 mansion
