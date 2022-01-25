@@ -1,0 +1,6 @@
+timestamp,student_choice,UNIQUE_ID,CATEGORY,QUESTION,CORRECT_ANSWERS,CHOICE1,CHOICE2,CHOICE3,CHOICE4,CHOICE5,CHOICE6,CHOICE7,CHOICE8,CHOICE9,CHOICE10
+2022.1.25 11:30:5,already,580,adverbs,Your daughter has   ___  returned home. You don't have to worry anymore.,already,fastly,yet,already,ever,ago,,,,,
+2022.1.25 11:34:34,already,465,adverbs,"Is Adam going to buy a new car? No, he isn't. He has ___  bought it.",already,ago,yet,ever,already,ago,,,,,
+2022.1.25 11:36:48,rarely,525,adverbs,Why do you trust his judgement?  I trust his judgement - he ..... makes a mistake.,rarely,quietly,always,quite,rarely,simply,,,,,
+2022.1.25 11:38:32,,518,adverbs,My son has ___ been to Moscow.,never,ago,ever,whenever,never,simply,,,,,
+2022.1.25 11:39:25,,581,adverbs,Your daughter has   ___  returned home. You don't have to worry anymore.,just,fastly,ever,just,ago,whenever,,,,,

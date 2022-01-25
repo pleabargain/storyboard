@@ -2190,7 +2190,7 @@ question_tab_layout = [
 
         sg.Button("save and export",
                     key="export_student_questions",
-                    tooltip="2184 key export student questions",
+                    tooltip="2193 key export student questions",
                     size=(30,1))
         ],
         
@@ -2210,20 +2210,18 @@ layout = [
     
     #done column with image and text 
     [sg.Menu(menu_def, tearoff=True)],
-    # [sg.Canvas(size=(500, 200), key='canvas')],
-    #done use image resizer on images
-    #done load student names from text file into Multiline
+    
     # file is /home/dgd/Desktop/python_storyboard_flashcards/students/student_names.txt
     [sg.Text("student name:"),
             sg.Combo(values=student_names,
                    key="student_name",
                     default_value="Horst",
 
-                    tooltip="line 2210 TODO test adding new name this should pull from a list of students name goes here",
+                    tooltip="line 2222 TODO test adding new name this should pull from a list of students name goes here",
             ), 
     
     sg.Button("load student json", 
-                tooltip = "see line 2214",
+                tooltip = "see line 2226",
 
                 ) ,
 
