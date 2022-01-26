@@ -35,6 +35,7 @@ bring(irr)
 build(irr)
 buy(irr)
 call
+camp
 can(modal)
 carry
 cause

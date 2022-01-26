@@ -542,6 +542,8 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
                 'M_reason',
                 'M_results',# test note
                     'M_subordinating',
+                    "M_summarizing",
+                    "M_coordinating",
                 ],
 
             ],
@@ -2621,12 +2623,17 @@ while True:
     if event == 'M_comparison':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_comparison.md")),
 
+
+
     if event == 'M_condition':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.md")),
 
     if event == 'M_concenssion':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.md")),
 
+    if event == 'M_coordinating':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/coordinating_conjunctions.md")),
+    
     if event == 'M_contrast':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.md")),
 
@@ -2646,6 +2653,8 @@ while True:
     if event == 'M_subordinating':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/subordinating_conjunctions.md")),
 
+    if event == 'M_summarizing':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summarizing.md")),
 
 
 
@@ -3052,16 +3061,16 @@ while True:
         
 # button in verb adj noun
     if event == "edit verbs list":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/verbs.txt"))
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/verbs.md"))
 
     if event == "edit nouns list":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.txt"))
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.md"))
 
     if event == "edit adjectives list":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.txt"))
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/adjectives.md"))
 
     if event == "edit quantifiers list":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/quantifiers.txt"))    
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/quantifiers.md"))    
 
     
 
