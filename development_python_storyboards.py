@@ -2551,7 +2551,7 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/tips.md"))
 
     if event == "load syllabus":
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/20_week_syllabus.md"))
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/30_week_syllabus.md"))
 
     if event == "core vocab":
         webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
