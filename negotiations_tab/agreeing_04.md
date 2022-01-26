@@ -1,5 +1,6 @@
 I agree with you on X point.
 If you can do X, I’m on board.
+I agree with you on a number of points.
 I agree with you on that point.
 Sounds acceptable.
 I think we can agree to X.

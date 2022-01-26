@@ -1,0 +1,25 @@
+sql4: cats with match (questionbank, instructions)
+select question_bank_2.category from question_bank_2 inner join categories on question_bank_2.CATEGORY = categories.category
+
+
+sql5:  cats in question bank without match in category_and_instructions:
+
+select distinct question_bank_2.category from question_bank_2 left join categories on question_bank_2.CATEGORY = categories.category WHERE categories.category is null
+
+
+sql7: cats in cat_and_instruct without match in question_bank2:
+select distinct categories.category from categories left join question_bank_2 on question_bank_2.CATEGORY = categories.category WHERE question_bank_2.category is null
+
+sql8: fill questions with question, old_uid and id_category:
+insert into questions (question, old_uid, ID_category) SELECT question_bank_2.QUESTION, question_bank_2.UNIQUE_ID, categories.ID_category  from question_bank_2 inner join categories on question_bank_2.CATEGORY = categories.category
+
+sql9: select all unique answers from choice1 and fill into answers
+insert into answers (answer)  select distinct CHOICE1 from question_bank_2
+
+sql10: choice 2 .. (if not already in answers)
+insert into answers (answer) select distinct CHOICE2 from question_bank_2 left join answers on question_bank_2.choice2 = answers.answer Where answers.answer is null
+
+choice 3 ..... choice 12
+
+sql11: add missing correct answers into answers
+insert into answers (answer) SELECT CORRECTANSWERS from question_bank_2 left join answers on CORRECTANSWERS = answer where answer is null

@@ -397,26 +397,23 @@ def read_list_from_file():
     # pros and cons
     pros_cons_issues.clear()
     
-   
-### connecting words
-
-      
+    
  
 ###tenses
-    with open("word_lists/verbs.txt") as myfile:
+    with open("word_lists/verbs.md") as myfile:
         for line in myfile.readlines():
             verbs_list.append(line.strip())
-    with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.txt") as myfile:
+    with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.md") as myfile:
         for line in myfile.readlines():
             nouns_list.append(line.strip())
-    with open("word_lists/adjectives.txt") as myfile:
+    with open("word_lists/adjectives.md") as myfile:
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
-    with open("word_lists/quantifiers.txt") as myfile:
+    with open("word_lists/quantifiers.md") as myfile:
         for line in myfile.readlines():
             quantifiers_list.append(line.strip())
 
-    with open("word_lists/subordinating_conjunctions.txt") as myfile:
+    with open("word_lists/subordinating_conjunctions.md") as myfile:
         for line in myfile.readlines():
             subordinating_conjunctions_list.append(line.strip())
 
@@ -525,23 +522,32 @@ sg.ChangeLookAndFeel('GreenTan')
 # ------ Menu Definition ------ #
 menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Edit', ['Paste', ['Special', 'Normal', ], 'Undo'], ],
-            ['&Vocabulary',['core vocab','2 letter words','3 letter words','4 letter words','business vocab'],],
+            ['&Vocabulary',
+                ['core vocab',
+                '2 letter words',
+                '3 letter words',
+                '4 letter words',
+                'business vocab'
+                ],
+            ],
+            ['&Linking Words',
+                [
+                'M_addition',
+                'M_comparison',
+                'M_concession',
+                'M_condition',
+                'M_contrast',
+                'M_emphasis',
+                'M_illustration',
+                'M_reason',
+                'M_results',# test note
+                    'M_subordinating',
+                ],
+
+            ],
             ['&Help', ['tips','README',],'&Open_docs'], ]
 
-# ------ Column Definition ------ #
-# column1 = [[sg.Text('Column 1', background_color='lightblue', justification='center', size=(10, 1))],
-#            [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 1',key = "Spin1",enable_events=True)],
-#            [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 2')],
-#            [sg.Spin(values=('Spin Box 1', '2', '3'), initial_value='Spin Box 3')]]
-
-# the vocab will go here
-# vocabulary_column = [sg.Multiline(default_text='This is the default Text should you decide not to type anything', size=(35, 3)),
-#      sg.Multiline(default_text='A second multi-line', size=(35, 3))]
-#header Vocabulary
-
-# column_vocab = sg.Column([
-#                         sg.Multiline(default_text='A second multi-line', size=(5, 5))
-#                           ])
+#TODO add business vocabulary
 
 timeline_column_one = sg.Column([
                                 [sg.Button("change time",
@@ -922,7 +928,7 @@ tenses_tab_column_left = sg.Column(
                             key="past_perfect",
                             font = ("helvetica",16),
                             enable_events=True,
-                            tooltip='Past Perfect - By the time my last company went bust we had already built the new shopping center.')],
+                            tooltip='line 925 Past Perfect - By the time my last company went bust we had already built the new shopping center.')],
 
                             [sg.Text("past perfect continuous",
                             key="past_perfect_continuous",
@@ -1069,96 +1075,96 @@ negotiation_column_left = sg.Column(
                             [
                                                      
                             
-                            [sg.Text('prepare', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('0', 
+                            justification = "left",
+                            tooltip = "prepare line 1074",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
 
-                            [sg.Text('agenda', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('1', 
+                            justification = "left",
+                            tooltip = "agenda line 1081",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
 
-                            [sg.Text('offers and proposals', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('2', 
+                            justification = "left",
+                            tooltip = "offers and proposals line 1088",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
 
-                            [sg.Text('suggestions', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('3', 
+                            justification = "left",
+                            tooltip = "suggestions 1096",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('agreeing', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('4', 
+                            justification = "left",
+                            tooltip = "agreeing 1103",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('objecting', 
+                            [sg.Text('5', 
                             justification = "center",
-                            tooltip = "1074",
+                            tooltip = "objecting line 1110",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('prioritizing', 
+                            [sg.Text('6', 
                             justification = "center",
-                            tooltip = "1074",
+                            tooltip = "prioritizing 1117",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('clarifying', 
+                            [sg.Text('7', 
                             justification = "center",
-                            tooltip = "1074",
+                            tooltip = "clarifying 1124",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('compromising', 
+                            [sg.Text('8', 
                             justification = "center",
-                            tooltip = "1074",
+                            tooltip = "compromising 1131",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('bargaining', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('9', 
+                            justification = "left",
+                            tooltip = "bargaining 1138",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('postponing', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('10', 
+                            justification = "left",
+                            tooltip = "postponing 1145",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                           [sg.Text('concluding', 
-                            justification = "center",
-                            tooltip = "1074",
+                           [sg.Text('11', 
+                            justification = "left",
+                            tooltip = "concluding 1152",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
                             
-                            [sg.Text('seal the deal', 
-                            justification = "center",
-                            tooltip = "1074",
+                            [sg.Text('12', 
+                            justification = "left",
+                            tooltip = "seal the deal 1159",
                             size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            font=("Helvetica", 14)) 
                             ],
 
                         
@@ -1170,112 +1176,131 @@ negotiation_column_center = sg.Column([
                             [sg.Multiline('prepare', #guy face emoji
                             key="prepare_0_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
-                            ],
+                            autoscroll=True,
+                            # justification = "center",
+                            size=(60,1), 
+                            font=("Helvetica", 14)) ,
+                            sg.Button("text",
+                                        key="prepare0",)
+                            ], 
 
                             [sg.Multiline('agenda',
                             key="agenda_01_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            # justification = "center",
+                            size=(60,1), 
+                            font=("Helvetica", 14)) ,
+                            sg.Button("text",
+                                        key="agenda1",)
                             ],
                             
                             [sg.Multiline('make proposals', #guy face emoji
                             key="making_proposals_02_list_box",                            enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                            sg.Button("text",
+                                        key="proposals2",)
+                             
                             ],
                             
                             [sg.Multiline('make suggestions', #guy face emoji
                             key="suggestions_03_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                            sg.Button("text",
+                                        key="suggestions3",)
                             ],
 
                             [sg.Multiline('find agreement', 
                             key="agreeing_04_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                            sg.Button("text",
+                                        key="agreeing4",)
                             ],
 
                             [sg.Multiline('objecting', 
                             key="objecting_05_list_box",
                             tooltip = "1210",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                            sg.Button("text",
+                                        key="objecting5",)
                             ],
 
                             [sg.Multiline('prioritizing', 
                             key="prioritizing_06_list_box",
                             tooltip = "1220",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                               sg.Button("text",
+                                        key="prioritizing6",)
                             ],
 
                             [sg.Multiline('clarifying',
                             key="clarification_07_list_box",
-                            tooltip = "1229",
+                            tooltip = "1241",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                                   sg.Button("text",
+                                        key="clarification7",)
                             ],
 
                             [sg.Multiline('compromising', 
                             key="compromising_08_list_box",
                             tooltip ="1237",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                                   sg.Button("text",
+                                        key="compromising8",)
                             ],
 
                             [sg.Multiline('bargaining', #guy face emoji
                             key="bargaining_09_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                                   sg.Button("text",
+                                        key="bargaining9",)
                             ],
 
 
                             [sg.Multiline('postponing', #guy face emoji
                             key="postponing_10_list_box",
-                            tooltip="1256",
+                            tooltip="1271",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                                   sg.Button("text",
+                                        key="postponing10",)
                             ],
 
 
                             [sg.Multiline('concluding', 
                             key="concluding_11_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            font=("Helvetica", 14)),
+                                   sg.Button("text",
+                                        key="concluding11",)
                             ],
 
                             
                             [sg.Multiline('seal the deal', 
                             key="seal_the_deal_12_list_box",
                             enable_events=True,
-                            justification = "center",
-                            size=(None,None), 
-                            font=("Helvetica", 16)) 
+                            size=(60,1), 
+                            tooltip = "1294",
+                            font=("Helvetica", 14)),
+                                   sg.Button("text",
+                                        key="seal_the_deal12",)
                             ],
 
                         
@@ -1381,25 +1406,31 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
 # ----------------- get negotiation columns
 
 
-new_negotiation_tab= sg.Tab ("new tab", [
+new_negotiation_tab= sg.Tab ("negotiations", [
         #create button
         [sg.Button("idioms1",
-                    tooltip = "line 1215",),
+                    tooltip = "line 1406",),
         sg.Button("prepositional phrases1",
-                   tooltip = "line 925", ),
+                   tooltip = "line 1408", ),
         sg.Button("phrasal verbs1",
-                   tooltip = "line 929" ,),
+                   tooltip = "line 1410" ,),
         sg.Button("collocations1",
                     tooltip = "line 930",)    ,
         # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
         sg.Button("conditionals1"),
         sg.Button("comparatives and superlatives1"),
         sg.Button("modals1"),
-        sg.Button("question modals1"),
+        sg.Button("question modals_1"),
         ],
 
 
     [negotiation_column_left, negotiation_column_center,negotiation_column_right],
+    [    sg.Button('save negotiation text',  
+                size=(85,1),
+                tooltip = "TODO save this file and open in an editor. Maybe even an editor in Pysimple?!"
+                
+                 ),
+    ],
 
     ])
 
@@ -1410,227 +1441,223 @@ new_negotiation_tab= sg.Tab ("new tab", [
 #### negotiation TAB
 #TODO add edit button so I can quickly go in and add entries
 
-negotiation_tab_three = sg.Tab("negotiation",
-[
+# negotiation_tab_three = sg.Tab("negotiation",
+# [
         
-[
-    sg.Text("prepare_0", tooltip="948"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            # key="prepare_0_list_box",
-            # enable_events=True,
-            font=("Helvetica",14),
-            justification = "center",
-            size=(55,1)
-            ),
-    sg.Button('edit prepare_0'),
+# [
+#     sg.Text("prepare_0", tooltip="948"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             # key="prepare_0_list_box",
+#             # enable_events=True,
+#             font=("Helvetica",14),
+#             justification = "center",
+#             size=(55,1)
+#             ),
+#     sg.Button('edit prepare_0'),
 
-],
+# ],
 
-[
-    sg.Text("agenda_01"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="agenda_01_list_box",
-            enable_events=True,
-           font=("Helvetica", 14),
-            justification = "center",
-            size=(55,1)
-            ),
-    # sg.Button('edit agenda_01'),
+# [
+#     sg.Text("agenda_01"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="agenda_01_list_box",
+#             enable_events=True,
+#            font=("Helvetica", 14),
+#             justification = "center",
+#             size=(55,1)
+#             ),
+#     # sg.Button('edit agenda_01'),
 
-],
+# ],
 
-[
-    sg.Text("making_proposals_02"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="making_proposals_02_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit making_proposals_02'),
+# [
+#     sg.Text("making_proposals_02"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="making_proposals_02_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit making_proposals_02'),
 
-],
+# ],
 
-[
-    sg.Text("suggestions_03"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="suggestions_03_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit suggestions_03'),
+# [
+#     sg.Text("suggestions_03"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="suggestions_03_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit suggestions_03'),
 
-],
+# ],
 
-[
-    sg.Text("agreeing_04"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="agreeing_04_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit agreeing_04'),
+# [
+#     sg.Text("agreeing_04"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="agreeing_04_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit agreeing_04'),
 
-],
+# ],
 
-[
-    sg.Text("objecting_05"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="objecting_05_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit objecting_05'),
+# [
+#     sg.Text("objecting_05"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="objecting_05_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit objecting_05'),
 
-],
+# ],
 
-[
-    sg.Text("prioritizing_06"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="prioritizing_06_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit prioritizing_06'),
+# [
+#     sg.Text("prioritizing_06"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="prioritizing_06_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit prioritizing_06'),
 
-],
+# ],
 
-[
-    sg.Text("clarification_07"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="clarification_07_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit clarification_07'),
+# [
+#     sg.Text("clarification_07"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="clarification_07_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit clarification_07'),
 
-],
+# ],
 
-[
-    sg.Text("compromising_08"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="compromising_08_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    sg.Text("Connecting Words for Concession", 
-            key="connecting_words_concession",
-            enable_events=True,
-            size= (None,None),
-            ),
-    # sg.Button('edit compromising_08'),
+# [
+#     sg.Text("compromising_08"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="compromising_08_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     sg.Text("Connecting Words for Concession", 
+#             key="connecting_words_concession",
+#             enable_events=True,
+#             size= (None,None),
+#             ),
+#     # sg.Button('edit compromising_08'),
 
-],
+# ],
 
-[
-    sg.Text("bargaining_09"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="bargaining_09_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    sg.Text("Linking Words for Condition", 
-            key="linking_words_condition",
-            enable_events=True,
-            size= (None,None),
-            ),
+# [
+#     sg.Text("bargaining_09"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="bargaining_09_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     sg.Text("Linking Words for Condition", 
+#             key="linking_words_condition",
+#             enable_events=True,
+#             size= (None,None),
+#             ),
 
-    # sg.Button('edit bargaining_09'),
+#     # sg.Button('edit bargaining_09'),
 
-],
+# ],
 
-[
-    sg.Text("postponing_10"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="postponing_10_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit postponing_10'),
+# [
+#     sg.Text("postponing_10"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="postponing_10_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit postponing_10'),
 
-],
+# ],
 
-[
-    sg.Text("concluding_11"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="concluding_11_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-     sg.Text("Linking Words for Results", 
-                key="linking_words_results2",
-                tooltip="bug link not working need to number the keys.line 1323 ",
-                enable_events=True,
-                size= (None,None),
-                ),
+# [
+#     sg.Text("concluding_11"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="concluding_11_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#      sg.Text("Linking Words for Results", 
+#                 key="linking_words_results2",
+#                 tooltip="bug link not working need to number the keys.line 1323 ",
+#                 enable_events=True,
+#                 size= (None,None),
+#                 ),
 
-    sg.Text("Summarizing", 
-                key="connecting_words_summary1",
-                enable_events=True,
-                size= (None,None),
-                ),
-    # sg.Button('edit concluding_11'),
+#     sg.Text("Summarizing", 
+#                 key="connecting_words_summary1",
+#                 enable_events=True,
+#                 size= (None,None),
+#                 ),
+#     # sg.Button('edit concluding_11'),
 
-],
+# ],
 
-[
-    sg.Text("seal_the_deal_12"),
-    sg.Text(
-            text= "Have you prepared enough?!",
-            key="seal_the_deal_12_list_box",
-            enable_events=True,
-            font=("Helvetica"),
-            justification = "left",
-            size=(None,None)
-            ),
-    # sg.Button('edit seal_the_deal_12'),
+# [
+#     sg.Text("seal_the_deal_12"),
+#     sg.Text(
+#             text= "Have you prepared enough?!",
+#             key="seal_the_deal_12_list_box",
+#             enable_events=True,
+#             font=("Helvetica"),
+#             justification = "left",
+#             size=(None,None)
+#             ),
+#     # sg.Button('edit seal_the_deal_12'),
 
 
-],
-#TODO save the output!
-[    sg.Button('save negotiation text',  
-                size=(85,1),
-                tooltip = "TODO save this file and open in an editor. Maybe even an editor in Pysimple?!"
-                
-                 ),]
+# ],
+# #TODO save the output!
 
-###
+
+# ###
     
-]
+# ]
 
 
-)
+# )
 
 ####################################3
 timeline_tab= sg.Tab ("timeline tenses tab", 
@@ -2243,7 +2270,16 @@ layout = [
     
     ],
 
-    [sg.TabGroup([[tab_one,storyboard_tenses_tab_two,new_negotiation_tab,negotiation_tab_three,timeline_tab, pros_cons_tab,question_tab ,worksheet_tab, grammar_tracker_tab,]],key="tabgroup"),],
+    [sg.TabGroup([[tab_one,
+                    storyboard_tenses_tab_two,
+                    new_negotiation_tab,
+                    #negotiation_tab_three,
+                    timeline_tab, 
+                    pros_cons_tab,
+                    question_tab ,
+                    worksheet_tab, 
+                    grammar_tracker_tab,
+                    ]],key="tabgroup"),],
    
 ]
     
@@ -2285,7 +2321,7 @@ while True:
 
     if event == "linking_words_results":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["linking_words_results"].update(selected_topic)
@@ -2296,18 +2332,18 @@ while True:
     #allows reuse of events
     if "connecting_words_concession" in event:
         read_list_from_file()
-        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.txt","connecting_words_concession")
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.md","connecting_words_concession")
     
 
     if  "connecting_words_summary" in event:
         read_list_from_file()
-        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.txt","connecting_words_summary")
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.md","connecting_words_summary")
         
 
    
     if event == "connecting_words_emphasis":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["connecting_words_emphasis"].update(selected_topic)
@@ -2315,7 +2351,7 @@ while True:
 
     if event == "connecting_words_illustration":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_illustration.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_illustration.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["connecting_words_illustration"].update(selected_topic)
@@ -2326,7 +2362,7 @@ while True:
 
     if event == "linking_words_addition":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["linking_words_addition"].update(selected_topic)
@@ -2334,25 +2370,22 @@ while True:
 
     if event == "linking_words_comparison":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_comparison.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_comparison.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["linking_words_comparison"].update(selected_topic)
 
     if event == "linking_words_condition":
         read_list_from_file()
-        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.txt","linking_words_condition")
+        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.md","linking_words_condition")
        
-
-
-
 
         
 
 
     if event == "linking_words_contrast":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["linking_words_contrast"].update(selected_topic)
@@ -2360,7 +2393,7 @@ while True:
 
     if event == "linking_words_reason":
         read_list_from_file()
-        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_reason.txt") as myfile:
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_reason.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["linking_words_reason"].update(selected_topic)
@@ -2374,7 +2407,7 @@ while True:
     if "linking_words_results" in event:
         read_list_from_file()
         # open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt","linking_words_results")
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt"))
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.md"))
 
 
 
@@ -2554,6 +2587,7 @@ while True:
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/30_week_syllabus.md"))
 
     if event == "core vocab":
+        #TODO clean up the spreadsheet
         webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
         # pass
 
@@ -2569,9 +2603,53 @@ while True:
         #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
         webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
 
+#menu linking words
+#                   'M_addition',
+#                 'M_comparison',
+#                 'M_concession',
+#                 'M_condition',
+#                 'M_contrast',
+#                 'M_emphasis',
+#                 'M_illustration',
+#                 'M_reason',
+#                 'M_results',# test note
+#                 'M_subordinating',
+
+    if event == 'M_addition':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.md")),
+
+    if event == 'M_comparison':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_comparison.md")),
+
+    if event == 'M_condition':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.md")),
+
+    if event == 'M_concenssion':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.md")),
+
+    if event == 'M_contrast':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.md")),
+
+    if event == 'M_emphasis':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.md")),
+
+    if event == 'M_illustration':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_illustration.md")),
+
+    if event == 'M_reason':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.md")),
 
 
-# -----------------------------------------question tab events---------------------
+    if event == 'M_results':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.md")),
+
+    if event == 'M_subordinating':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/subordinating_conjunctions.md")),
+
+
+
+
+# ---------------------------------------question tab events---------------------
 
     if event == "display_grammar_graph":
         question = values["db_question"]
@@ -2951,10 +3029,10 @@ while True:
 
 # tenses tab
 
-    if event == "phrasal verbs":
+    if event in ("phrasal verbs","phrasal verbs1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=1,autoraise=True )
     
-    if event == "collocations":
+    if event in ("collocations", "collocations1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
 
     if event == "image_shuffle":
@@ -3119,24 +3197,25 @@ while True:
         webbrowser.open("https://docs.google.com/spreadsheets/d/1aq_OhW0JRTGNrowS7Q4RCl52cHx7S9Upha7z9VYp-3o/edit?usp=sharing",new=1,autoraise=True )
 
     
-    if event == "comparatives and superlatives":
+    if event in ("comparatives and superlatives","comparatives and superlatives1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/150r972lV3ogmCmlmpjkHNOoX6tIO26Gd4EYzdfCGUW4/edit?usp=sharing",new=1,autoraise=True )
 
-    if event == "idioms":
+
+    if event in ("idioms","idioms1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/15u8oWVJNmjvfkOOvF696E1o-Tz6lBZkr7ctJ6CBLYVk/edit?usp=sharing",new=1,autoraise=True )
 
 
-    if event == "prepositional phrases":
+    if event in ("prepositional phrases","prepositional phrases1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1R3rYYL7H7wC86Z8HeNFy_QzCvqXJSv6w8tKb3wsM30E/edit?usp=sharing",new=1,autoraise=True )
 
-    if event == "conditionals":
+    if event in ("conditionals","conditionals1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1VKcLMETbyEnWpVEeXc5j5NjEa_UF0ydMBInS-ljoWhs/edit?usp=sharing",new=1,autoraise=True )
 
 
-    if event == "modals":
+    if event in ("modals","modals1"):
         webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
 
-    if event == "question modals":
+    if event in ("question modals","question modals_1"):
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_questions_modals_and_auxillaries.md"))
         # can trigger multiple events at the same time!
         webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
@@ -3320,15 +3399,19 @@ while True:
 # negotiation events
 
 ##prepare_0
-    if event == "prepare_0_list_box":
+    if event == "prepare0":
+            print("event fired")
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prepare_0.md") as myfile:
                 lines = myfile.readlines()
             window["prepare_0_list_box"].update(random.choice(lines).strip()  )
+
+    
+
     ###
 
 
     ###agenda_01
-    if event == "agenda_01_list_box":
+    if event == "agenda1":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agenda_01.md") as myfile:
                 lines = myfile.readlines()
             window["agenda_01_list_box"].update(random.choice(lines).strip()  )
@@ -3336,7 +3419,7 @@ while True:
 
 
     ###making_proposals_02
-    if event == "making_proposals_02_list_box":
+    if event == "proposals2":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/making_proposals_02.md") as myfile:
                 lines = myfile.readlines()
             window["making_proposals_02_list_box"].update(random.choice(lines).strip()  )
@@ -3344,7 +3427,7 @@ while True:
 
 
     ###suggestions_03
-    if event == "suggestions_03_list_box":
+    if event == "suggestions3":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/suggestions_03.md") as myfile:
                 lines = myfile.readlines()
             window["suggestions_03_list_box"].update(random.choice(lines).strip()  )
@@ -3352,7 +3435,7 @@ while True:
 
 
     ###agreeing_04
-    if event == "agreeing_04_list_box":
+    if event == "agreeing4":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/agreeing_04.md") as myfile:
                 lines = myfile.readlines()
             window["agreeing_04_list_box"].update(random.choice(lines).strip()  )
@@ -3360,7 +3443,7 @@ while True:
 
 
     ###objecting_05
-    if event == "objecting_05_list_box":
+    if event == "objecting5":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/objecting_05.md") as myfile:
                 lines = myfile.readlines()
             window["objecting_05_list_box"].update(random.choice(lines).strip()  )
@@ -3368,7 +3451,7 @@ while True:
 
 
     ###prioritizing_06
-    if event == "prioritizing_06_list_box":
+    if event == "prioritizing6":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/prioritizing_06.md") as myfile:
                 lines = myfile.readlines()
             window["prioritizing_06_list_box"].update(random.choice(lines).strip()  )
@@ -3376,7 +3459,7 @@ while True:
 
 
     ###clarification_07
-    if event == "clarification_07_list_box":
+    if event == "clarification7":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/clarification_07.md") as myfile:
                 lines = myfile.readlines()
             window["clarification_07_list_box"].update(random.choice(lines).strip()  )
@@ -3384,7 +3467,7 @@ while True:
 
 
     ###compromising_08
-    if event == "compromising_08_list_box":
+    if event == "compromising8":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/compromising_08.md") as myfile:
                 lines = myfile.readlines()
             window["compromising_08_list_box"].update(random.choice(lines).strip()  )
@@ -3392,7 +3475,7 @@ while True:
 
 
     ###bargaining_09
-    if event == "bargaining_09_list_box":
+    if event == "bargaining9":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/bargaining_09.md") as myfile:
                 lines = myfile.readlines()
             window["bargaining_09_list_box"].update(random.choice(lines).strip()  )
@@ -3400,7 +3483,7 @@ while True:
 
 
     ###postponing_10
-    if event == "postponing_10_list_box":
+    if event == "postponing10":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/postponing_10.md") as myfile:
                 lines = myfile.readlines()
             window["postponing_10_list_box"].update(random.choice(lines).strip()  )
@@ -3408,14 +3491,14 @@ while True:
 
 
 #concluding_11
-    if event == "concluding_11_list_box":
+    if event == "concluding11":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/concluding_11.md") as myfile:
                 lines = myfile.readlines()
             window["concluding_11_list_box"].update(random.choice(lines).strip()  )
     
 
 ###seal_the_deal_12
-    if event == "seal_the_deal_12_list_box":
+    if event == "seal_the_deal12":
             with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/seal_the_deal_12.md") as myfile:
                 lines = myfile.readlines()
             window["seal_the_deal_12_list_box"].update(random.choice(lines).strip()  )
