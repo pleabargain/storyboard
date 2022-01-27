@@ -2,6 +2,9 @@
 
 Start off by getting them to name verbs starting with the letter A,B,C. You can do this with nouns and adjectives as well for warmups.
 
+# story board
+Have your students tell a story using the pictures that involve yesterday, today and tomorrow.
+
 # pros and cons
 This can be a rapid fire exercise to get students thinking about a number of issues and wide ranging vocabulary. It can also be great jump point for countless discussions.
 
@@ -12,6 +15,8 @@ Get students to create a table of three columns. Label the rows with each letter
 
 Focus on simple to say words, 2, 3 and 4 letter words.
 
+# pronunciation
+If they make a pron error, go to the rhyming dictionary and make a sentence using a rhyming word or two.
 
 # if a student is excited
 Let them talk and just correct them. Take notes.
