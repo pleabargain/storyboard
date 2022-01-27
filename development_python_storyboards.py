@@ -530,6 +530,19 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
                 'business vocab'
                 ],
             ],
+
+            ['&Pronunciation',
+                ['pron_ed_id',
+                'pron_ed_t',
+                'pron_ed_k',
+                'silent_b',
+                'silent_s',
+                'misc_pronunciation',
+                
+                ],
+            ],
+
+
             ['&Linking Words',
                 [
                 'M_addition',
@@ -2605,17 +2618,27 @@ while True:
         #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
         webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
 
-#menu linking words
-#                   'M_addition',
-#                 'M_comparison',
-#                 'M_concession',
-#                 'M_condition',
-#                 'M_contrast',
-#                 'M_emphasis',
-#                 'M_illustration',
-#                 'M_reason',
-#                 'M_results',# test note
-#                 'M_subordinating',
+# pronunciation
+    if event == 'pron_ed_id':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_id_sound.md")),
+
+    if event == 'pron_ed_t':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_t.md")),
+
+    if event == 'pron_ed_k':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_k.md")),
+
+    if event == 'silent_b':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/silent_b.md")),
+
+    if event == 'silent_s':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/students/English_pronunciation_tips.md")),
+
+    # /home/dgd/Desktop/EnglishHelpsYourCareer/students/English pronunciation tips.md
+    if event == 'misc_pronunciation':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/students/English_pronunciation_tips.md")),
+
+# linking word
 
     if event == 'M_addition':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_addition.md")),

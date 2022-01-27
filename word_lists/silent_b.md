@@ -1,0 +1,15 @@
+# silent b (don't pronounce the B!)
+- climb
+- comb
+- crumb
+- dumb
+- lamb
+- bomb
+- subtle
+- debt
+- numb
+- doubt
+- plumber
+- thumb
+- womb
+- tomb

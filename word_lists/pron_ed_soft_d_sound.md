@@ -1,0 +1,20 @@
+## pronunciation with soft d sound
+- 'w' allowed
+- 'i' cried
+- 'i' lied
+- 'i' died
+- 'i' fried
+- 'w' borrowed
+- 'y' enjoyed
+- 'n' cleaned
+- 'n' imagined
+- 'n' determined
+- 'g' changed
+- 'z' realized
+- 'z' recognized
+- 'n' learned
+- 'g' arranged
+- 'n' planned
+- 'v' Arrived
+- 'y' played
+- 'z' apologized

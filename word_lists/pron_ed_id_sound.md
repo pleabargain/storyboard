@@ -1,0 +1,25 @@
+## pronunciation with (id) sound at the end
+- 't' wanted (want-id)
+- 'd' ended	(end-id)
+- 't' listed (end-id)
+- 'd' decided	(decide-id)
+- 't' hated	(hate-id)
+- 't' interested 
+- sedated
+- intended	(intend-id)
+- baited
+- admitted	(admit-id)
+- suggested	(suggest-id)
+- recommended	(recommend-id)
+- started
+- inflated
+- parted
+- painted
+- started
+- ended
+- over rated
+- laminated
+- sated
+- stated
+- repeated
+- 
