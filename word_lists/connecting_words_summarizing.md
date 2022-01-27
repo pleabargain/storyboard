@@ -12,7 +12,7 @@
 # in any event
 # in brief
 # in conclusion
-# in essence
+# in essence 
 # in short
 # in summary
 # in the end
@@ -24,4 +24,5 @@
 # to end
 # to sum up
 # to summarize
+
 # ultimately

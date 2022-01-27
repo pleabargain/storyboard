@@ -170,6 +170,7 @@ macho
 many
 menial
 micro
+mild
 millenial
 mischievous
 musical
@@ -219,6 +220,7 @@ ridiculous
 robust
 rotund
 sarcastic
+severe
 shallow
 sharp
 short

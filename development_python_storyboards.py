@@ -356,6 +356,7 @@ def split_filename(original_filename):
                                 "noun_clothing_",
                                 "noun_insect_",
                                 "noun_food_",
+                                "soft_skills_",
                                 "daily_routine_",
                                 "idiom_",
                                 "noun_",
@@ -942,19 +943,19 @@ tenses_tab_column_left = sg.Column(
                             key="past_simple",
                             font = ("helvetica",16),
                             enable_events=True,
-                            tooltip='Past Simple - I built a new garage last month.')],
+                            tooltip='Past Simple - \nI built a new garage last month.')],
 
                             [sg.Text("past continuous",
                             font = ("helvetica",16),
                             key="past_continuous", 
                             enable_events=True,
-                            tooltip='Past Continuous - I was building a wall yesterday.')],
+                            tooltip='Past Continuous - \nI was building a wall yesterday.')],
                             
                             [sg.Text("past perfect",
                             key="past_perfect",
                             font = ("helvetica",16),
                             enable_events=True,
-                            tooltip='line 925 Past Perfect - By the time my last company went bust we had already built the new shopping center.')],
+                            tooltip='line 925 Past Perfect - \nBy the time my last company went bust we had already built the new shopping center.')],
 
                             [sg.Text("past perfect continuous",
                             key="past_perfect_continuous",
@@ -974,7 +975,7 @@ tenses_tab_column_left = sg.Column(
                             [sg.Image(filename="",
                             key='canvas1a')
                             ],
-#####################                            
+                   
                             [sg.Multiline('text', 
                             key= "text1b",
                             justification = "center",
@@ -1412,7 +1413,12 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Button("phrasal verbs",
                    tooltip = "line 929" ,),
         sg.Button("collocations",
-                    tooltip = "line 930",)    ,
+                    tooltip = "line 930",),
+
+        sg.Button("irregular verbs",
+                    tooltip = "line 1418",),
+
+
         # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
         ],
     
@@ -2611,7 +2617,8 @@ while True:
     if event == "load syllabus":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/30_week_syllabus.md"))
 
-    # if event == "core vocab":
+    if event == "core vocab":
+            webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
     #     os.system("{} {}".format(FIREFOX,"https://pysimplegui.readthedocs.io/en/latest/",new=2,autoraise=True ))
 
 
@@ -3082,6 +3089,10 @@ while True:
 
 
 # tenses tab
+
+
+    if event in ("irregular verbs", ):
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1NM2ZkyO_-DESyWuezXiRqXuKC75qs2Fwxi0mKQbEULY/edit#gid=0",new=2,autoraise=True)
 
     if event in ("phrasal verbs","phrasal verbs1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=2,autoraise=True )

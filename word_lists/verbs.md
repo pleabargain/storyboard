@@ -69,6 +69,7 @@ credit
 customized
 cut(irr)
 dare
+dash
 dedicate
 delay
 demand
@@ -280,6 +281,7 @@ remind
 rent
 repeat
 request
+require
 rescue
 research
 reverse
@@ -294,6 +296,7 @@ save
 savor
 say(irr)
 scale
+scorch
 seal
 sedated
 see(irr)
@@ -308,6 +311,7 @@ should(modal)
 show
 sing(irr)
 sit(irr)
+slap
 sleep(irr)
 slip
 smell
@@ -328,6 +332,7 @@ study
 suggest
 surround
 survey
+tag
 take(irr)
 talk
 target

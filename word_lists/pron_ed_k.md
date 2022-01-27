@@ -4,3 +4,5 @@
 - orchid
 - chemistry
 - schedule
+- school
+- archive
