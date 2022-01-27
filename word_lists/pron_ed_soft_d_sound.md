@@ -15,6 +15,7 @@
 - 'n' learned
 - 'g' arranged
 - 'n' planned
-- 'v' Arrived
+- 'v' arrived
 - 'y' played
 - 'z' apologized
+- tried

@@ -67,6 +67,7 @@ with open(INSTRUCTIONS_FILENAME) as tmp:
 
 
 selected_topic =""
+FIREFOX = "firefox"
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
 mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\nsub conjunction: {}\n
@@ -413,7 +414,7 @@ def read_list_from_file():
         for line in myfile.readlines():
             quantifiers_list.append(line.strip())
 
-    with open("word_lists/subordinating_conjunctions.md") as myfile:
+    with open("word_lists/list_subordinating_conjunctions.md") as myfile:
         for line in myfile.readlines():
             subordinating_conjunctions_list.append(line.strip())
 
@@ -534,8 +535,9 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
             ['&Pronunciation',
                 ['pron_ed_id',
                 'pron_ed_t',
-                'pron_ed_k',
+                'pron_soft_d',
                 'silent_b',
+                'pron_k',
                 'silent_s',
                 'misc_pronunciation',
                 
@@ -560,7 +562,16 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
                 ],
 
             ],
-            ['&Help', ['tips','README',],'&Open_docs'], ]
+            ['&Resources',
+                ['rhyme_site',
+                ]
+            ],
+            ['&Help', 
+                ['tips',
+                'README',
+            ],
+            '&Open_docs'], 
+            ]
 
 #TODO add business vocabulary
 
@@ -2589,9 +2600,8 @@ while True:
 
 #menu items
     if event == "Open_docs":
-        webbrowser.open("https://pysimplegui.readthedocs.io/en/latest/",new=1,autoraise=True )
-        # pass
-        
+        os.system("{} {}".format(FIREFOX,"https://pysimplegui.readthedocs.io/en/latest/",new=2,autoraise=True ))
+                
     if event == 'README':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/README.md"))
 
@@ -2601,35 +2611,40 @@ while True:
     if event == "load syllabus":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/30_week_syllabus.md"))
 
-    if event == "core vocab":
-        #TODO clean up the spreadsheet
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
-        # pass
+    # if event == "core vocab":
+    #     os.system("{} {}".format(FIREFOX,"https://pysimplegui.readthedocs.io/en/latest/",new=2,autoraise=True ))
+
 
 
     if event == "2 letter words":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/12_mq9Pp5VSyrYeXf1qxsZGXrF22fOI4yQksBoziaT9g/edit?usp=sharing",new=1,autoraise=True )
-        # pass
+        webbrowser.open("https://docs.google.com/spreadsheets/d/12_mq9Pp5VSyrYeXf1qxsZGXrF22fOI4yQksBoziaT9g/edit?usp=sharing",new=0,autoraise=True )
+
     if event == "3 letter words":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1YZcrl4TU9LKJnaSP-HLUtZkFLuq4cZkU8eCR-X2WwG0/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1YZcrl4TU9LKJnaSP-HLUtZkFLuq4cZkU8eCR-X2WwG0/edit?usp=sharing",new=2,autoraise=True )
         # pass
 
     if event == "4 letter words":
         #https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1RYO8jChzmU09rFI5hq57e8u3LKn7JIsq7xXggGakZtE/edit?usp=sharing",new=2,autoraise=True )
 
 # pronunciation
+
+    if event == 'pron_soft_d':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_soft_d_sound.md")),
+
     if event == 'pron_ed_id':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_id_sound.md")),
 
     if event == 'pron_ed_t':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_t.md")),
 
-    if event == 'pron_ed_k':
-        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_k.md")),
+
 
     if event == 'silent_b':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/silent_b.md")),
+
+    if event == 'pron_k':
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/pron_ed_k.md")),
 
     if event == 'silent_s':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/students/English_pronunciation_tips.md")),
@@ -2679,6 +2694,13 @@ while True:
     if event == 'M_summarizing':
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summarizing.md")),
 
+# rhyme_site
+    # if event == 'rhyme_site':
+    #     webbrowser.open("https://www.rhymezone.com/",new=2,autoraise=True )
+
+    if event == "rhyme_site":
+        os.system("{} {}".format(FIREFOX,"https://www.rhymezone.com/",new=2,autoraise=True ))
+        
 
 
 # ---------------------------------------question tab events---------------------
@@ -3062,7 +3084,7 @@ while True:
 # tenses tab
 
     if event in ("phrasal verbs","phrasal verbs1"):
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1K8RfcM_bAnd9WSRIY-2-roiLcXHU37oKtqrwRVHfDgc/edit?usp=sharing",new=2,autoraise=True )
     
     if event in ("collocations", "collocations1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
@@ -3099,7 +3121,7 @@ while True:
 
     if event == "edit basic question words":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_question_words.md"))
-        webbrowser.open("https://docs.google.com/document/d/1FRGc3k_AkcAbH_w4COKyms9fOjxS7YJfKygv_nin9F4/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/document/d/1FRGc3k_AkcAbH_w4COKyms9fOjxS7YJfKygv_nin9F4/edit?usp=sharing",new=2,autoraise=True )
 
 
 
@@ -3184,73 +3206,73 @@ while True:
 
 
     if event in ("past_simple", "past_simple1"):
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1NkmOcQcNU8Dirk_rM04yEF5CS9yaSnYGip0Tyq0AkIU/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1NkmOcQcNU8Dirk_rM04yEF5CS9yaSnYGip0Tyq0AkIU/edit?usp=sharing",new=2,autoraise=True )
 
 
     if event == "past_continuous":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/14FxeIfy6HA1nFK1HA-t301v-7x2Hf4BoYxnu1hKtm1M/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/14FxeIfy6HA1nFK1HA-t301v-7x2Hf4BoYxnu1hKtm1M/edit?usp=sharing",new=2,autoraise=True )
 
     if event == "past_perfect_continuous":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1eQYZQA9qWQLEjEwwgBv6hupkzLELxVWXwZEukJ2He2I/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1eQYZQA9qWQLEjEwwgBv6hupkzLELxVWXwZEukJ2He2I/edit?usp=sharing",new=2,autoraise=True )
 
     if event == "past_perfect":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1KzJ68cM0VBsthrfsGJRIXCV4MWXcSIcDdDWfH-Gfl3M/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1KzJ68cM0VBsthrfsGJRIXCV4MWXcSIcDdDWfH-Gfl3M/edit?usp=sharing",new=2,autoraise=True )
 
 ### present events
     
     if event == "present_simple":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1xv0ZFe6_l66spkXWPyWrzu5k1KPNb3OWKL52Xg71DuE/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1xv0ZFe6_l66spkXWPyWrzu5k1KPNb3OWKL52Xg71DuE/edit?usp=sharing",new=2,autoraise=True )
 
 
     if event == "present_continuous":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1SKgIK56P0qla0l2KEuii35AjPWrg4YJGYqw2prV7BIw/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1SKgIK56P0qla0l2KEuii35AjPWrg4YJGYqw2prV7BIw/edit?usp=sharing",new=2,autoraise=True )
 
     if event == "present_perfect_continuous":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1mQoBCdNpjYee6lX5sxwz1oS2xpmkVeimY-CVUnRgxoA/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1mQoBCdNpjYee6lX5sxwz1oS2xpmkVeimY-CVUnRgxoA/edit?usp=sharing",new=2,autoraise=True )
 
     if event == "present_perfect":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1vAlXCM5dD8EVvt9W_YYz7ZNN6UZumT0MClnazfF7oGY/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1vAlXCM5dD8EVvt9W_YYz7ZNN6UZumT0MClnazfF7oGY/edit?usp=sharing",new=2,autoraise=True )
 
 
 ### future tenses
 
 
     if event == "future_simple":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1ipHIxokBppXG_BXsVZ02J-HbXtzA5xLLPSm6prZlZ2Q/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1ipHIxokBppXG_BXsVZ02J-HbXtzA5xLLPSm6prZlZ2Q/edit?usp=sharing",new=2,autoraise=True )
 
 
     if event == "future_continuous":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1ggv9CToDdZBcjTjDF92r5AYOzAzvFhWZSFuraUdT5mE/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1ggv9CToDdZBcjTjDF92r5AYOzAzvFhWZSFuraUdT5mE/edit?usp=sharing",new=2,autoraise=True )
 
     if event == "future_perfect_continuous":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1ePg18VgsvrrIv1JKcuF6KDTak3jQ46A1ALyv4ElHI5U/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1ePg18VgsvrrIv1JKcuF6KDTak3jQ46A1ALyv4ElHI5U/edit?usp=sharing",new=2,autoraise=True )
 
     if event == "future_perfect":
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1aq_OhW0JRTGNrowS7Q4RCl52cHx7S9Upha7z9VYp-3o/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1aq_OhW0JRTGNrowS7Q4RCl52cHx7S9Upha7z9VYp-3o/edit?usp=sharing",new=2,autoraise=True )
 
     
     if event in ("comparatives and superlatives","comparatives and superlatives1"):
-        webbrowser.open("https://docs.google.com/spreadsheets/d/150r972lV3ogmCmlmpjkHNOoX6tIO26Gd4EYzdfCGUW4/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/150r972lV3ogmCmlmpjkHNOoX6tIO26Gd4EYzdfCGUW4/edit?usp=sharing",new=2,autoraise=True )
 
 
     if event in ("idioms","idioms1"):
-        webbrowser.open("https://docs.google.com/spreadsheets/d/15u8oWVJNmjvfkOOvF696E1o-Tz6lBZkr7ctJ6CBLYVk/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/15u8oWVJNmjvfkOOvF696E1o-Tz6lBZkr7ctJ6CBLYVk/edit?usp=sharing",new=2,autoraise=True )
 
 
     if event in ("prepositional phrases","prepositional phrases1"):
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1R3rYYL7H7wC86Z8HeNFy_QzCvqXJSv6w8tKb3wsM30E/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1R3rYYL7H7wC86Z8HeNFy_QzCvqXJSv6w8tKb3wsM30E/edit?usp=sharing",new=2,autoraise=True )
 
     if event in ("conditionals","conditionals1"):
-        webbrowser.open("https://docs.google.com/spreadsheets/d/1VKcLMETbyEnWpVEeXc5j5NjEa_UF0ydMBInS-ljoWhs/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1VKcLMETbyEnWpVEeXc5j5NjEa_UF0ydMBInS-ljoWhs/edit?usp=sharing",new=2,autoraise=True )
 
 
     if event in ("modals","modals1"):
-        webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=2,autoraise=True )
 
     if event in ("question modals","question modals_1"):
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/english_questions_modals_and_auxillaries.md"))
         # can trigger multiple events at the same time!
-        webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/document/d/1KrQamEPrHG4bMQrHc4XJtys-P23iaRC-8iDWXL8sbfY/edit?usp=sharing",new=2,autoraise=True )
 
        
 
