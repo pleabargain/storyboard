@@ -4,6 +4,9 @@
 # an additional
 
 # along with
+- You have demonstrated creativity along with decisiveness.
+- You should consider a course in time management and along with that, you might consider a course in creativity.
+
 
 # also
 - You should take into account the weather forecast and also the traffic. (context: advice to the airport)
