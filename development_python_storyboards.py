@@ -1,8 +1,10 @@
 # !/usr/bin/python3
 
+from asyncio import subprocess
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
+import subprocess
 import random
 import webbrowser
 import datetime
@@ -131,9 +133,9 @@ STUDENT_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/students"
 QUESTION_FOLDER = "/home/dgd/Desktop/python_storyboard_flashcards/question_tab"
 
 attention_field_names =[
-                    "timestamp",
-                    "UNIQUE_ID",
-                    "student_answer1"	,
+                        "timestamp",
+                        "UNIQUE_ID",
+                        "student_answer1"	,
                         ]
 
 
@@ -157,6 +159,17 @@ question_student_field_names =[
 
                                 ]
 
+def clear_pros_cons():
+    """
+    this wil clear the fields in the pro con tab
+    """
+    window['analysis'].update("")
+    for i in range (7):
+
+        window[f'pros_{i}'].update("")
+        window[f'slider_pros_{i}'].update(1)
+        window[f'cons_{i}'].update("")
+        window[f'slider_cons_{i}'].update(1)
 
 def save_attention():
 
@@ -216,11 +229,7 @@ def save_student_answers():
     student says x to a question
    
     """
-    # check if empty
-    # this popup is distracting!
-    # if values["student_question_choice"] in ("","answer?",None):
-    #     sg.PopupError("enter student choice",location=(2000,10)) 
-    #     return
+    
     if values["db_category"] == "":
         sg.PopupError("cat empty",location=(2000,10))
         return
@@ -349,6 +358,7 @@ def split_filename(original_filename):
     This function is primarily used in the storyboard tenses tab
     """
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
+    # image name prefixes
     list_of_unwanted_words = [  "adjective_",
                                 "adjective_feeling_",
                                 "noun_animal_",
@@ -557,9 +567,9 @@ menu_def = [['&File', ['&Open', '&Save', 'E&xit', 'Properties']],
                 'M_illustration',
                 'M_reason',
                 'M_results',# test note
-                    'M_subordinating',
-                    "M_summarizing",
-                    "M_coordinating",
+                'M_subordinating',
+                "M_summarizing",
+                "M_coordinating",
                 ],
 
             ],
@@ -968,19 +978,20 @@ tenses_tab_column_left = sg.Column(
                             [sg.Multiline('text', 
                             key= "text1a",
                             justification = "center",
-                            size=(17,1), 
+                            size=(20,1), 
                             font=("Helvetica", 16)) 
                             ],
 
                             [sg.Image(filename="",
+                            # no easy way to center the images
+                            # justification = "center",
                             key='canvas1a')
                             ],
                    
                             [sg.Multiline('text', 
                             key= "text1b",
                             justification = "center",
-
-                            size=(17,1), 
+                            size=(20,1),
                             font=("Helvetica", 16)), 
                             ],
 
@@ -1026,18 +1037,22 @@ tenses_tab_column_center = sg.Column([
                             [sg.Multiline('\U0001F934', #guy face emoji
                             key= "text2a",
                             justification = "center",
-                            size=(17,1), 
+                            size=(20,1), 
                             font=("Helvetica", 16)) 
                             ],
 
                            
 
                             [sg.Image(filename="",
-                            key='canvas2a')
+                            key='canvas2a',
+                            tooltip = "canvas2a",
+                            )
                             ],
                             
                             [sg.Multiline('\u0394', #delta symbol
-                            key= "text2b",size=(17,1), 
+                            key= "text2b",
+                            tooltip="key text2b",
+                            size=(20,1), 
                             justification = "center",
                             font=("Helvetica", 16)), 
                             ],
@@ -1403,7 +1418,15 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         #create button
         [sg.Button("shuffle the images",
                     key = "image_shuffle",
-                    tooltip = "line 919",
+                    tooltip = "key image_shuffle",
+                    ),
+
+        sg.Input("image filter", 
+                ),
+
+        sg.Button("select image filter",
+                    key = "image_filter",
+                    tooltip = "image_filter",
                 ),
    
         sg.Button("idioms",
@@ -1413,10 +1436,8 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Button("phrasal verbs",
                    tooltip = "line 929" ,),
         sg.Button("collocations",
-                    tooltip = "line 930",),
+                    tooltip = "line 1434",),
 
-        sg.Button("irregular verbs",
-                    tooltip = "line 1418",),
 
 
         # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
@@ -1427,6 +1448,7 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Button("comparatives and superlatives"),
         sg.Button("modals"),
         sg.Button("question modals"),
+        sg.Button("irregular verbs",  tooltip = "1446",),
         ],
 
 
@@ -1447,7 +1469,7 @@ new_negotiation_tab= sg.Tab ("negotiations", [
         sg.Button("phrasal verbs1",
                    tooltip = "line 1410" ,),
         sg.Button("collocations1",
-                    tooltip = "line 930",)    ,
+                    tooltip = "line 1467",)    ,
         # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
         sg.Button("conditionals1"),
         sg.Button("comparatives and superlatives1"),
@@ -1691,7 +1713,7 @@ new_negotiation_tab= sg.Tab ("negotiations", [
 
 # )
 
-####################################3
+####################################
 timeline_tab= sg.Tab ("timeline tenses tab", 
     [
       
@@ -1711,11 +1733,18 @@ pros_cons_tab= sg.Tab ("pros cons",
             #TODO this TEXT object should be a roll down or similar
         [sg.Text("pros and cons issues",size=(None,None),
                 key="pros_cons_issues",
-                tooltip = "Click to change this item.",
+                tooltip = "key pros_cons_issues Click to change this item.",
                 enable_events=True,
                 font=("helvetica",20)),
                 sg.Button("edit pros cons issues",
-                tooltip="click to open editor")],
+                tooltip="click to open editor"),
+                sg.Button("new topic",
+                tooltip="line 1718"),
+                sg.Button("clear fields",
+                tooltip="1720"   ),
+
+                
+                ],
 
 
         [
@@ -2298,7 +2327,13 @@ layout = [
     
     sg.Button("TODO worksheet",
             key="TODO_worksheet",
-            tooltip="2245" ),
+            tooltip="2297" ),
+
+    sg.Button("start timer",
+                key = "start timer",
+                tooltip = "2300"
+                )
+
     
     ],
 
@@ -2449,6 +2484,11 @@ while True:
     if event == "edit pros cons issues":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md"))
 
+    if event == "new topic":
+        new_topic = sg.PopupGetText("enter new topic")
+        #pros_cons_issues
+        window["pros_cons_issues"].update(new_topic)
+        selected_topic = new_topic
 
 # grammar tracker tab events
 
@@ -2479,8 +2519,8 @@ while True:
             #TODO allow users to enter new students through UI
             
             if x_file.endswith(student_name+".json"):
-                sg.PopupOK("found it",
-                location=(2000, 100),)
+                # sg.PopupOK("found it",
+                # location=(2000, 100),)
                 break
         else:
             sg.PopupError("not found",
@@ -2617,8 +2657,21 @@ while True:
     if event == "load syllabus":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/30_week_syllabus.md"))
 
+    # this opens a new web browser
+    # if event == "load syllabus":
+    #     subprocess.Popen(['firefox',"https://cnn.com"]) #f"{} {}".format(firefox, "https://cnn.com"))
+
+
+
+    if event == "start timer":
+        os.system("gnome-clocks")
+
     if event == "core vocab":
-            webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
+        webbrowser.open("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
+    #     os.system("{} {}".format(FIREFOX,"https://pysimplegui.readthedocs.io/en/latest/",new=2,autoraise=True ))
+
+    # if event == "core vocab":
+    #     webbrowser.firefox("https://docs.google.com/spreadsheets/d/1XfMVJNB4UMy0NU5QteYEUZkmfRUIVNSf19ZuC5A23T8/edit#gid=0",new=1,autoraise=True )
     #     os.system("{} {}".format(FIREFOX,"https://pysimplegui.readthedocs.io/en/latest/",new=2,autoraise=True ))
 
 
@@ -3013,6 +3066,12 @@ while True:
 # pros cons tab
     # fire on all pros and con sliders
     # TODO this naming structure needs to be updated
+    
+    
+    if event == "clear fields":
+        clear_pros_cons()
+
+    
     if ("slider_pros" in event) or ("slider_cons" in event):
         sum_of_pros = values["slider_pros_0"] + values["slider_pros_1"]+ values["slider_pros_2"]+ values["slider_pros_3"]+ values["slider_pros_4"]+ values["slider_pros_5"]+ values["slider_pros_6"]
         sum_of_cons = values["slider_cons_0"] + values["slider_cons_1"]+ values["slider_cons_2"]+ values["slider_cons_3"]+ values["slider_cons_4"]+ values["slider_cons_5"]+ values["slider_cons_6"]
@@ -3021,7 +3080,7 @@ while True:
         window["sum_of_cons"].update(sum_of_cons)
 
     if event == "save analysis to CSV":
-        # TODO there's a bug in the save to CSV it's not saving to the right location
+        
         #pull name of topic into name of csv into dictionary
         #pros_cons_issues will have spaces in the file name
         csv_file_name=selected_topic
