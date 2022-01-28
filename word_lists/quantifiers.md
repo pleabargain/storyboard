@@ -2,6 +2,7 @@ a lot of
 lots of
 much 
 many 
+a bit of
 plenty of 
 numerous
 a large number of
@@ -14,17 +15,18 @@ enough
 not enough
 some
 any
+only a few
+just a few
 a few
 a little
 a teeny weeny amount
 a tiny amount
 just a little
-a whole lot
+a whole lot of
 not a lot of
 a shit load
 not many
 not much
-just a few
 many of
 each
 every

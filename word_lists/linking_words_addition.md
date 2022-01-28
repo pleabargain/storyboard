@@ -24,7 +24,6 @@
 
 # first
 - The first thing you should do before scanning documents is to turn on the machine.
-
 # further
 
 # furthermore
@@ -37,7 +36,6 @@
 # last
 # moreover
 - My dog brought me a stick and moreover brought me someone's coat.
-
 # not only…but also
 # not to mention
 # second

@@ -8,6 +8,7 @@
 # by and large
 # generally speaking
 # given these points
+# the most important thing here is...
 # in a word
 - In a word, he's great!
 

@@ -2369,18 +2369,12 @@ while True:
 
     event, values = window.read()
 
-
-# worksheet tab
+#top line UI
 
     if event == "TODO_worksheet":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/worksheet_tab/TODO_worksheet_tab.md"))
 
-
-
-
-
-# pros and cons tab events
-    #shuffle events
+# pros cons tab
     if event == "pros_cons_issues":
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md") as myfile:
@@ -2388,17 +2382,16 @@ while True:
         selected_topic = random.choice(lines).strip()
         window["pros_cons_issues"].update(selected_topic)
 
+
+
+# menu item Linking Words    
     if event == "linking_words_results":
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.md") as myfile:
             lines = myfile.readlines()
         selected_topic = random.choice(lines).strip()
         window["linking_words_results"].update(selected_topic)
-
-
-
-
-    #allows reuse of events
+        
     if "connecting_words_concession" in event:
         read_list_from_file()
         open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_concession.md","connecting_words_concession")
@@ -2408,8 +2401,7 @@ while True:
         read_list_from_file()
         open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.md","connecting_words_summary")
         
-
-   
+  
     if event == "connecting_words_emphasis":
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_emphasis.md") as myfile:
@@ -2426,8 +2418,6 @@ while True:
         window["connecting_words_illustration"].update(selected_topic)
 
     
-
-
 
     if event == "linking_words_addition":
         read_list_from_file()
@@ -2448,10 +2438,7 @@ while True:
         read_list_from_file()
         open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_condition.md","linking_words_condition")
        
-
         
-
-
     if event == "linking_words_contrast":
         read_list_from_file()
         with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_contrast.md") as myfile:
@@ -2469,10 +2456,6 @@ while True:
 
 
 
-
-
-#    if "grammar_slider" in event:
-
     if "linking_words_results" in event:
         read_list_from_file()
         # open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/linking_words_results.txt","linking_words_results")
@@ -2480,9 +2463,9 @@ while True:
 
 
 
-# def open_generic_file(file,key)
 
-    #edit items
+
+# pros cons tabs
     if event == "edit pros cons issues":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md"))
 
