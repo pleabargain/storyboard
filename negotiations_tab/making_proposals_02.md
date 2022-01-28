@@ -1,5 +1,10 @@
 Regarding your proposal, our position is X.
+Let's consider the following options...
+May I propose X to discuss?
 How do you feel about X?
+What do you think about option X?
+Did you consider X?
+Have you considered X before?
 We are interested in getting delivery as soon as possible.
 We will give you a X% discount if you buy more than 50 units.
 We could consider further discounts on the condition that you place regular orders for the next six months.

@@ -6,6 +6,12 @@ Consider best case and worst case scenarios.
 Understand your limits of what you can bargain. 
 Consider conditional responses to counter offers. 
 Understand client goals. 
+Prepare for the unexpected.
+Prepare alternative cases.
+Clarify your weaknesses.
+Clarify your strengths.
+Clarify their weaknesses.
+Clarify their strengths.
 Understand your goals. 
 Anticipate the issues that might arise.
 Learn as much as you can about who you are negotiating with! 

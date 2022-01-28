@@ -1046,7 +1046,7 @@ tenses_tab_column_center = sg.Column([
                             [sg.Image(filename="",
                             key='canvas2a',
                             tooltip = "canvas2a",
-                            )
+                                    )
                             ],
                             
                             [sg.Multiline('\u0394', #delta symbol
