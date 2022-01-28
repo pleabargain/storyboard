@@ -1742,6 +1742,8 @@ pros_cons_tab= sg.Tab ("pros cons",
                 tooltip="line 1718"),
                 sg.Button("clear fields",
                 tooltip="1720"   ),
+                sg.Button("soft skills list",
+                tooltip="line 1746"),
 
                 
                 ],
@@ -2484,6 +2486,11 @@ while True:
     if event == "edit pros cons issues":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/pros_cons_tab/pros_cons_events.md"))
 
+    if event == "soft skills list":
+        os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/EnglishHelpsYourCareer/topic_soft_skills.md"))
+
+
+
     if event == "new topic":
         new_topic = sg.PopupGetText("enter new topic")
         #pros_cons_issues
@@ -2577,6 +2584,8 @@ while True:
 
 
     if event == "load student json":
+        # BUG crashes intermittently
+        # TODO need a log catcher
         student_name = values["student_name"]
         if student_name == "":
             sg.PopupError("No student json file by that name", 

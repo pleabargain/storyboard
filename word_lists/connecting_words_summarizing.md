@@ -9,9 +9,16 @@
 # generally speaking
 # given these points
 # in a word
+- In a word, he's great!
+
 # in any event
 # in brief
+
 # in conclusion
+- In conclusion, he's a good guy.
+
+
+
 # in essence 
 # in short
 # in summary
