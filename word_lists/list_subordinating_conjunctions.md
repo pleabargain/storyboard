@@ -1,51 +1,47 @@
-though
-although
-even though
-while
-if
-only if
-unless
-until
-provided that
-assuming that
-even if
-in case (that)
-lest
-than
-rather than
-whether
-as much as
-whereas
 after
+although
+as if
 as long as
+as much as
 as soon as
+as though
+assuming that
+because
 before
 by the time
+even if
+even though
+how
+if
+in case (that)
+in order (that)
+lest
 now that
 once
-since
-till
-until
-when
-whenever
-while
-because
+only if
+provided that
+rather than
 since
 so that
-in order (that)
-why
+than
 that
+though
+till
+unless
+until
 what
 whatever
+when
+whenever
+where
+whereas
+whereverwhether
 which
 whichever
+while
 who
 whoever
 whom
 whomever
 whose
-how
-as though
-as if
-where
-wherever
+why

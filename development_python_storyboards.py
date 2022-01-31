@@ -177,10 +177,18 @@ question_student_field_names =[
 
 def open_clean_save(filename):
     '''
+    TODO: add a test to make sure file exists
+    if no 
+    then post error message to term and keep going
     open file name
     remove duplicates
     sort alpha
     save
+
+    Arguments: takes filename
+
+    returns: ?
+
     '''
     with open (filename) as myfile:
         lines = myfile.readlines()
@@ -429,22 +437,30 @@ def read_list_from_file():
     
  
 ###tenses
+    open_clean_save("word_lists/quantifiers.md")
     with open("word_lists/verbs.md") as myfile:
         for line in myfile.readlines():
             verbs_list.append(line.strip())
+
+    open_clean_save("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.md")
     with open("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/nouns.md") as myfile:
         for line in myfile.readlines():
             nouns_list.append(line.strip())
+
+    open_clean_save("word_lists/adjectives.md")
     with open("word_lists/adjectives.md") as myfile:
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
     
+
     open_clean_save("word_lists/quantifiers.md")
     with open("word_lists/quantifiers.md") as myfile:
         #function call clean up the file
         for line in myfile.readlines():
             quantifiers_list.append(line.strip())
 
+
+    open_clean_save("word_lists/list_subordinating_conjunctions.md")
     with open("word_lists/list_subordinating_conjunctions.md") as myfile:
         for line in myfile.readlines():
             subordinating_conjunctions_list.append(line.strip())
@@ -1444,13 +1460,13 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
                     tooltip = "key image_shuffle",
                     ),
 
-        sg.Input("image filter", 
-                ),
+        # sg.Input("image filter", 
+        #         ),
 
-        sg.Button("select image filter",
-                    key = "button_image_filter",
-                    tooltip = "button_image_filter",
-                ),
+        # sg.Button("select image filter",
+        #             key = "button_image_filter",
+        #             tooltip = "button_image_filter",
+        #         ),
    
         sg.Button("idioms",
                     tooltip = "line 923",),
@@ -1778,8 +1794,13 @@ pros_cons_tab= sg.Tab ("pros cons",
 
         [
         sg.Text('pros', size =(4, 1)), 
-        sg.InputText(key="pros_0",font=("helvetica,14"),size=(30,1)), 
-        sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
+        sg.InputText(key="pros_0",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_pros_0", 
+                    orientation = "horizontal",
+                    size = (6,10),),
 
         sg.Text('cons', size =(4, 1)), 
         sg.InputText(key="cons_0",
@@ -1797,8 +1818,23 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
     
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_1",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_1",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_1", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_1",
+                    size=(30,1),
+                    font=("helvetica,14"),
+
+                    ), sg.Slider(enable_events=True,key= "slider_pros_1", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_1",
+                    size=(30,1),
+                    
+                    font=("helvetica,14"),
+                    
+                    ), 
+        sg.Slider(enable_events=True,
+                    key= "slider_cons_1", 
+                    orientation = "horizontal",
+                    size = (6,10),),
         sg.Text("Connecting Words for Emphasis", 
                 key="connecting_words_emphasis",
                 enable_events=True,
@@ -1807,8 +1843,21 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
         
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_2",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_2", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_2",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_2", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_2",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_pros_2", 
+                    orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_2",
+                font=("helvetica,14"),
+            size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_cons_2", 
+                    orientation = "horizontal",
+                    size = (6,10),),
         sg.Text("Linking Words for Addition", 
                 key="linking_words_addition",
                 enable_events=True,
@@ -1817,8 +1866,23 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_3",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_3", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_3",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_3", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_3",
+            font=("helvetica,14"),
+            size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_pros_3", 
+                    orientation = "horizontal",
+                    size = (6,10),),
+        
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_3",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_cons_3", 
+                    orientation = "horizontal",
+                    size = (6,10),),
         sg.Text("Connecting Words for Illustration", 
                 key="connecting_words_illustration",
                 enable_events=True,
@@ -1830,8 +1894,22 @@ pros_cons_tab= sg.Tab ("pros cons",
         ],
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_4",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_4", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_4",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_4", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_4",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_pros_4", 
+                    orientation = "horizontal",
+                    size = (6,10),),
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_4",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                key= "slider_cons_4", 
+                orientation = "horizontal",
+                size = (6,10),),
         sg.Text("Linking Words for Contrast", 
                 key="linking_words_contrast",
                 enable_events=True,
@@ -1839,9 +1917,22 @@ pros_cons_tab= sg.Tab ("pros cons",
                 )
 
         ],
+
+
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_5",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_5",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_5", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_5",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,key= "slider_pros_5", orientation = "horizontal",size = (6,10),),
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_5",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_cons_5", 
+                    orientation = "horizontal",
+                    size = (6,10),),
         sg.Text("Linking Words for Reason", 
                 key="linking_words_reason",
                 enable_events=True,
@@ -1851,9 +1942,23 @@ pros_cons_tab= sg.Tab ("pros cons",
 
         ],
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_6",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_6", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_6",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_6", orientation = "horizontal",size = (6,10),),
-         sg.Text("Linking Words for Comparison", 
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_6",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_pros_6", 
+                    orientation = "horizontal",
+                    size = (6,10),),
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_6",
+                    font=("helvetica,14"),
+                    size=(30,1)), 
+        sg.Slider(enable_events=True,
+                    key= "slider_cons_6", 
+                    orientation = "horizontal",
+                    size = (6,10),),
+        sg.Text("Linking Words for Comparison", 
                 key="linking_words_comparison",
                 enable_events=True,
                 size= (None,None),
@@ -2435,7 +2540,8 @@ while True:
 
     if  "connecting_words_summary" in event:
         read_list_from_file()
-        open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.md","connecting_words_summary")
+        open_clean_save("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summarizing.md")
+        # open_generic_file("/home/dgd/Desktop/python_storyboard_flashcards/word_lists/connecting_words_summary.md","connecting_words_summary")
         
   
     if event == "connecting_words_emphasis":
