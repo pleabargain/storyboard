@@ -98,7 +98,7 @@ student_progress = {}
 
 
 # create empty dictionaries to hold the contents of the files
-image_list = []
+original_image_list = []
 verbs_list = []
 nouns_list = []
 adjectives_list =[]
@@ -138,6 +138,22 @@ attention_field_names =[
                         "student_answer1"	,
                         ]
 
+list_of_unwanted_words = [  "adjective_",
+                            "adjective_feeling_",
+                            "noun_animal_",
+                            "noun_body_part_",
+                            "noun_clothing_",
+                            "noun_insect_",
+                            "noun_food_",
+                            "soft_skills_",
+                            "daily_routine_",
+                            "idiom_",
+                            "noun_",
+                            "weather_",
+                            "phrase_",
+                            "verb_"]
+
+
 
 question_student_field_names =[
                         "timestamp",
@@ -158,6 +174,21 @@ question_student_field_names =[
                         "CHOICE10",
 
                                 ]
+
+def open_clean_save(filename):
+    '''
+    open file name
+    remove duplicates
+    sort alpha
+    save
+    '''
+    with open (filename) as myfile:
+        lines = myfile.readlines()
+    lines = list(set(lines))
+    lines.sort()
+    with open(filename,"w") as myfile:
+        myfile.writelines(lines)
+
 
 def clear_pros_cons():
     """
@@ -359,20 +390,6 @@ def split_filename(original_filename):
     """
     #DENNIS! complex words must be first eg. noun_animal_ BEFORE noun
     # image name prefixes
-    list_of_unwanted_words = [  "adjective_",
-                                "adjective_feeling_",
-                                "noun_animal_",
-                                "noun_body_part_",
-                                "noun_clothing_",
-                                "noun_insect_",
-                                "noun_food_",
-                                "soft_skills_",
-                                "daily_routine_",
-                                "idiom_",
-                                "noun_",
-                                "weather_",
-                                "phrase_",
-                                "verb_"]
 
     #strip the last four chars from the text
     text = os.path.split(original_filename)[1]
@@ -421,7 +438,10 @@ def read_list_from_file():
     with open("word_lists/adjectives.md") as myfile:
         for line in myfile.readlines():
             adjectives_list.append(line.strip())
+    
+    open_clean_save("word_lists/quantifiers.md")
     with open("word_lists/quantifiers.md") as myfile:
+        #function call clean up the file
         for line in myfile.readlines():
             quantifiers_list.append(line.strip())
 
@@ -512,7 +532,8 @@ try:
         for name in files:
             if name.endswith("_thumbnail.png"):
                 #  print(os.path.join(root, name))
-                image_list.append(os.path.join(root, name))
+                # append all files with thumbnail in the name
+                original_image_list.append(os.path.join(root, name))
 except:
     print("folder not found")
 
@@ -1237,8 +1258,9 @@ negotiation_column_center = sg.Column([
                             ],
                             
                             [sg.Multiline('make proposals', #guy face emoji
-                            key="making_proposals_02_list_box",                            enable_events=True,
-                            
+                            key="making_proposals_02_list_box",
+                            enable_events=True,
+                            # tooltips = "making_proposals_02_list_box",
                             size=(60,1), 
                             font=("Helvetica", 14)),
                             sg.Button("text",
@@ -1248,6 +1270,7 @@ negotiation_column_center = sg.Column([
                             
                             [sg.Multiline('make suggestions', #guy face emoji
                             key="suggestions_03_list_box",
+                            tooltip = "suggestions_03_list_box",
                             enable_events=True,
                             size=(60,1), 
                             font=("Helvetica", 14)),
@@ -1425,8 +1448,8 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
                 ),
 
         sg.Button("select image filter",
-                    key = "image_filter",
-                    tooltip = "image_filter",
+                    key = "button_image_filter",
+                    tooltip = "button_image_filter",
                 ),
    
         sg.Button("idioms",
@@ -1449,6 +1472,10 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Button("modals"),
         sg.Button("question modals"),
         sg.Button("irregular verbs",  tooltip = "1446",),
+        sg.Text("image filter"), 
+        sg.Combo(values=list_of_unwanted_words,
+                key = "combo_image_filter", 
+                tooltip = "combo_image_filter"),
         ],
 
 
@@ -1750,8 +1777,17 @@ pros_cons_tab= sg.Tab ("pros cons",
 
 
         [
-        sg.Text('pros', size =(4, 1)), sg.InputText(key="pros_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
-        sg.Text('cons', size =(4, 1)), sg.InputText(key="cons_0",size=(30,1)), sg.Slider(enable_events=True,key= "slider_cons_0", orientation = "horizontal",size = (6,10),),
+        sg.Text('pros', size =(4, 1)), 
+        sg.InputText(key="pros_0",font=("helvetica,14"),size=(30,1)), 
+        sg.Slider(enable_events=True,key= "slider_pros_0", orientation = "horizontal",size = (6,10),),
+
+        sg.Text('cons', size =(4, 1)), 
+        sg.InputText(key="cons_0",
+        font=("helvetica,14"),
+        size=(30,1)), 
+        sg.Slider(enable_events=True,key= "slider_cons_0", 
+        orientation = "horizontal",size = (6,10),),
+        
         sg.Text("Linking Words for Results", 
                 key="linking_words_results1",
                 enable_events=True,
@@ -3152,6 +3188,15 @@ while True:
         webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
 
     if event == "image_shuffle":
+        # check combo_image_filter
+        if values["combo_image_filter"] == "":
+            image_list = original_image_list
+        else:
+            wanted = values["combo_image_filter"]
+            #list comprehension
+            image_list = [name for name in original_image_list if wanted in name]
+            print("filtered image list: ", len(image_list))
+
         random.shuffle(image_list)
         window["canvas1a"].update(filename=image_list[0])
         window["canvas1b"].update(filename=image_list[1])

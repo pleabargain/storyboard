@@ -149,7 +149,7 @@ hold(irr)
 hope
 humiliate
 hurry
-illusrate
+illustrate
 imagine
 impose
 improve

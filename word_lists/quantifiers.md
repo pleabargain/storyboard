@@ -1,35 +1,35 @@
-a lot of
-lots of
-much 
-many 
 a bit of
-plenty of 
-numerous
-a large number of
-a large amount of
 a bunch of 
-a load of
-loads of
-several
-enough
-not enough
-some
-any
-only a few
-just a few
 a few
+a large amount of
+a large number of
+a large number of 
 a little
+a load of
+a lot of
+a shit load
+a small number of
 a teeny weeny amount
 a tiny amount
-just a little
 a whole lot of
-not a lot of
-a shit load
-not many
-not much
-many of
+any
 each
+enough
 every
 few 
-a small number of
-a large number of
+just a few
+just a little
+loads of
+lots of
+many 
+many of
+much 
+not a lot of
+not enough
+not many
+not much
+numerous
+only a few
+plenty of 
+several
+some
