@@ -1,0 +1,14 @@
+verb: reverse
+adjective: venerable
+noun: credit
+quantifier: not much
+sub conjunction: who
+
+#mermaid
+Q :  Who is this venerable person? 
+A: He got credit from a reverse banking loan!
+Q:  How much did it cost?
+A: Not much!
+A:
+
+---

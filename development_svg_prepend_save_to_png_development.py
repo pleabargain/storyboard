@@ -7,6 +7,11 @@ from reportlab.graphics import renderPM
 
 
 # TODO not all svg are being processed. e.g. /home/dgd/Desktop/python_storyboard_flashcards/random_images/noun_insect_caterpillar.svg
+# should check to see if the svg has X at the front or not
+# if yes
+# pass
+# 
+
 
 # usage
 # enter the full path of the target directory with your images.

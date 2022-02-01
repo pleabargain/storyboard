@@ -72,7 +72,7 @@ selected_topic =""
 FIREFOX = "firefox"
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
-mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\nsub conjunction: {}\n
+mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\nsubordinating conjunction: {}\n
 #mermaid
 Q: 
 A:
@@ -138,21 +138,28 @@ attention_field_names =[
                         "student_answer1"	,
                         ]
 
-list_of_unwanted_words = [  "adjective_",
+
+#TODO fix this name
+list_of_unwanted_words = [  
+                            "adjective_",
                             "adjective_feeling_",
+                            "daily_routine_",
+                            "hard_skills_",
+                            "idiom_",
+                            "modals_",
+                            "life_skills_",
                             "noun_animal_",
                             "noun_body_part_",
                             "noun_clothing_",
                             "noun_insect_",
                             "noun_food_",
-                            "soft_skills_",
-                            "daily_routine_",
-                            "idiom_",
+                            "noun_kitchen_",
                             "noun_",
-                            "weather_",
+                            "soft_skills_",
                             "phrase_",
-                            "verb_"]
-
+                            "verb_",
+                            "weather_",
+                        ]
 
 
 question_student_field_names =[
@@ -986,36 +993,11 @@ timeline_column_four = sg.Column([
 tenses_tab_column_left = sg.Column(
                             [
                                                      
-                            [sg.Text("past simple",
-                            key="past_simple",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip='Past Simple - \nI built a new garage last month.')],
-
-                            [sg.Text("past continuous",
-                            font = ("helvetica",16),
-                            key="past_continuous", 
-                            enable_events=True,
-                            tooltip='Past Continuous - \nI was building a wall yesterday.')],
                             
-                            [sg.Text("past perfect",
-                            key="past_perfect",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip='line 925 Past Perfect - \nBy the time my last company went bust we had already built the new shopping center.')],
-
-                            [sg.Text("past perfect continuous",
-                            key="past_perfect_continuous",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip= 'Past Perfect Continuous - We had been building the new\n shopping center for 2 months when we heard about the bankruptcy.'
-                            )],
-
-
                             [sg.Multiline('text', 
                             key= "text1a",
                             justification = "center",
-                            size=(20,1), 
+                            size=(20,2), 
                             font=("Helvetica", 16)) 
                             ],
 
@@ -1028,53 +1010,23 @@ tenses_tab_column_left = sg.Column(
                             [sg.Multiline('text', 
                             key= "text1b",
                             justification = "center",
-                            size=(20,1),
+                            size=(20,2),
                             font=("Helvetica", 16)), 
                             ],
 
                         
                             [sg.Image(filename="",
                             key='canvas1b'),]
-                        ])
+                            ])
 
 tenses_tab_column_center = sg.Column([
                             #header
-                            [sg.Text("present simple",
-                            key="present_simple",
-                            font = ("helvetica",16),
-
-                            enable_events=True,
-                            tooltip='Present Simple - I usually build commercial buildings.',
-                            )],
-
-
-                            [sg.Text("present continuous",
-                            key="present_continuous",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip='Present Continuous - It is Monday morning and I am building a wall.',
-                            )],
-
-
-                            [sg.Text("present perfect",
-                            key="present_perfect",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip='Present Perfect Simple - I have already built two shopping centers this year.',                            
-                            )],
-
-
-                            [sg.Text("present perfect continuous",
-                            key="present_perfect_continuous",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip='Present Perfect Continuous - I have been building this shopping centre since we won the contract.'
-                            )],
+                            
 
                             [sg.Multiline('\U0001F934', #guy face emoji
                             key= "text2a",
                             justification = "center",
-                            size=(20,1), 
+                            size=(20,2), 
                             font=("Helvetica", 16)) 
                             ],
 
@@ -1089,7 +1041,7 @@ tenses_tab_column_center = sg.Column([
                             [sg.Multiline('\u0394', #delta symbol
                             key= "text2b",
                             tooltip="key text2b",
-                            size=(20,1), 
+                            size=(20,2), 
                             justification = "center",
                             font=("Helvetica", 16)), 
                             ],
@@ -1101,34 +1053,11 @@ tenses_tab_column_center = sg.Column([
                             ])
 
 tenses_tab_column_right = sg.Column([ #header
-                            [sg.Text("future simple",
-                            key="future_simple",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip="""Future Simple - I think I'll build my own\n house when I can afford to.""",)],
-
-                            [sg.Text("future continuous",
-                            enable_events=True,
-                            key="future_continuous",
-                            font = ("helvetica",16),
-                            tooltip="""Future Continuous - I'm building a new garage tomorrow.""")],
                             
-                            [sg.Text("future perfect",
-                            key="future_perfect",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip="""Future Perfect Simple - I hope I will have already built my \nown house by the time I am 40.""")],
-                            
-                            [sg.Text("future perfect continuous",
-                            key="future_perfect_continuous",
-                            font = ("helvetica",16),
-                            enable_events=True,
-                            tooltip="""Future Perfect Continuous - This time next week I will have\n been building this shopping center for two months.""")],
-
                             [sg.Multiline('\u0394', 
                             key= "text3a",
                             justification = "center",
-                            size=(17,1), 
+                            size=(20,2), 
                             font=("Helvetica", 16)) 
                             ],
 
@@ -1139,7 +1068,7 @@ tenses_tab_column_right = sg.Column([ #header
                             [sg.Multiline('\u0394', 
                             key= "text3b",
                             justification = "center",
-                            size=(17,1), 
+                            size=(20,2), 
                             font=("Helvetica", 16)), 
                             ],
 
@@ -1149,7 +1078,7 @@ tenses_tab_column_right = sg.Column([ #header
                         ])
 
 
-# new columns
+# NEGOTIATION columns
 negotiation_column_left = sg.Column(
                             [
                                                      
@@ -1442,7 +1371,7 @@ tab_one= sg.Tab ("adj noun reg verb", [
         ],
             [sg.Multiline(key="simple_sentence_builder_output",
                         size =(70,10), 
-                        font = ("helvetica",12),
+                        font = ("helvetica",16),
                         default_text= mermaid_template,   
                         tooltip="simple_sentence_builder_output line 904"), ],
             [sg.Button("reload"),sg.Button("randomize",tooltip="click to randomize"),],
@@ -1460,34 +1389,9 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
                     tooltip = "key image_shuffle",
                     ),
 
-        # sg.Input("image filter", 
-        #         ),
-
-        # sg.Button("select image filter",
-        #             key = "button_image_filter",
-        #             tooltip = "button_image_filter",
-        #         ),
-   
-        sg.Button("idioms",
-                    tooltip = "line 923",),
-        sg.Button("prepositional phrases",
-                   tooltip = "line 925", ),
-        sg.Button("phrasal verbs",
-                   tooltip = "line 929" ,),
-        sg.Button("collocations",
-                    tooltip = "line 1434",),
-
-
-
-        # "https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing"
-        ],
-    
-        [
-        sg.Button("conditionals"),
-        sg.Button("comparatives and superlatives"),
-        sg.Button("modals"),
-        sg.Button("question modals"),
-        sg.Button("irregular verbs",  tooltip = "1446",),
+        
+        
+        
         sg.Text("image filter"), 
         sg.Combo(values=list_of_unwanted_words,
                 key = "combo_image_filter", 
