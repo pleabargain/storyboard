@@ -98,6 +98,7 @@ student_progress = {}
 
 
 # create empty dictionaries to hold the contents of the files
+test_gif = "/home/dgd/Pictures/2022_Dounia/2022HappyNewYear.gif"
 original_image_list = []
 verbs_list = []
 nouns_list = []
@@ -141,8 +142,8 @@ attention_field_names =[
 
 #TODO fix this name
 list_of_unwanted_words = [  
-                            "adjective_",
                             "adjective_feeling_",
+                            "adjective_",
                             "daily_routine_",
                             "hard_skills_",
                             "idiom_",
@@ -157,6 +158,7 @@ list_of_unwanted_words = [
                             "noun_",
                             "soft_skills_",
                             "phrase_",
+                            "to_get",
                             "verb_",
                             "weather_",
                         ]
@@ -1395,7 +1397,15 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         sg.Text("image filter"), 
         sg.Combo(values=list_of_unwanted_words,
                 key = "combo_image_filter", 
+                enable_events=True,
                 tooltip = "combo_image_filter"),
+        sg.Text("filter results: "),
+        sg.Text("?",size = (5,1),
+                    key = "image_filter_result_number"),
+        # #/home/dgd/Pictures/2022_Dounia/2022HappyNewYear.gif
+        # sg.Image("/home/dgd/Pictures/2022_Dounia/2022HappyNewYear.gif", key="test_gif"),
+        # # window.Element('_IMAGE_').UpdateAnimation(gif103,  time_between_frames=50)
+        
         ],
 
 
@@ -2412,9 +2422,11 @@ window = sg.Window('Development version! DATE: '+ datetime.date.today().strftime
 while True:
 
 
-    event, values = window.read()
+    event, values = window.read(timeout=25)
 
-#top line UI
+
+    # if event == sg.TIMEOUT_EVENT:
+    #     window.Element('test_gif').UpdateAnimation(test_gif,  time_between_frames=50)
 
     if event == "TODO_worksheet":
                 os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/worksheet_tab/TODO_worksheet_tab.md"))
@@ -3197,6 +3209,13 @@ while True:
     if event in ("collocations", "collocations1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
 
+
+    if event == "combo_image_filter":
+        wanted = values["combo_image_filter"]
+        image_list = [name for name in original_image_list if wanted in name]
+
+        window["image_filter_result_number"].update(len(image_list))
+
     if event == "image_shuffle":
         # check combo_image_filter
         if values["combo_image_filter"] == "":
@@ -3205,7 +3224,13 @@ while True:
             wanted = values["combo_image_filter"]
             #list comprehension
             image_list = [name for name in original_image_list if wanted in name]
-            print("filtered image list: ", len(image_list))
+            print("filtered image list: ", values["combo_image_filter"], len(image_list))
+            window["image_filter_result_number"].update(len(image_list))
+            if len(image_list) <6:
+                print("not enough images")
+
+                continue
+
 
         random.shuffle(image_list)
         window["canvas1a"].update(filename=image_list[0])
