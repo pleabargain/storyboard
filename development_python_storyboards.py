@@ -168,7 +168,7 @@ list_of_unwanted_words = [
                             "noun_food_",
                             "noun_kitchen_",
                             "noun_travel_",
-
+                            "noun_business_vocabulary_",
                             "noun_transportation_",
                             "noun_",
                             "soft_skills_",
