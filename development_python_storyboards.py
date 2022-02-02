@@ -174,6 +174,7 @@ list_of_unwanted_words = [
                             "soft_skills_",
                             "phrase_",
                             "to_get",
+                            "verb_restaurant_",
                             "verb_kitchen_",
                             "verb_travel_",
                             "verb_",
