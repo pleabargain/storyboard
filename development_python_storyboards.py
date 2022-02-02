@@ -163,6 +163,7 @@ list_of_unwanted_words = [
                             "noun_animal_",
                             "noun_body_part_",
                             "noun_clothing_",
+                            "noun_medical_terms_",
                             "noun_insect_",
                             "noun_food_",
                             "noun_kitchen_",
