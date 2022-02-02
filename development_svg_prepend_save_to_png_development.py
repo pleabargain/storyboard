@@ -1,6 +1,8 @@
 from PIL import Image
 import glob, os
 import re
+import os.path
+
 
 from svglib.svglib import svg2rlg
 from reportlab.graphics import renderPM
@@ -32,44 +34,54 @@ replace_text = """<svg width="150px" height="150px" """
 
 folder_name = "/home/dgd/Desktop/python_storyboard_flashcards/random_images/"
 
+#not recursive
+# recursive=True
 for infile in glob.glob(folder_name + "*.*"):
     file, ext = os.path.splitext(infile)
     print(file,ext)
     #ignore already processed
-    # if "_thumbnail" in file:
-    #     continue
+    if file.endswith("_thumbnail"):
+        print("skipping", file)
+        continue
     if ext.lower() in [".svg",]:
-        #                 ".jpg",
-        #                 ".png",
-        #                 ".jpeg",]:
-        # # TODO if .svg call SVG parser to convert to png first
+        test_file_name = file + "_thumbnail.png"
+        if os.path.exists(os.path.join(folder_name,test_file_name)):
+            print("already converted: ", test_file_name)
+            continue
 
-        # if ext.lower() == '.svg':
-            newlines=[]
-            with open(infile) as f:
-                lines = f.readlines()
-            for line in lines:
-                if search_text in line and replace_text not in line:
-                    line2 = line.replace(search_text,replace_text)
-                    newlines.append(line2)
-                else:
-                    newlines.append(line)
-            with open(infile,"w") as f:
-                f.writelines(newlines)
-            
-            drawing = svg2rlg(infile)
-            renderPM.drawToFile(drawing, file+'.png', fmt='PNG')
+
+        newlines=[]
+        with open(infile) as f:
+            lines = f.readlines()
+        for line in lines:
+            if search_text in line and replace_text not in line:
+                line2 = line.replace(search_text,replace_text)
+                newlines.append(line2)
+            else:
+                newlines.append(line)
+        with open(infile,"w") as f:
+            f.writelines(newlines)
+        
+        drawing = svg2rlg(infile)
+        renderPM.drawToFile(drawing, file+'.png', fmt='PNG')
 
 for infile in glob.glob(folder_name +"*.*"):
 
     file, ext = os.path.splitext(infile)
     print(file,ext)
     #ignore already processed
+    
     if "_thumbnail" in file:
         continue
     if ext.lower() in [".jpg",
                        ".png",
                        ".jpeg",]:
+        test_file_name = file + "_thumbnail.png"
+
+        if os.path.exists(os.path.join(folder_name,test_file_name)):
+            print("already converted: ", test_file_name)
+            continue
+
 
         with Image.open(infile) as im:
             #change these values to match your file size image need
