@@ -72,6 +72,17 @@ selected_topic =""
 FIREFOX = "firefox"
 EXTERNAL_EDITOR = "code"  # command to start the external editor to edit markdown files
 
+NEGOTIATION_TEMPLATE = """
+prepared {}\n
+
+thank you {}
+
+
+
+"""
+
+
+
 mermaid_template = """verb: {}\nadjective: {}\nnoun: {}\nquantifier: {}\nsubordinating conjunction: {}\n
 #mermaid
 Q: 
@@ -155,10 +166,12 @@ list_of_unwanted_words = [
                             "noun_insect_",
                             "noun_food_",
                             "noun_kitchen_",
+                            "noun_transportation_",
                             "noun_",
                             "soft_skills_",
                             "phrase_",
                             "to_get",
+                            "verb_kitchen_",
                             "verb_",
                             "weather_",
                         ]
@@ -1436,9 +1449,11 @@ new_negotiation_tab= sg.Tab ("negotiations", [
 
 
     [negotiation_column_left, negotiation_column_center,negotiation_column_right],
-    [    sg.Button('save negotiation text',  
+    
+    [sg.Button('save negotiation text', 
+                key =  "save_negotiation_text_to_md",
                 size=(85,1),
-                tooltip = "TODO save this file and open in an editor. Maybe even an editor in Pysimple?!"
+                tooltip = "key save_negotiation_text_to_md"
                 
                  ),
     ],
@@ -3593,6 +3608,32 @@ while True:
 
 
 # negotiation events
+
+    if event == "save_negotiation_text_to_md":
+        #prepare_0_list_box
+        date_part = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
+                    datetime.date.today().month,
+                    datetime.date.today().day,
+                    datetime.datetime.today().hour,
+                    datetime.datetime.today().minute,
+                    datetime.datetime.today().second,
+                                            )
+        print(date_part)
+        topic = sg.PopupGetText("topic name")
+        date = sg.PopupGetText("date date")
+        # print("topic name" + topic)
+        # print("date" + date_part)
+        filename = topic + "_" + date + ".md"
+        print(filename)
+        text = NEGOTIATION_TEMPLATE.format(values["prepare_0_list_box"],
+                                            values["agenda_01_list_box"],
+                                            
+                                            
+                                            )
+        #agenda_01_list_box
+        with open("/home/dgd/Desktop/python_storyboard_flashcards/negotiations_tab/"+ filename,'w') as myfile:
+            myfile.write(text)
+
 
 ##prepare_0
     if event == "prepare0":
