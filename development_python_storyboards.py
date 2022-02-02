@@ -166,12 +166,15 @@ list_of_unwanted_words = [
                             "noun_insect_",
                             "noun_food_",
                             "noun_kitchen_",
+                            "noun_travel_",
+
                             "noun_transportation_",
                             "noun_",
                             "soft_skills_",
                             "phrase_",
                             "to_get",
                             "verb_kitchen_",
+                            "verb_travel_",
                             "verb_",
                             "weather_",
                         ]
