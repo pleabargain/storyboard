@@ -157,6 +157,7 @@ list_of_unwanted_words = [
                             "adjective_",
                             "daily_routine_",
                             "hard_skills_",
+                            "idiom_business_",
                             "idiom_",
                             "measure_words_",
                             "modals_",
@@ -178,6 +179,7 @@ list_of_unwanted_words = [
                             "phrase_",
                             "to_get",
                             "verb_restaurant_",
+                            "verb_past_perfect_",
                             "verb_kitchen_",
                             "verb_travel_",
                             "verb_",
@@ -331,7 +333,7 @@ def save_student_answers():
                             datetime.datetime.today().second,
                             ),
                         "student_choice": values["student_question_choice"],
-                         "UNIQUE_ID":window["db_question_number"].DisplayText,	
+                        "UNIQUE_ID":window["db_question_number"].DisplayText,	
                         "CATEGORY":values["db_category"],	
                         #multiline
                         "QUESTION":values["db_question"],	
@@ -847,7 +849,8 @@ timeline_column_three = sg.Column([
 
                                 size = (30,2),
                                 enable_events=True,
-                                tooltip='This is a tool tip for adverb1 of time')],
+                                tooltip='key adverb1 of time'),
+                                ],
 
 ###
                                 [sg.Text("past2 column one",
@@ -1003,9 +1006,7 @@ timeline_column_four = sg.Column([
                             
                             enable_events=True,
                             tooltip="""Future Perfect Continuous - This time next week I will have\n been building this shopping center for two months.""")],
-
-                                
-                                
+                                                              
 
                                 ])
 
@@ -1015,7 +1016,7 @@ timeline_column_four = sg.Column([
 
 tenses_tab_column_left = sg.Column(
                             [
-                                                     
+                                                  
                             
                             [sg.Multiline('text', 
                             key= "text1a",
@@ -3618,6 +3619,7 @@ while True:
 # negotiation events
 
     if event == "save_negotiation_text_to_md":
+        # TODO if fields are empty don't crash
         #prepare_0_list_box
         date_part = "{}.{}.{} {}:{}:{}".format(datetime.date.today().year, 
                     datetime.date.today().month,
@@ -3627,8 +3629,10 @@ while True:
                     datetime.datetime.today().second,
                                             )
         print(date_part)
-        topic = sg.PopupGetText("topic name")
-        date = sg.PopupGetText("date date")
+        topic = sg.PopupGetText("topic name",
+                                location=(2000, 100),)
+        date = sg.PopupGetText("date date",
+                                location=(2000, 100),)
         # print("topic name" + topic)
         # print("date" + date_part)
         filename = topic + "_" + date + ".md"
