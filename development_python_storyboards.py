@@ -158,8 +158,8 @@ list_of_unwanted_words = [
                             "adjective_",
                             "daily_routine_",
                             "hard_skills_",
-                            "idiom_business_",
                             "idiom_negotiation_",
+                            "idiom_business_",
                             "idiom_time_",
                             "idiom_",
                             "measure_words_",
@@ -1977,14 +1977,14 @@ tracker_layout.append(
                         tooltip="This is a multiline object key grammar analysis",
                         font =("helvetica", 14)), 
         sg.Button("save grammar analysis",
-                        tooltip="line 1530 ")],
+                        tooltip="saves JSON")],
                      )
 tracker_layout.append(
         [sg.Multiline(key="vocabulary_used",
                         default_text='put vocabulary words here',
 
                         size =(40,5),
-                        tooltip="This is a multiline object key vocabulary_used line 1538",
+                        tooltip="key vocabulary_used",
                         font =("helvetica", 14)), 
                         
         ],

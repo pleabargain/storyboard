@@ -4,6 +4,10 @@
 - normalize naming of keys
 - 
 
+# storyboard
+- write entries to the json file
+
+
 # negotiation
 - Get the randomizer to work with the multiline.
 
