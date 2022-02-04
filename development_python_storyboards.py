@@ -154,6 +154,7 @@ attention_field_names =[
 #TODO fix this name
 list_of_unwanted_words = [  
                             "adjective_feeling_",
+                            "adjective_person_",
                             "adjective_",
                             "daily_routine_",
                             "hard_skills_",
@@ -2389,7 +2390,7 @@ layout = [
                    key="student_name",
                     default_value="Horst",
 
-                    tooltip="line 2222 TODO test adding new name this should pull from a list of students name goes here",
+                    tooltip="key student_name",
             ), 
     
     sg.Button("load student json", 

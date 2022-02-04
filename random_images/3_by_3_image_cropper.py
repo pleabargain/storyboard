@@ -1,13 +1,13 @@
 from PIL import Image # import pillow library (can install with "pip install pillow")
 
-#3 X 4 grid
+#3 X 3 grid
 # 1 2   3 
 # 4 5 6  
 # 7 8 9 
 
 # 1
 
-source = "/home/dgd/Desktop/python_storyboard_flashcards/random_images/idioms.734751f4d38030de59ba09c6f5becf7c.jpg"
+source = "/home/dgd/Desktop/python_storyboard_flashcards/random_images/3x3.adjectives.04c79bd94d0610469a5599e0618e486f.jpg"
 final = "/home/dgd/Desktop/python_storyboard_flashcards/random_images/"
 im = Image.open(source)
 # (left, upper, right, lower)
