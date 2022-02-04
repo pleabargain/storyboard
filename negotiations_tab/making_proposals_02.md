@@ -17,3 +17,5 @@ We’ll pay for the delivery if you agree to pay in advance.
 If you pay for the insurance, we will give you a discount.
 How about paying 60% on delivery and the rest in 30 days?
 How about we structure the team with one architect, one senior dev and five junior devs?
+We need someone who can manage automated tests.
+We need someone who can manage manual testing.

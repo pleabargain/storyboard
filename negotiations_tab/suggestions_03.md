@@ -8,6 +8,7 @@ I believe a better option could be...
 I believe the best option would be ...
 How would you feel about ...?
 How flexible would you be on ...?
+May we suggest...?
 Can we consider setting aside some money from our budget to have a party 
 at the end of the project?
 How flexible are you regarding?
