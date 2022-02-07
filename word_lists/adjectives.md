@@ -69,6 +69,7 @@ dramatic
 dull
 eager
 easy
+edible
 empty
 entertaining
 exasperated
@@ -199,6 +200,7 @@ peaceful
 perfect
 perplexed
 poor
+potable
 positive
 presidential
 quaint

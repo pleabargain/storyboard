@@ -177,6 +177,7 @@ list_of_unwanted_words = [
                             "noun_clothing_",
                             "noun_medical_terms_",
                             "noun_insect_",
+                            "noun_food_countable",
                             "noun_food_uncountable",
                             "noun_food_",
                             "noun_kitchen_",

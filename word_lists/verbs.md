@@ -345,6 +345,7 @@ throw(irr)
 throng
 tick 
 track
+trap
 transfer
 transport
 trick
