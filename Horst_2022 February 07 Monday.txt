@@ -1,0 +1,13 @@
+verb: {}
+adjective: {}
+noun: {}
+quantifier: {}
+subordinating conjunction: {}
+
+#mermaid
+Q: ASDAsda
+A:
+Q: 
+A:
+
+---

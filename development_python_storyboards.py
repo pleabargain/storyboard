@@ -1,6 +1,7 @@
 # !/usr/bin/python3
 
 from asyncio import subprocess
+from tkinter import CENTER
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import WIN_CLOSED, Exit, button_color_to_tuple
 
@@ -8,6 +9,7 @@ import subprocess
 import random
 import webbrowser
 import datetime
+
 import os
 import os.path
 import csv
@@ -48,6 +50,10 @@ with open("/home/dgd/Desktop/python_storyboard_flashcards/students/student_names
     lines=myfile.readlines()
 
 #strip empty lines
+#GLOBALS
+root = Path("/home/dgd/Desktop/EnglishHelpsYourCareer/")
+DB_FILES = [file for file in root.iterdir() if file.stem.startswith("db_")]
+
 student_names= [line.strip() for line in lines if len(line.strip())>0]
 
 ERROR_LOG_FILENAME = "/home/dgd/Desktop/python_storyboard_flashcards/error_log/error_log.txt"
@@ -179,6 +185,7 @@ list_of_unwanted_words = [
                             "noun_business_vocabulary_",
                             "noun_transportation_",
                             "noun_",
+                            "preposition_",
                             "soft_skills_",
                             "phrase_",
                             "to_get",
@@ -1017,6 +1024,59 @@ timeline_column_four = sg.Column([
 
 
 
+bingo_column = sg.Column(
+    [
+        [sg.Text("challenge",
+                key="bingo1_button",
+                enable_events=True,
+                font = ("helvetica",16)
+
+        
+                ),
+        sg.Combo(values=[file.stem for file in DB_FILES],
+                                    key="bingo1",
+                                    tooltip ="bingo1",
+                                    enable_events=True,
+                                    font = ("helvetica",16),
+                                    
+                                    ),
+                                    # sg.Button("?",
+                                    #         key="bingo1_button",
+                                    #         font = ("helvetica",16),
+                                            # )
+
+                                                                    
+        ],
+
+
+        [sg.Multiline("",
+                    key="bingo_text1",
+                    size = (50,5),
+                    font = ("helvetica",16),
+                    disabled = True,
+                    justification="center",
+                    enable_events=True,
+                    )
+        ],
+
+        [sg.Text("bingo2"),sg.Combo(values=DB_FILES,
+                                    key="bingo2",
+                                    enable_events=True,
+                                    
+                                    )
+        ],
+
+        [sg.Multiline("",
+                    key="bingo_text2",
+                    size = (50,5),
+                    enable_events=True,
+                    )]
+                                    
+                                    ,
+
+    ]
+                        )   
+
 
 tenses_tab_column_left = sg.Column(
                             [
@@ -1025,7 +1085,7 @@ tenses_tab_column_left = sg.Column(
                             [sg.Multiline('text', 
                             key= "text1a",
                             justification = "center",
-                            size=(20,2), 
+                            size=(15,2), 
                             font=("Helvetica", 16)) 
                             ],
 
@@ -1038,7 +1098,7 @@ tenses_tab_column_left = sg.Column(
                             [sg.Multiline('text', 
                             key= "text1b",
                             justification = "center",
-                            size=(20,2),
+                            size=(15,2),
                             font=("Helvetica", 16)), 
                             ],
 
@@ -1054,7 +1114,7 @@ tenses_tab_column_center = sg.Column([
                             [sg.Multiline('\U0001F934', #guy face emoji
                             key= "text2a",
                             justification = "center",
-                            size=(20,2), 
+                            size=(15,2), 
                             font=("Helvetica", 16)) 
                             ],
 
@@ -1069,7 +1129,7 @@ tenses_tab_column_center = sg.Column([
                             [sg.Multiline('\u0394', #delta symbol
                             key= "text2b",
                             tooltip="key text2b",
-                            size=(20,2), 
+                            size=(15,2), 
                             justification = "center",
                             font=("Helvetica", 16)), 
                             ],
@@ -1085,7 +1145,7 @@ tenses_tab_column_right = sg.Column([ #header
                             [sg.Multiline('\u0394', 
                             key= "text3a",
                             justification = "center",
-                            size=(20,2), 
+                            size=(15,2), 
                             font=("Helvetica", 16)) 
                             ],
 
@@ -1096,14 +1156,17 @@ tenses_tab_column_right = sg.Column([ #header
                             [sg.Multiline('\u0394', 
                             key= "text3b",
                             justification = "center",
-                            size=(20,2), 
+                            size=(15,2), 
                             font=("Helvetica", 16)), 
                             ],
 
                         
                             [sg.Image(filename="",
                             key='canvas3b'),]
-                        ])
+                        ]
+                        
+                        
+                        )
 
 
 # NEGOTIATION columns
@@ -1435,7 +1498,7 @@ storyboard_tenses_tab_two= sg.Tab ("storyboard tenses tab", [
         ],
 
 
-    [tenses_tab_column_left, tenses_tab_column_center,tenses_tab_column_right],
+    [tenses_tab_column_left, tenses_tab_column_center,tenses_tab_column_right, bingo_column],
 
     ])
 
@@ -3237,6 +3300,27 @@ while True:
     if event in ("collocations", "collocations1"):
         webbrowser.open("https://docs.google.com/spreadsheets/d/1zz38JZhW-ZQ-fj35s14UMiFcWbHehc5CpKe2zIUHDUI/edit?usp=sharing")
 
+
+    
+    if event == "bingo1":
+        filename = [file for file in DB_FILES if file.stem == values["bingo1"]][0]
+        with filename.open() as myfile:
+            lines = myfile.readlines()
+        bingo_lines1 = [line.strip() for line in lines if len(line.strip() ) >0    ] 
+        window["bingo_text1"].update(value=random.choice(bingo_lines1)) 
+
+    if event in ("bingo1_button", "bingo1"):
+        if values["bingo_text1"] == "":
+            continue
+        window["bingo_text1"].update(value=random.choice(bingo_lines1)) 
+
+
+    if event == "bingo2":
+        filename = values["bingo1"]
+        pass
+
+    if event == "bingo_text2":
+        pass
 
     if event == "combo_image_filter":
         wanted = values["combo_image_filter"]
