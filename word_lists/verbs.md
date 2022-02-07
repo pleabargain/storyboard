@@ -18,6 +18,7 @@ author
 avoid
 bake
 bare
+bargain
 bear
 become(irr)
 begin(irr)

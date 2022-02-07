@@ -164,7 +164,8 @@ list_of_unwanted_words = [
                             "adjective_",
                             "daily_routine_",
                             "hard_skills_",
-                            "idiom_negotiation_",
+                            
+                            "idiom_business_negotiation_",
                             "idiom_business_",
                             "idiom_time_",
                             "idiom_",
@@ -1036,7 +1037,7 @@ bingo_column = sg.Column(
                 ),
         sg.Combo(values=[file.stem for file in DB_FILES],
                                     key="bingo1",
-                                    tooltip ="bingo1",
+                                    tooltip ="key bingo1",
                                     enable_events=True,
                                     font = ("helvetica",16),
                                     

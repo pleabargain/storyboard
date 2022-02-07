@@ -66,6 +66,7 @@ disturbed
 diverse
 dizzy
 dramatic
+drowsy
 dull
 eager
 easy
@@ -200,8 +201,8 @@ peaceful
 perfect
 perplexed
 poor
-potable
 positive
+potable
 presidential
 quaint
 quantified
