@@ -1,6 +1,7 @@
 accept
 add
 adjust
+align
 allow
 apologize
 appear
@@ -309,7 +310,7 @@ serve
 set(irr)
 shoot(irr)
 should(modal)
-show
+show(irr)
 sing(irr)
 sit(irr)
 slap
