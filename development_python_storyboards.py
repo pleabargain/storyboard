@@ -170,6 +170,7 @@ list_of_unwanted_words = [
                             "idiom_time_",
                             "idiom_",
                             "measure_words_",
+                            "medical_terms_",
                             "modals_",
                             "life_skills_",
                             "noun_animal_",
@@ -1030,6 +1031,7 @@ bingo_column = sg.Column(
     [
         [sg.Text("challenge",
                 key="bingo1_button",
+                tooltip= "key challenge: TODO\nsort this list!",
                 enable_events=True,
                 font = ("helvetica",16)
 

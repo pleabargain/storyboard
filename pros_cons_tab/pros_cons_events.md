@@ -1,5 +1,6 @@
 ad hoc management style
 AGILE management system
+own a car
 be an early bird
 be a night owl
 become a vegetarian
