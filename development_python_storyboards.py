@@ -174,10 +174,11 @@ list_of_unwanted_words = [
                             "idiom_time_",
                             "idiom_",
                             
-                            "measure_words_",
-                            "medical_illness_"
+                            "medical_terms_illness_",
                             "medical_terms_",
+                            "measure_words_",
                             "modals_",
+                            "money_",
                             "life_skills_",
                             "noun_animal_",
                             "noun_body_part_",
@@ -1067,11 +1068,13 @@ bingo_column = sg.Column(
                 key="bingo2_button",
                 tooltip= "key challenge: TODO\nsort this list!",
                 enable_events=True,
-                font = ("helvetica",16)),
+                font = ("helvetica",16),
+                ),
                 
         
         sg.Combo(values=DB_FILES2,
                 key="bingo2",
+                font = ("helvetica",16),
                 enable_events=True,             
                 )
         ],
@@ -1079,6 +1082,7 @@ bingo_column = sg.Column(
         [sg.Multiline("",
                     key="bingo_text2",
                     size = (50,5),
+                    font = ("helvetica",16),
                     enable_events=True,
                     )
         ]
