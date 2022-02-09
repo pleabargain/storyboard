@@ -1081,7 +1081,17 @@ bingo_column = sg.Column(
                     size = (50,5),
                     enable_events=True,
                     )
+        ],
+
+        [sg.Text("log:"),
+        sg.Multiline("",
+                    key="vocabulary_log",
+                    size = (50,5),
+                    disabled=True,
+                    )
+        
         ]
+
 
     ])
 
@@ -1101,7 +1111,12 @@ tenses_tab_column_left = sg.Column(
                             [sg.Image(filename="",
                             # no easy way to center the images
                             # justification = "center",
-                            key='canvas1a')
+                            key='canvas1a',
+                            enable_events=True,
+                            
+
+
+                            )
                             ],
                    
                             [sg.Multiline('text', 
@@ -1113,7 +1128,10 @@ tenses_tab_column_left = sg.Column(
 
                         
                             [sg.Image(filename="",
-                            key='canvas1b'),]
+                            key='canvas1b',
+                            enable_events=True,),
+                            ]
+
                             ])
 
 tenses_tab_column_center = sg.Column([
@@ -1130,6 +1148,7 @@ tenses_tab_column_center = sg.Column([
 
                             [sg.Image(filename="",
                             key='canvas2a',
+                            enable_events=True,
                             tooltip = "canvas2a",
                                     )
                             ],
@@ -1144,7 +1163,9 @@ tenses_tab_column_center = sg.Column([
 
                         
                             [sg.Image(filename="",
-                            key='canvas2b'),]
+                            key='canvas2b',
+                            enable_events=True,
+                            ),]
 
                             ])
 
@@ -1158,7 +1179,10 @@ tenses_tab_column_right = sg.Column([ #header
                             ],
 
                             [sg.Image(filename="",
-                            key='canvas3a')
+                            key='canvas3a',
+                            enable_events=True,
+                            
+                            )
                             ],
                             
                             [sg.Multiline('\u0394', 
@@ -1170,7 +1194,9 @@ tenses_tab_column_right = sg.Column([ #header
 
                         
                             [sg.Image(filename="",
-                            key='canvas3b'),]
+                            key='canvas3b',
+                            enable_events=True,
+                            ),]
                         ]
                         
                         
@@ -2460,36 +2486,17 @@ layout = [
             sg.Combo(values=student_names,
                    key="student_name",
                     default_value="Horst",
-
                     tooltip="key student_name",
-            ), 
+                    ), 
+    sg.Multiline("comments", 
+                    key= "teacher_comments",
+                    size = (50,3),
+                    ),
+    sg.Button("gen HTML",
+            key="generate_HTML",
     
-    sg.Button("load student json", 
-                tooltip = "see line 2226",
-
-                ) ,
-
-    sg.Text("date picker: ",
-            tooltip="TODO this needs to load from the json file line 2231",), 
+            ),
     
-    sg.Combo(values=[""], 
-            size = (20,1),
-            key = "date_picker", 
-            enable_events=True,
-            tooltip="loads from the json file line 2237"),
-    sg.Button("load syllabus", 
-            #this opens the md syllabus file
-            tooltip="will open md file in VS code line 2240"),
-    
-    sg.Button("TODO worksheet",
-            key="TODO_worksheet",
-            tooltip="2297" ),
-
-    sg.Button("start timer",
-                key = "start timer",
-                tooltip = "2300"
-                )
-
     
     ],
 
@@ -3385,6 +3392,14 @@ while True:
         
 
 # button in verb adj noun
+    if "canvas" in event:
+        # vocabulary_log    
+        text = values["vocabulary_log"]
+        new = image_list[int(event[6])]
+        text.append(new)
+        window["vocabulary_log"].update(value=text)
+
+    
     if event == "edit verbs list":
         os.system("{} {}".format(EXTERNAL_EDITOR, "/home/dgd/Desktop/python_storyboard_flashcards/word_lists/verbs.md"))
 
