@@ -167,6 +167,7 @@ list_of_unwanted_words = [
                             "adjective_person_",
                             "adjective_",
                             "daily_routine_",
+                            "dentist_",
                             "hard_skills_",
                             
                             "idiom_business_negotiation_",
