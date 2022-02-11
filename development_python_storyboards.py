@@ -174,7 +174,7 @@ list_of_unwanted_words = [
                             "idiom_business_",
                             "idiom_time_",
                             "idiom_",
-                            
+                            "jobs_",
                             "medical_terms_illness_",
                             "medical_terms_",
                             "measure_words_",
@@ -199,6 +199,7 @@ list_of_unwanted_words = [
                             "preposition_",
                             "soft_skills_",
                             "phrase_",
+                            "phrasal_verbs_",
                             #"to_get_",
                             "valentines_day",
                             "verb_restaurant_",

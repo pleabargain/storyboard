@@ -1058,6 +1058,7 @@ bingo_column = sg.Column(
                     size = (50,5),
                     font = ("helvetica",16),
                     disabled = True,
+                    tooltip = "  bingo_text1",
                     justification="center",
                     enable_events=True,
                     )
@@ -1111,7 +1112,7 @@ tenses_tab_column_left = sg.Column(
                             [sg.Image(filename="",
                             # no easy way to center the images
                             # justification = "center",
-                            key='canvas1a',
+                            key='canvas0',
                             enable_events=True,
                             
 
@@ -1128,7 +1129,7 @@ tenses_tab_column_left = sg.Column(
 
                         
                             [sg.Image(filename="",
-                            key='canvas1b',
+                            key='canvas1',
                             enable_events=True,),
                             ]
 
@@ -1147,9 +1148,9 @@ tenses_tab_column_center = sg.Column([
                            
 
                             [sg.Image(filename="",
-                            key='canvas2a',
+                            key='canvas2',
                             enable_events=True,
-                            tooltip = "canvas2a",
+                            tooltip = "canvas2",
                                     )
                             ],
                             
@@ -1163,7 +1164,7 @@ tenses_tab_column_center = sg.Column([
 
                         
                             [sg.Image(filename="",
-                            key='canvas2b',
+                            key='canvas3',
                             enable_events=True,
                             ),]
 
@@ -1179,7 +1180,7 @@ tenses_tab_column_right = sg.Column([ #header
                             ],
 
                             [sg.Image(filename="",
-                            key='canvas3a',
+                            key='canvas4',
                             enable_events=True,
                             
                             )
@@ -1194,7 +1195,8 @@ tenses_tab_column_right = sg.Column([ #header
 
                         
                             [sg.Image(filename="",
-                            key='canvas3b',
+                            key='canvas5',
+                            tooltip='canvas5',
                             enable_events=True,
                             ),]
                         ]
@@ -3330,6 +3332,15 @@ while True:
         window["bingo_text1"].update(value=random.choice(bingo_lines1)) 
 
 
+    if event == "bingo_text1":
+        text = values["vocabulary_log"]
+        # new = image_list[int(event[6])]
+        new = values["bingo1"] + " challenge: " + values["bingo_text1"] + " "
+        text+=new
+        window["vocabulary_log"].update(value=text)
+
+    
+
     if event == "bingo2":
         filename = [file for file in DB_FILES if file.stem == values["bingo2"]][0]
         with filename.open() as myfile:
@@ -3372,22 +3383,22 @@ while True:
 
 
         random.shuffle(image_list)
-        window["canvas1a"].update(filename=image_list[0])
+        window["canvas0"].update(filename=image_list[0])
         window["text1a"].update(split_filename(image_list[0]))
         
-        window["canvas1b"].update(filename=image_list[1])
+        window["canvas1"].update(filename=image_list[1])
         window["text1b"].update(split_filename(image_list[1]))
         
-        window["canvas2a"].update(filename=image_list[2])
+        window["canvas2"].update(filename=image_list[2])
         window["text2a"].update(split_filename(image_list[2]))
         
-        window["canvas2b"].update(filename=image_list[3])
+        window["canvas3"].update(filename=image_list[3])
         window["text2b"].update(split_filename(image_list[3]))
         
-        window["canvas3a"].update(filename=image_list[4])
+        window["canvas4"].update(filename=image_list[4])
         window["text3a"].update(split_filename(image_list[4]))
         
-        window["canvas3b"].update(filename=image_list[5])
+        window["canvas5"].update(filename=image_list[5])
         window["text3b"].update(split_filename(image_list[5]))
         
 
@@ -3396,7 +3407,7 @@ while True:
         # vocabulary_log    
         text = values["vocabulary_log"]
         new = image_list[int(event[6])]
-        text.append(new)
+        text+=new + " | "
         window["vocabulary_log"].update(value=text)
 
     
