@@ -13,6 +13,7 @@ archive
 arrest
 arrive
 ask
+aspire
 attack
 attend
 author
@@ -49,6 +50,7 @@ chill
 chip
 chop
 climb
+collapse
 combine
 come(irr)
 comfort
@@ -66,6 +68,7 @@ convolute
 correct
 could(modal)
 count
+craft
 create
 credit
 customized
@@ -270,6 +273,8 @@ rap
 reach
 read(irr)
 recognize
+reckon
+reconsider
 recover
 redirect
 reflect
@@ -330,6 +335,7 @@ start
 stay
 stop
 store
+stroll
 study
 suggest
 surround

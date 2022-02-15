@@ -20,6 +20,7 @@ business
 car
 case
 cat
+catastrophe
 cell
 change
 child
@@ -153,6 +154,8 @@ program
 question
 queue
 reason
+renovation
+repair
 research
 restaurant
 result

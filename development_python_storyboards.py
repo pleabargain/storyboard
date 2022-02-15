@@ -16,8 +16,8 @@ import csv
 import json
 import glob
 import pandas as pd
-import spacy
-from spacy import displacy
+# import spacy
+# from spacy import displacy
 from pathlib import Path
 
 
@@ -26,7 +26,12 @@ from pathlib import Path
 # TODO question: What other defaults can I call when starting the application?
 # TODO with open text and md files, sort and remove duplicates first.
 
-nlp = spacy.load('en_core_web_sm')
+
+#bug
+# File "/home/dgd/.local/lib/python3.9/site-packages/typer/completion.py", line 10, in <module>
+#     import click._bashcomplete
+# ModuleNotFoundError: No module named 'click._bashcomplete'
+# nlp = spacy.load('en_core_web_sm')
 
 # TODO this needs to be a function call so that it can be reused with better more meaningful names
 # I want to reuse this over and over
@@ -162,53 +167,68 @@ attention_field_names =[
 
 
 #TODO fix this name
-list_of_unwanted_words = [  
-                            "adjective_feeling_",
-                            "adjective_person_",
-                            "adjective_",
-                            "daily_routine_",
-                            "dentist_",
-                            "hard_skills_",
-                            
-                            "idiom_business_negotiation_",
-                            "idiom_business_",
-                            "idiom_time_",
-                            "idiom_",
-                            "jobs_",
-                            "medical_terms_illness_",
-                            "medical_terms_",
-                            "measure_words_",
-                            "modals_",
-                            "money_",
-                            "life_skills_",
-                            "noun_animal_",
-                            "noun_body_part_",
-                            "noun_city_",
-                            "noun_clothing_",
-                            "noun_medical_terms_",
-                            "noun_insect_",
-                            "noun_food_countable",
-                            "noun_food_uncountable",
-                            "noun_food_",
-                            "noun_kitchen_",
-                            "noun_law_",
-                            "noun_travel_",
-                            "noun_business_vocabulary_",
-                            "noun_transportation_",
-                            "noun_",
-                            "preposition_",
-                            "soft_skills_",
-                            "phrase_",
-                            "phrasal_verbs_",
-                            #"to_get_",
-                            "valentines_day",
-                            "verb_restaurant_",
-                            "verb_past_perfect_",
-                            "verb_kitchen_",
-                            "verb_travel_",
-                            "verb_",
-                            "weather_",
-                        ]
+
+
+list_of_unwanted_words = [
+    "HR_",
+    "adjective_",
+    "adjective_feeling_",
+    "adjective_food_",
+    "adjective_medical_",
+    "adjective_person_",
+    "advice_",
+    "airport_",
+    "body_part_",
+    "business_analyst_",
+    "business_skills_",
+    "daily_routine_",
+    "dentist_",
+    "disaster_",
+    "driving_",
+    "hard_skills_",
+    "idiom_",
+    "idiom_business_",
+    "idiom_business_negotiation_",
+    "idiom_time_",
+    "if_you_could_",
+    "invest_",
+    "irregular_verb_",
+    "life_skills_",
+    "measure_words_",
+    "medical_illness_medical_terms_",
+    "modals_",
+    "noun_animal_",
+    "noun_body_part_",
+    "noun_business_vocabulary_",
+    "noun_city_",
+    "noun_clothing_",
+    "noun_food_",
+    "noun_food_countable",
+    "noun_food_uncountable",
+    "noun_insect_",
+    "noun_kitchen_",
+    "noun_law_",
+    "noun_tools_",
+    "noun_medical_terms_",
+    "noun_transportation_",
+    "noun_travel_",
+    "noun_",
+    "phrase_",
+    "prepositions_",
+    "soft_skills_",
+    "to_get",
+    "verb_",
+    "verb_medical_",
+    "verb_life_cycle_",
+    "verb_kitchen_",
+    "verb_past_perfect_",
+    "verb_restaurant_",
+    "verb_travel_",
+    "verb_sound_",
+    "weather_",
+    "winter_",
+]
+
 
 
 question_student_field_names =[

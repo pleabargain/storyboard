@@ -31,6 +31,7 @@ cantankerous
 carnivore
 chubby
 chunky
+clever
 coarse
 cold
 colossal
@@ -46,6 +47,7 @@ corny
 corrosive
 costly
 courageous
+crafty
 crazy
 creative
 creepy
@@ -170,11 +172,13 @@ lovely
 low
 lucky
 macho
+major
 many
 menial
 micro
 mild
 millenial
+minor
 mischievous
 misty
 muddy
