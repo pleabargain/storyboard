@@ -1,4 +1,4 @@
-#thank you Nikolai
+
 
 from PIL import Image
 import glob, os
