@@ -3,6 +3,7 @@ air
 angel
 angle
 animal
+anticipation
 apple
 apron
 area
@@ -126,6 +127,7 @@ night
 note
 nuclear
 number
+obligation
 obsession
 octopus
 office

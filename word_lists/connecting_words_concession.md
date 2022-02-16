@@ -8,7 +8,6 @@ and yet
 be that as it may
 even if
 even so
-even though
 however
 in spite of
 nevertheless

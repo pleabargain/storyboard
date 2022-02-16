@@ -3,12 +3,14 @@ as opposed to
 contrarily
 contrary to
 conversely
-despite/in spite of
+despite
+in spite of
 differing from
 even so
 however
-in contrast (to)
+in contrast to
 in opposition
+in contrast 
 instead
 nevertheless
 nonetheless

@@ -3,6 +3,7 @@ add
 adjust
 align
 allow
+anticipate
 apologize
 appear
 apply
@@ -166,6 +167,7 @@ inherit
 insert
 insist
 inspire
+invade
 investigate
 jab
 jeer
@@ -223,14 +225,16 @@ nod
 note
 nudge
 obey
+obligate
 observe
+occupy
 offer
 open
 operate
 order
 organize
 ought(modal)
-outmanoeuvre
+outmaneuver
 overestimate
 oversleep(irr)
 overwhelmed
@@ -253,6 +257,7 @@ power-down
 power-up
 predict
 present
+prioritize
 prod
 produce
 promote
@@ -294,6 +299,7 @@ research
 reverse
 review
 riot
+risk
 run(irr)
 rush
 sacrifice

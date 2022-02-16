@@ -1,0 +1,15 @@
+prefix = file name (minus the extension)
+source file phrasal_verb.txt 
+
+image size is 150 x 150 (background.png)
+
+go home 
+get back
+put in
+shut up
+
+output
+phrasal_verb__go_home.png
+phrasal_verb__get_back.png
+phrasal_verb__put_in.png
+
