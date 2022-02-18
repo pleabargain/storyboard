@@ -2917,7 +2917,7 @@ while True:
 
         with open (filename,"w") as htmlfile:
             htmlfile.write("\n".join(lines)) 
-        print("html file written")
+        print("html file written", filename)
 
 
 

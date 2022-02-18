@@ -174,9 +174,9 @@ attention_field_names = [
 # TODO fix this name
 list_of_unwanted_words = [
     "HR_",
-    "adjective_",
     "adjective_feeling_",
     "adjective_person_",
+    "adjective_",
     "advice_",
     "airport_",
     "body_part_",
@@ -187,10 +187,10 @@ list_of_unwanted_words = [
     "disaster_",
     "driving_",
     "hard_skills_",
-    "idiom_",
     "idiom_business_",
     "idiom_business_negotiation_",
     "idiom_time_",
+    "idiom_",
     "if_you_could_",
     "invest_",
     "irregular_verb_",
@@ -198,8 +198,8 @@ list_of_unwanted_words = [
     "measure_words_",
     "medical_illness_medical_terms_",
     "modals_",
-    "noun_",
     "noun_animal_",
+    "noun_military_",
     "noun_body_part_",
     "noun_business_vocabulary_",
     "noun_city_",
@@ -210,19 +210,24 @@ list_of_unwanted_words = [
     "noun_insect_",
     "noun_kitchen_",
     "noun_law_",
+    "noun_road_",
     "noun_medical_terms_",
     "noun_transportation_",
     "noun_travel_",
+    "noun_",
     "phrase_",
-    "preposition_",
+    "prepositions_",
     "soft_skills_",
     "to_get",
-    "verb_",
     "verb_kitchen_",
     "verb_past_perfect_",
     "verb_restaurant_",
+    "verb_sound_",
+    "verb_life_cycle_",
     "verb_travel_",
+    "verb_",
     "weather_",
+    "winter_",
 ]
 
 
@@ -1185,9 +1190,10 @@ bingo_column = sg.Column(
             sg.Multiline(
                 "",
                 key="bingo_text1",
-                size=(50, 5),
+                size=(30, 4),
                 font=("helvetica", 16),
                 disabled=True,
+                autoscroll=True,
                 tooltip="  bingo_text1",
                 justification="center",
                 enable_events=True,
@@ -1195,23 +1201,29 @@ bingo_column = sg.Column(
         ],
         [
             sg.Text(
-                "bingo2",
+                "Challenge 2",
                 key="bingo2_button",
-                tooltip="key challenge: TODO\nsort this list!",
+                tooltip="key  bingo2_button challenge: TODO\nsort this list!",
                 enable_events=True,
                 font=("helvetica", 16),
             ),
             sg.Combo(
                 values=DB_FILES2,
                 key="bingo2",
+                tooltip=" bingo2",
+
+                font=("helvetica", 16),
                 enable_events=True,
             ),
         ],
+        
         [
             sg.Multiline(
                 "",
                 key="bingo_text2",
-                size=(50, 5),
+                size=(30, 4),
+                font=("helvetica", 16),
+                tooltip=" bingo_text2",
                 enable_events=True,
             )
         ],
@@ -1227,7 +1239,8 @@ tenses_tab_column_left = sg.Column(
         [
             sg.Multiline(
                 "text",
-                key="text1a",
+                key="text0",
+                tooltip="text0",
                 justification="center",
                 size=(15, 2),
                 font=("Helvetica", 16),
@@ -1239,13 +1252,15 @@ tenses_tab_column_left = sg.Column(
                 # no easy way to center the images
                 # justification = "center",
                 key="canvas0",
+                tooltip="canvas0",
                 enable_events=True,
             )
         ],
         [
             sg.Multiline(
                 "text",
-                key="text1b",
+                key="text1",
+                tooltip="key multiline text1",
                 justification="center",
                 size=(15, 2),
                 font=("Helvetica", 16),
@@ -1255,6 +1270,7 @@ tenses_tab_column_left = sg.Column(
             sg.Image(
                 filename="",
                 key="canvas1",
+                tooltip="canvas1",
                 enable_events=True,
             ),
         ],
@@ -1266,26 +1282,30 @@ tenses_tab_column_center = sg.Column(
         [
             sg.Multiline(
                 "\U0001F934",  # guy face emoji
-                key="text2a",
+                key="text2",
+                tooltip="key text2",
+
                 justification="center",
-                size=(15, 2),
+                size=(12, 2),
                 font=("Helvetica", 16),
             )
         ],
+        
         [
             sg.Image(
                 filename="",
                 key="canvas2",
+                tooltip="key canvas2",
                 enable_events=True,
-                tooltip="canvas2",
+                
             )
         ],
         [
             sg.Multiline(
                 "\u0394",  # delta symbol
-                key="text2b",
-                tooltip="key text2b",
-                size=(15, 2),
+                key="text3",
+                tooltip="key text3",
+                size=(12, 2),
                 justification="center",
                 font=("Helvetica", 16),
             ),
@@ -1294,6 +1314,7 @@ tenses_tab_column_center = sg.Column(
             sg.Image(
                 filename="",
                 key="canvas3",
+                tooltip="canvas3",
                 enable_events=True,
             ),
         ],
@@ -1305,9 +1326,9 @@ tenses_tab_column_right = sg.Column(
         [
             sg.Multiline(
                 "\u0394",
-                key="text3a",
+                key="text4",
                 justification="center",
-                size=(15, 2),
+                size=(12, 2),
                 font=("Helvetica", 16),
             )
         ],
@@ -1315,15 +1336,17 @@ tenses_tab_column_right = sg.Column(
             sg.Image(
                 filename="",
                 key="canvas4",
+                tooltip="canvas4",
                 enable_events=True,
             )
         ],
         [
             sg.Multiline(
                 "\u0394",
-                key="text3b",
+                key="text5",
+                tooltip="canvas5",
                 justification="center",
-                size=(15, 2),
+                size=(12, 2),
                 font=("Helvetica", 16),
             ),
         ],
@@ -2900,20 +2923,35 @@ while True:
         lines.append("<h1>Student: " + values["student_name"]   +"</h1>"  )
         lines.append("<h2>date: " + datetime.date.today().strftime("%Y %B %d %A ")   +"</h2>"  )
 
-        lines.append("<h3>Dennis' comments: </h3>" )        
-        lines.append("<div> "+values["teacher_comments"].replace("\n","<br>") +" </div>" )        
+        lines.append('<h3 class ="teacher_comments">Dennis\' comments: </h3>')        
+        lines.append('''<div class='my_comment_div'> {} </div>'''.format(values["teacher_comments"].replace("\n","<br>")))       
         lines.append("<h3>vocabulary</h3>" )        
-        # lines.append("<table><tr><th>image: </th>     <th>challenge 1</th>      <th>challenge 2</th><th>line comment</th></tr>" )        
+        
         lines.append("<table><tr><th>image: </th>  <th>challenges + typed</th></tr>" )        
         IMG_PATH = "/home/dgd/Desktop/python_storyboard_flashcards/random_images/"
         for logline in values["vocabulary_log"].splitlines():
             if logline == "":
                 continue
+            # logic how to deal with csv between images
+            #
             lines.append("<tr>")
             # lines.append("<td> {} </td>".format(logline))
             challenge_text = ""
+            # ------check if pro con csv
+            if logline.startswith("pros and cons: "):
+                topic = logline[15:].replace("|","")
+                # get the csv
+                lines.append('<td colspan="2">')
+                lines.append("discussing pros and cons "+ topic)
+                lines.append("</td></tr>")   
+                # TODO open csv file by topic name
+                # TODO get last line of CSV
+                # generate pro con table
+                continue
             for colnumber, cell in enumerate(logline.split("|")):
                 if colnumber == 0:
+                    
+                    #---- begin storyboard
                     # cell noun_food_parmesan_french_fries_thumbnail
                     clean_cell = cell.replace("_thumbnail", "")
                     for unwanted in list_of_unwanted_words:
@@ -2946,6 +2984,13 @@ while True:
 
             lines.append("</tr>")
         lines.append("</table>")
+        # include post lesson
+        with open ("/home/dgd/Desktop/EnglishHelpsYourCareer/students/generic_2022-02-18.html") as post_lesson:
+            post_lesson_lines = post_lesson.readlines()
+        lines.extend(post_lesson_lines)
+        
+
+
         #### include footer
         with open ("/home/dgd/Desktop/python_storyboard_flashcards/html_templates/footer.html") as footer:
             footer_lines = footer.readlines()
@@ -3903,13 +3948,18 @@ while True:
 
         # pull name of topic into name of csv into dictionary
         # pros_cons_issues will have spaces in the file name
-        csv_file_name = selected_topic
+        # pros_cons_issues
+        # csv_file_name = selected_topic
+        csv_file_name = window["pros_cons_issues"].get()
         if len(csv_file_name) == 0:
             sg.PopupError(
                 "Name is empty",
                 location=(2000, 100),
             )
             continue
+        
+        window["vocabulary_log"].update(values["vocabulary_log"] + "\npros and cons: " +   csv_file_name + " |  |  | ")
+
 
             # append the data to the csv 'a'
         csv_exists = False
@@ -4085,22 +4135,22 @@ while True:
 
         random.shuffle(image_list)
         window["canvas0"].update(filename=image_list[0])
-        window["text1a"].update(split_filename(image_list[0]))
+        window["text0"].update(split_filename(image_list[0]))
 
         window["canvas1"].update(filename=image_list[1])
-        window["text1b"].update(split_filename(image_list[1]))
+        window["text1"].update(split_filename(image_list[1]))
 
         window["canvas2"].update(filename=image_list[2])
-        window["text2a"].update(split_filename(image_list[2]))
+        window["text2"].update(split_filename(image_list[2]))
 
         window["canvas3"].update(filename=image_list[3])
-        window["text2b"].update(split_filename(image_list[3]))
+        window["text3"].update(split_filename(image_list[3]))
 
         window["canvas4"].update(filename=image_list[4])
-        window["text3a"].update(split_filename(image_list[4]))
+        window["text4"].update(split_filename(image_list[4]))
 
         window["canvas5"].update(filename=image_list[5])
-        window["text3b"].update(split_filename(image_list[5]))
+        window["text5"].update(split_filename(image_list[5]))
 
     # button in verb adj noun
     if "canvas" in event:

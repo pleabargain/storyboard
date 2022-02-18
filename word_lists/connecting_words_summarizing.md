@@ -4,10 +4,15 @@ as demonstrated above
 as noted
 as shown above
 as you can see
+as you just heard
+as we just discussed
+as I just told you
 briefly
 by and large
 generally speaking
 given these points
+given that
+given the situation that
 the most important thing here is...
 in a word
 in any event
