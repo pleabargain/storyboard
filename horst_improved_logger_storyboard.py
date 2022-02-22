@@ -219,6 +219,7 @@ list_of_unwanted_words = [
     "phrase_",
     "phrasal_verb_",
     "prepositions_",
+    "react_criticism_",
     "soft_skills_",
     "to_get",
     "verb_kitchen_",
