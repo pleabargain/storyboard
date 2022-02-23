@@ -1,5 +1,3 @@
-
-
 # !/usr/bin/python3
 
 import base64
@@ -196,6 +194,7 @@ list_of_unwanted_words = [
     "irregular_verb_",
     "life_skills_",
     "measure_words_",
+    "medical_terms_",
     "medical_terms_illness_injury_",
     "modals_",
     "noun_medical_terms",
@@ -219,6 +218,7 @@ list_of_unwanted_words = [
     "phrase_",
     "phrasal_verb_",
     "prepositions_",
+    "reason_to_fire_",
     "react_criticism_",
     "soft_skills_",
     "to_get",
@@ -3039,7 +3039,7 @@ while True:
             lines.append("</tr>")
         lines.append("</table>")
         # include post lesson
-        with open ("/home/dgd/Desktop/EnglishHelpsYourCareer/students/generic_2022-02-18.html") as post_lesson:
+        with open ("/home/dgd/Desktop/EnglishHelpsYourCareer/students/generic_2022-02-23.html") as post_lesson:
             post_lesson_lines = post_lesson.readlines()
         lines.extend(post_lesson_lines)
         
